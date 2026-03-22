@@ -102,6 +102,24 @@ The server starts on **port 8080**.
 
 ## Onboarding Flow
 
+
+| Step | Screen | Key data saved |
+|------|--------|----------------|
+| 1 | Name | `name` |
+| 2 | Gender | `gender` |
+| 3 | Age | `age` |
+| 4 | Height | `height_cm` |
+| 5 | Weight | `weight_kg` |
+| 6 | Goal | `goal` |
+| 7 | Activity Level | `activity_level` |
+| 8 | Motivation | `motivation` |
+| 9 | Push-ups | `fitness_level` |
+| 10 | Workout Days | `exercise_days` |
+| 11 | Training Place | `training_place` |
+| 12 | Meals per day | `meals_per_day` |
+| 13 | Liked Foods | `liked_foods[]` |
+| 14 | Allergies | `allergies[]` |
+| 15 | Budget | `budget` → **submit to backend** |
 ---
 
 ## Database (Neon.tech PostgreSQL)
