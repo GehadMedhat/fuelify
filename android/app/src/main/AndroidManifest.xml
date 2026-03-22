@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera" android:required="true"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="true"/>
+
+    <queries>
+        <package android:name="com.talabat" />
+    </queries>
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Fuelify"
+        android:usesCleartextTraffic="true">
+
+        <!-- Router: decides onboarding vs home -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Onboarding flow -->
+        <activity
+            android:name=".onboarding.OnboardingActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Home / Dashboard -->
+        <activity
+            android:name=".home.HomeActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".home.MealsListActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".home.DietActivity" android:exported="false" android:screenOrientation="portrait"/>
+        <activity android:name=".home.MealSchedulingActivity" android:exported="false" android:screenOrientation="portrait"/>
+        <activity android:name=".home.MealDetailActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".home.RecipesActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".home.MealDeliveryActivity" android:exported="false" android:screenOrientation="portrait"/>
+        <activity android:name=".home.CloudKitchenActivity" android:exported="false" android:screenOrientation="portrait"/>
+        <activity android:name=".home.CloudKitchenStatusActivity" android:exported="false" android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".home.GroceryActivity"
+            android:screenOrientation="portrait"
+            android:exported="false"/>
+
+        <activity
+            android:name=".home.SmartPantryActivity"
+            android:screenOrientation="portrait"
+            android:exported="false"/>
+
+        <activity
+            android:name=".home.FamilyDietActivity"
+            android:screenOrientation="portrait"
+            android:exported="false"/>
+
+        <activity
+            android:name=".home.EcoSustainabilityActivity"
+            android:screenOrientation="portrait"
+            android:exported="false"/>
+
+        <activity
+            android:name=".home.ProductScanActivity"
+            android:screenOrientation="portrait"
+            android:exported="false"/>
+
+    </application>
+</manifest>

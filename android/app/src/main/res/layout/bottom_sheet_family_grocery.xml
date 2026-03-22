@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_streak_card"
+    android:orientation="vertical"
+    android:paddingBottom="40dp">
+
+    <!-- Handle -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="20dp"
+        android:background="#D1D5DB"/>
+
+    <TextView
+        android:text="Add to Shared List"
+        android:textColor="#171717"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:paddingHorizontal="20dp"
+        android:layout_marginBottom="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <!-- Quick chips -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:paddingHorizontal="20dp"
+        android:layout_marginBottom="16dp">
+        <LinearLayout
+            android:id="@+id/containerQuickChips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"/>
+    </HorizontalScrollView>
+
+    <!-- Item name input -->
+    <TextView
+        android:text="Item Name"
+        android:textColor="#374151"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:paddingHorizontal="20dp"
+        android:layout_marginBottom="6dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_recommended_card"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="4dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="14dp">
+
+        <EditText
+            android:id="@+id/etFamilyGroceryName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="e.g. Chicken Breast"
+            android:inputType="textCapWords"
+            android:background="@null"
+            android:textColor="#171717"
+            android:textColorHint="#9CA3AF"
+            android:textSize="14sp"/>
+    </LinearLayout>
+
+    <!-- Quantity input -->
+    <TextView
+        android:text="Quantity"
+        android:textColor="#374151"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:paddingHorizontal="20dp"
+        android:layout_marginBottom="6dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_recommended_card"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="4dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="20dp">
+
+        <EditText
+            android:id="@+id/etFamilyGroceryQty"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="e.g. 2kg or 1 pack"
+            android:background="@null"
+            android:textColor="#171717"
+            android:textColorHint="#9CA3AF"
+            android:textSize="14sp"/>
+    </LinearLayout>
+
+    <!-- Add button -->
+    <LinearLayout
+        android:id="@+id/btnConfirmFamilyGrocery"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginHorizontal="20dp"
+        android:background="@drawable/bg_badge_completed"
+        android:gravity="center"
+        android:clickable="true"
+        android:focusable="true">
+        <TextView
+            android:text="✓  Add to List"
+            android:textColor="#4A6200"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+</LinearLayout>

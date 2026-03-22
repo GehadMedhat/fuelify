@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="14dp"
+    android:background="@drawable/bg_highlight_card"
+    android:elevation="3dp"
+    android:orientation="vertical">
+
+    <!-- Meal image -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp">
+
+        <ImageView
+            android:id="@+id/imgMealCard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_image_placeholder"
+            android:scaleType="centerCrop"/>
+
+        <!-- Meal type badge top left -->
+        <TextView
+            android:id="@+id/tvMealTypeBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/bg_tag_cal"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            android:textColor="#4A6200"
+            android:textSize="11sp"
+            android:textStyle="bold"/>
+
+        <!-- Time badge top right -->
+        <TextView
+            android:id="@+id/tvMealTimeBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="10dp"
+            android:background="@drawable/bg_badge_time"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+
+    <!-- Meal info -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="14dp">
+
+        <TextView
+            android:id="@+id/tvMealCardName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#111111"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
+
+        <!-- Macros row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvMealCardCalories"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/bg_stat_bubble"
+                android:gravity="center"
+                android:paddingVertical="6dp"
+                android:textColor="#4A6200"
+                android:textSize="11sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tvMealCardProtein"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="6dp"
+                android:background="@drawable/bg_stat_bubble"
+                android:gravity="center"
+                android:paddingVertical="6dp"
+                android:textColor="#555555"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/tvMealCardCarbs"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/bg_stat_bubble"
+                android:gravity="center"
+                android:paddingVertical="6dp"
+                android:textColor="#555555"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/tvMealCardFat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/bg_stat_bubble"
+                android:gravity="center"
+                android:paddingVertical="6dp"
+                android:textColor="#555555"
+                android:textSize="11sp"/>
+        </LinearLayout>
+
+        <!-- Prep time + difficulty -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvMealCardPrep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#999999"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/tvMealCardDifficulty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:background="@drawable/bg_tag_green"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="3dp"
+                android:textColor="#2E7D32"
+                android:textSize="11sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

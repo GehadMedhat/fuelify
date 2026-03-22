@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#FFFFFF" android:orientation="vertical">
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:paddingBottom="24dp">
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginStart="24dp" android:layout_marginTop="30dp" android:layout_marginBottom="41dp"
+                android:background="@drawable/bg_step_badge" android:paddingHorizontal="10dp" android:paddingVertical="9dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="STEP 14" android:textColor="#000000" android:textSize="12sp" android:textStyle="bold"/>
+            </LinearLayout>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal" android:layout_marginBottom="21dp"
+                android:text="Custom Diet Plan" android:textColor="#171717" android:textSize="20sp" android:textStyle="bold"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal" android:layout_marginBottom="8dp"
+                android:text="Allergies &amp; Exclusions" android:textColor="#171717" android:textSize="17sp" android:textStyle="bold"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal" android:layout_marginBottom="24dp"
+                android:text="Select any allergies or foods to exclude" android:textColor="#737373" android:textSize="13sp"/>
+
+            <!-- 2-column grid of allergy chips -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginHorizontal="46dp" android:orientation="vertical">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp" android:orientation="horizontal">
+                    <LinearLayout android:id="@+id/chipDairy"
+                        android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:layout_marginEnd="12dp"
+                        android:background="@drawable/bg_card_red" android:clickable="true" android:focusable="true"
+                        android:gravity="center" android:paddingVertical="23dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Dairy" android:textColor="#000000" android:textSize="13sp" android:textStyle="bold"/>
+                    </LinearLayout>
+                    <LinearLayout android:id="@+id/chipGluten"
+                        android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:background="@drawable/bg_card_white"
+                        android:clickable="true" android:focusable="true"
+                        android:gravity="center" android:paddingVertical="24dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Gluten" android:textColor="#404040" android:textSize="13sp" android:textStyle="bold"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp" android:orientation="horizontal">
+                    <LinearLayout android:id="@+id/chipNuts"
+                        android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:layout_marginEnd="12dp"
+                        android:background="@drawable/bg_card_white" android:clickable="true" android:focusable="true"
+                        android:gravity="center" android:paddingVertical="24dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Nuts" android:textColor="#404040" android:textSize="13sp" android:textStyle="bold"/>
+                    </LinearLayout>
+                    <LinearLayout android:id="@+id/chipSoy"
+                        android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:background="@drawable/bg_card_red"
+                        android:clickable="true" android:focusable="true"
+                        android:gravity="center" android:paddingVertical="23dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Soy" android:textColor="#000000" android:textSize="13sp" android:textStyle="bold"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp" android:orientation="horizontal">
+                    <LinearLayout android:id="@+id/chipEggs"
+                        android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:layout_marginEnd="12dp"
+                        android:background="@drawable/bg_card_white" android:clickable="true" android:focusable="true"
+                        android:gravity="center" android:paddingVertical="23dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Eggs" android:textColor="#404040" android:textSize="13sp" android:textStyle="bold"/>
+                    </LinearLayout>
+                    <LinearLayout android:id="@+id/chipShellfish"
+                        android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:background="@drawable/bg_card_white"
+                        android:clickable="true" android:focusable="true"
+                        android:gravity="center" android:paddingVertical="24dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Shellfish" android:textColor="#404040" android:textSize="13sp" android:textStyle="bold"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:text="No allergies or exclusions" android:textColor="#737373" android:textSize="11sp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <include layout="@layout/include_bottom_nav"/>
+    <include layout="@layout/include_progress_dots"/>
+</LinearLayout>

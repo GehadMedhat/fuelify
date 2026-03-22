@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="green_primary">#C3E66E</color>
+    <color name="green_light">#EDFFC5</color>
+    <color name="green_select">#C3E66E</color>
+    <color name="red_select">#FFCCCC</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="gray_text">#737373</color>
+    <color name="gray_border">#E5E5E5</color>
+    <color name="gray_dark">#D4D4D4</color>
+    <color name="text_dark">#171717</color>
+    <color name="text_muted">#8A8C90</color>
+    <color name="green_btn">#C3E66E</color>
+    <color name="dot_active">#000000</color>
+    <color name="dot_inactive">#D4D4D4</color>
+</resources>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_recommended_card"
+    android:orientation="vertical">
+
+    <!-- Product image -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp">
+
+        <ImageView
+            android:id="@+id/imgIngredientGrid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bg_image_placeholder"/>
+
+        <!-- Allergen badge over image -->
+        <TextView
+            android:id="@+id/tvAllergenBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⚠ Allergen"
+            android:textColor="#92400E"
+            android:textSize="9sp"
+            android:textStyle="bold"
+            android:background="@drawable/bg_badge_time"
+            android:paddingHorizontal="7dp"
+            android:paddingVertical="4dp"
+            android:layout_gravity="top|start"
+            android:layout_margin="6dp"
+            android:visibility="gone"/>
+    </FrameLayout>
+
+    <!-- Content below image -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <!-- Emoji + category -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_marginBottom="4dp">
+
+            <TextView
+                android:id="@+id/tvIngredientGridEmoji"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🥩"
+                android:textSize="16sp"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvIngredientGridName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#171717"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:maxLines="2"
+            android:layout_marginBottom="2dp"/>
+
+        <TextView
+            android:id="@+id/tvIngredientGridUnit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#737373"
+            android:textSize="11sp"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/tvIngredientGridCal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#F97316"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="3dp"/>
+
+        <TextView
+            android:id="@+id/tvIngredientGridMacros"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#737373"
+            android:textSize="10sp"
+            android:layout_marginBottom="10dp"/>
+
+        <!-- Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/btnAddToPantryGrid"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_recommended_card"
+                android:paddingVertical="8dp"
+                android:gravity="center"
+                android:layout_marginEnd="6dp"
+                android:clickable="true"
+                android:focusable="true">
+                <TextView
+                    android:text="+ Pantry"
+                    android:textColor="#404040"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnAddToListGrid"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_badge_completed"
+                android:paddingVertical="8dp"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true">
+                <TextView
+                    android:text="+ List"
+                    android:textColor="#4A6200"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_streak_card"
+    android:orientation="vertical"
+    android:paddingBottom="40dp">
+
+    <!-- Handle -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="20dp"
+        android:background="#D1D5DB"/>
+
+    <!-- Title -->
+    <TextView
+        android:text="Add Family Member"
+        android:textColor="#171717"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:paddingHorizontal="20dp"
+        android:layout_marginBottom="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:text="Enter their Fuelify account email address"
+        android:textColor="#737373"
+        android:textSize="13sp"
+        android:paddingHorizontal="20dp"
+        android:layout_marginBottom="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <!-- Email input row with Search button -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="20dp"
+        android:layout_marginBottom="10dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/bg_recommended_card"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="14dp"
+            android:paddingVertical="4dp"
+            android:layout_marginEnd="10dp">
+
+            <TextView
+                android:text="✉️"
+                android:textSize="16sp"
+                android:layout_marginEnd="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/etInviteEmail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="email@example.com"
+                android:inputType="textEmailAddress"
+                android:imeOptions="actionSearch"
+                android:background="@null"
+                android:textColor="#171717"
+                android:textColorHint="#9CA3AF"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <!-- Search button -->
+        <LinearLayout
+            android:id="@+id/btnSearchEmail"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:background="@drawable/bg_recommended_card"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+            <TextView
+                android:text="🔍"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Error text -->
+    <TextView
+        android:id="@+id/tvInviteError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="#EF4444"
+        android:textSize="12sp"
+        android:drawablePadding="6dp"
+        android:visibility="gone"/>
+
+    <!-- ── Member preview card (shown after search) ──────────────────── -->
+    <LinearLayout
+        android:id="@+id/layoutMemberPreview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_recommended_card"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="16dp"
+        android:visibility="gone">
+
+        <!-- Avatar circle -->
+        <LinearLayout
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_badge_completed"
+            android:gravity="center"
+            android:layout_marginEnd="14dp">
+            <TextView
+                android:id="@+id/tvPreviewAvatar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="J"
+                android:textColor="#4A6200"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <!-- Name + goal -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvPreviewName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#171717"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tvPreviewGoal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#737373"
+                android:textSize="12sp"
+                android:layout_marginTop="2dp"/>
+        </LinearLayout>
+
+        <!-- Checkmark -->
+        <TextView
+            android:text="✓"
+            android:textColor="#4A6200"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <!-- Add button (hidden until member found) -->
+    <LinearLayout
+        android:id="@+id/btnSendInvite"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginHorizontal="20dp"
+        android:background="@drawable/bg_badge_completed"
+        android:gravity="center"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone">
+        <TextView
+            android:text="✓  Add to Family"
+            android:textColor="#4A6200"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+</LinearLayout>
