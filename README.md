@@ -77,7 +77,7 @@ The server starts on **port 8080**.
 | POST | `/api/users/register` | Submit onboarding data |
 | GET | `/api/users/{id}` | Get user by ID |
 
-#### POST /api/users/register — Request body
+#### POST /api/users/register — Request body example
 ```json
 {
   "name": "Ali",
