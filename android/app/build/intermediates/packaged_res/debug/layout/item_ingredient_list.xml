@@ -109,7 +109,7 @@
             android:id="@+id/btnAddToListList"
             android:layout_width="72dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_badge_completed"
+            android:background="@drawable/light_orange_rectangle"
             android:paddingVertical="7dp"
             android:gravity="center"
             android:clickable="true"

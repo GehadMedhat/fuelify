@@ -1,5 +1,7 @@
 package com.example.fuelify.home
 
+import android.content.Intent
+import com.example.fuelify.home.DietActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -39,6 +41,12 @@ class CloudKitchenStatusActivity : AppCompatActivity() {
 
         // Save order to DB then simulate preparation → delivery transition
         saveOrderAndSimulate(userId, plan, portion, spice)
+
+        findViewById<TextView>(R.id.btnBackToHome).setOnClickListener {
+            val intent = Intent(this, DietActivity::class.java)
+            startActivity(intent)
+            finish() // closes this screen so user doesn't come back to it
+        }
     }
 
     private fun showPreparingState() {

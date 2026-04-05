@@ -32,7 +32,7 @@
                     android:layout_height="40dp"
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/bg_notif"
-                    android:src="@android:drawable/ic_media_previous"
+                    android:src="@drawable/button_arrow"
                     android:contentDescription="Back"/>
 
                 <TextView

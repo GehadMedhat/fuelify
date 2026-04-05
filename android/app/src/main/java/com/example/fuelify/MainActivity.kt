@@ -15,11 +15,18 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // Clear stale data if this is a fresh install
+        val prefs = getSharedPreferences("fuelify_prefs", MODE_PRIVATE)
+        val versionCode = packageManager.getPackageInfo(packageName, 0).longVersionCode
+        val savedVersion = prefs.getLong("app_version", -1L)
+        if (savedVersion != versionCode) {
+            UserPreferences.clear(this)
+            prefs.edit().putLong("app_version", versionCode).apply()
+        }
+
         if (UserPreferences.isLoggedIn(this)) {
-            // Returning user → go straight to home
             startActivity(Intent(this, HomeActivity::class.java))
         } else {
-            // First time → go through onboarding
             startActivity(Intent(this, OnboardingActivity::class.java))
         }
         finish()

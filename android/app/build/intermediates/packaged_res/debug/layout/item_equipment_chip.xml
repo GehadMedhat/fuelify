@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_marginEnd="12dp"
+    android:background="@drawable/bg_recommended_card"
+    android:padding="12dp">
+
+    <ImageView
+        android:id="@+id/imgEquipment"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/dumbbells"
+        android:scaleType="centerInside"/>
+
+    <TextView
+        android:id="@+id/tvEquipmentChipName"
+        android:textColor="#374151"
+        android:textSize="11sp"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

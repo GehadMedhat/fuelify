@@ -44,7 +44,7 @@
                     android:layout_margin="16dp"
                     android:layout_marginTop="48dp"
                     android:background="@drawable/bg_notif"
-                    android:src="@android:drawable/ic_media_previous"
+                    android:src="@drawable/button_arrow"
                     android:contentDescription="Back"/>
 
                 <!-- Meal name overlay on image -->
@@ -111,7 +111,7 @@
                 <!-- Calorie Quality -->
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="100dp"
                     android:layout_weight="1"
                     android:layout_marginEnd="8dp"
                     android:background="@drawable/bg_streak_card"

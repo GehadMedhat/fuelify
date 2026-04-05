@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="220dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_recommended_card"
+    android:layout_marginEnd="14dp"
+    android:clickable="true"
+    android:focusable="true">
+
+    <!-- Image with premium badge -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp">
+
+        <ImageView
+            android:id="@+id/imgSuggestedCard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:background="#E5E7EB"/>
+
+        <TextView
+            android:id="@+id/tvSuggestedCardPremium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+            android:layout_margin="8dp"
+            android:text="⭐ Premium"
+            android:textColor="#92400E"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:background="@drawable/bg_badge_time"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:visibility="gone"/>
+
+        <!-- Category chip over image -->
+        <TextView
+            android:id="@+id/tvSuggestedCardCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|start"
+            android:layout_margin="8dp"
+            android:textColor="#FFFFFF"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:background="#AA000000"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"/>
+    </FrameLayout>
+
+    <!-- Info -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/tvSuggestedCardName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#171717"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:layout_marginBottom="6dp"/>
+
+        <!-- Stats row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:id="@+id/tvSuggestedCardDifficulty"
+                android:textColor="#C3E66E"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView android:text=" · " android:textColor="#9CA3AF" android:textSize="11sp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tvSuggestedCardDuration"
+                android:textColor="#737373"
+                android:textSize="11sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView android:text=" · " android:textColor="#9CA3AF" android:textSize="11sp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tvSuggestedCardCalories"
+                android:textColor="#737373"
+                android:textSize="11sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <!-- Start button -->
+        <LinearLayout
+            android:id="@+id/btnSuggestedStart"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:background="@drawable/light_green_rectangle"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+            <TextView
+                android:text="Start Training"
+                android:textColor="#4A6200"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

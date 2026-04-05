@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+    <!-- Top bar: progress + total elapsed -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="24dp"
+        android:paddingTop="48dp"
+        android:paddingBottom="16dp">
+
+        <TextView
+            android:id="@+id/tvExerciseProgress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Exercise 1/12"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <!-- Total elapsed in muted style — just informational -->
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:orientation="vertical" android:gravity="end">
+            <TextView android:text="Total" android:textColor="#9CA3AF" android:textSize="10sp"
+                android:gravity="end"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/tvWorkoutElapsed"
+                android:text="00:00"
+                android:textColor="#9CA3AF"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Progress bar -->
+    <ProgressBar
+        android:id="@+id/progressExercise"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:progressTint="#C3E66E"
+        android:progressBackgroundTint="#E5E7EB"
+        android:max="100"
+        android:progress="0"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Exercise image — larger, takes priority -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="16dp">
+
+        <ImageView
+            android:id="@+id/imgActiveExercise"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:background="#F3F4F6"/>
+
+        <!-- Info button -->
+        <LinearLayout
+            android:id="@+id/btnCurrentExerciseInfo"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="10dp"
+            android:background="@drawable/bg_recommended_card"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+            <TextView android:text="ℹ" android:textSize="16sp" android:textColor="#9CA3AF"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- Exercise name -->
+    <TextView
+        android:id="@+id/tvActiveExerciseName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lunges"
+        android:textColor="#000000"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="6dp"
+        android:paddingHorizontal="20dp"/>
+
+    <!-- Sets × Reps — prominent -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="16dp">
+
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:background="@drawable/bg_recommended_card"
+            android:paddingHorizontal="20dp" android:paddingVertical="8dp"
+            android:orientation="horizontal" android:gravity="center_vertical">
+            <TextView android:text="Sets: " android:textColor="#9CA3AF" android:textSize="14sp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <TextView android:id="@+id/tvActiveSets" android:text="3"
+                android:textColor="#000000" android:textSize="20sp" android:textStyle="bold"
+                android:layout_marginEnd="16dp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <TextView android:text="Reps: " android:textColor="#9CA3AF" android:textSize="14sp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <TextView android:id="@+id/tvActiveReps" android:text="12"
+                android:textColor="#C3E66E" android:textSize="20sp" android:textStyle="bold"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- THE ONE TIMER — rest countdown only -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginBottom="12dp">
+
+        <TextView android:text="Rest" android:textColor="#9CA3AF" android:textSize="12sp"
+            android:gravity="center"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tvExerciseTimer"
+            android:text="00:30"
+            android:textColor="#000000"
+            android:textSize="52sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <!-- Next exercise preview -->
+    <LinearLayout
+        android:id="@+id/layoutNextExercise"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
+        android:background="#F9FAFB"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="16dp">
+
+        <ImageView
+            android:id="@+id/imgNextExercise"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:scaleType="centerCrop"
+            android:background="#E5E7EB"
+            android:layout_marginEnd="12dp"/>
+
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical">
+            <TextView android:text="Up next" android:textColor="#9CA3AF" android:textSize="11sp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <TextView android:id="@+id/tvNextExerciseName" android:textColor="#000000"
+                android:textSize="14sp" android:textStyle="bold"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <TextView android:id="@+id/tvNextExerciseSets" android:textColor="#C3E66E"
+                android:textSize="12sp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/btnNextExerciseInfo" android:layout_width="32dp"
+            android:layout_height="32dp" android:background="@drawable/bg_recommended_card"
+            android:gravity="center" android:clickable="true" android:focusable="true">
+            <TextView android:text="ℹ" android:textSize="13sp" android:textColor="#9CA3AF"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 3 action buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        android:paddingBottom="16dp">
+
+        <!-- Pause -->
+        <LinearLayout android:id="@+id/btnPauseWorkout" android:layout_width="0dp"
+            android:layout_height="50dp" android:layout_weight="1"
+            android:gravity="center" android:background="@drawable/bg_card_red"
+            android:layout_marginEnd="8dp" android:clickable="true" android:focusable="true">
+            <TextView android:id="@+id/tvPauseLabel" android:text="Pause"
+                android:textColor="#374151" android:textSize="14sp" android:textStyle="bold"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <!-- Next Exercise -->
+        <LinearLayout android:id="@+id/btnNextExercise" android:layout_width="0dp"
+            android:layout_height="50dp" android:layout_weight="1"
+            android:gravity="center" android:background="@drawable/bg_btn_back"
+            android:layout_marginEnd="8dp" android:clickable="true" android:focusable="true">
+            <TextView android:text="Next →" android:textColor="#374151"
+                android:textSize="14sp" android:textStyle="bold"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <!-- Finish -->
+        <LinearLayout android:id="@+id/btnFinishWorkout" android:layout_width="0dp"
+            android:layout_height="50dp" android:layout_weight="1"
+            android:gravity="center" android:background="@drawable/bg_card_green"
+            android:clickable="true" android:focusable="true">
+            <TextView android:text="Finish" android:textColor="#4A6200"
+                android:textSize="14sp" android:textStyle="bold"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

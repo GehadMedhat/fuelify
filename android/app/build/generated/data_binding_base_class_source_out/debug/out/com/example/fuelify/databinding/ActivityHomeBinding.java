@@ -96,6 +96,9 @@ public final class ActivityHomeBinding implements ViewBinding {
   public final TextView tvHighlight1Sub;
 
   @NonNull
+  public final TextView tvHighlight2Badge;
+
+  @NonNull
   public final TextView tvHighlight2Name;
 
   @NonNull
@@ -133,9 +136,9 @@ public final class ActivityHomeBinding implements ViewBinding {
       @NonNull ScrollView scrollView, @NonNull TextView tvAvatar, @NonNull TextView tvCaloriesEaten,
       @NonNull TextView tvCaloriesGoal, @NonNull TextView tvDate, @NonNull TextView tvGreeting,
       @NonNull TextView tvHighlight1Name, @NonNull TextView tvHighlight1Sub,
-      @NonNull TextView tvHighlight2Name, @NonNull TextView tvHighlight2Sub,
-      @NonNull TextView tvHighlight2Time, @NonNull TextView tvSessions,
-      @NonNull TextView tvStreakSub, @NonNull TextView tvStreakTitle,
+      @NonNull TextView tvHighlight2Badge, @NonNull TextView tvHighlight2Name,
+      @NonNull TextView tvHighlight2Sub, @NonNull TextView tvHighlight2Time,
+      @NonNull TextView tvSessions, @NonNull TextView tvStreakSub, @NonNull TextView tvStreakTitle,
       @NonNull TextView tvViewAllHighlights, @NonNull TextView tvViewAllRecommended,
       @NonNull TextView tvWater) {
     this.rootView = rootView;
@@ -163,6 +166,7 @@ public final class ActivityHomeBinding implements ViewBinding {
     this.tvGreeting = tvGreeting;
     this.tvHighlight1Name = tvHighlight1Name;
     this.tvHighlight1Sub = tvHighlight1Sub;
+    this.tvHighlight2Badge = tvHighlight2Badge;
     this.tvHighlight2Name = tvHighlight2Name;
     this.tvHighlight2Sub = tvHighlight2Sub;
     this.tvHighlight2Time = tvHighlight2Time;
@@ -345,6 +349,12 @@ public final class ActivityHomeBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tvHighlight2Badge;
+      TextView tvHighlight2Badge = ViewBindings.findChildViewById(rootView, id);
+      if (tvHighlight2Badge == null) {
+        break missingId;
+      }
+
       id = R.id.tvHighlight2Name;
       TextView tvHighlight2Name = ViewBindings.findChildViewById(rootView, id);
       if (tvHighlight2Name == null) {
@@ -403,9 +413,9 @@ public final class ActivityHomeBinding implements ViewBinding {
           cardHighlight2, containerRecommended, greetingBlock, imgHighlight1, imgHighlight2,
           navDiet, navHome, navProfile, navStats, navWorkouts, progressBar, progressCalories,
           progressSessions, progressWater, scrollView, tvAvatar, tvCaloriesEaten, tvCaloriesGoal,
-          tvDate, tvGreeting, tvHighlight1Name, tvHighlight1Sub, tvHighlight2Name, tvHighlight2Sub,
-          tvHighlight2Time, tvSessions, tvStreakSub, tvStreakTitle, tvViewAllHighlights,
-          tvViewAllRecommended, tvWater);
+          tvDate, tvGreeting, tvHighlight1Name, tvHighlight1Sub, tvHighlight2Badge,
+          tvHighlight2Name, tvHighlight2Sub, tvHighlight2Time, tvSessions, tvStreakSub,
+          tvStreakTitle, tvViewAllHighlights, tvViewAllRecommended, tvWater);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

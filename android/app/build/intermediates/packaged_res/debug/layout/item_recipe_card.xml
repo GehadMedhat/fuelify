@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_margin="10dp"
-            android:background="@drawable/bg_badge_time"
+            android:background="@drawable/orange_rectangle"
             android:paddingHorizontal="10dp"
             android:paddingVertical="5dp"
             android:textColor="#FFFFFF"

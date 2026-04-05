@@ -72,13 +72,15 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginEnd="10dp">
-                        <TextView
+
+                        <ImageView
                             android:layout_width="40dp"
                             android:layout_height="40dp"
                             android:background="@drawable/bg_notif"
-                            android:gravity="center"
-                            android:text="🔔"
-                            android:textSize="16sp"/>
+                            android:src="@drawable/ring"
+                            android:padding="8dp"
+                            android:contentDescription="Notifications" />
+
                         <View
                             android:layout_width="8dp"
                             android:layout_height="8dp"
@@ -86,7 +88,8 @@
                             android:layout_alignParentEnd="true"
                             android:layout_marginTop="6dp"
                             android:layout_marginEnd="6dp"
-                            android:background="#FF4444"/>
+                            android:background="@drawable/shape_red_dot"/>
+
                     </RelativeLayout>
 
                     <TextView
@@ -112,11 +115,11 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:paddingHorizontal="16dp">
-                <TextView
+                <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:text="🔍"
+                    android:src="@drawable/search"
                     android:textSize="16sp"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -158,15 +161,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginEnd="6dp"
-                        android:background="@drawable/bg_stat_bubble"
                         android:gravity="center"
                         android:orientation="vertical"
                         android:paddingVertical="10dp">
-                        <TextView
+                        <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="🔥"
-                            android:textSize="18sp"/>
+                            android:src="@drawable/hm_fire"
+                            />
                         <TextView
                             android:id="@+id/tvCaloriesEaten"
                             android:layout_width="wrap_content"
@@ -190,15 +192,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginHorizontal="6dp"
-                        android:background="@drawable/bg_stat_bubble"
                         android:gravity="center"
                         android:orientation="vertical"
                         android:paddingVertical="10dp">
-                        <TextView
+                        <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="🏋️"
-                            android:textSize="18sp"/>
+                            android:src="@drawable/hm_workout"
+                        />
                         <TextView
                             android:id="@+id/tvSessions"
                             android:layout_width="wrap_content"
@@ -221,15 +222,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginStart="6dp"
-                        android:background="@drawable/bg_stat_bubble"
                         android:gravity="center"
                         android:orientation="vertical"
                         android:paddingVertical="10dp">
-                        <TextView
+                        <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="💧"
-                            android:textSize="18sp"/>
+                            android:src="@drawable/hm_water"
+                            />
                         <TextView
                             android:id="@+id/tvWater"
                             android:layout_width="wrap_content"
@@ -288,7 +288,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginBottom="20dp"
-                android:background="@drawable/bg_streak_card"
+                android:background="@drawable/bg_search"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:padding="16dp">
@@ -377,23 +377,6 @@
                             android:layout_height="match_parent"
                             android:background="@drawable/bg_image_placeholder"
                             android:scaleType="centerCrop"/>
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="8dp"
-                            android:background="@drawable/bg_badge_completed"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal"
-                            android:paddingHorizontal="8dp"
-                            android:paddingVertical="4dp">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="✓ Completed"
-                                android:textColor="#FFFFFF"
-                                android:textSize="10sp"
-                                android:textStyle="bold"/>
-                        </LinearLayout>
                     </RelativeLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -407,7 +390,8 @@
                             android:text="..."
                             android:textColor="#111111"
                             android:textSize="12sp"
-                            android:textStyle="bold"/>
+                            android:textStyle="bold"
+                            />
                         <TextView
                             android:id="@+id/tvHighlight1Sub"
                             android:layout_width="wrap_content"
@@ -415,7 +399,7 @@
                             android:layout_marginTop="2dp"
                             android:text="..."
                             android:textColor="#999999"
-                            android:textSize="10sp"/>
+                            android:textSize="10sp"  />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -451,12 +435,28 @@
                             android:textColor="#FFFFFF"
                             android:textSize="10sp"
                             android:textStyle="bold"/>
+                        <!-- inside the RelativeLayout of cardHighlight2, after imgHighlight2 -->
+                        <TextView
+                            android:id="@+id/tvHighlight2Badge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_margin="8dp"
+                            android:background="@drawable/bg_badge_time"
+                            android:paddingHorizontal="8dp"
+                            android:paddingVertical="4dp"
+                            android:text="💪 Workout"
+                            android:textColor="#FFFFFF"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            android:visibility="gone"/>
                     </RelativeLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:padding="10dp">
+                        android:padding="2dp">
                         <TextView
                             android:id="@+id/tvHighlight2Name"
                             android:layout_width="wrap_content"
@@ -540,27 +540,27 @@
         android:paddingHorizontal="8dp">
 
         <LinearLayout android:id="@+id/navHome" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🏠" android:textSize="20sp"/>
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Home" android:textColor="#C3E66E" android:textSize="10sp" android:textStyle="bold"/>
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/green_home"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Home" android:textColor="#C3E66E" android:textSize="10sp"/>
         </LinearLayout>
 
         <LinearLayout android:id="@+id/navWorkouts" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🏋️" android:textSize="20sp"/>
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/workout"/>
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Workouts" android:textColor="#AAAAAA" android:textSize="10sp"/>
         </LinearLayout>
 
         <LinearLayout android:id="@+id/navDiet" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🥗" android:textSize="20sp"/>
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Diet" android:textColor="#AAAAAA" android:textSize="10sp"/>
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/gray_diet"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Diet" android:textColor="#AAAAAA" android:textSize="10sp" android:textStyle="bold"/>
         </LinearLayout>
 
         <LinearLayout android:id="@+id/navStats" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="📊" android:textSize="20sp"/>
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/stats"/>
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Statistics" android:textColor="#AAAAAA" android:textSize="10sp"/>
         </LinearLayout>
 
         <LinearLayout android:id="@+id/navProfile" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="👤" android:textSize="20sp"/>
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/profile"/>
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Profile" android:textColor="#AAAAAA" android:textSize="10sp"/>
         </LinearLayout>
 

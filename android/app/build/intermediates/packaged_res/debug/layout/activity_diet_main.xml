@@ -23,9 +23,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#C3E66E"
+
                 android:paddingHorizontal="24dp"
-                android:paddingTop="52dp"
+                android:paddingTop="30dp"
                 android:paddingBottom="24dp"
                 android:orientation="vertical">
 
@@ -71,7 +71,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:background="@drawable/bg_notif"
-                        android:src="@android:drawable/ic_lock_silent_mode_off"
+                        android:src="@drawable/ring"
                         android:contentDescription="Notifications"/>
                 </LinearLayout>
             </LinearLayout>
@@ -80,7 +80,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:id="@+id/searchBar"
-            android:layout_height="48dp"
+                android:layout_height="48dp"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
@@ -91,11 +91,11 @@
                 android:orientation="horizontal"
                 android:paddingHorizontal="16dp">
 
-                <TextView
+                <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:text="🔍"
+                    android:src="@drawable/search"
                     android:textSize="16sp"/>
 
                 <TextView
@@ -138,7 +138,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
-                        android:background="@drawable/bg_badge_time"
+                        android:background="@drawable/orange_rectangle"
                         android:paddingHorizontal="10dp"
                         android:paddingVertical="4dp"
                         android:text="550 cal remaining"
@@ -159,7 +159,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="1450"
-                        android:textColor="#111827"
+                        android:textColor="#FFFFFF"
                         android:textSize="32sp"
                         android:textStyle="bold"/>
 
@@ -212,12 +212,12 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="#E5E7EB"/>
+                            android:background="#F9F4F1"/>
                         <View
                             android:id="@+id/progressProtein"
                             android:layout_width="1dp"
                             android:layout_height="match_parent"
-                            android:background="#4CAF50"/>
+                            android:background="#C3E66E"/>
                     </FrameLayout>
 
                     <!-- Carbs row -->
@@ -251,12 +251,12 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="#E5E7EB"/>
+                            android:background="#F9F4F1"/>
                         <View
                             android:id="@+id/progressCarbs"
                             android:layout_width="1dp"
                             android:layout_height="match_parent"
-                            android:background="#FF9800"/>
+                            android:background="#F97316"/>
                     </FrameLayout>
 
                     <!-- Fat row -->
@@ -289,12 +289,12 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="#E5E7EB"/>
+                            android:background="#F9F4F1"/>
                         <View
                             android:id="@+id/progressFat"
                             android:layout_width="1dp"
                             android:layout_height="match_parent"
-                            android:background="#FFC107"/>
+                            android:background="#EAB308"/>
                     </FrameLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -323,9 +323,9 @@
                         <LinearLayout
                             android:layout_width="56dp"
                             android:layout_height="56dp"
-                            android:background="@drawable/bg_streak_card"
+                            android:background="@drawable/bg_light_orange_dot"
                             android:gravity="center">
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🚚" android:textSize="22sp"/>
+                            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/meal_delivery"/>
                         </LinearLayout>
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Meal Delivery" android:textColor="#374151" android:textSize="10sp" android:gravity="center"/>
                     </LinearLayout>
@@ -341,9 +341,9 @@
                         <LinearLayout
                             android:layout_width="56dp"
                             android:layout_height="56dp"
-                            android:background="@drawable/bg_streak_card"
+                            android:background="@drawable/bg_light_orange_dot"
                             android:gravity="center">
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🧊" android:textSize="22sp"/>
+                            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/smart_pantry"/>
                         </LinearLayout>
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Smart Pantry" android:textColor="#374151" android:textSize="10sp" android:gravity="center"/>
                     </LinearLayout>
@@ -359,9 +359,9 @@
                         <LinearLayout
                             android:layout_width="56dp"
                             android:layout_height="56dp"
-                            android:background="@drawable/bg_streak_card"
+                            android:background="@drawable/bg_light_orange_dot"
                             android:gravity="center">
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🛒" android:textSize="22sp"/>
+                            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/grocery"/>
                         </LinearLayout>
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Groceries" android:textColor="#374151" android:textSize="10sp" android:gravity="center"/>
                     </LinearLayout>
@@ -377,9 +377,9 @@
                         <LinearLayout
                             android:layout_width="56dp"
                             android:layout_height="56dp"
-                            android:background="@drawable/bg_streak_card"
+                            android:background="@drawable/bg_light_orange_dot"
                             android:gravity="center">
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="📷" android:textSize="22sp"/>
+                            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/meal_scan"/>
                         </LinearLayout>
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Meal Scan" android:textColor="#374151" android:textSize="10sp" android:gravity="center"/>
                     </LinearLayout>
@@ -390,13 +390,14 @@
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:gravity="center"
+                        android:layout_marginEnd="12dp"
                         android:orientation="vertical">
                         <LinearLayout
                             android:layout_width="56dp"
                             android:layout_height="56dp"
-                            android:background="@drawable/bg_streak_card"
+                            android:background="@drawable/bg_light_orange_dot"
                             android:gravity="center">
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="👨‍👩‍👧" android:textSize="22sp"/>
+                            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/family_plan"/>
                         </LinearLayout>
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Family Plans" android:textColor="#374151" android:textSize="10sp" android:gravity="center"/>
                     </LinearLayout>
@@ -410,13 +411,12 @@
                         <LinearLayout
                             android:layout_width="56dp"
                             android:layout_height="56dp"
-                            android:background="@drawable/bg_streak_card"
+                            android:background="@drawable/bg_light_orange_dot"
                             android:gravity="center">
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🌿" android:textSize="22sp"/>
+                            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/eco"/>
                         </LinearLayout>
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Eco Sustainability" android:textColor="#374151" android:textSize="10sp" android:gravity="center"/>
                     </LinearLayout>
-
                 </LinearLayout>
             </HorizontalScrollView>
 
@@ -474,27 +474,27 @@
         android:paddingHorizontal="8dp">
 
         <LinearLayout android:id="@+id/navHome" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🏠" android:textSize="20sp"/>
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/home"/>
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Home" android:textColor="#AAAAAA" android:textSize="10sp"/>
         </LinearLayout>
 
         <LinearLayout android:id="@+id/navWorkouts" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🏋️" android:textSize="20sp"/>
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/workout"/>
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Workouts" android:textColor="#AAAAAA" android:textSize="10sp"/>
         </LinearLayout>
 
         <LinearLayout android:id="@+id/navDiet" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🥗" android:textSize="20sp"/>
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/green_diet"/>
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Diet" android:textColor="#C3E66E" android:textSize="10sp" android:textStyle="bold"/>
         </LinearLayout>
 
         <LinearLayout android:id="@+id/navStats" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="📊" android:textSize="20sp"/>
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/stats"/>
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Statistics" android:textColor="#AAAAAA" android:textSize="10sp"/>
         </LinearLayout>
 
         <LinearLayout android:id="@+id/navProfile" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="👤" android:textSize="20sp"/>
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/profile"/>
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Profile" android:textColor="#AAAAAA" android:textSize="10sp"/>
         </LinearLayout>
     </LinearLayout>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:background="#FFFFFF" android:padding="16dp"
+    android:layout_marginBottom="8dp" android:orientation="vertical"
+    android:clickable="true" android:focusable="true">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:gravity="center_vertical"
+        android:layout_marginBottom="8dp">
+
+        <!-- Patient avatar circle -->
+        <LinearLayout android:layout_width="44dp" android:layout_height="44dp"
+            android:background="#FFF7ED" android:gravity="center" android:layout_marginEnd="12dp">
+            <TextView android:text="👤" android:textSize="20sp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical">
+            <TextView android:id="@+id/tvCasePatientName" android:textColor="#000000"
+                android:textSize="15sp" android:textStyle="bold"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical">
+                <TextView android:id="@+id/tvCaseSpecialty" android:textColor="#F97316"
+                    android:textSize="11sp" android:layout_marginEnd="8dp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <TextView android:id="@+id/tvCaseDate" android:textColor="#9CA3AF"
+                    android:textSize="11sp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView android:id="@+id/tvCaseCardStatus" android:text="Pending"
+            android:textColor="#F97316" android:textSize="11sp" android:textStyle="bold"
+            android:background="#FFF7ED" android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <TextView android:id="@+id/tvCaseCondition" android:textColor="#000000"
+        android:textSize="14sp" android:textStyle="bold" android:layout_marginBottom="4dp"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/tvCaseSymptoms" android:textColor="#737373"
+        android:textSize="13sp" android:lineSpacingExtra="2dp" android:layout_marginBottom="8dp"
+        android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:gravity="center_vertical">
+        <TextView android:id="@+id/tvCaseMsgCount" android:textColor="#9CA3AF"
+            android:textSize="11sp" android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+        <TextView android:text="View Case →" android:textColor="#F97316"
+            android:textSize="12sp" android:textStyle="bold"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    </LinearLayout>
+</LinearLayout>

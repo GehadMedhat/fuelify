@@ -228,13 +228,13 @@
             android:layout_height="52dp"
             android:layout_weight="1"
             android:layout_marginEnd="8dp"
-            android:background="@drawable/bg_badge_completed"
+            android:background="@drawable/light_orange_rectangle"
             android:gravity="center"
             android:clickable="true"
             android:focusable="true">
             <TextView
                 android:text="🛒  Grocery List"
-                android:textColor="#4A6200"
+                android:textColor="#404040"
                 android:textSize="13sp"
                 android:textStyle="bold"
                 android:layout_width="wrap_content"
@@ -247,13 +247,13 @@
             android:layout_width="0dp"
             android:layout_height="52dp"
             android:layout_weight="1"
-            android:background="@drawable/bg_badge_completed"
+            android:background="@drawable/orange_rectangle"
             android:gravity="center"
             android:clickable="true"
             android:focusable="true">
             <TextView
                 android:text="🥫  Add to Pantry"
-                android:textColor="#4A6200"
+                android:textColor="#404040"
                 android:textSize="13sp"
                 android:textStyle="bold"
                 android:layout_width="wrap_content"

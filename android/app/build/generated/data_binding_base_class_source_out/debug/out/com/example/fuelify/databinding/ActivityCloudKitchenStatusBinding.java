@@ -23,6 +23,9 @@ public final class ActivityCloudKitchenStatusBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
+  public final TextView btnBackToHome;
+
+  @NonNull
   public final ImageButton btnStatusBack;
 
   @NonNull
@@ -47,11 +50,13 @@ public final class ActivityCloudKitchenStatusBinding implements ViewBinding {
   public final TextView tvStatusTitle;
 
   private ActivityCloudKitchenStatusBinding(@NonNull LinearLayout rootView,
-      @NonNull ImageButton btnStatusBack, @NonNull LinearLayout cardDeliveryTime,
-      @NonNull TextView statusCheckmark, @NonNull FrameLayout statusIconContainer,
-      @NonNull ProgressBar statusSpinner, @NonNull TextView tvDeliveryTime,
-      @NonNull TextView tvStatusSubtitle, @NonNull TextView tvStatusTitle) {
+      @NonNull TextView btnBackToHome, @NonNull ImageButton btnStatusBack,
+      @NonNull LinearLayout cardDeliveryTime, @NonNull TextView statusCheckmark,
+      @NonNull FrameLayout statusIconContainer, @NonNull ProgressBar statusSpinner,
+      @NonNull TextView tvDeliveryTime, @NonNull TextView tvStatusSubtitle,
+      @NonNull TextView tvStatusTitle) {
     this.rootView = rootView;
+    this.btnBackToHome = btnBackToHome;
     this.btnStatusBack = btnStatusBack;
     this.cardDeliveryTime = cardDeliveryTime;
     this.statusCheckmark = statusCheckmark;
@@ -89,6 +94,12 @@ public final class ActivityCloudKitchenStatusBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btnBackToHome;
+      TextView btnBackToHome = ViewBindings.findChildViewById(rootView, id);
+      if (btnBackToHome == null) {
+        break missingId;
+      }
+
       id = R.id.btnStatusBack;
       ImageButton btnStatusBack = ViewBindings.findChildViewById(rootView, id);
       if (btnStatusBack == null) {
@@ -137,9 +148,9 @@ public final class ActivityCloudKitchenStatusBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityCloudKitchenStatusBinding((LinearLayout) rootView, btnStatusBack,
-          cardDeliveryTime, statusCheckmark, statusIconContainer, statusSpinner, tvDeliveryTime,
-          tvStatusSubtitle, tvStatusTitle);
+      return new ActivityCloudKitchenStatusBinding((LinearLayout) rootView, btnBackToHome,
+          btnStatusBack, cardDeliveryTime, statusCheckmark, statusIconContainer, statusSpinner,
+          tvDeliveryTime, tvStatusSubtitle, tvStatusTitle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

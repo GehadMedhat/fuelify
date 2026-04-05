@@ -19,7 +19,7 @@
             android:layout_height="40dp"
             android:layout_centerVertical="true"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@android:drawable/ic_media_previous"
+            android:src="@drawable/button_arrow"
             android:contentDescription="Back"/>
 
         <TextView

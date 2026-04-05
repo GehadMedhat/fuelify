@@ -85,11 +85,10 @@
             android:orientation="vertical"
             android:gravity="center_horizontal">
 
-            <TextView
-                android:text="🌫️"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <ImageView
+                android:src="@drawable/truck"
+                android:layout_width="25dp"
+                android:layout_height="30dp"
                 android:layout_marginBottom="4dp"/>
 
             <TextView
@@ -116,11 +115,10 @@
             android:orientation="vertical"
             android:gravity="center_horizontal">
 
-            <TextView
-                android:text="🌱"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <ImageView
+                android:src="@drawable/leaf"
+                android:layout_width="25dp"
+                android:layout_height="30dp"
                 android:layout_marginBottom="4dp"/>
 
             <TextView
@@ -147,11 +145,10 @@
             android:orientation="vertical"
             android:gravity="center_horizontal">
 
-            <TextView
-                android:text="📦"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <ImageView
+                android:src="@drawable/box"
+                android:layout_width="25dp"
+                android:layout_height="30dp"
                 android:layout_marginBottom="4dp"/>
 
             <TextView

@@ -415,16 +415,16 @@ class ProductScanActivity : AppCompatActivity() {
 
         dialog.findViewById<TextView>(R.id.tvPantryDialogName).text = productName
 
-        var qty = 100.0
+        var qty = 1.0
         var selectedDays = 7
         val tvQty  = dialog.findViewById<TextView>(R.id.tvQtyValue)
         val etDays = dialog.findViewById<android.widget.EditText>(R.id.etPantryDays)
 
         dialog.findViewById<TextView>(R.id.btnQtyMinus).setOnClickListener {
-            if (qty > 10) { qty -= 10; tvQty.text = qty.toInt().toString() }
+            if (qty > 1) { qty -= 1; tvQty.text = qty.toInt().toString() }
         }
         dialog.findViewById<TextView>(R.id.btnQtyPlus).setOnClickListener {
-            qty += 10; tvQty.text = qty.toInt().toString()
+            qty += 1; tvQty.text = qty.toInt().toString()
         }
 
         fun selectChip(days: Int) {
@@ -437,7 +437,7 @@ class ProductScanActivity : AppCompatActivity() {
                 dialog.findViewById<TextView>(R.id.chip30) to 30
             ).forEach { (chip, chipDays) ->
                 if (chipDays == days) {
-                    chip.setBackgroundResource(R.drawable.bg_badge_completed)
+                    chip.setBackgroundResource(R.drawable.light_orange_rectangle)
                     chip.setTextColor(0xFF4A6200.toInt())
                 } else {
                     chip.setBackgroundResource(R.drawable.bg_recommended_card)

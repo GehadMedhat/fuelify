@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F9FAFB"
+    android:orientation="vertical">
+
+    <!-- Progress bar -->
+    <ProgressBar android:id="@+id/progressOnboardSteps"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent" android:layout_height="6dp"
+        android:progressTint="#F97316" android:progressBackgroundTint="#E5E7EB"
+        android:max="100" android:progress="25"/>
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="24dp">
+
+            <!-- ── STEP 1: Welcome ──────────────────────────────────────────── -->
+            <LinearLayout android:id="@+id/layoutOnboardStep1"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView android:text="👨‍⚕️" android:textSize="56sp" android:gravity="center"
+                    android:layout_marginTop="40dp" android:layout_marginBottom="20dp"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+                <TextView android:text="Welcome to Fuelify\nDoctor Portal"
+                    android:textColor="#000000" android:textSize="24sp" android:textStyle="bold"
+                    android:gravity="center" android:layout_marginBottom="14dp"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+                <TextView android:text="Help patients achieve their health goals by reviewing their cases and providing personalized advice."
+                    android:textColor="#737373" android:textSize="14sp" android:gravity="center"
+                    android:layout_marginBottom="32dp"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+                <!-- What you'll get -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:background="#FFFFFF" android:padding="20dp"
+                    android:orientation="vertical" android:layout_marginBottom="32dp">
+                    <TextView android:text="What you'll get:" android:textColor="#000000"
+                        android:textSize="15sp" android:textStyle="bold" android:layout_marginBottom="12dp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:layout_marginBottom="10dp">
+                        <TextView android:text="💰" android:textSize="18sp" android:layout_marginEnd="10dp"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView android:text="Earn per case responded (25 EGP / case)"
+                            android:textColor="#374151" android:textSize="13sp"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:layout_marginBottom="10dp">
+                        <TextView android:text="📱" android:textSize="18sp" android:layout_marginEnd="10dp"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView android:text="Respond to patients on your schedule"
+                            android:textColor="#374151" android:textSize="13sp"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView android:text="🎯" android:textSize="18sp" android:layout_marginEnd="10dp"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView android:text="Cases matched to your specialty"
+                            android:textColor="#374151" android:textSize="13sp"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout android:id="@+id/btnStep1Next" android:layout_width="match_parent"
+                    android:layout_height="52dp" android:background="@drawable/orange_rectangle"
+                    android:gravity="center" android:clickable="true" android:focusable="true"
+                    android:layout_marginBottom="12dp">
+                    <TextView android:text="Get Started →" android:textColor="#92400E"
+                        android:textSize="16sp" android:textStyle="bold"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <LinearLayout android:id="@+id/btnDoctorAlreadyLogin"
+                    android:layout_width="match_parent" android:layout_height="48dp"
+                    android:background="@drawable/bg_recommended_card"
+                    android:gravity="center" android:clickable="true" android:focusable="true">
+                    <TextView android:text="Already registered? Login →"
+                        android:textColor="#374151" android:textSize="14sp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- ── STEP 2: Specialty ────────────────────────────────────────── -->
+            <LinearLayout android:id="@+id/layoutOnboardStep2" android:visibility="gone"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:layout_marginBottom="24dp" android:paddingTop="16dp">
+                    <ImageButton android:id="@+id/btnStep2Back" android:layout_width="40dp"
+                        android:layout_height="40dp" android:background="?attr/selectableItemBackgroundBorderless"
+                        android:src="@drawable/button_arrow" android:scaleType="fitCenter"/>
+                    <TextView android:text="Your Specialty" android:textColor="#000000"
+                        android:textSize="22sp" android:textStyle="bold" android:layout_marginStart="10dp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <TextView android:text="What type of doctor are you?"
+                    android:textColor="#737373" android:textSize="14sp"
+                    android:layout_marginBottom="24dp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+                <!-- Diet -->
+                <LinearLayout android:id="@+id/btnSpecialtyDiet" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:background="#FFFFFF"
+                    android:padding="20dp" android:layout_marginBottom="12dp"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:clickable="true" android:focusable="true">
+                    <TextView android:text="🥗" android:textSize="32sp" android:layout_marginEnd="16dp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:text="Diet &amp; Nutrition" android:textColor="#000000"
+                            android:textSize="16sp" android:textStyle="bold"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView android:text="Meal plans, nutrition advice, weight management"
+                            android:textColor="#737373" android:textSize="12sp"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Workout -->
+                <LinearLayout android:id="@+id/btnSpecialtyWorkout" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:background="#FFFFFF"
+                    android:padding="20dp" android:layout_marginBottom="12dp"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:clickable="true" android:focusable="true">
+                    <TextView android:text="💪" android:textSize="32sp" android:layout_marginEnd="16dp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:text="Sports &amp; Fitness" android:textColor="#000000"
+                            android:textSize="16sp" android:textStyle="bold"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView android:text="Injury recovery, workout plans, sports medicine"
+                            android:textColor="#737373" android:textSize="12sp"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- General -->
+                <LinearLayout android:id="@+id/btnSpecialtyGeneral" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:background="#FFFFFF"
+                    android:padding="20dp" android:layout_marginBottom="32dp"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:clickable="true" android:focusable="true">
+                    <TextView android:text="🩺" android:textSize="32sp" android:layout_marginEnd="16dp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:text="General Practice" android:textColor="#000000"
+                            android:textSize="16sp" android:textStyle="bold"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView android:text="All patient cases — diet, fitness &amp; general health"
+                            android:textColor="#737373" android:textSize="12sp"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout android:id="@+id/btnStep2Next" android:layout_width="match_parent"
+                    android:layout_height="52dp" android:background="@drawable/bg_badge_time"
+                    android:gravity="center" android:clickable="true" android:focusable="true">
+                    <TextView android:text="Continue →" android:textColor="#92400E"
+                        android:textSize="16sp" android:textStyle="bold"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- ── STEP 3: Professional info ────────────────────────────────── -->
+            <LinearLayout android:id="@+id/layoutOnboardStep3" android:visibility="gone"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:layout_marginBottom="24dp" android:paddingTop="16dp">
+                    <ImageButton android:id="@+id/btnStep3Back" android:layout_width="40dp"
+                        android:layout_height="40dp" android:background="?attr/selectableItemBackgroundBorderless"
+                        android:src="@drawable/button_arrow" android:scaleType="fitCenter"/>
+                    <TextView android:text="Your Information" android:textColor="#000000"
+                        android:textSize="22sp" android:textStyle="bold" android:layout_marginStart="10dp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:background="#FFFFFF" android:padding="20dp"
+                    android:orientation="vertical" android:layout_marginBottom="16dp">
+
+                    <TextView android:text="Full Name *" android:textColor="#374151"
+                        android:textSize="13sp" android:textStyle="bold" android:layout_marginBottom="6dp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <EditText android:id="@+id/etDoctorFullName" android:layout_width="match_parent"
+                        android:layout_height="48dp" android:hint="Dr. Mohamed Ahmed"
+                        android:background="@drawable/bg_recommended_card"
+                        android:paddingHorizontal="12dp" android:textSize="13sp"
+                        android:textColor="#111827" android:textColorHint="#9CA3AF"
+                        android:inputType="textPersonName" android:layout_marginBottom="16dp"/>
+
+                    <TextView android:text="Qualification *" android:textColor="#374151"
+                        android:textSize="13sp" android:textStyle="bold" android:layout_marginBottom="6dp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <EditText android:id="@+id/etDoctorQualification" android:layout_width="match_parent"
+                        android:layout_height="48dp" android:hint="e.g. MD, Sports Medicine Specialist"
+                        android:background="@drawable/bg_recommended_card"
+                        android:paddingHorizontal="12dp" android:textSize="13sp"
+                        android:textColor="#111827" android:textColorHint="#9CA3AF"
+                        android:layout_marginBottom="16dp"/>
+
+                    <TextView android:text="Hospital / Clinic (optional)" android:textColor="#374151"
+                        android:textSize="13sp" android:textStyle="bold" android:layout_marginBottom="6dp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <EditText android:id="@+id/etDoctorHospital" android:layout_width="match_parent"
+                        android:layout_height="48dp" android:hint="e.g. Cleopatra Hospital"
+                        android:background="@drawable/bg_recommended_card"
+                        android:paddingHorizontal="12dp" android:textSize="13sp"
+                        android:textColor="#111827" android:textColorHint="#9CA3AF"
+                        android:layout_marginBottom="16dp"/>
+
+                    <TextView android:text="Years of Experience" android:textColor="#374151"
+                        android:textSize="13sp" android:textStyle="bold" android:layout_marginBottom="6dp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <EditText android:id="@+id/etDoctorYearsExp" android:layout_width="match_parent"
+                        android:layout_height="48dp" android:hint="5"
+                        android:background="@drawable/bg_recommended_card"
+                        android:paddingHorizontal="12dp" android:textSize="13sp"
+                        android:textColor="#111827" android:textColorHint="#9CA3AF"
+                        android:inputType="number" android:layout_marginBottom="16dp"/>
+
+                    <TextView android:text="Bio (optional)" android:textColor="#374151"
+                        android:textSize="13sp" android:textStyle="bold" android:layout_marginBottom="6dp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <EditText android:id="@+id/etDoctorBio" android:layout_width="match_parent"
+                        android:layout_height="90dp" android:hint="Tell patients a little about yourself..."
+                        android:background="@drawable/bg_recommended_card" android:padding="12dp"
+                        android:textColor="#111827" android:textColorHint="#9CA3AF"
+                        android:textSize="13sp" android:inputType="textMultiLine" android:gravity="top"/>
+                </LinearLayout>
+
+                <!-- Email + password for new account -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:background="#FFFFFF" android:padding="20dp"
+                    android:orientation="vertical" android:layout_marginBottom="16dp">
+
+                    <TextView android:text="Account Credentials" android:textColor="#000000"
+                        android:textSize="15sp" android:textStyle="bold" android:layout_marginBottom="12dp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+                    <TextView android:text="Email *" android:textColor="#374151"
+                        android:textSize="13sp" android:textStyle="bold" android:layout_marginBottom="6dp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <EditText android:id="@+id/etDoctorEmail" android:layout_width="match_parent"
+                        android:layout_height="48dp" android:hint="doctor@email.com"
+                        android:background="@drawable/bg_recommended_card"
+                        android:paddingHorizontal="12dp" android:textSize="13sp"
+                        android:textColor="#111827" android:textColorHint="#9CA3AF"
+                        android:inputType="textEmailAddress" android:layout_marginBottom="14dp"/>
+
+                    <TextView android:text="Password *" android:textColor="#374151"
+                        android:textSize="13sp" android:textStyle="bold" android:layout_marginBottom="6dp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <EditText android:id="@+id/etDoctorPassword" android:layout_width="match_parent"
+                        android:layout_height="48dp" android:hint="Choose a strong password"
+                        android:background="@drawable/bg_recommended_card"
+                        android:paddingHorizontal="12dp" android:textSize="13sp"
+                        android:textColor="#111827" android:textColorHint="#9CA3AF"
+                        android:inputType="textPassword"/>
+                </LinearLayout>
+
+                <LinearLayout android:id="@+id/btnStep3Next" android:layout_width="match_parent"
+                    android:layout_height="52dp" android:background="@drawable/bg_badge_time"
+                    android:gravity="center" android:clickable="true" android:focusable="true">
+                    <TextView android:text="Continue →" android:textColor="#92400E"
+                        android:textSize="16sp" android:textStyle="bold"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- ── STEP 4: Document ─────────────────────────────────────────── -->
+            <LinearLayout android:id="@+id/layoutOnboardStep4" android:visibility="gone"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:layout_marginBottom="24dp" android:paddingTop="16dp">
+                    <ImageButton android:id="@+id/btnStep4Back" android:layout_width="40dp"
+                        android:layout_height="40dp" android:background="?attr/selectableItemBackgroundBorderless"
+                        android:src="@drawable/button_arrow" android:scaleType="fitCenter"/>
+                    <TextView android:text="Verify Your Credentials"
+                        android:textColor="#000000" android:textSize="20sp" android:textStyle="bold"
+                        android:layout_marginStart="10dp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:background="#FFFFFF" android:padding="20dp"
+                    android:orientation="vertical" android:layout_marginBottom="16dp">
+
+                    <TextView android:text="Upload a verification document"
+                        android:textColor="#000000" android:textSize="15sp" android:textStyle="bold"
+                        android:layout_marginBottom="6dp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <TextView android:text="This can be your medical license, diploma, or any official document proving your credentials. Our team will review it within 24–48 hours."
+                        android:textColor="#737373" android:textSize="13sp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+                    <LinearLayout android:id="@+id/btnPickDocument" android:layout_width="match_parent"
+                        android:layout_height="80dp" android:background="@drawable/bg_recommended_card"
+                        android:gravity="center" android:orientation="vertical"
+                        android:clickable="true" android:focusable="true" android:layout_marginBottom="12dp">
+                        <TextView android:text="📄" android:textSize="24sp"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView android:text="Tap to upload document"
+                            android:textColor="#737373" android:textSize="13sp"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView android:text="PDF, JPG, PNG supported"
+                            android:textColor="#9CA3AF" android:textSize="11sp"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                    <TextView android:id="@+id/tvDocumentName" android:text="No document selected"
+                        android:textColor="#9CA3AF" android:textSize="12sp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:background="#FEF9C3" android:padding="14dp"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:layout_marginBottom="20dp">
+                    <TextView android:text="⚠️" android:textSize="16sp" android:layout_marginEnd="10dp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <TextView android:text="Document upload is optional but speeds up approval. You can skip and add it later."
+                        android:textColor="#92400E" android:textSize="12sp"
+                        android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+                </LinearLayout>
+
+                <LinearLayout android:id="@+id/btnSubmitOnboarding" android:layout_width="match_parent"
+                    android:layout_height="52dp" android:background="@drawable/bg_badge_time"
+                    android:gravity="center" android:clickable="true" android:focusable="true">
+                    <TextView android:text="Submit Application" android:textColor="#92400E"
+                        android:textSize="16sp" android:textStyle="bold"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

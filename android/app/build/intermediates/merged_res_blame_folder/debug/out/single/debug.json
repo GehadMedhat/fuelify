@@ -1,19 +1,35 @@
 [
     {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_ingredient_grid.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_ingredient_grid.xml"
-    },
-    {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_fragment_step_08_motivation.xml.flat",
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/fragment_step_08_motivation.xml"
     },
     {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_family_member.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_family_member.xml"
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_activity_doctor_consultation.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_doctor_consultation.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_gray_diet.png.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/gray_diet.png"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_workout.png.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/workout.png"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_email.png.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/email.png"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_family_plan.png.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/family_plan.png"
     },
     {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_recipe_card.xml.flat",
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_recipe_card.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_activity_workout_list.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_workout_list.xml"
     },
     {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_bg_search.xml.flat",
@@ -32,8 +48,28 @@
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/fragment_step_15_budget.xml"
     },
     {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_activity_workout_home.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_workout_home.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_pullup_bar.jpg.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/pullup_bar.jpg"
+    },
+    {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_bg_gender_default.xml.flat",
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/bg_gender_default.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_activity_doctor_home.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_doctor_home.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_green_home.png.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/green_home.png"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_meal_scan.png.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/meal_scan.png"
     },
     {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_bottom_sheet_grocery_list.xml.flat",
@@ -56,32 +92,40 @@
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/bg_highlight_card.xml"
     },
     {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_hm_fire.png.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/hm_fire.png"
+    },
+    {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_bg_notif.xml.flat",
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/bg_notif.xml"
     },
     {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_include_bottom_nav.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/include_bottom_nav.xml"
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_doctor_case_card.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_doctor_case_card.xml"
     },
     {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_activity_grocery.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_grocery.xml"
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_barbell.png.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/barbell.png"
     },
     {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_bottom_sheet_family_grocery.xml.flat",
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/bottom_sheet_family_grocery.xml"
     },
     {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_eco_suggestion.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_eco_suggestion.xml"
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_activity_doctor_pending.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_doctor_pending.xml"
     },
     {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_bottom_sheet_invite_member.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/bottom_sheet_invite_member.xml"
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_activity_workout_detail.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_workout_detail.xml"
     },
     {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_eco_meal_score.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_eco_meal_score.xml"
+        "merged": "com.example.fuelify.app-merged_res-47:/layout_activity_health_report.xml.flat",
+        "source": "com.example.fuelify.app-main-49:/layout/activity_health_report.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_search.png.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/search.png"
     },
     {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_bg_bottom_nav.xml.flat",
@@ -92,24 +136,24 @@
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_ingredient_list.xml"
     },
     {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_activity_meal_scheduling.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_meal_scheduling.xml"
-    },
-    {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_activity_eco_sustainability.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_eco_sustainability.xml"
-    },
-    {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_fragment_step_11_training_place.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/fragment_step_11_training_place.xml"
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_bg_image_placeholder.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/bg_image_placeholder.xml"
     },
     {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_delivery_meal_card.xml.flat",
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_delivery_meal_card.xml"
     },
     {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_bg_image_placeholder.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/bg_image_placeholder.xml"
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_jump_rope.jpg.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/jump_rope.jpg"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_button_arrow.png.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/button_arrow.png"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_dumbbells.jpg.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/dumbbells.jpg"
     },
     {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_pink_full_rectnagle.xml.flat",
@@ -120,12 +164,12 @@
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_recipe_suggestion.xml"
     },
     {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_fragment_step_10_workout_days.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/fragment_step_10_workout_days.xml"
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_activity_health_report.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_health_report.xml"
     },
     {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_bg_badge_completed.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/bg_badge_completed.xml"
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_allergy_picker_row.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_allergy_picker_row.xml"
     },
     {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_activity_recipes.xml.flat",
@@ -140,24 +184,20 @@
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_cloud_kitchen_status.xml"
     },
     {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_bg_day_today.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/bg_day_today.xml"
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_suggested_workout_card.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_suggested_workout_card.xml"
     },
     {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_ic_launcher_foreground.xml.flat",
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/ic_launcher_foreground.xml"
     },
     {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_orange_rectangle.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/orange_rectangle.xml"
-    },
-    {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_family_grocery.xml.flat",
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_family_grocery.xml"
     },
     {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_bg_picker_selected.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/bg_picker_selected.xml"
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_yoga_mat.jpg.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/yoga_mat.jpg"
     },
     {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/mipmap-anydpi-v26_ic_launcher.xml.flat",
@@ -168,20 +208,20 @@
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/bottom_sheet_scan_result.xml"
     },
     {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_hm_water.png.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/hm_water.png"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_workout_card.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_workout_card.xml"
+    },
+    {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_bg_recommended_card.xml.flat",
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/bg_recommended_card.xml"
     },
     {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_activity_meals_list.xml.flat",
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_meals_list.xml"
-    },
-    {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_fragment_step_14_allergies.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/fragment_step_14_allergies.xml"
-    },
-    {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_bg_avatar.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/bg_avatar.xml"
     },
     {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_instruction_step.xml.flat",
@@ -200,12 +240,372 @@
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_pantry_row.xml"
     },
     {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_fragment_step_05_weight.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/fragment_step_05_weight.xml"
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_bg_category_btn.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/bg_category_btn.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_activity_custom_workout.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_custom_workout.xml"
     },
     {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_activity_home.xml.flat",
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_home.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_bg_card_red.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/bg_card_red.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_exercise_row.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_exercise_row.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_fragment_step_07_activity.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/fragment_step_07_activity.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_fragment_step_12_meals_num.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/fragment_step_12_meals_num.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_bg_name_input.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/bg_name_input.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_bottom_sheet_add_to_pantry.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/bottom_sheet_add_to_pantry.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_bg_tag_green.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/bg_tag_green.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_activity_smart_pantry.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_smart_pantry.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_fragment_step_09_pushups.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/fragment_step_09_pushups.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/xml_file_paths.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/xml/file_paths.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_bg_progress_card.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/bg_progress_card.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_workout_exercise_row.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_workout_exercise_row.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_activity_family_diet.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_family_diet.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_dumbbells.png.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/dumbbells.png"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_fragment_step_03_age.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/fragment_step_03_age.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_heavy_bag.jpg.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/heavy_bag.jpg"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_shape_red_dot.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/shape_red_dot.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_bg_tag_cal.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/bg_tag_cal.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_bottom_sheet_allergy_picker.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/bottom_sheet_allergy_picker.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_fragment_step_13_likeable_food.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/fragment_step_13_likeable_food.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_activity_exercise_list.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_exercise_list.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_bg_gender_selected.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/bg_gender_selected.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_grocery_list_row.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_grocery_list_row.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_activity_doctor_case.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_doctor_case.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_ring.png.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/ring.png"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_week_day_cell.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_week_day_cell.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_workout_list_row.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_workout_list_row.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_bench.png.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/bench.png"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_bg_step_badge.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/bg_step_badge.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_switch_meal_row.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_switch_meal_row.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_activity_medical_information.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_medical_information.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_ingredient_row.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_ingredient_row.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_activity_diet_main.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_diet_main.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_cable_machine.jpg.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/cable_machine.jpg"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_dark_orange_rectangle.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/dark_orange_rectangle.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_activity_smart_plan.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_smart_plan.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_ingredient_grid.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_ingredient_grid.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_family_member.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_family_member.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_yoga_mat.png.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/yoga_mat.png"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_allergy_chip.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_allergy_chip.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_kettlebell.jpg.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/kettlebell.jpg"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_plyo_box.png.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/plyo_box.png"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_category_row.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_category_row.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_leaf.png.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/leaf.png"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_activity_active_workout.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_active_workout.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_medication_row.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_medication_row.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_check.png.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/check.png"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_btnattachfiles.png.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/btnattachfiles.png"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_plan_adjustment_row.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_plan_adjustment_row.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_activity_doctor_wallet.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_doctor_wallet.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_grocery.png.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/grocery.png"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_smart_pantry.png.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/smart_pantry.png"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_include_bottom_nav.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/include_bottom_nav.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_activity_grocery.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_grocery.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_box.png.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/box.png"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_activity_profile.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_profile.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_meal_delivery.png.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/meal_delivery.png"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_eco_suggestion.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_eco_suggestion.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_bottom_sheet_invite_member.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/bottom_sheet_invite_member.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_eco_meal_score.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_eco_meal_score.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_light_orange_rectangle.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/light_orange_rectangle.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_img.png.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/img.png"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_green_workout.png.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/green_workout.png"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_activity_meal_scheduling.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_meal_scheduling.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_activity_eco_sustainability.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_eco_sustainability.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_fragment_step_11_training_place.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/fragment_step_11_training_place.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_activity_medical_alerts.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_medical_alerts.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_eco.png.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/eco.png"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_fragment_step_10_workout_days.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/fragment_step_10_workout_days.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_whatsapp_color.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/whatsapp_color.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_bg_badge_completed.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/bg_badge_completed.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_equipment_chip.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_equipment_chip.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_activity_workout_summary.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_workout_summary.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_leg_machine.jpg.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/leg_machine.jpg"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_orange_alarm.png.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/orange_alarm.png"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_bg_day_today.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/bg_day_today.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_home.png.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/home.png"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_orange_rectangle.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/orange_rectangle.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_bg_picker_selected.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/bg_picker_selected.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_green_search.png.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/green_search.png"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_wallet_transaction.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_wallet_transaction.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_condition_badge.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_condition_badge.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_medical_alert_card.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_medical_alert_card.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_condition_checkbox.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_condition_checkbox.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_fragment_step_14_allergies.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/fragment_step_14_allergies.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_bg_avatar.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/bg_avatar.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_filter_chip.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_filter_chip.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_heavy_bag.png.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/heavy_bag.png"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_fragment_step_05_weight.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/fragment_step_05_weight.xml"
     },
     {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_bottom_sheet_order_options.xml.flat",
@@ -224,76 +624,60 @@
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/bg_btn_continue.xml"
     },
     {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_bg_card_red.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/bg_card_red.xml"
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_bottom_sheet_exercise_detail.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/bottom_sheet_exercise_detail.xml"
     },
     {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_fragment_step_07_activity.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/fragment_step_07_activity.xml"
-    },
-    {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_scheduling_meal.xml.flat",
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_scheduling_meal.xml"
     },
     {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_fragment_step_12_meals_num.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/fragment_step_12_meals_num.xml"
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_activity_doctor_onboarding.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_doctor_onboarding.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_boxing_gloves.png.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/boxing_gloves.png"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_stats.png.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/stats.png"
     },
     {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_bg_stat_bubble.xml.flat",
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/bg_stat_bubble.xml"
     },
     {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_bg_name_input.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/bg_name_input.xml"
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_consultation_message.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_consultation_message.xml"
     },
     {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_bottom_sheet_add_to_pantry.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/bottom_sheet_add_to_pantry.xml"
-    },
-    {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_bg_tag_green.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/bg_tag_green.xml"
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_menu_button.png.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/menu_button.png"
     },
     {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_activity_scan_product.xml.flat",
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_scan_product.xml"
     },
     {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_activity_smart_pantry.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_smart_pantry.xml"
-    },
-    {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_fragment_step_09_pushups.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/fragment_step_09_pushups.xml"
-    },
-    {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_bg_progress_card.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/bg_progress_card.xml"
-    },
-    {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_activity_family_diet.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_family_diet.xml"
-    },
-    {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_activity_meal_detail.xml.flat",
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_meal_detail.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_workout_category_chip.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_workout_category_chip.xml"
     },
     {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_bg_nav_active.xml.flat",
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/bg_nav_active.xml"
     },
     {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_fragment_step_03_age.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/fragment_step_03_age.xml"
-    },
-    {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_bg_tag_cal.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/bg_tag_cal.xml"
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_activity_workout_category.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_workout_category.xml"
     },
     {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_diet_meal_row.xml.flat",
@@ -304,40 +688,40 @@
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/ic_edit_pencil.xml"
     },
     {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_fragment_step_13_likeable_food.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/fragment_step_13_likeable_food.xml"
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_rest_row.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_rest_row.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_truck.png.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/truck.png"
     },
     {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_bg_streak_card.xml.flat",
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/bg_streak_card.xml"
     },
     {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_bg_gender_selected.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/bg_gender_selected.xml"
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_equipment.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_equipment.xml"
     },
     {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_grocery_list_row.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_grocery_list_row.xml"
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_bg_light_orange_dot.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/bg_light_orange_dot.xml"
     },
     {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_week_day_cell.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_week_day_cell.xml"
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_hm_workout.png.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/hm_workout.png"
     },
     {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_bg_step_badge.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/bg_step_badge.xml"
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_preview_swap_row.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_preview_swap_row.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_profile.png.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/profile.png"
     },
     {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_bg_card_green.xml.flat",
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/bg_card_green.xml"
-    },
-    {
-        "merged": "com.example.fuelify.app-merged_res-47:/layout_activity_diet_main.xml.flat",
-        "source": "com.example.fuelify.app-main-49:/layout/activity_diet_main.xml"
-    },
-    {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_switch_meal_row.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_switch_meal_row.xml"
     },
     {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_fragment_step_04_height.xml.flat",
@@ -346,6 +730,10 @@
     {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_activity_cloud_kitchen.xml.flat",
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_cloud_kitchen.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_light_green_rectangle.xml.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/light_green_rectangle.xml"
     },
     {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_dialog_add_to_pantry.xml.flat",
@@ -364,16 +752,12 @@
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_meal_recommended.xml"
     },
     {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_ingredient_row.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_ingredient_row.xml"
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/drawable_green_diet.png.flat",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/drawable/green_diet.png"
     },
     {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_item_picker_row.xml.flat",
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_picker_row.xml"
-    },
-    {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_activity_diet_main.xml.flat",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_diet_main.xml"
     },
     {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-merged_res-47:/layout_include_progress_dots.xml.flat",

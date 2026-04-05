@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="21dp"
+            android:paddingBottom="20dp"
+            android:paddingHorizontal="20dp">
+
+            <!-- Back + Title -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <ImageButton
+                    android:id="@+id/btnCustomBack"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@android:drawable/ic_media_previous"
+                    android:scaleType="fitCenter"
+                    android:layout_marginEnd="8dp"/>
+
+                <TextView
+                    android:text="Custom Workout"
+                    android:textColor="#000000"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <TextView
+                android:text="Log each workout you complete to keep track of your fitness program!"
+                android:textColor="#4B5563"
+                android:textSize="13sp"
+                android:layout_marginBottom="24dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <!-- Workout name input -->
+            <EditText
+                android:id="@+id/etWorkoutName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Workout name"
+                android:inputType="text"
+                android:background="@drawable/bg_recommended_card"
+                android:padding="16dp"
+                android:textColor="#171717"
+                android:textColorHint="#CCCCCC"
+                android:textSize="16sp"
+                android:layout_marginBottom="28dp"/>
+
+            <!-- Choose Level -->
+            <TextView
+                android:text="Choose Level"
+                android:textColor="#000000"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <!-- Level options -->
+            <LinearLayout
+                android:id="@+id/layoutBeginner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_picker_selected"
+                android:paddingVertical="18dp"
+                android:paddingHorizontal="18dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true">
+                <TextView android:text="Beginner" android:textColor="#000000" android:textSize="14sp"
+                    android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <TextView android:text="I want to start training" android:textColor="#6B7280" android:textSize="12sp"
+                    android:layout_marginTop="4dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutIrregular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_recommended_card"
+                android:paddingVertical="18dp"
+                android:paddingHorizontal="18dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true">
+                <TextView android:text="Irregular training" android:textColor="#000000" android:textSize="14sp"
+                    android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <TextView android:text="I train 1-2 times a week" android:textColor="#6B7280" android:textSize="12sp"
+                    android:layout_marginTop="4dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_recommended_card"
+                android:paddingVertical="18dp"
+                android:paddingHorizontal="18dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true">
+                <TextView android:text="Medium" android:textColor="#000000" android:textSize="14sp"
+                    android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <TextView android:text="I train 3-5 times a week" android:textColor="#6B7280" android:textSize="12sp"
+                    android:layout_marginTop="4dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutAdvanced"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_recommended_card"
+                android:paddingVertical="18dp"
+                android:paddingHorizontal="18dp"
+                android:layout_marginBottom="28dp"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true">
+                <TextView android:text="Advanced" android:textColor="#000000" android:textSize="14sp"
+                    android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <TextView android:text="I train more than 5 times a week" android:textColor="#6B7280" android:textSize="12sp"
+                    android:layout_marginTop="4dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <!-- Choose Equipment -->
+            <LinearLayout
+                android:id="@+id/rowChooseEquipment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingVertical="18dp"
+                android:layout_marginBottom="2dp"
+                android:clickable="true"
+                android:focusable="true">
+                <TextView android:text="Choose Equipment" android:textColor="#000000" android:textSize="15sp"
+                    android:textStyle="bold" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+                <TextView android:id="@+id/tvEquipmentSelection" android:text="None" android:textColor="#9CA3AF"
+                    android:textSize="13sp" android:layout_marginEnd="6dp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <TextView android:text="›" android:textColor="#9CA3AF" android:textSize="20sp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F3F4F6" android:layout_marginBottom="2dp"/>
+
+            <!-- Choose Focus Area -->
+            <LinearLayout
+                android:id="@+id/rowChooseFocus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingVertical="18dp"
+                android:layout_marginBottom="2dp"
+                android:clickable="true"
+                android:focusable="true">
+                <TextView android:text="Choose Focus Area" android:textColor="#000000" android:textSize="15sp"
+                    android:textStyle="bold" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+                <TextView android:id="@+id/tvFocusSelection" android:text="Any" android:textColor="#9CA3AF"
+                    android:textSize="13sp" android:layout_marginEnd="6dp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <TextView android:text="›" android:textColor="#9CA3AF" android:textSize="20sp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F3F4F6" android:layout_marginBottom="16dp"/>
+
+            <!-- Includes Warm-Up -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingVertical="8dp"
+                android:layout_marginBottom="4dp">
+                <TextView android:text="Includes Warm-Up" android:textColor="#000000" android:textSize="15sp"
+                    android:textStyle="bold" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+                <Switch android:id="@+id/switchWarmUp" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:thumbTint="#C3E66E" android:trackTint="#EDFFC5"/>
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F3F4F6" android:layout_marginBottom="4dp"/>
+
+            <!-- Includes Stretching -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingVertical="8dp">
+                <TextView android:text="Includes Stretching" android:textColor="#000000" android:textSize="15sp"
+                    android:textStyle="bold" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+                <Switch android:id="@+id/switchStretching" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:thumbTint="#C3E66E" android:trackTint="#EDFFC5"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Create button -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:id="@+id/btnCreateWorkout"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@drawable/bg_badge_completed"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+            <TextView
+                android:text="Create Workout"
+                android:textColor="#4A6200"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

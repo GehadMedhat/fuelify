@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_streak_card"
+    android:orientation="vertical"
+    android:paddingBottom="40dp">
+
+    <!-- Handle -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="16dp"
+        android:background="#D1D5DB"/>
+
+    <!-- Exercise image -->
+    <ImageView
+        android:id="@+id/imgExerciseDetail"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:background="#E5E7EB"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Name -->
+    <TextView
+        android:id="@+id/tvExerciseDetailName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:textColor="#171717"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="4dp"/>
+
+    <!-- Muscle group badge -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:layout_marginBottom="12dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tvExerciseDetailMuscle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#4A6200"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:background="@drawable/light_orange_rectangle"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            android:layout_marginEnd="8dp"/>
+
+        <TextView
+            android:id="@+id/tvExerciseDetailEquip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#737373"
+            android:textSize="12sp"/>
+    </LinearLayout>
+
+    <!-- Equipment -->
+    <LinearLayout
+        android:id="@+id/containerExerciseEquipment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="10dp"
+        />
+
+    <!-- Description -->
+    <TextView
+        android:text="Exercise Technique"
+        android:textColor="#374151"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:paddingHorizontal="20dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="6dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tvExerciseDetailDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:textColor="#737373"
+        android:textSize="13sp"
+        android:lineSpacingExtra="4dp"
+        android:layout_marginBottom="20dp"/>
+
+    <!-- Close button -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginHorizontal="20dp"
+        android:background="@drawable/bg_btn_back"
+        android:gravity="center"
+        android:clickable="false">
+        <TextView
+            android:id="@+id/btnCloseExerciseDetail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Close"
+            android:textColor="#4A6200"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"/>
+    </LinearLayout>
+</LinearLayout>

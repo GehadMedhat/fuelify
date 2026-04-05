@@ -240,8 +240,11 @@ class DietActivity : AppCompatActivity() {
         findViewById<LinearLayout>(R.id.navHome).setOnClickListener {
             startActivity(Intent(this, HomeActivity::class.java)); finish()
         }
+        findViewById<LinearLayout>(R.id.navWorkouts).setOnClickListener {
+            startActivity(Intent(this, WorkoutHomeActivity::class.java)); finish()
+        }
         findViewById<LinearLayout>(R.id.navDiet).setOnClickListener { }
-        listOf(R.id.navWorkouts, R.id.navStats, R.id.navProfile).forEach { id ->
+        listOf(R.id.navStats, R.id.navProfile).forEach { id ->
             findViewById<LinearLayout>(id).setOnClickListener {
                 Toast.makeText(this, "Coming soon!", Toast.LENGTH_SHORT).show()
             }

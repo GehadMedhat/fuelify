@@ -200,7 +200,10 @@ class MealDeliveryActivity : AppCompatActivity() {
         findViewById<LinearLayout>(R.id.navDiet).setOnClickListener {
             startActivity(Intent(this, DietActivity::class.java)); finish()
         }
-        listOf(R.id.navWorkouts, R.id.navStats, R.id.navProfile).forEach { id ->
+        findViewById<LinearLayout>(R.id.navWorkouts).setOnClickListener {
+            startActivity(Intent(this, WorkoutHomeActivity::class.java)); finish()
+        }
+        listOf(R.id.navStats, R.id.navProfile).forEach { id ->
             findViewById<LinearLayout>(id).setOnClickListener {
                 Toast.makeText(this, "Coming soon!", Toast.LENGTH_SHORT).show()
             }

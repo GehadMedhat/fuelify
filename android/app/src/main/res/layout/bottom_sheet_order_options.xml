@@ -42,7 +42,7 @@
         android:layout_height="68dp"
         android:layout_marginHorizontal="20dp"
         android:layout_marginBottom="12dp"
-        android:background="#FF6B00"
+        android:background="@drawable/dark_orange_rectangle"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingHorizontal="20dp"
@@ -54,10 +54,9 @@
             android:layout_width="38dp"
             android:layout_height="38dp"
             android:layout_marginEnd="14dp"
-            android:background="#FFFFFF"
             android:gravity="center"
             android:text="t"
-            android:textColor="#FF6B00"
+            android:textColor="#FFFFFF"
             android:textSize="22sp"
             android:textStyle="bold"/>
 
@@ -111,7 +110,6 @@
             android:layout_width="38dp"
             android:layout_height="38dp"
             android:layout_marginEnd="14dp"
-            android:background="#FFFFFF"
             android:gravity="center"
             android:text="🍳"
             android:textSize="20sp"/>
@@ -135,7 +133,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:text="Prepared fresh from your meal plan"
-                android:textColor="#DDEEFF"
+                android:textColor="#FBFBFB"
                 android:textSize="11sp"/>
         </LinearLayout>
 

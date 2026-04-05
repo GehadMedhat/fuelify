@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="28dp"
         android:layout_height="28dp"
-        android:background="@drawable/bg_badge_time"
+        android:background="@drawable/orange_rectangle"
         android:gravity="center"
         android:layout_marginEnd="12dp">
         <TextView
@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="1"
-            android:textColor="#F97316"
+            android:textColor="#F9F4F1"
             android:textSize="12sp"
             android:textStyle="bold"/>
     </LinearLayout>

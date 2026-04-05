@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F9FAFB"
+    android:orientation="vertical">
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:paddingHorizontal="20dp" android:paddingBottom="24dp">
+
+            <!-- Header -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:paddingTop="52dp" android:layout_marginBottom="24dp">
+                <ImageButton android:id="@+id/btnSmartPlanBack" android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/button_arrow"
+                    android:layout_marginEnd="10dp"/>
+                <TextView android:text="Smart Plan" android:textColor="#000000"
+                    android:textSize="22sp" android:textStyle="bold"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <!-- Hero card -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:background="@drawable/bg_search" android:padding="20dp"
+                android:layout_marginBottom="20dp" android:orientation="vertical">
+                <TextView android:text="Your plan is personalized"
+                    android:textColor="#000000" android:textSize="17sp" android:textStyle="bold"
+                    android:layout_marginBottom="6dp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <TextView android:text="Based on your health conditions, we've adjusted what you eat and how you train."
+                    android:textColor="#6B7280" android:textSize="13sp"
+                    android:layout_marginBottom="14dp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <LinearLayout android:id="@+id/containerConditionBadges"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal"/>
+            </LinearLayout>
+
+            <!-- Plan Changes Preview -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:background="#FFFFFF" android:padding="16dp"
+                android:layout_marginBottom="14dp" android:orientation="vertical">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+                    <TextView android:text="Plan Changes" android:textColor="#000000"
+                        android:textSize="15sp" android:textStyle="bold"
+                        android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+                    <TextView android:id="@+id/tvPreviewCount" android:text=""
+                        android:textColor="#F97316" android:textSize="12sp" android:textStyle="bold"
+                        android:visibility="gone"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout android:id="@+id/containerPreview" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:orientation="vertical">
+                    <TextView android:text="Checking your plan..." android:textColor="#9CA3AF"
+                        android:textSize="12sp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Diet Adjustments -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:background="#FFFFFF" android:padding="16dp"
+                android:layout_marginBottom="14dp" android:orientation="vertical">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:layout_marginBottom="14dp">
+                    <TextView android:text="🥗" android:textSize="18sp" android:layout_marginEnd="8dp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <TextView android:text="Diet Adjustments" android:textColor="#000000"
+                        android:textSize="15sp" android:textStyle="bold"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <TextView android:text="AVOID" android:textColor="#EF4444"
+                    android:textSize="11sp" android:textStyle="bold"
+                    android:layout_marginBottom="8dp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <LinearLayout android:id="@+id/containerDietRemoved" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:orientation="vertical"
+                    android:layout_marginBottom="16dp"/>
+
+                <TextView android:text="EAT MORE" android:textColor="#22C55E"
+                    android:textSize="11sp" android:textStyle="bold"
+                    android:layout_marginBottom="8dp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <LinearLayout android:id="@+id/containerDietAdded" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:orientation="vertical"
+                    android:layout_marginBottom="8dp"/>
+
+                <LinearLayout android:id="@+id/containerDoctorRecs" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:orientation="vertical"
+                    android:background="#FFF7ED" android:padding="10dp"/>
+            </LinearLayout>
+
+            <!-- Workout Adjustments -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:background="#FFFFFF" android:padding="16dp"
+                android:layout_marginBottom="14dp" android:orientation="vertical">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:layout_marginBottom="14dp">
+                    <TextView android:text="💪" android:textSize="18sp" android:layout_marginEnd="8dp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:text="Workout Adjustments" android:textColor="#000000"
+                            android:textSize="15sp" android:textStyle="bold"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView android:id="@+id/tvWorkoutPlanStatus" android:text="Optimized"
+                            android:textColor="#22C55E" android:textSize="11sp"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView android:text="SKIP THESE" android:textColor="#EF4444"
+                    android:textSize="11sp" android:textStyle="bold"
+                    android:layout_marginBottom="8dp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <LinearLayout android:id="@+id/containerWorkoutRemoved" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:orientation="vertical"
+                    android:layout_marginBottom="16dp"/>
+
+                <TextView android:text="DO THESE INSTEAD" android:textColor="#22C55E"
+                    android:textSize="11sp" android:textStyle="bold"
+                    android:layout_marginBottom="8dp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <LinearLayout android:id="@+id/containerWorkoutAdded" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:orientation="vertical"
+                    android:layout_marginBottom="8dp"/>
+
+                <LinearLayout android:id="@+id/containerRecoveryRecs" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:orientation="vertical"
+                    android:background="#FFF7ED" android:padding="10dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom CTA -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:background="#FFFFFF" android:paddingHorizontal="20dp"
+        android:paddingBottom="24dp" android:paddingTop="12dp" android:orientation="vertical"
+        android:elevation="8dp">
+        <LinearLayout android:id="@+id/btnApplySmartPlan" android:layout_width="match_parent"
+            android:layout_height="52dp" android:background="@drawable/orange_rectangle"
+            android:gravity="center" android:clickable="true" android:focusable="true"
+            android:layout_marginBottom="8dp">
+            <TextView android:text="Apply Changes to My Plan" android:textColor="#000000"
+                android:textSize="15sp" android:textStyle="bold"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/btnViewUpdatedPlan" android:layout_width="match_parent"
+            android:layout_height="44dp" android:background="@drawable/bg_badge_completed"
+            android:gravity="center" android:clickable="true" android:focusable="true"
+            android:visibility="gone">
+            <TextView android:text="View My Updated Plan →" android:textColor="#4A6200"
+                android:textSize="14sp" android:textStyle="bold"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

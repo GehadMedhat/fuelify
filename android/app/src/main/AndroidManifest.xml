@@ -3,6 +3,10 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32"/>
     <uses-feature android:name="android.hardware.camera" android:required="true"/>
     <uses-feature android:name="android.hardware.camera.autofocus" android:required="true"/>
 
@@ -85,6 +89,43 @@
             android:name=".home.ProductScanActivity"
             android:screenOrientation="portrait"
             android:exported="false"/>
+
+        <activity android:name=".home.WorkoutHomeActivity"     android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".home.WorkoutCategoryActivity" android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".home.WorkoutListActivity"     android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".home.WorkoutDetailActivity"   android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".home.ExerciseListActivity"    android:screenOrientation="portrait" android:exported="false"/>
+
+        <activity android:name=".home.ActiveWorkoutActivity"   android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".home.WorkoutSummaryActivity"  android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".home.CustomWorkoutActivity"   android:screenOrientation="portrait" android:exported="false"/>
+
+        <activity android:name=".home.MedicalInformationActivity" android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".home.MedicalAlertsActivity"      android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".home.SmartPlanActivity"          android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".home.HealthReportActivity"       android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".home.ProfileActivity"       android:screenOrientation="portrait" android:exported="false"/>
+
+        <activity android:name=".home.DoctorConsultationActivity" android:screenOrientation="portrait" android:exported="false"/>
+
+
+        <activity android:name=".doctor.DoctorOnboardingActivity" android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".doctor.DoctorPendingActivity" android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".doctor.DoctorHomeActivity" android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".doctor.DoctorCaseActivity" android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".doctor.DoctorWalletActivity" android:screenOrientation="portrait" android:exported="false"/>
+
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+
 
     </application>
 </manifest>

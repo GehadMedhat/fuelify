@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F9FAFB"
+    android:orientation="vertical">
+
+    <!-- ══════════════════════════════════════════════════════════════════════ -->
+    <!-- SCREEN 1: Cases List                                                   -->
+    <!-- ══════════════════════════════════════════════════════════════════════ -->
+    <LinearLayout android:id="@+id/screenList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <!-- Header -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:background="#FFFFFF" android:padding="20dp"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:elevation="4dp">
+            <ImageButton android:id="@+id/btnConsultBack" android:layout_width="40dp"
+                android:layout_height="40dp" android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/ic_media_previous"
+                android:scaleType="fitCenter" android:layout_marginEnd="10dp"/>
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical">
+                <TextView android:text="Doctor Consultation" android:textColor="#000000"
+                    android:textSize="20sp" android:textStyle="bold"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <TextView android:text="Your consultation history"
+                    android:textColor="#737373" android:textSize="12sp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Warning notice -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:background="#FEF2F2" android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp" android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <TextView android:text="⚠️  " android:textSize="14sp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <TextView android:text="Not a substitute for emergency services. Call emergency services for urgent issues."
+                android:textColor="#991B1B" android:textSize="11sp"
+                android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+        </LinearLayout>
+
+        <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="16dp">
+
+                <!-- New Consultation toggle button -->
+                <LinearLayout android:id="@+id/btnNewCaseToggle"
+                    android:layout_width="match_parent" android:layout_height="52dp"
+                    android:background="@drawable/orange_rectangle"
+                    android:gravity="center" android:orientation="horizontal"
+                    android:layout_marginBottom="12dp"
+                    android:clickable="true" android:focusable="true">
+                    <TextView android:text="+ New Consultation"
+                        android:textColor="#92400E" android:textSize="15sp" android:textStyle="bold"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <!-- New case form (hidden by default) -->
+                <LinearLayout android:id="@+id/layoutNewCaseForm"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:background="#FFFFFF" android:padding="16dp"
+                    android:orientation="vertical" android:layout_marginBottom="16dp"
+                    android:visibility="gone">
+
+                    <TextView android:text="New Consultation" android:textColor="#000000"
+                        android:textSize="16sp" android:textStyle="bold"
+                        android:layout_marginBottom="14dp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+                    <TextView android:text="Condition / Injury" android:textColor="#374151"
+                        android:textSize="13sp" android:textStyle="bold" android:layout_marginBottom="6dp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <EditText android:id="@+id/etNewCondition" android:layout_width="match_parent"
+                        android:layout_height="48dp" android:hint="e.g. Lower Back Strain, Knee Pain"
+                        android:background="@drawable/bg_recommended_card"
+                        android:paddingHorizontal="12dp" android:textSize="13sp"
+                        android:textColor="#111827" android:textColorHint="#9CA3AF"
+                        android:layout_marginBottom="12dp"/>
+
+                    <TextView android:text="Affected Area" android:textColor="#374151"
+                        android:textSize="13sp" android:textStyle="bold" android:layout_marginBottom="6dp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <EditText android:id="@+id/etNewArea" android:layout_width="match_parent"
+                        android:layout_height="48dp" android:hint="e.g. Lower spine, Left knee"
+                        android:background="@drawable/bg_recommended_card"
+                        android:paddingHorizontal="12dp" android:textSize="13sp"
+                        android:textColor="#111827" android:textColorHint="#9CA3AF"
+                        android:layout_marginBottom="12dp"/>
+
+                    <TextView android:text="Symptoms" android:textColor="#374151"
+                        android:textSize="13sp" android:textStyle="bold" android:layout_marginBottom="6dp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <EditText android:id="@+id/etNewSymptoms" android:layout_width="match_parent"
+                        android:layout_height="100dp" android:hint="Describe your symptoms in detail..."
+                        android:background="@drawable/bg_recommended_card"
+                        android:padding="12dp" android:textSize="13sp"
+                        android:textColor="#111827" android:textColorHint="#9CA3AF"
+                        android:inputType="textMultiLine" android:gravity="top"
+                        android:layout_marginBottom="12dp"/>
+
+                    <TextView android:text="Current Limitations (Optional)" android:textColor="#374151"
+                        android:textSize="13sp" android:textStyle="bold" android:layout_marginBottom="6dp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <EditText android:id="@+id/etNewLimitations" android:layout_width="match_parent"
+                        android:layout_height="80dp" android:hint="e.g. Cannot bend forward, limited mobility"
+                        android:background="@drawable/bg_recommended_card"
+                        android:padding="12dp" android:textSize="13sp"
+                        android:textColor="#111827" android:textColorHint="#9CA3AF"
+                        android:inputType="textMultiLine" android:gravity="top"
+                        android:layout_marginBottom="14dp"/>
+
+                    <LinearLayout android:id="@+id/btnSubmitCase"
+                        android:layout_width="match_parent" android:layout_height="52dp"
+                        android:background="@drawable/bg_badge_time"
+                        android:gravity="center" android:clickable="true" android:focusable="true">
+                        <TextView android:text="Submit to Medical Team"
+                            android:textColor="#92400E" android:textSize="15sp" android:textStyle="bold"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Cases list -->
+                <TextView android:text="Your Consultations" android:textColor="#000000"
+                    android:textSize="15sp" android:textStyle="bold"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+                <TextView android:id="@+id/tvNoCases"
+                    android:text="No consultations yet. Start one above!"
+                    android:textColor="#9CA3AF" android:textSize="13sp"
+                    android:gravity="center" android:padding="24dp"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:visibility="gone"/>
+
+                <LinearLayout android:id="@+id/containerCases"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical"/>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <!-- ══════════════════════════════════════════════════════════════════════ -->
+    <!-- SCREEN 2: Chat View                                                    -->
+    <!-- ══════════════════════════════════════════════════════════════════════ -->
+    <LinearLayout android:id="@+id/screenChat"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <!-- Chat Header -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:background="#FFFFFF" android:padding="16dp"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:elevation="4dp">
+            <ImageButton android:id="@+id/btnChatBack" android:layout_width="40dp"
+                android:layout_height="40dp" android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/ic_media_previous"
+                android:scaleType="fitCenter" android:layout_marginEnd="10dp"/>
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical">
+                <TextView android:id="@+id/tvChatTitle" android:text="Consultation"
+                    android:textColor="#000000" android:textSize="16sp" android:textStyle="bold"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:layout_marginTop="2dp">
+                    <TextView android:id="@+id/tvChatCondition" android:textColor="#6B7280"
+                        android:textSize="11sp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <TextView android:text="  ·  " android:textColor="#9CA3AF" android:textSize="11sp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <TextView android:id="@+id/tvChatArea" android:textColor="#6B7280"
+                        android:textSize="11sp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+            <TextView android:id="@+id/tvChatStatus" android:text="Open"
+                android:textColor="#92400E" android:textSize="11sp" android:textStyle="bold"
+                android:background="#FEF9C3" android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <!-- View smart adjustments banner -->
+        <LinearLayout android:id="@+id/btnViewAdjustments"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:background="#FFF7ED" android:paddingHorizontal="16dp"
+            android:paddingVertical="10dp" android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:clickable="true" android:focusable="true" android:visibility="gone">
+            <TextView android:text="✓  Doctor response received — Tap to view plan adjustments"
+                android:textColor="#92400E" android:textSize="12sp" android:textStyle="bold"
+                android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+            <TextView android:text="›" android:textColor="#F97316" android:textSize="20sp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <!-- Messages -->
+        <ScrollView android:id="@+id/scrollChat"
+            android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"
+            android:padding="16dp">
+            <LinearLayout android:id="@+id/containerMessages"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:paddingBottom="8dp"/>
+        </ScrollView>
+
+        <!-- Acknowledge button -->
+        <LinearLayout android:id="@+id/btnAcknowledgeMedical"
+            android:layout_width="match_parent" android:layout_height="48dp"
+            android:background="#FEF9C3" android:gravity="center"
+            android:clickable="true" android:focusable="true" android:visibility="gone">
+            <TextView android:text="✓  Acknowledge Medical Advice"
+                android:textColor="#92400E" android:textSize="13sp" android:textStyle="bold"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <!-- Message input area -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:background="#FFFFFF" android:padding="12dp" android:orientation="vertical"
+            android:elevation="8dp">
+
+            <EditText android:id="@+id/etConsultMessage"
+                android:layout_width="match_parent" android:layout_height="80dp"
+                android:hint="Describe your update or question..."
+                android:background="@drawable/bg_recommended_card"
+                android:padding="12dp" android:textSize="13sp"
+                android:textColor="#111827" android:textColorHint="#9CA3AF"
+                android:inputType="textMultiLine" android:gravity="top"
+                android:layout_marginBottom="8dp"/>
+
+            <LinearLayout android:id="@+id/containerFileChips"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="8dp"/>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical">
+
+                <LinearLayout android:id="@+id/btnAttachFiles"
+                    android:layout_width="0dp" android:layout_height="44dp" android:layout_weight="1"
+                    android:background="@drawable/bg_recommended_card"
+                    android:gravity="center" android:layout_marginEnd="8dp"
+                    android:clickable="true" android:focusable="true">
+                    <TextView android:text="📎  Attach" android:textColor="#374151"
+                        android:textSize="13sp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <LinearLayout android:id="@+id/btnSendMessage"
+                    android:layout_width="0dp" android:layout_height="44dp" android:layout_weight="2"
+                    android:background="@drawable/bg_badge_time"
+                    android:gravity="center" android:clickable="true" android:focusable="true">
+                    <TextView android:text="Send Message" android:textColor="#92400E"
+                        android:textSize="13sp" android:textStyle="bold"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Bottom action buttons -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:background="#FFFFFF" android:padding="12dp" android:orientation="horizontal">
+
+            <LinearLayout android:id="@+id/btnDownloadSummary"
+                android:layout_width="0dp" android:layout_height="44dp" android:layout_weight="1"
+                android:background="@drawable/bg_badge_completed"
+                android:gravity="center" android:layout_marginEnd="8dp"
+                android:clickable="true" android:focusable="true">
+                <TextView android:text="⬇  Download PDF"
+                    android:textColor="#4A6200" android:textSize="12sp" android:textStyle="bold"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/btnCloseCase"
+                android:layout_width="0dp" android:layout_height="44dp" android:layout_weight="1"
+                android:background="@drawable/bg_recommended_card"
+                android:gravity="center"
+                android:clickable="true" android:focusable="true" android:visibility="gone">
+                <TextView android:text="✓  Close Case"
+                    android:textColor="#374151" android:textSize="12sp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
