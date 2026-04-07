@@ -184,6 +184,9 @@ interface FuelifyApi {
     @GET("api/users/{id}/workout-progress")
     suspend fun getWorkoutProgress(@Path("id") userId: Int): Response<ApiResponse<WorkoutProgress>>
 
+    @GET("api/users/{id}/workout-plan/week")
+    suspend fun getWeekWorkoutPlan(@Path("id") userId: Int): Response<WeekPlanResponse>
+
     @POST("api/users/{id}/workout-plan")
     suspend fun saveWorkoutPlan(
         @Path("id") userId: Int,
@@ -235,7 +238,7 @@ interface FuelifyApi {
         @Path("itemId") itemId: Int
     ): Response<ApiResponse<Nothing>>
 
-    // ── Family ────────────────────────────────────────────────────────────────
+// ── Family ────────────────────────────────────────────────────────────────
     @GET("api/users/{id}/family/lookup")
     suspend fun lookupFamilyMember(
         @Path("id") userId: Int,
@@ -244,6 +247,9 @@ interface FuelifyApi {
 
     @GET("api/users/{id}/family")
     suspend fun getFamily(@Path("id") userId: Int): Response<FamilyGroupResponse>
+
+    @GET("api/users/{id}/family/dashboard")
+    suspend fun getFamilyDashboard(@Path("id") userId: Int): Response<FamilyDashboardResponse>
 
     @POST("api/users/{id}/family/invite")
     suspend fun inviteFamilyMember(
@@ -265,8 +271,8 @@ interface FuelifyApi {
 
     @GET("api/users/{id}/family/grocery")
     suspend fun getFamilyGrocery(@Path("id") userId: Int): Response<FamilyGroceryResponse>
-
-    @POST("api/users/{id}/family/grocery")
+    
+       @POST("api/users/{id}/family/grocery")
     suspend fun addFamilyGroceryItem(
         @Path("id") userId: Int,
         @Body request: AddFamilyGroceryRequest
@@ -287,7 +293,6 @@ interface FuelifyApi {
         @Path("id") userId: Int,
         @Path("itemId") itemId: Int
     ): Response<ApiResponse<Nothing>>
-    
     
     // ── Doctor ────────────────────────────────────────────────────────────────
     @POST("api/doctor/register")

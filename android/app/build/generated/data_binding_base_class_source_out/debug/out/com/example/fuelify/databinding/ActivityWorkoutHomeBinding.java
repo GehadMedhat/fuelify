@@ -33,6 +33,9 @@ public final class ActivityWorkoutHomeBinding implements ViewBinding {
   public final LinearLayout containerWeekCalendar;
 
   @NonNull
+  public final LinearLayout containerWeekPlan;
+
+  @NonNull
   public final LinearLayout layoutWorkoutSearch;
 
   @NonNull
@@ -95,21 +98,23 @@ public final class ActivityWorkoutHomeBinding implements ViewBinding {
   private ActivityWorkoutHomeBinding(@NonNull LinearLayout rootView,
       @NonNull LinearLayout containerExercises, @NonNull LinearLayout containerPopularWorkouts,
       @NonNull LinearLayout containerSuggestedWorkouts, @NonNull LinearLayout containerWeekCalendar,
-      @NonNull LinearLayout layoutWorkoutSearch, @NonNull LinearLayout navDiet,
-      @NonNull LinearLayout navHome, @NonNull LinearLayout navProfile,
-      @NonNull LinearLayout navStats, @NonNull LinearLayout navWorkouts,
-      @NonNull ProgressBar progressTodayWorkout, @NonNull TextView tvCategoryViewAll,
-      @NonNull TextView tvExercisesCount, @NonNull TextView tvExercisesViewAll,
-      @NonNull TextView tvSuggestedReason, @NonNull TextView tvTodayWorkoutCalories,
-      @NonNull TextView tvTodayWorkoutStatus, @NonNull TextView tvWeekCalories,
-      @NonNull TextView tvWeekMinutes, @NonNull TextView tvWeekRange,
-      @NonNull TextView tvWeekWorkouts, @NonNull TextView tvWorkoutGreeting,
-      @NonNull TextView tvWorkoutsCount, @NonNull TextView tvWorkoutsViewAll) {
+      @NonNull LinearLayout containerWeekPlan, @NonNull LinearLayout layoutWorkoutSearch,
+      @NonNull LinearLayout navDiet, @NonNull LinearLayout navHome,
+      @NonNull LinearLayout navProfile, @NonNull LinearLayout navStats,
+      @NonNull LinearLayout navWorkouts, @NonNull ProgressBar progressTodayWorkout,
+      @NonNull TextView tvCategoryViewAll, @NonNull TextView tvExercisesCount,
+      @NonNull TextView tvExercisesViewAll, @NonNull TextView tvSuggestedReason,
+      @NonNull TextView tvTodayWorkoutCalories, @NonNull TextView tvTodayWorkoutStatus,
+      @NonNull TextView tvWeekCalories, @NonNull TextView tvWeekMinutes,
+      @NonNull TextView tvWeekRange, @NonNull TextView tvWeekWorkouts,
+      @NonNull TextView tvWorkoutGreeting, @NonNull TextView tvWorkoutsCount,
+      @NonNull TextView tvWorkoutsViewAll) {
     this.rootView = rootView;
     this.containerExercises = containerExercises;
     this.containerPopularWorkouts = containerPopularWorkouts;
     this.containerSuggestedWorkouts = containerSuggestedWorkouts;
     this.containerWeekCalendar = containerWeekCalendar;
+    this.containerWeekPlan = containerWeekPlan;
     this.layoutWorkoutSearch = layoutWorkoutSearch;
     this.navDiet = navDiet;
     this.navHome = navHome;
@@ -180,6 +185,12 @@ public final class ActivityWorkoutHomeBinding implements ViewBinding {
       id = R.id.containerWeekCalendar;
       LinearLayout containerWeekCalendar = ViewBindings.findChildViewById(rootView, id);
       if (containerWeekCalendar == null) {
+        break missingId;
+      }
+
+      id = R.id.containerWeekPlan;
+      LinearLayout containerWeekPlan = ViewBindings.findChildViewById(rootView, id);
+      if (containerWeekPlan == null) {
         break missingId;
       }
 
@@ -305,11 +316,11 @@ public final class ActivityWorkoutHomeBinding implements ViewBinding {
 
       return new ActivityWorkoutHomeBinding((LinearLayout) rootView, containerExercises,
           containerPopularWorkouts, containerSuggestedWorkouts, containerWeekCalendar,
-          layoutWorkoutSearch, navDiet, navHome, navProfile, navStats, navWorkouts,
-          progressTodayWorkout, tvCategoryViewAll, tvExercisesCount, tvExercisesViewAll,
-          tvSuggestedReason, tvTodayWorkoutCalories, tvTodayWorkoutStatus, tvWeekCalories,
-          tvWeekMinutes, tvWeekRange, tvWeekWorkouts, tvWorkoutGreeting, tvWorkoutsCount,
-          tvWorkoutsViewAll);
+          containerWeekPlan, layoutWorkoutSearch, navDiet, navHome, navProfile, navStats,
+          navWorkouts, progressTodayWorkout, tvCategoryViewAll, tvExercisesCount,
+          tvExercisesViewAll, tvSuggestedReason, tvTodayWorkoutCalories, tvTodayWorkoutStatus,
+          tvWeekCalories, tvWeekMinutes, tvWeekRange, tvWeekWorkouts, tvWorkoutGreeting,
+          tvWorkoutsCount, tvWorkoutsViewAll);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

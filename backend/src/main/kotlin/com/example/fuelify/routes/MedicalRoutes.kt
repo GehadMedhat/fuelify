@@ -388,7 +388,7 @@ private suspend fun generateAlertsForUser(userId: Int) {
 
     if ("hypertension" in conditions || "high cholesterol" in conditions) {
         alertsToCreate.add(AlertData("high_sodium", "High Sodium Alert",
-            "Today\'s pasta meal is high in sodium (Hypertension).",
+            "Today\'s meal is high in sodium (Hypertension).",
             "Suggested swap: quinoa salad with grilled chicken", "danger"))
     }
     if ("diabetes" in conditions || "pcos" in conditions) {

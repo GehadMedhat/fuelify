@@ -20,7 +20,13 @@ public final class ActivityDoctorHomeBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
+  public final LinearLayout btnDoctorLogout;
+
+  @NonNull
   public final TextView btnFilterAll;
+
+  @NonNull
+  public final TextView btnFilterDone;
 
   @NonNull
   public final TextView btnFilterPending;
@@ -47,6 +53,9 @@ public final class ActivityDoctorHomeBinding implements ViewBinding {
   public final TextView tvInboxEmpty;
 
   @NonNull
+  public final TextView tvStatDone;
+
+  @NonNull
   public final TextView tvStatPending;
 
   @NonNull
@@ -55,15 +64,18 @@ public final class ActivityDoctorHomeBinding implements ViewBinding {
   @NonNull
   public final TextView tvStatTotal;
 
-  private ActivityDoctorHomeBinding(@NonNull LinearLayout rootView, @NonNull TextView btnFilterAll,
-      @NonNull TextView btnFilterPending, @NonNull TextView btnFilterResponded,
-      @NonNull LinearLayout btnRefreshInbox, @NonNull LinearLayout btnWallet,
-      @NonNull LinearLayout containerInbox, @NonNull TextView tvDoctorName,
-      @NonNull TextView tvDoctorSpecialty, @NonNull TextView tvInboxEmpty,
-      @NonNull TextView tvStatPending, @NonNull TextView tvStatResponded,
-      @NonNull TextView tvStatTotal) {
+  private ActivityDoctorHomeBinding(@NonNull LinearLayout rootView,
+      @NonNull LinearLayout btnDoctorLogout, @NonNull TextView btnFilterAll,
+      @NonNull TextView btnFilterDone, @NonNull TextView btnFilterPending,
+      @NonNull TextView btnFilterResponded, @NonNull LinearLayout btnRefreshInbox,
+      @NonNull LinearLayout btnWallet, @NonNull LinearLayout containerInbox,
+      @NonNull TextView tvDoctorName, @NonNull TextView tvDoctorSpecialty,
+      @NonNull TextView tvInboxEmpty, @NonNull TextView tvStatDone, @NonNull TextView tvStatPending,
+      @NonNull TextView tvStatResponded, @NonNull TextView tvStatTotal) {
     this.rootView = rootView;
+    this.btnDoctorLogout = btnDoctorLogout;
     this.btnFilterAll = btnFilterAll;
+    this.btnFilterDone = btnFilterDone;
     this.btnFilterPending = btnFilterPending;
     this.btnFilterResponded = btnFilterResponded;
     this.btnRefreshInbox = btnRefreshInbox;
@@ -72,6 +84,7 @@ public final class ActivityDoctorHomeBinding implements ViewBinding {
     this.tvDoctorName = tvDoctorName;
     this.tvDoctorSpecialty = tvDoctorSpecialty;
     this.tvInboxEmpty = tvInboxEmpty;
+    this.tvStatDone = tvStatDone;
     this.tvStatPending = tvStatPending;
     this.tvStatResponded = tvStatResponded;
     this.tvStatTotal = tvStatTotal;
@@ -104,9 +117,21 @@ public final class ActivityDoctorHomeBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btnDoctorLogout;
+      LinearLayout btnDoctorLogout = ViewBindings.findChildViewById(rootView, id);
+      if (btnDoctorLogout == null) {
+        break missingId;
+      }
+
       id = R.id.btnFilterAll;
       TextView btnFilterAll = ViewBindings.findChildViewById(rootView, id);
       if (btnFilterAll == null) {
+        break missingId;
+      }
+
+      id = R.id.btnFilterDone;
+      TextView btnFilterDone = ViewBindings.findChildViewById(rootView, id);
+      if (btnFilterDone == null) {
         break missingId;
       }
 
@@ -158,6 +183,12 @@ public final class ActivityDoctorHomeBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tvStatDone;
+      TextView tvStatDone = ViewBindings.findChildViewById(rootView, id);
+      if (tvStatDone == null) {
+        break missingId;
+      }
+
       id = R.id.tvStatPending;
       TextView tvStatPending = ViewBindings.findChildViewById(rootView, id);
       if (tvStatPending == null) {
@@ -176,9 +207,10 @@ public final class ActivityDoctorHomeBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityDoctorHomeBinding((LinearLayout) rootView, btnFilterAll, btnFilterPending,
-          btnFilterResponded, btnRefreshInbox, btnWallet, containerInbox, tvDoctorName,
-          tvDoctorSpecialty, tvInboxEmpty, tvStatPending, tvStatResponded, tvStatTotal);
+      return new ActivityDoctorHomeBinding((LinearLayout) rootView, btnDoctorLogout, btnFilterAll,
+          btnFilterDone, btnFilterPending, btnFilterResponded, btnRefreshInbox, btnWallet,
+          containerInbox, tvDoctorName, tvDoctorSpecialty, tvInboxEmpty, tvStatDone, tvStatPending,
+          tvStatResponded, tvStatTotal);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

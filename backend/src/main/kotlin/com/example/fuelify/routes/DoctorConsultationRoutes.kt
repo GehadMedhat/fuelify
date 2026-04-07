@@ -24,6 +24,7 @@ private object DoctorConsultation : Table("doctor_consultation") {
     val symptoms            = text("symptoms").nullable()
     val limitations         = text("limitations").nullable()
     val status              = varchar("status", 30).default("open")
+    val specialtyNeeded     = varchar("specialty_needed", 50).default("general")  // ← NEW
     val adjustmentsApplied  = bool("adjustments_applied").default(false)
     val createdAt           = datetime("created_at").clientDefault { LocalDateTime.now() }
     val updatedAt           = datetime("updated_at").clientDefault { LocalDateTime.now() }
@@ -69,6 +70,7 @@ data class ConsultationCaseDto(
     val symptoms:           String,
     val limitations:        String,
     val status:             String,
+    val specialtyNeeded:    String,   // ← NEW
     val adjustmentsApplied: Boolean,
     val createdAt:          String,
     val messages:           List<ConsultationMessageDto>
@@ -113,6 +115,50 @@ private fun parseJsonList(json: String): List<String> = try {
 } catch (e: Exception) { emptyList() }
 
 private val fmt = DateTimeFormatter.ofPattern("dd MMM yyyy 'at' hh:mm a")
+
+// ─── Specialty Auto-Detection ─────────────────────────────────────────────────
+//
+// Scans conditionName + affectedArea + symptoms for keyword matches.
+// Whichever category scores higher wins. Ties fall back to "general".
+
+private val dietKeywords = listOf(
+    "weight", "diet", "nutrition", "eating", "food", "calorie", "caloric",
+    "fat", "carbs", "carbohydrate", "protein", "meal", "hunger", "appetite",
+    "bloating", "digestion", "stomach", "cholesterol", "sugar", "diabetes",
+    "obesity", "overweight", "underweight", "vitamin", "mineral", "supplement",
+    "gluten", "lactose", "allergy", "intolerance", "gut", "bowel", "ibs",
+    "constipation", "diarrhea", "acid reflux", "heartburn", "nausea",
+    "vomiting", "metabolism", "insulin", "blood sugar", "lose weight",
+    "gain weight", "binge", "anorexia", "bulimia", "portion", "macro",
+    "fiber", "hydration", "dehydration", "thyroid", "hormones", "fatty liver"
+)
+
+private val workoutKeywords = listOf(
+    "workout", "exercise", "muscle", "pain", "injury", "knee", "back",
+    "shoulder", "joint", "sprain", "strain", "fitness", "training",
+    "running", "lifting", "gym", "cardio", "endurance", "stamina",
+    "flexibility", "posture", "recovery", "soreness", "fatigue", "cramp",
+    "tendon", "ligament", "physical therapy", "rehab", "sport", "shin",
+    "hamstring", "quad", "glute", "calf", "elbow", "wrist", "ankle",
+    "neck", "hip", "groin", "bruise", "swelling", "inflammation",
+    "tear", "fracture", "stress fracture", "overtraining", "deadlift",
+    "squat", "bench", "pull up", "push up", "crossfit", "hiit", "cycling",
+    "swimming", "stretching", "mobility", "range of motion", "physiotherapy"
+)
+
+private fun detectSpecialty(conditionName: String, affectedArea: String, symptoms: String): String {
+    // Combine all text the patient submitted into one searchable string
+    val combined = "$conditionName $affectedArea $symptoms".lowercase()
+
+    val dietScore    = dietKeywords.count    { combined.contains(it) }
+    val workoutScore = workoutKeywords.count { combined.contains(it) }
+
+    return when {
+        dietScore > workoutScore  -> "diet"
+        workoutScore > dietScore  -> "workout"
+        else                      -> "general"   // tie or no matches → general doctor
+    }
+}
 
 // ─── Auto-response generator ──────────────────────────────────────────────────
 
@@ -253,14 +299,18 @@ fun Route.doctorConsultationRoutes() {
                 ApiResponse<Nothing>(false, "Invalid user id", null))
         val body = call.receive<CreateConsultationRequest>()
 
+        // Auto-detect which doctor specialty this case needs
+        val specialty = detectSpecialty(body.conditionName, body.affectedArea, body.symptoms)
+
         val caseId = dbQuery {
             DoctorConsultation.insert {
-                it[DoctorConsultation.userId]        = userId
-                it[DoctorConsultation.conditionName] = body.conditionName
-                it[DoctorConsultation.affectedArea]  = body.affectedArea
-                it[DoctorConsultation.symptoms]      = body.symptoms
-                it[DoctorConsultation.limitations]   = body.limitations
-                it[DoctorConsultation.status]        = "open"
+                it[DoctorConsultation.userId]           = userId
+                it[DoctorConsultation.conditionName]    = body.conditionName
+                it[DoctorConsultation.affectedArea]     = body.affectedArea
+                it[DoctorConsultation.symptoms]         = body.symptoms
+                it[DoctorConsultation.limitations]      = body.limitations
+                it[DoctorConsultation.status]           = "open"
+                it[DoctorConsultation.specialtyNeeded]  = specialty   // ← set here
             }[DoctorConsultation.caseId]
         }
 
@@ -291,7 +341,11 @@ fun Route.doctorConsultationRoutes() {
             }
         }
 
-        call.respond(ApiResponse(success = true, message = "Case opened! Doctor response generated.", data = caseId))
+        call.respond(ApiResponse(
+            success = true,
+            message = "Case opened! Assigned to $specialty specialist.",
+            data    = caseId
+        ))
     }
 
     // ── GET /api/users/{id}/consultation ─────────────────────────────────────
@@ -361,6 +415,7 @@ fun Route.doctorConsultationRoutes() {
             symptoms           = caseRow.getOrNull(DoctorConsultation.symptoms)      ?: "",
             limitations        = caseRow.getOrNull(DoctorConsultation.limitations)   ?: "",
             status             = caseRow[DoctorConsultation.status],
+            specialtyNeeded    = caseRow[DoctorConsultation.specialtyNeeded],          // ← NEW
             adjustmentsApplied = caseRow[DoctorConsultation.adjustmentsApplied],
             createdAt          = caseRow[DoctorConsultation.createdAt].format(fmt),
             messages           = messages

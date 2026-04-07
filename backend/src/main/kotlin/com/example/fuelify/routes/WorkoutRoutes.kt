@@ -341,26 +341,33 @@ fun Route.workoutRoutes() {
                     else -> listOf(0, 1, 2, 3, 4, 5, 6)        // every day
                 }
 
+                // Shuffle once with week seed, then pick a different workout
+                // for each day using idx as offset — guarantees no repeats if pool big enough
+                val weekShuffled = allMatchingWorkouts.shuffled(
+                    kotlin.random.Random(daySeed.toLong())
+                )
+
                 workoutDayIndices.forEachIndexed { idx, dayOffset ->
                     val planDate = weekStart.plusDays(dayOffset.toLong())
-                    val workout  = allMatchingWorkouts.shuffled(
-                        kotlin.random.Random((daySeed + dayOffset).toLong())
-                    ).firstOrNull() ?: return@forEachIndexed
 
                     // Avoid duplicates on same date
                     val alreadyExists = WorkoutPlan.select {
                         (WorkoutPlan.userId eq userId) and
                         (WorkoutPlan.scheduledDate eq planDate)
                     }.count() > 0L
+                    if (alreadyExists) return@forEachIndexed
 
-                    if (!alreadyExists) {
-                        WorkoutPlan.insert {
-                            it[WorkoutPlan.userId]        = userId
-                            it[WorkoutPlan.workoutId]     = workout[Workouts.workoutId]
-                            it[WorkoutPlan.workoutName]   = workout[Workouts.workoutName]
-                            it[WorkoutPlan.scheduledDate] = planDate
-                            it[WorkoutPlan.status]        = "planned"
-                        }
+                    // Pick idx-th workout so each day gets a different one
+                    val workout = weekShuffled.getOrNull(idx)
+                        ?: weekShuffled.getOrNull(idx % weekShuffled.size.coerceAtLeast(1))
+                        ?: return@forEachIndexed
+
+                    WorkoutPlan.insert {
+                        it[WorkoutPlan.userId]        = userId
+                        it[WorkoutPlan.workoutId]     = workout[Workouts.workoutId]
+                        it[WorkoutPlan.workoutName]   = workout[Workouts.workoutName]
+                        it[WorkoutPlan.scheduledDate] = planDate
+                        it[WorkoutPlan.status]        = "planned"
                     }
                 }
             }
@@ -473,6 +480,75 @@ fun Route.workoutRoutes() {
             workouts = workouts,
             reason   = params.reason
         )))
+    }
+
+    // ── GET /api/users/{id}/workout-plan/week ────────────────────────────────
+    // Returns this week's full workout plan with workout details for each day
+    get("/users/{id}/workout-plan/week") {
+        val userId = call.parameters["id"]?.toIntOrNull()
+            ?: return@get call.respond(HttpStatusCode.BadRequest,
+                ApiResponse<Nothing>(false, "Invalid user id", null))
+
+        val today     = LocalDate.now()
+        val weekStart = today.minusDays(today.dayOfWeek.value.toLong() - 1)
+        val weekEnd   = weekStart.plusDays(6)
+
+        @kotlinx.serialization.Serializable
+        data class WeekPlanEntry(
+            val planId:        Int,
+            val workoutId:     Int,
+            val workoutName:   String,
+            val scheduledDate: String,
+            val dayLabel:      String,   // "Mon", "Tue", etc.
+            val dayNumber:     Int,
+            val isToday:       Boolean,
+            val isPast:        Boolean,
+            val status:        String,
+            val imageUrl:      String,
+            val category:      String,
+            val difficulty:    String,
+            val durationMinutes: Int,
+            val caloriesBurnedEstimate: Int
+        )
+
+        val dayLabels = listOf("Mon","Tue","Wed","Thu","Fri","Sat","Sun")
+
+        val planRows = dbQuery {
+            WorkoutPlan.select {
+                (WorkoutPlan.userId eq userId) and
+                (WorkoutPlan.scheduledDate greaterEq weekStart) and
+                (WorkoutPlan.scheduledDate lessEq weekEnd)
+            }.orderBy(WorkoutPlan.scheduledDate, SortOrder.ASC).toList()
+        }
+
+        val entries = planRows.mapNotNull { row ->
+            val wId    = row.getOrNull(WorkoutPlan.workoutId) ?: return@mapNotNull null
+            val wDate  = row.getOrNull(WorkoutPlan.scheduledDate) ?: return@mapNotNull null
+            val dayIdx = (wDate.dayOfWeek.value - 1).coerceIn(0, 6)
+
+            val workoutRow = dbQuery {
+                Workouts.select { Workouts.workoutId eq wId }.firstOrNull()
+            }
+
+            WeekPlanEntry(
+                planId        = row[WorkoutPlan.planId],
+                workoutId     = wId,
+                workoutName   = row.getOrNull(WorkoutPlan.workoutName) ?: "",
+                scheduledDate = wDate.toString(),
+                dayLabel      = dayLabels[dayIdx],
+                dayNumber     = wDate.dayOfMonth,
+                isToday       = wDate == today,
+                isPast        = wDate.isBefore(today),
+                status        = row[WorkoutPlan.status],
+                imageUrl      = workoutRow?.getOrNull(Workouts.imageUrl) ?: "",
+                category      = workoutRow?.get(Workouts.category) ?: "",
+                difficulty    = workoutRow?.get(Workouts.difficulty) ?: "",
+                durationMinutes = workoutRow?.get(Workouts.durationMinutes) ?: 0,
+                caloriesBurnedEstimate = workoutRow?.get(Workouts.caloriesBurnedEstimate) ?: 0
+            )
+        }
+
+        call.respond(ApiResponse(success = true, message = "OK", data = entries))
     }
 
     // ── GET /api/workouts/{id} ───────────────────────────────────────────────

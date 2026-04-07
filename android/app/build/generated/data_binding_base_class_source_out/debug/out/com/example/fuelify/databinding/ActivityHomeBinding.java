@@ -105,9 +105,6 @@ public final class ActivityHomeBinding implements ViewBinding {
   public final TextView tvHighlight2Sub;
 
   @NonNull
-  public final TextView tvHighlight2Time;
-
-  @NonNull
   public final TextView tvSessions;
 
   @NonNull
@@ -115,12 +112,6 @@ public final class ActivityHomeBinding implements ViewBinding {
 
   @NonNull
   public final TextView tvStreakTitle;
-
-  @NonNull
-  public final TextView tvViewAllHighlights;
-
-  @NonNull
-  public final TextView tvViewAllRecommended;
 
   @NonNull
   public final TextView tvWater;
@@ -137,10 +128,8 @@ public final class ActivityHomeBinding implements ViewBinding {
       @NonNull TextView tvCaloriesGoal, @NonNull TextView tvDate, @NonNull TextView tvGreeting,
       @NonNull TextView tvHighlight1Name, @NonNull TextView tvHighlight1Sub,
       @NonNull TextView tvHighlight2Badge, @NonNull TextView tvHighlight2Name,
-      @NonNull TextView tvHighlight2Sub, @NonNull TextView tvHighlight2Time,
-      @NonNull TextView tvSessions, @NonNull TextView tvStreakSub, @NonNull TextView tvStreakTitle,
-      @NonNull TextView tvViewAllHighlights, @NonNull TextView tvViewAllRecommended,
-      @NonNull TextView tvWater) {
+      @NonNull TextView tvHighlight2Sub, @NonNull TextView tvSessions,
+      @NonNull TextView tvStreakSub, @NonNull TextView tvStreakTitle, @NonNull TextView tvWater) {
     this.rootView = rootView;
     this.bottomNav = bottomNav;
     this.cardHighlight1 = cardHighlight1;
@@ -169,12 +158,9 @@ public final class ActivityHomeBinding implements ViewBinding {
     this.tvHighlight2Badge = tvHighlight2Badge;
     this.tvHighlight2Name = tvHighlight2Name;
     this.tvHighlight2Sub = tvHighlight2Sub;
-    this.tvHighlight2Time = tvHighlight2Time;
     this.tvSessions = tvSessions;
     this.tvStreakSub = tvStreakSub;
     this.tvStreakTitle = tvStreakTitle;
-    this.tvViewAllHighlights = tvViewAllHighlights;
-    this.tvViewAllRecommended = tvViewAllRecommended;
     this.tvWater = tvWater;
   }
 
@@ -367,12 +353,6 @@ public final class ActivityHomeBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.tvHighlight2Time;
-      TextView tvHighlight2Time = ViewBindings.findChildViewById(rootView, id);
-      if (tvHighlight2Time == null) {
-        break missingId;
-      }
-
       id = R.id.tvSessions;
       TextView tvSessions = ViewBindings.findChildViewById(rootView, id);
       if (tvSessions == null) {
@@ -391,18 +371,6 @@ public final class ActivityHomeBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.tvViewAllHighlights;
-      TextView tvViewAllHighlights = ViewBindings.findChildViewById(rootView, id);
-      if (tvViewAllHighlights == null) {
-        break missingId;
-      }
-
-      id = R.id.tvViewAllRecommended;
-      TextView tvViewAllRecommended = ViewBindings.findChildViewById(rootView, id);
-      if (tvViewAllRecommended == null) {
-        break missingId;
-      }
-
       id = R.id.tvWater;
       TextView tvWater = ViewBindings.findChildViewById(rootView, id);
       if (tvWater == null) {
@@ -414,8 +382,7 @@ public final class ActivityHomeBinding implements ViewBinding {
           navDiet, navHome, navProfile, navStats, navWorkouts, progressBar, progressCalories,
           progressSessions, progressWater, scrollView, tvAvatar, tvCaloriesEaten, tvCaloriesGoal,
           tvDate, tvGreeting, tvHighlight1Name, tvHighlight1Sub, tvHighlight2Badge,
-          tvHighlight2Name, tvHighlight2Sub, tvHighlight2Time, tvSessions, tvStreakSub,
-          tvStreakTitle, tvViewAllHighlights, tvViewAllRecommended, tvWater);
+          tvHighlight2Name, tvHighlight2Sub, tvSessions, tvStreakSub, tvStreakTitle, tvWater);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -79,6 +79,10 @@
             android:name=".home.FamilyDietActivity"
             android:screenOrientation="portrait"
             android:exported="false"/>
+        <activity
+            android:name=".home.FamilyDashboardActivity"
+            android:screenOrientation="portrait"
+            android:exported="false"/>
 
         <activity
             android:name=".home.EcoSustainabilityActivity"

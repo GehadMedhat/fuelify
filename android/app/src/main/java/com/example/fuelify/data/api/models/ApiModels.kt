@@ -76,7 +76,15 @@ data class DashboardData(
     @SerializedName("workouts_goal")       val workoutsGoal: Int,
     @SerializedName("streak_days")         val streakDays: Int,
     @SerializedName("today_meals")         val todayMeals: List<MealItem>,
-    @SerializedName("recommended_meals")   val recommendedMeals: List<MealItem>
+    @SerializedName("recommended_meals")   val recommendedMeals: List<MealItem>,
+    // Week-level progress
+    @SerializedName("week_meals_eaten")    val weekMealsEaten: Int = 0,
+    @SerializedName("week_meals_total")    val weekMealsTotal: Int = 0,
+    @SerializedName("week_workouts_done")  val weekWorkoutsDone: Int = 0,
+    @SerializedName("week_workouts_goal")  val weekWorkoutsGoal: Int = 4,
+    @SerializedName("today_workout_name")  val todayWorkoutName: String = "",
+    @SerializedName("today_workout_image") val todayWorkoutImage: String = "",
+    @SerializedName("today_workout_id")    val todayWorkoutId:    Int    = 0
 )
 
 data class LogWaterRequest(val glasses: Int)
@@ -147,4 +155,28 @@ data class KitchenOrderResponse(
     val status: String,
     @SerializedName("total_price") val totalPrice: Double,
     val message: String
+)
+
+// ── Workout Week Plan ─────────────────────────────────────────────────────────
+
+data class WeekPlanEntry(
+    @SerializedName("planId")                  val planId:               Int,
+    @SerializedName("workoutId")               val workoutId:            Int,
+    @SerializedName("workoutName")             val workoutName:          String,
+    @SerializedName("scheduledDate")           val scheduledDate:        String,
+    @SerializedName("dayLabel")                val dayLabel:             String,
+    @SerializedName("dayNumber")               val dayNumber:            Int,
+    @SerializedName("isToday")                 val isToday:              Boolean,
+    @SerializedName("isPast")                  val isPast:               Boolean,
+    @SerializedName("status")                  val status:               String,
+    @SerializedName("imageUrl")                val imageUrl:             String,
+    @SerializedName("category")                val category:             String,
+    @SerializedName("difficulty")              val difficulty:           String,
+    @SerializedName("durationMinutes")         val durationMinutes:      Int,
+    @SerializedName("caloriesBurnedEstimate")  val caloriesBurnedEstimate: Int
+)
+
+data class WeekPlanResponse(
+    @SerializedName("success") val success: Boolean,
+    @SerializedName("data")    val data:    List<WeekPlanEntry>?
 )

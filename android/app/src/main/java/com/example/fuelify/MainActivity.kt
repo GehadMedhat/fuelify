@@ -15,13 +15,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Clear stale data if this is a fresh install
         val prefs = getSharedPreferences("fuelify_prefs", MODE_PRIVATE)
-        val versionCode = packageManager.getPackageInfo(packageName, 0).longVersionCode
-        val savedVersion = prefs.getLong("app_version", -1L)
-        if (savedVersion != versionCode) {
+        val installTime = packageManager.getPackageInfo(packageName, 0).firstInstallTime
+        val savedInstallTime = prefs.getLong("install_time", -1L)
+
+        if (savedInstallTime != installTime) {
+            // Fresh install detected — wipe everything
             UserPreferences.clear(this)
-            prefs.edit().putLong("app_version", versionCode).apply()
+            prefs.edit().putLong("install_time", installTime).apply()
         }
 
         if (UserPreferences.isLoggedIn(this)) {

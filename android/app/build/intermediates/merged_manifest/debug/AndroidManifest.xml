@@ -118,6 +118,10 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
+            android:name="com.example.fuelify.home.FamilyDashboardActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="com.example.fuelify.home.EcoSustainabilityActivity"
             android:exported="false"
             android:screenOrientation="portrait" />

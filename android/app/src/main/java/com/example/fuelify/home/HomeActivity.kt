@@ -14,6 +14,8 @@ import com.example.fuelify.data.api.RetrofitClient
 import com.example.fuelify.data.api.models.DashboardData
 import com.example.fuelify.data.api.models.MealItem
 import com.example.fuelify.data.api.models.WorkoutItem
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 import com.example.fuelify.data.api.models.*
 import com.example.fuelify.utils.UserPreferences
 import java.text.SimpleDateFormat
@@ -28,9 +30,11 @@ class HomeActivity : AppCompatActivity() {
     private val scope = CoroutineScope(Dispatchers.Main + SupervisorJob())
     private var userId = -1
 
-    private var allTodayMeals   = listOf<MealItem>()
-    private var allRecommended  = listOf<MealItem>()
-    private var suggestedWorkouts = listOf<WorkoutItem>()
+    private var allTodayMeals        = listOf<MealItem>()
+    private var allRecommended       = listOf<MealItem>()
+    private var suggestedWorkouts    = listOf<WorkoutItem>()
+    // Today's scheduled workout from the real workout_plan (name + image + id)
+    private var todayWorkoutFromPlan = Triple("", "", 0)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,7 +59,6 @@ class HomeActivity : AppCompatActivity() {
         observeViewModel()
         vm.loadDashboard(userId)
         setupBottomNav()
-        setupViewAllButtons()
         loadWorkoutData()
     }
 
@@ -63,7 +66,7 @@ class HomeActivity : AppCompatActivity() {
     private fun loadWorkoutData() {
         scope.launch {
             try {
-                // 1. Extra RECOMMENDED workouts (different from weekly plan, for home screen only)
+                // Extra recommended workouts (different from weekly plan)
                 val recResp = withContext(Dispatchers.IO) {
                     RetrofitClient.api.getRecommendedWorkouts(userId)
                 }
@@ -71,21 +74,22 @@ class HomeActivity : AppCompatActivity() {
                     suggestedWorkouts = recResp.body()!!.data!!.workouts
                 }
 
-                // 2. Workout progress → sessions counter (weekly view)
+                // Real workout session count from workout_session table
                 val progressResp = withContext(Dispatchers.IO) {
                     RetrofitClient.api.getWorkoutProgress(userId)
                 }
                 if (progressResp.isSuccessful && progressResp.body()?.data != null) {
                     val prog = progressResp.body()!!.data!!
                     val exerciseDaysPerWeek = UserPreferences.getExerciseDays(this@HomeActivity)
-                    val weekTarget = exerciseDaysPerWeek.coerceAtLeast(1)
-                    // "2/5 this week" — how many workouts done vs recommended per week
+                        .coerceAtLeast(1)
+                    // Show: "done this week / weekly target"
+                    // exerciseDays IS the weekly target (e.g. 4 = "do 4 workouts this week")
                     findViewById<TextView>(R.id.tvSessions).text =
-                        "${prog.weekSessions}/$weekTarget this week"
-                    setProgressBar(R.id.progressSessions, prog.weekSessions, weekTarget)
+                        "${prog.weekSessions}/$exerciseDaysPerWeek"
+                    setProgressBar(R.id.progressSessions, prog.weekSessions, exerciseDaysPerWeek)
                 }
 
-                // 3. Refresh home screen sections now that we have workout data
+                // Refresh sections now that workout data is loaded
                 if (allTodayMeals.isNotEmpty() || allRecommended.isNotEmpty()) {
                     bindHighlights(allTodayMeals)
                     bindRecommended(allRecommended)
@@ -97,14 +101,14 @@ class HomeActivity : AppCompatActivity() {
     }
 
     // ── View All buttons ──────────────────────────────────────────────────────
-    private fun setupViewAllButtons() {
-        findViewById<TextView>(R.id.tvViewAllHighlights).setOnClickListener {
-            openMealsList("Today's Meals", allTodayMeals)
-        }
-        findViewById<TextView>(R.id.tvViewAllRecommended).setOnClickListener {
-            openMealsList("Recommended For You", allRecommended)
-        }
-    }
+//    private fun setupViewAllButtons() {
+//        findViewById<TextView>(R.id.tvViewAllHighlights).setOnClickListener {
+//            openMealsList("Today's Meals", allTodayMeals)
+//        }
+//        findViewById<TextView>(R.id.tvViewAllRecommended).setOnClickListener {
+//            openMealsList("Recommended For You", allRecommended)
+//        }
+//    }
 
     private fun openMealsList(title: String, meals: List<MealItem>) {
         if (meals.isEmpty()) {
@@ -153,15 +157,18 @@ class HomeActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.tvGreeting).text = "Hi, ${d.name}"
         findViewById<TextView>(R.id.tvAvatar).text = initial
 
-        // Calories
-        findViewById<TextView>(R.id.tvCaloriesEaten).text = "${d.caloriesEaten}"
-        findViewById<TextView>(R.id.tvCaloriesGoal).text  = "of ${d.dailyCaloriesGoal} kcal"
-        setProgressBar(R.id.progressCalories, d.caloriesEaten, d.dailyCaloriesGoal)
+        // Meals — week progress: "X / Y meals this week"
+        val mealsEaten = d.weekMealsEaten
+        val mealsTotal = d.weekMealsTotal.coerceAtLeast(1)
+        findViewById<TextView>(R.id.tvCaloriesEaten).text = "$mealsEaten"
+        findViewById<TextView>(R.id.tvCaloriesGoal).text  = "of $mealsTotal meals"
+        setProgressBar(R.id.progressCalories, mealsEaten, mealsTotal)
 
-        // Show sessions as week progress until workout progress loads
-        // workoutsGoal = recommended days per week (from exerciseDays)
-        findViewById<TextView>(R.id.tvSessions).text = "${d.workoutsDone}/${d.workoutsGoal} this week"
-        setProgressBar(R.id.progressSessions, d.workoutsDone, d.workoutsGoal)
+        // Workouts — week progress: "X / Y sessions this week"
+//        val wkDone = d.weekWorkoutsDone
+//        val wkGoal = d.weekWorkoutsGoal.coerceAtLeast(1)
+//        findViewById<TextView>(R.id.tvSessions).text = "$wkDone/$wkGoal sessions this week"
+//        setProgressBar(R.id.progressSessions, wkDone, wkGoal)
 
         // Water
         findViewById<TextView>(R.id.tvWater).text = "${d.waterGlasses}/${d.waterGoal}"
@@ -178,22 +185,25 @@ class HomeActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.tvStreakTitle).text = "${d.streakDays} Day Streak!"
         findViewById<TextView>(R.id.tvStreakSub).text   = streakMsg
 
-        // Bind highlights (meal + workout mixed)
-        bindHighlights(d.todayMeals)
+        // Store today's workout from plan for the highlight card (name + image + id)
+        todayWorkoutFromPlan = Triple(d.todayWorkoutName, d.todayWorkoutImage, d.todayWorkoutId)
 
-        // Bind recommended (meal + workout mixed)
+        bindHighlights(d.todayMeals)
         bindRecommended(d.recommendedMeals)
     }
 
-    // ── Today's Highlights: first meal card + first suggested workout ─────────
+    // ── Today's Highlights: meal from today's plan + workout from today's plan ──
     private fun bindHighlights(meals: List<MealItem>) {
-        // Card 1 — Today's meal
+        // Card 1 — First meal from today's meal plan
         meals.getOrNull(0)?.let { meal ->
             val img1 = findViewById<ImageView>(R.id.imgHighlight1)
+            img1.clipToOutline = true   // ensures card container clips image corners
             if (meal.imageUrl.isNotEmpty()) {
-                Glide.with(this).load(meal.imageUrl)
+                Glide.with(this)
+                    .load(meal.imageUrl)
                     .placeholder(R.drawable.bg_image_placeholder)
-                    .centerCrop().into(img1)
+                    .centerCrop()
+                    .into(img1)
             }
             findViewById<TextView>(R.id.tvHighlight1Name).text = meal.mealName
             try {
@@ -205,34 +215,35 @@ class HomeActivity : AppCompatActivity() {
             }
         }
 
-        // Card 2 — Suggested workout (replaces second meal)
-        val workout = suggestedWorkouts.firstOrNull()
-        if (workout != null) {
-            val img2 = try { findViewById<ImageView>(R.id.imgHighlight2) } catch (e: Exception) { null }
-            if (img2 != null && workout.imageUrl.isNotEmpty()) {
-                Glide.with(this).load(workout.imageUrl)
-                    .placeholder(R.drawable.bg_image_placeholder)
-                    .centerCrop().into(img2)
-            }
+        // Card 2 — Today's scheduled workout from workout_plan (the real plan, not suggestions)
+        val (workoutName, workoutImage, workoutId) = todayWorkoutFromPlan
+        if (workoutName.isNotBlank()) {
             try {
-                findViewById<TextView>(R.id.tvHighlight2Name).text  = workout.workoutName
-                findViewById<TextView>(R.id.tvHighlight2Sub).text   =
-                    "${workout.category} • ${workout.durationMinutes} min"
-                findViewById<TextView>(R.id.tvHighlight2Time).text  =
-                    "${workout.caloriesBurnedEstimate} kcal"
-                // Add 💪 badge
-// CORRECT
-                findViewById<TextView>(R.id.tvHighlight2Badge)?.text = "💪 Workout"
-            } catch (e: Exception) {}
-            try {
+                val img2 = findViewById<ImageView>(R.id.imgHighlight2)
+                img2.clipToOutline = true
+                if (workoutImage.isNotEmpty()) {
+                    Glide.with(this).load(workoutImage)
+                        .placeholder(R.drawable.bg_image_placeholder)
+                        .centerCrop()
+                        .into(img2)
+                }
+                findViewById<TextView>(R.id.tvHighlight2Name).text = workoutName
+                findViewById<TextView>(R.id.tvHighlight2Sub).text  = "Today's Workout"
+                try { findViewById<TextView>(R.id.tvHighlight2Badge)?.text = "💪 Planned" }
+                    catch (e: Exception) {}
+                // Tap → open the specific workout detail
                 findViewById<LinearLayout>(R.id.cardHighlight2).setOnClickListener {
-                    startActivity(Intent(this, WorkoutDetailActivity::class.java).apply {
-                        putExtra("workout_id", workout.workoutId)
-                    })
+                    if (workoutId > 0) {
+                        startActivity(Intent(this, WorkoutDetailActivity::class.java).apply {
+                            putExtra("workout_id", workoutId)
+                        })
+                    } else {
+                        startActivity(Intent(this, WorkoutListActivity::class.java))
+                    }
                 }
             } catch (e: Exception) {}
         } else {
-            // Fallback: show second meal if no workout loaded yet
+            // No workout scheduled today — show second meal as fallback
             meals.getOrNull(1)?.let { meal ->
                 try {
                     val img2 = findViewById<ImageView>(R.id.imgHighlight2)
@@ -244,7 +255,8 @@ class HomeActivity : AppCompatActivity() {
                     findViewById<TextView>(R.id.tvHighlight2Name).text = meal.mealName
                     findViewById<TextView>(R.id.tvHighlight2Sub).text  =
                         "${meal.mealType} • ${meal.calories} cal"
-                    findViewById<TextView>(R.id.tvHighlight2Time).text = meal.scheduledTime
+//                    try { findViewById<TextView>(R.id.tvHighlight2Time).text = meal.scheduledTime }
+//                        catch (e: Exception) {}
                     findViewById<LinearLayout>(R.id.cardHighlight2).setOnClickListener {
                         openMealDetail(meal.mealId)
                     }
@@ -316,10 +328,6 @@ class HomeActivity : AppCompatActivity() {
                 .centerCrop()
                 .into(imgView)
         }
-
-        // 3. Apply styling to distinguish it from a meal
-        row.setBackgroundColor(0xFFF0FDF4.toInt()) // Light green background
-        row.findViewById<TextView>(R.id.tvMealCalTag).setTextColor(0xFF22C55E.toInt())
 
         row.setOnClickListener {
             startActivity(Intent(this, WorkoutDetailActivity::class.java).apply {

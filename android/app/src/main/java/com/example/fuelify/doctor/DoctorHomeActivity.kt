@@ -37,6 +37,23 @@ class DoctorHomeActivity : AppCompatActivity() {
             startActivity(Intent(this, DoctorWalletActivity::class.java))
         }
 
+        // Logout — clears saved doctor session and goes back to onboarding
+        findViewById<LinearLayout>(R.id.btnDoctorLogout).setOnClickListener {
+            android.app.AlertDialog.Builder(this)
+                .setTitle("Log Out")
+                .setMessage("Are you sure you want to log out?")
+                .setPositiveButton("Log Out") { _, _ ->
+                    DoctorPreferences.clear(this)
+                    startActivity(
+                        Intent(this, DoctorOnboardingActivity::class.java)
+                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                    )
+                    finish()
+                }
+                .setNegativeButton("Cancel", null)
+                .show()
+        }
+
         // Filter tabs
         setupFilterTabs()
 
@@ -48,13 +65,14 @@ class DoctorHomeActivity : AppCompatActivity() {
 
     override fun onResume() { super.onResume(); loadInbox() }
 
-    private var currentFilter = "all"   // "all" | "pending" | "responded"
+    private var currentFilter = "all"
 
     private fun setupFilterTabs() {
         listOf(
             R.id.btnFilterAll       to "all",
             R.id.btnFilterPending   to "pending",
-            R.id.btnFilterResponded to "responded"
+            R.id.btnFilterResponded to "responded",
+            R.id.btnFilterDone      to "done"
         ).forEach { (btnId, filter) ->
             findViewById<TextView>(btnId).setOnClickListener {
                 currentFilter = filter
@@ -68,7 +86,8 @@ class DoctorHomeActivity : AppCompatActivity() {
         listOf(
             R.id.btnFilterAll       to "all",
             R.id.btnFilterPending   to "pending",
-            R.id.btnFilterResponded to "responded"
+            R.id.btnFilterResponded to "responded",
+            R.id.btnFilterDone      to "done"
         ).forEach { (btnId, filter) ->
             val tv = findViewById<TextView>(btnId)
             if (filter == currentFilter) {
@@ -85,8 +104,9 @@ class DoctorHomeActivity : AppCompatActivity() {
 
     private fun filterCases() {
         val filtered = when (currentFilter) {
-            "pending"   -> allCases.filter { !it.doctorResponded }
-            "responded" -> allCases.filter { it.doctorResponded }
+            "pending"   -> allCases.filter { !it.doctorResponded && it.status != "closed" }
+            "responded" -> allCases.filter { it.doctorResponded && it.status != "closed" }
+            "done"      -> allCases.filter { it.status == "closed" }
             else        -> allCases
         }
         bindCases(filtered)
@@ -105,11 +125,13 @@ class DoctorHomeActivity : AppCompatActivity() {
                     val cases = resp.body()!!.data ?: emptyList()
                     allCases = cases
 
-                    // Stats
-                    val pendingCount    = cases.count { !it.doctorResponded }
-                    val respondedCount  = cases.count { it.doctorResponded }
+                    val pendingCount   = cases.count { !it.doctorResponded && it.status != "closed" }
+                    val respondedCount = cases.count { it.doctorResponded && it.status != "closed" }
+                    val doneCount      = cases.count { it.status == "closed" }
+
                     findViewById<TextView>(R.id.tvStatPending).text   = "$pendingCount"
                     findViewById<TextView>(R.id.tvStatResponded).text = "$respondedCount"
+                    findViewById<TextView>(R.id.tvStatDone).text      = "$doneCount"
                     findViewById<TextView>(R.id.tvStatTotal).text     = "${cases.size}"
 
                     filterCases()
@@ -132,7 +154,8 @@ class DoctorHomeActivity : AppCompatActivity() {
         if (cases.isEmpty()) {
             tvEmpty.text = when (currentFilter) {
                 "pending"   -> "No pending cases 🎉 You're all caught up!"
-                "responded" -> "You haven't responded to any cases yet."
+                "responded" -> "No responded cases yet."
+                "done"      -> "No closed cases yet."
                 else        -> "No cases in your inbox yet."
             }
             tvEmpty.visibility = View.VISIBLE
@@ -151,14 +174,22 @@ class DoctorHomeActivity : AppCompatActivity() {
             card.findViewById<TextView>(R.id.tvCaseMsgCount).text     = "${case.messageCount} messages"
 
             val tvStatus = card.findViewById<TextView>(R.id.tvCaseCardStatus)
-            if (case.doctorResponded) {
-                tvStatus.text = "✓ Responded"
-                tvStatus.setTextColor(0xFF22C55E.toInt())
-                tvStatus.setBackgroundColor(0xFFDCFCE7.toInt())
-            } else {
-                tvStatus.text = "Needs Response"
-                tvStatus.setTextColor(0xFFF97316.toInt())
-                tvStatus.setBackgroundColor(0xFFFFF7ED.toInt())
+            when {
+                case.status == "closed" -> {
+                    tvStatus.text = "✓ Done"
+                    tvStatus.setTextColor(0xFF6366F1.toInt())
+                    tvStatus.setBackgroundColor(0xFFEDE9FE.toInt())
+                }
+                case.doctorResponded -> {
+                    tvStatus.text = "✓ Responded"
+                    tvStatus.setTextColor(0xFF22C55E.toInt())
+                    tvStatus.setBackgroundColor(0xFFDCFCE7.toInt())
+                }
+                else -> {
+                    tvStatus.text = "Needs Response"
+                    tvStatus.setTextColor(0xFFF97316.toInt())
+                    tvStatus.setBackgroundColor(0xFFFFF7ED.toInt())
+                }
             }
 
             val tvSpecialty = card.findViewById<TextView>(R.id.tvCaseSpecialty)

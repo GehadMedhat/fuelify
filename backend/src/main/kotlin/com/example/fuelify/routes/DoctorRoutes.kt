@@ -304,33 +304,33 @@ fun Route.doctorRoutes() {
         call.respond(ApiResponse(success = true, message = "Login successful", data = dto))
     }
 
-// ── POST /api/doctor/{id}/approve  (call this from your admin panel) ──────────
-post("/doctor/{id}/approve") {
-    val doctorId = call.parameters["id"]?.toIntOrNull()
-        ?: return@post call.respond(HttpStatusCode.BadRequest,
-            ApiResponse<Nothing>(false, "Invalid doctor id", null))
+    // ── POST /api/doctor/{id}/approve  (call this from your admin panel) ──────
+    post("/doctor/{id}/approve") {
+        val doctorId = call.parameters["id"]?.toIntOrNull()
+            ?: return@post call.respond(HttpStatusCode.BadRequest,
+                ApiResponse<Nothing>(false, "Invalid doctor id", null))
 
-    val doctor = dbQuery {
-        DoctorProfile.select { DoctorProfile.doctorId eq doctorId }.firstOrNull()
-    } ?: return@post call.respond(HttpStatusCode.NotFound,
-        ApiResponse<Nothing>(false, "Doctor not found", null))
+        val doctor = dbQuery {
+            DoctorProfile.select { DoctorProfile.doctorId eq doctorId }.firstOrNull()
+        } ?: return@post call.respond(HttpStatusCode.NotFound,
+            ApiResponse<Nothing>(false, "Doctor not found", null))
 
-    dbQuery {
-        DoctorProfile.update({ DoctorProfile.doctorId eq doctorId }) {
-            it[DoctorProfile.isApproved] = true
+        dbQuery {
+            DoctorProfile.update({ DoctorProfile.doctorId eq doctorId }) {
+                it[DoctorProfile.isApproved] = true
+            }
         }
+
+        // Send approval email on a background thread so it doesn't block the response
+        kotlinx.coroutines.CoroutineScope(kotlinx.coroutines.Dispatchers.IO).launch {
+            sendApprovalEmail(
+                toEmail    = doctor[DoctorProfile.email],
+                doctorName = doctor[DoctorProfile.fullName]
+            )
+        }
+
+        call.respond(ApiResponse(success = true, message = "Doctor approved and notified by email", data = null))
     }
-
-    // Send approval email on a background thread so it doesn't block the response
-kotlinx.coroutines.CoroutineScope(kotlinx.coroutines.Dispatchers.IO).launch {
-    sendApprovalEmail(
-        toEmail    = doctor[DoctorProfile.email],
-        doctorName = doctor[DoctorProfile.fullName]
-    )
-}
-
-    call.respond(ApiResponse(success = true, message = "Doctor approved and notified by email", data = null))
-}
 
     // ── GET /api/doctor/{id}/profile ──────────────────────────────────────────
     get("/doctor/{id}/profile") {
@@ -357,7 +357,7 @@ kotlinx.coroutines.CoroutineScope(kotlinx.coroutines.Dispatchers.IO).launch {
     }
 
     // ── GET /api/doctor/{id}/inbox ────────────────────────────────────────────
-    // Returns all open cases matching doctor's specialty + unanswered ones
+    // Returns ALL cases matching doctor's specialty (including closed — for Done tab)
     get("/doctor/{id}/inbox") {
         val doctorId = call.parameters["id"]?.toIntOrNull()
             ?: return@get call.respond(HttpStatusCode.BadRequest,
@@ -378,16 +378,16 @@ kotlinx.coroutines.CoroutineScope(kotlinx.coroutines.Dispatchers.IO).launch {
 
         val specialty = doctor[DoctorProfile.specialty]
 
-        // Match cases: general doctors see all, diet → diet cases, workout → workout cases
+        // Strict specialty match:
+        //   diet    → only "diet" cases
+        //   workout → only "workout" cases
+        //   general → all cases
+        // Closed cases ARE included so the Done tab works on the Android side.
         val cases = dbQuery {
             val query = when (specialty) {
-                "diet"    -> DoctorCase.select {
-                    (DoctorCase.status neq "closed") and
-                    (DoctorCase.specialtyNeeded inList listOf("diet","general","")) }
-                "workout" -> DoctorCase.select {
-                    (DoctorCase.status neq "closed") and
-                    (DoctorCase.specialtyNeeded inList listOf("workout","general","")) }
-                else      -> DoctorCase.select { DoctorCase.status neq "closed" }
+                "diet"    -> DoctorCase.select { DoctorCase.specialtyNeeded eq "diet" }
+                "workout" -> DoctorCase.select { DoctorCase.specialtyNeeded eq "workout" }
+                else      -> DoctorCase.selectAll()
             }
 
             query.orderBy(DoctorCase.createdAt, SortOrder.DESC).map { caseRow ->
@@ -473,7 +473,7 @@ kotlinx.coroutines.CoroutineScope(kotlinx.coroutines.Dispatchers.IO).launch {
     }
 
     // ── POST /api/doctor/{id}/cases/{caseId}/respond ──────────────────────────
-    // Doctor sends response → credits wallet → marks case as doctor_responded
+    // Doctor sends response → credits wallet on first response only → marks case responded
     post("/doctor/{id}/cases/{caseId}/respond") {
         val doctorId = call.parameters["id"]?.toIntOrNull()
             ?: return@post call.respond(HttpStatusCode.BadRequest,
@@ -510,7 +510,7 @@ kotlinx.coroutines.CoroutineScope(kotlinx.coroutines.Dispatchers.IO).launch {
         val patientName = patient?.get(DoctorPatientUsers.name)?.ifBlank { null }
             ?: "Patient #$userId"
 
-        // Check if doctor already responded before (only credit wallet once per case)
+        // Only credit wallet once per case
         val alreadyResponded = dbQuery {
             caseRow.getOrNull(DoctorCase.doctorResponded) == true
         }
@@ -525,7 +525,7 @@ kotlinx.coroutines.CoroutineScope(kotlinx.coroutines.Dispatchers.IO).launch {
                 it[DoctorCaseMessage.fileNames]  = ""
             }
 
-            // 2. Mark case as responded (only update flags on first response)
+            // 2. Mark case as responded + credit wallet only on first response
             if (!alreadyResponded) {
                 DoctorCase.update({ DoctorCase.caseId eq caseId }) {
                     it[DoctorCase.status]          = "responded"

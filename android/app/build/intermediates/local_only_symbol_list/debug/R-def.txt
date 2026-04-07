@@ -142,6 +142,7 @@ id btnDoctor
 id btnDoctorAlreadyLogin
 id btnDoctorCaseBack
 id btnDoctorLogin
+id btnDoctorLogout
 id btnDoctorSendResponse
 id btnDownloadPDF
 id btnDownloadSummary
@@ -149,8 +150,11 @@ id btnEcoBack
 id btnExerciseListBack
 id btnExerciseRowInfo
 id btnFamilyBack
+id btnFamilyDashBack
+id btnFamilyDashboard
 id btnFamilyPlans
 id btnFilterAll
+id btnFilterDone
 id btnFilterPending
 id btnFilterResponded
 id btnFinishWorkout
@@ -159,6 +163,7 @@ id btnGroceryBack
 id btnHealthReportBack
 id btnKitchenBack
 id btnListMode
+id btnManageFamily
 id btnMealArrow
 id btnMealCheck
 id btnMealDelivery
@@ -304,6 +309,7 @@ id containerGroceryListItems
 id containerInbox
 id containerIngredients
 id containerInstructions
+id containerLeaderboard
 id containerMeals
 id containerMedications
 id containerMessages
@@ -326,6 +332,8 @@ id containerSuggestedWorkouts
 id containerSwitchMeals
 id containerTransactions
 id containerWeekCalendar
+id containerWeekDots
+id containerWeekPlan
 id containerWeekStrip
 id containerWorkoutAdded
 id containerWorkoutEquipment
@@ -413,6 +421,7 @@ id layoutBeginner
 id layoutCategoryIcon
 id layoutDayCircle
 id layoutDoctorRespond
+id layoutFamilyDashContent
 id layoutIrregular
 id layoutMedium
 id layoutMemberPreview
@@ -442,7 +451,9 @@ id progressCalories
 id progressCarbs
 id progressDots
 id progressExercise
+id progressFamilyDash
 id progressFat
+id progressMemberCal
 id progressOnboardSteps
 id progressProtein
 id progressSchedulingCal
@@ -591,21 +602,26 @@ id tvExerciseRowName
 id tvExerciseTimer
 id tvExercisesCount
 id tvExercisesViewAll
+id tvFamilyDashEmpty
 id tvFamilyGroceryAddedBy
 id tvFamilyGroceryName
 id tvFamilyGroceryQty
 id tvFamilyGroupName
+id tvFamilyMemberCount
+id tvFamilyWeekLabel
 id tvFlashIcon
 id tvFocusSelection
 id tvGreeting
 id tvGroceryItemName
 id tvGroceryItemPrice
+id tvGroupAvgStreak
+id tvGroupTotalCal
+id tvGroupTotalMeals
 id tvHighlight1Name
 id tvHighlight1Sub
 id tvHighlight2Badge
 id tvHighlight2Name
 id tvHighlight2Sub
-id tvHighlight2Time
 id tvInboxEmpty
 id tvIngName
 id tvIngQty
@@ -621,6 +637,10 @@ id tvIngredientListSub
 id tvIngredients
 id tvInviteError
 id tvLabRecommendations
+id tvLbName
+id tvLbPoints
+id tvLbRank
+id tvLbStreak
 id tvMealCalTag
 id tvMealCardCalories
 id tvMealCardCarbs
@@ -645,6 +665,10 @@ id tvMemberGoal
 id tvMemberName
 id tvMemberRole
 id tvMemberStreak
+id tvMemberWater
+id tvMemberWeekCalBurned
+id tvMemberWeekMeals
+id tvMemberWeekWorkouts
 id tvMorningSectionTitle
 id tvMsgContent
 id tvMsgFiles
@@ -706,6 +730,7 @@ id tvSchedulingCalGoal
 id tvSchedulingMealCal
 id tvSchedulingMealName
 id tvSessions
+id tvStatDone
 id tvStatPending
 id tvStatResponded
 id tvStatTotal
@@ -753,9 +778,7 @@ id tvTxDate
 id tvTxDescription
 id tvTxIcon
 id tvTxPatient
-id tvViewAllHighlights
 id tvViewAllMeals
-id tvViewAllRecommended
 id tvWalletBalance
 id tvWalletTotalCases
 id tvWalletTotalEarned
@@ -793,6 +816,7 @@ id tvWorkoutsCount
 id tvWorkoutsViewAll
 id viewAlertBorder
 id viewCaloriesProgress
+id viewOnlineDot
 id weightPicker
 id workoutDaysPicker
 layout activity_active_workout
@@ -808,6 +832,7 @@ layout activity_doctor_pending
 layout activity_doctor_wallet
 layout activity_eco_sustainability
 layout activity_exercise_list
+layout activity_family_dashboard
 layout activity_family_diet
 layout activity_grocery
 layout activity_health_report
@@ -869,6 +894,7 @@ layout item_eco_meal_score
 layout item_eco_suggestion
 layout item_equipment_chip
 layout item_exercise_row
+layout item_family_dashboard_member
 layout item_family_grocery
 layout item_family_member
 layout item_filter_chip
@@ -877,6 +903,7 @@ layout item_ingredient_grid
 layout item_ingredient_list
 layout item_ingredient_row
 layout item_instruction_step
+layout item_leaderboard_entry
 layout item_meal_card
 layout item_meal_recommended
 layout item_medical_alert_card

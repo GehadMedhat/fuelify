@@ -34,6 +34,9 @@ public final class ActivityFamilyDietBinding implements ViewBinding {
   public final ImageButton btnFamilyBack;
 
   @NonNull
+  public final LinearLayout btnFamilyDashboard;
+
+  @NonNull
   public final LinearLayout containerFamilyGrocery;
 
   @NonNull
@@ -69,17 +72,18 @@ public final class ActivityFamilyDietBinding implements ViewBinding {
   private ActivityFamilyDietBinding(@NonNull LinearLayout rootView,
       @NonNull LinearLayout btnAddFamilyGrocery, @NonNull LinearLayout btnAddMember,
       @NonNull TextView btnClearFamilyChecked, @NonNull ImageButton btnFamilyBack,
-      @NonNull LinearLayout containerFamilyGrocery, @NonNull LinearLayout containerFamilyMembers,
-      @NonNull LinearLayout containerWeekStrip, @NonNull LinearLayout navDiet,
-      @NonNull LinearLayout navHome, @NonNull LinearLayout navProfile,
-      @NonNull LinearLayout navStats, @NonNull LinearLayout navWorkouts,
-      @NonNull ProgressBar pbFamily, @NonNull TextView tvFamilyGroupName,
-      @NonNull TextView tvTotalMeals) {
+      @NonNull LinearLayout btnFamilyDashboard, @NonNull LinearLayout containerFamilyGrocery,
+      @NonNull LinearLayout containerFamilyMembers, @NonNull LinearLayout containerWeekStrip,
+      @NonNull LinearLayout navDiet, @NonNull LinearLayout navHome,
+      @NonNull LinearLayout navProfile, @NonNull LinearLayout navStats,
+      @NonNull LinearLayout navWorkouts, @NonNull ProgressBar pbFamily,
+      @NonNull TextView tvFamilyGroupName, @NonNull TextView tvTotalMeals) {
     this.rootView = rootView;
     this.btnAddFamilyGrocery = btnAddFamilyGrocery;
     this.btnAddMember = btnAddMember;
     this.btnClearFamilyChecked = btnClearFamilyChecked;
     this.btnFamilyBack = btnFamilyBack;
+    this.btnFamilyDashboard = btnFamilyDashboard;
     this.containerFamilyGrocery = containerFamilyGrocery;
     this.containerFamilyMembers = containerFamilyMembers;
     this.containerWeekStrip = containerWeekStrip;
@@ -141,6 +145,12 @@ public final class ActivityFamilyDietBinding implements ViewBinding {
       id = R.id.btnFamilyBack;
       ImageButton btnFamilyBack = ViewBindings.findChildViewById(rootView, id);
       if (btnFamilyBack == null) {
+        break missingId;
+      }
+
+      id = R.id.btnFamilyDashboard;
+      LinearLayout btnFamilyDashboard = ViewBindings.findChildViewById(rootView, id);
+      if (btnFamilyDashboard == null) {
         break missingId;
       }
 
@@ -211,9 +221,9 @@ public final class ActivityFamilyDietBinding implements ViewBinding {
       }
 
       return new ActivityFamilyDietBinding((LinearLayout) rootView, btnAddFamilyGrocery,
-          btnAddMember, btnClearFamilyChecked, btnFamilyBack, containerFamilyGrocery,
-          containerFamilyMembers, containerWeekStrip, navDiet, navHome, navProfile, navStats,
-          navWorkouts, pbFamily, tvFamilyGroupName, tvTotalMeals);
+          btnAddMember, btnClearFamilyChecked, btnFamilyBack, btnFamilyDashboard,
+          containerFamilyGrocery, containerFamilyMembers, containerWeekStrip, navDiet, navHome,
+          navProfile, navStats, navWorkouts, pbFamily, tvFamilyGroupName, tvTotalMeals);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

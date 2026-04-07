@@ -27,6 +27,13 @@ class FamilyDietActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_family_diet)
+        // Dashboard button
+        try {
+            findViewById<android.widget.LinearLayout>(R.id.btnFamilyDashboard)
+                ?.setOnClickListener {
+                    startActivity(android.content.Intent(this, FamilyDashboardActivity::class.java))
+                }
+        } catch (e: Exception) {}
 
         userId = UserPreferences.getUserId(this)
 
@@ -566,10 +573,7 @@ class FamilyDietActivity : AppCompatActivity() {
         findViewById<LinearLayout>(R.id.navDiet).setOnClickListener {
             startActivity(Intent(this, DietActivity::class.java)); finish()
         }
-        findViewById<LinearLayout>(R.id.navWorkouts).setOnClickListener {
-            startActivity(Intent(this, WorkoutHomeActivity::class.java)); finish()
-        }
-        listOf(R.id.navStats, R.id.navProfile).forEach { id ->
+        listOf(R.id.navWorkouts, R.id.navStats, R.id.navProfile).forEach { id ->
             findViewById<LinearLayout>(id).setOnClickListener {
                 Toast.makeText(this, "Coming soon!", Toast.LENGTH_SHORT).show()
             }

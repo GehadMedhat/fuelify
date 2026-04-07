@@ -1,20 +1,20 @@
 -- Merging decision tree log ---
 provider#androidx.core.content.FileProvider
-INJECTED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:119:9-127:20
+INJECTED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:123:9-131:20
 	android:grantUriPermissions
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:123:13-47
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:127:13-47
 	android:authorities
 		INJECTED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:121:13-60
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:125:13-60
 	android:exported
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:122:13-37
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:126:13-37
 	android:name
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:120:13-62
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:124:13-62
 manifest
-ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:2:1-131:12
-INJECTED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:2:1-131:12
-INJECTED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:2:1-131:12
-INJECTED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:2:1-131:12
+ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:2:1-135:12
+INJECTED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:2:1-135:12
+INJECTED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:2:1-135:12
+INJECTED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:2:1-135:12
 MERGED from [androidx.databinding:viewbinding:8.2.0] /home/Gehad/.gradle/caches/9.0-milestone-1/transforms/ce8d371269b01bb55dd03701f5665af7/transformed/jetified-viewbinding-8.2.0/AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.material:material:1.11.0] /home/Gehad/.gradle/caches/9.0-milestone-1/transforms/c1952a73378077b65f81db2d6398c1c7/transformed/material-1.11.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /home/Gehad/.gradle/caches/9.0-milestone-1/transforms/3068b3b68d4b7ed9b5313daf7f3018aa/transformed/constraintlayout-2.1.4/AndroidManifest.xml:2:1-11:12
@@ -137,8 +137,8 @@ ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/ap
 	android:name
 		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:14:18-44
 application
-ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:16:5-130:19
-INJECTED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:16:5-130:19
+ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:16:5-134:19
+INJECTED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:16:5-134:19
 MERGED from [com.google.android.material:material:1.11.0] /home/Gehad/.gradle/caches/9.0-milestone-1/transforms/c1952a73378077b65f81db2d6398c1c7/transformed/material-1.11.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.11.0] /home/Gehad/.gradle/caches/9.0-milestone-1/transforms/c1952a73378077b65f81db2d6398c1c7/transformed/material-1.11.0/AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /home/Gehad/.gradle/caches/9.0-milestone-1/transforms/3068b3b68d4b7ed9b5313daf7f3018aa/transformed/constraintlayout-2.1.4/AndroidManifest.xml:9:5-20
@@ -319,180 +319,188 @@ ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/ap
 		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:81:13-37
 	android:name
 		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:79:13-52
+activity#com.example.fuelify.home.FamilyDashboardActivity
+ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:82:9-85:39
+	android:screenOrientation
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:84:13-49
+	android:exported
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:85:13-37
+	android:name
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:83:13-57
 activity#com.example.fuelify.home.EcoSustainabilityActivity
-ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:83:9-86:39
+ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:87:9-90:39
 	android:screenOrientation
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:85:13-49
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:89:13-49
 	android:exported
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:86:13-37
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:90:13-37
 	android:name
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:84:13-59
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:88:13-59
 activity#com.example.fuelify.home.ProductScanActivity
-ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:88:9-91:39
+ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:92:9-95:39
 	android:screenOrientation
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:90:13-49
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:94:13-49
 	android:exported
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:91:13-37
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:95:13-37
 	android:name
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:89:13-53
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:93:13-53
 activity#com.example.fuelify.home.WorkoutHomeActivity
-ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:93:9-127
-	android:screenOrientation
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:93:64-100
-	android:exported
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:93:101-125
-	android:name
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:93:19-59
-activity#com.example.fuelify.home.WorkoutCategoryActivity
-ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:94:9-127
-	android:screenOrientation
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:94:64-100
-	android:exported
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:94:101-125
-	android:name
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:94:19-63
-activity#com.example.fuelify.home.WorkoutListActivity
-ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:95:9-127
-	android:screenOrientation
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:95:64-100
-	android:exported
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:95:101-125
-	android:name
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:95:19-59
-activity#com.example.fuelify.home.WorkoutDetailActivity
-ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:96:9-127
-	android:screenOrientation
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:96:64-100
-	android:exported
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:96:101-125
-	android:name
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:96:19-61
-activity#com.example.fuelify.home.ExerciseListActivity
 ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:97:9-127
 	android:screenOrientation
 		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:97:64-100
 	android:exported
 		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:97:101-125
 	android:name
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:97:19-60
-activity#com.example.fuelify.home.ActiveWorkoutActivity
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:97:19-59
+activity#com.example.fuelify.home.WorkoutCategoryActivity
+ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:98:9-127
+	android:screenOrientation
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:98:64-100
+	android:exported
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:98:101-125
+	android:name
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:98:19-63
+activity#com.example.fuelify.home.WorkoutListActivity
 ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:99:9-127
 	android:screenOrientation
 		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:99:64-100
 	android:exported
 		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:99:101-125
 	android:name
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:99:19-61
-activity#com.example.fuelify.home.WorkoutSummaryActivity
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:99:19-59
+activity#com.example.fuelify.home.WorkoutDetailActivity
 ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:100:9-127
 	android:screenOrientation
 		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:100:64-100
 	android:exported
 		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:100:101-125
 	android:name
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:100:19-62
-activity#com.example.fuelify.home.CustomWorkoutActivity
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:100:19-61
+activity#com.example.fuelify.home.ExerciseListActivity
 ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:101:9-127
 	android:screenOrientation
 		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:101:64-100
 	android:exported
 		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:101:101-125
 	android:name
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:101:19-61
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:101:19-60
+activity#com.example.fuelify.home.ActiveWorkoutActivity
+ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:103:9-127
+	android:screenOrientation
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:103:64-100
+	android:exported
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:103:101-125
+	android:name
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:103:19-61
+activity#com.example.fuelify.home.WorkoutSummaryActivity
+ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:104:9-127
+	android:screenOrientation
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:104:64-100
+	android:exported
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:104:101-125
+	android:name
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:104:19-62
+activity#com.example.fuelify.home.CustomWorkoutActivity
+ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:105:9-127
+	android:screenOrientation
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:105:64-100
+	android:exported
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:105:101-125
+	android:name
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:105:19-61
 activity#com.example.fuelify.home.MedicalInformationActivity
-ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:103:9-130
+ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:107:9-130
 	android:screenOrientation
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:103:67-103
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:107:67-103
 	android:exported
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:103:104-128
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:107:104-128
 	android:name
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:103:19-66
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:107:19-66
 activity#com.example.fuelify.home.MedicalAlertsActivity
-ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:104:9-130
+ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:108:9-130
 	android:screenOrientation
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:104:67-103
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:108:67-103
 	android:exported
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:104:104-128
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:108:104-128
 	android:name
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:104:19-61
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:108:19-61
 activity#com.example.fuelify.home.SmartPlanActivity
-ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:105:9-130
-	android:screenOrientation
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:105:67-103
-	android:exported
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:105:104-128
-	android:name
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:105:19-57
-activity#com.example.fuelify.home.HealthReportActivity
-ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:106:9-130
-	android:screenOrientation
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:106:67-103
-	android:exported
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:106:104-128
-	android:name
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:106:19-60
-activity#com.example.fuelify.home.ProfileActivity
-ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:107:9-125
-	android:screenOrientation
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:107:62-98
-	android:exported
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:107:99-123
-	android:name
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:107:19-55
-activity#com.example.fuelify.home.DoctorConsultationActivity
 ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:109:9-130
 	android:screenOrientation
 		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:109:67-103
 	android:exported
 		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:109:104-128
 	android:name
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:109:19-66
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:109:19-57
+activity#com.example.fuelify.home.HealthReportActivity
+ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:110:9-130
+	android:screenOrientation
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:110:67-103
+	android:exported
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:110:104-128
+	android:name
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:110:19-60
+activity#com.example.fuelify.home.ProfileActivity
+ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:111:9-125
+	android:screenOrientation
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:111:62-98
+	android:exported
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:111:99-123
+	android:name
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:111:19-55
+activity#com.example.fuelify.home.DoctorConsultationActivity
+ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:113:9-130
+	android:screenOrientation
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:113:67-103
+	android:exported
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:113:104-128
+	android:name
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:113:19-66
 activity#com.example.fuelify.doctor.DoctorOnboardingActivity
-ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:112:9-130
+ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:116:9-130
 	android:screenOrientation
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:112:67-103
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:116:67-103
 	android:exported
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:112:104-128
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:116:104-128
 	android:name
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:112:19-66
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:116:19-66
 activity#com.example.fuelify.doctor.DoctorPendingActivity
-ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:113:9-127
+ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:117:9-127
 	android:screenOrientation
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:113:64-100
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:117:64-100
 	android:exported
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:113:101-125
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:117:101-125
 	android:name
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:113:19-63
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:117:19-63
 activity#com.example.fuelify.doctor.DoctorHomeActivity
-ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:114:9-124
+ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:118:9-124
 	android:screenOrientation
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:114:61-97
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:118:61-97
 	android:exported
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:114:98-122
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:118:98-122
 	android:name
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:114:19-60
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:118:19-60
 activity#com.example.fuelify.doctor.DoctorCaseActivity
-ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:115:9-124
+ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:119:9-124
 	android:screenOrientation
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:115:61-97
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:119:61-97
 	android:exported
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:115:98-122
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:119:98-122
 	android:name
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:115:19-60
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:119:19-60
 activity#com.example.fuelify.doctor.DoctorWalletActivity
-ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:116:9-126
+ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:120:9-126
 	android:screenOrientation
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:116:63-99
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:120:63-99
 	android:exported
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:116:100-124
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:120:100-124
 	android:name
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:116:19-62
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:120:19-62
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:124:13-126:53
+ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:128:13-130:53
 	android:resource
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:126:17-51
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:130:17-51
 	android:name
-		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:125:17-67
+		ADDED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml:129:17-67
 uses-sdk
 INJECTED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /home/Gehad/Downloads/Fuelify_Complete (1)/fuelify_project/android/app/src/main/AndroidManifest.xml

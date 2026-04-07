@@ -3355,6 +3355,7 @@ int id btnDoctor 0x7f080090
 int id btnDoctorAlreadyLogin 0x7f0804b3
 int id btnDoctorCaseBack 0x7f080470
 int id btnDoctorLogin 0x7f080471
+int id btnDoctorLogout 0x7f0804d4
 int id btnDoctorSendResponse 0x7f080472
 int id btnDownloadPDF 0x7f080091
 int id btnDownloadSummary 0x7f080092
@@ -3362,8 +3363,11 @@ int id btnEcoBack 0x7f080093
 int id btnExerciseListBack 0x7f080094
 int id btnExerciseRowInfo 0x7f080095
 int id btnFamilyBack 0x7f080096
+int id btnFamilyDashBack 0x7f0804ba
+int id btnFamilyDashboard 0x7f0804d0
 int id btnFamilyPlans 0x7f080097
 int id btnFilterAll 0x7f080473
+int id btnFilterDone 0x7f0804d2
 int id btnFilterPending 0x7f080474
 int id btnFilterResponded 0x7f080475
 int id btnFinishWorkout 0x7f080098
@@ -3372,6 +3376,7 @@ int id btnGroceryBack 0x7f08009a
 int id btnHealthReportBack 0x7f08009b
 int id btnKitchenBack 0x7f08009c
 int id btnListMode 0x7f08009d
+int id btnManageFamily 0x7f0804bb
 int id btnMealArrow 0x7f08009e
 int id btnMealCheck 0x7f08009f
 int id btnMealDelivery 0x7f0800a0
@@ -3545,6 +3550,7 @@ int id containerGroceryListItems 0x7f080138
 int id containerInbox 0x7f080485
 int id containerIngredients 0x7f080139
 int id containerInstructions 0x7f08013a
+int id containerLeaderboard 0x7f0804bc
 int id containerMeals 0x7f08013b
 int id containerMedications 0x7f08013c
 int id containerMessages 0x7f08013d
@@ -3567,6 +3573,8 @@ int id containerSuggestedWorkouts 0x7f08014c
 int id containerSwitchMeals 0x7f08014d
 int id containerTransactions 0x7f080487
 int id containerWeekCalendar 0x7f0804b8
+int id containerWeekDots 0x7f0804bd
+int id containerWeekPlan 0x7f0804d1
 int id containerWeekStrip 0x7f08014e
 int id containerWorkoutAdded 0x7f08014f
 int id containerWorkoutEquipment 0x7f080150
@@ -3767,6 +3775,7 @@ int id layoutBeginner 0x7f080209
 int id layoutCategoryIcon 0x7f08020a
 int id layoutDayCircle 0x7f08020b
 int id layoutDoctorRespond 0x7f08048f
+int id layoutFamilyDashContent 0x7f0804be
 int id layoutIrregular 0x7f08020c
 int id layoutMedium 0x7f08020d
 int id layoutMemberPreview 0x7f08020e
@@ -3919,7 +3928,9 @@ int id progressCalories 0x7f08029c
 int id progressCarbs 0x7f08029d
 int id progressDots 0x7f08029e
 int id progressExercise 0x7f08029f
+int id progressFamilyDash 0x7f0804bf
 int id progressFat 0x7f0802a0
+int id progressMemberCal 0x7f0804c0
 int id progressOnboardSteps 0x7f080494
 int id progressProtein 0x7f0802a1
 int id progressSchedulingCal 0x7f0802a2
@@ -4187,21 +4198,26 @@ int id tvExerciseRowName 0x7f080397
 int id tvExerciseTimer 0x7f080398
 int id tvExercisesCount 0x7f080399
 int id tvExercisesViewAll 0x7f08039a
+int id tvFamilyDashEmpty 0x7f0804c1
 int id tvFamilyGroceryAddedBy 0x7f08039b
 int id tvFamilyGroceryName 0x7f08039c
 int id tvFamilyGroceryQty 0x7f08039d
 int id tvFamilyGroupName 0x7f08039e
+int id tvFamilyMemberCount 0x7f0804c2
+int id tvFamilyWeekLabel 0x7f0804c3
 int id tvFlashIcon 0x7f08039f
 int id tvFocusSelection 0x7f0803a0
 int id tvGreeting 0x7f0803a1
 int id tvGroceryItemName 0x7f0803a2
 int id tvGroceryItemPrice 0x7f0803a3
+int id tvGroupAvgStreak 0x7f0804c4
+int id tvGroupTotalCal 0x7f0804c5
+int id tvGroupTotalMeals 0x7f0804c6
 int id tvHighlight1Name 0x7f0803a4
 int id tvHighlight1Sub 0x7f0804b6
 int id tvHighlight2Badge 0x7f0804b7
 int id tvHighlight2Name 0x7f0803a5
 int id tvHighlight2Sub 0x7f0803a6
-int id tvHighlight2Time 0x7f0803a7
 int id tvInboxEmpty 0x7f0804a6
 int id tvIngName 0x7f0803a8
 int id tvIngQty 0x7f0803a9
@@ -4217,6 +4233,10 @@ int id tvIngredientListSub 0x7f0803b2
 int id tvIngredients 0x7f0803b3
 int id tvInviteError 0x7f0803b4
 int id tvLabRecommendations 0x7f0803b5
+int id tvLbName 0x7f0804c7
+int id tvLbPoints 0x7f0804c8
+int id tvLbRank 0x7f0804c9
+int id tvLbStreak 0x7f0804ca
 int id tvMealCalTag 0x7f0803b6
 int id tvMealCardCalories 0x7f0803b7
 int id tvMealCardCarbs 0x7f0803b8
@@ -4241,6 +4261,10 @@ int id tvMemberGoal 0x7f0803ca
 int id tvMemberName 0x7f0803cb
 int id tvMemberRole 0x7f0803cc
 int id tvMemberStreak 0x7f0803cd
+int id tvMemberWater 0x7f0804cb
+int id tvMemberWeekCalBurned 0x7f0804cc
+int id tvMemberWeekMeals 0x7f0804cd
+int id tvMemberWeekWorkouts 0x7f0804ce
 int id tvMorningSectionTitle 0x7f0803ce
 int id tvMsgContent 0x7f0803cf
 int id tvMsgFiles 0x7f0803d0
@@ -4302,6 +4326,7 @@ int id tvSchedulingCalGoal 0x7f080406
 int id tvSchedulingMealCal 0x7f080407
 int id tvSchedulingMealName 0x7f080408
 int id tvSessions 0x7f080409
+int id tvStatDone 0x7f0804d3
 int id tvStatPending 0x7f0804a8
 int id tvStatResponded 0x7f0804a9
 int id tvStatTotal 0x7f0804aa
@@ -4349,9 +4374,7 @@ int id tvTxDate 0x7f0804ac
 int id tvTxDescription 0x7f0804ad
 int id tvTxIcon 0x7f0804ae
 int id tvTxPatient 0x7f0804af
-int id tvViewAllHighlights 0x7f080431
 int id tvViewAllMeals 0x7f080432
-int id tvViewAllRecommended 0x7f080433
 int id tvWalletBalance 0x7f0804b0
 int id tvWalletTotalCases 0x7f0804b1
 int id tvWalletTotalEarned 0x7f0804b2
@@ -4395,6 +4418,7 @@ int id useLogo 0x7f080457
 int id vertical_only 0x7f080458
 int id viewAlertBorder 0x7f080459
 int id viewCaloriesProgress 0x7f08045a
+int id viewOnlineDot 0x7f0804cf
 int id view_offset_helper 0x7f08045b
 int id view_transition 0x7f08045c
 int id view_tree_lifecycle_owner 0x7f08045d
@@ -4543,6 +4567,7 @@ int layout activity_doctor_pending 0x7f0b00cd
 int layout activity_doctor_wallet 0x7f0b00ce
 int layout activity_eco_sustainability 0x7f0b0022
 int layout activity_exercise_list 0x7f0b0023
+int layout activity_family_dashboard 0x7f0b00d1
 int layout activity_family_diet 0x7f0b0024
 int layout activity_grocery 0x7f0b0025
 int layout activity_health_report 0x7f0b0026
@@ -4622,6 +4647,7 @@ int layout item_eco_meal_score 0x7f0b006e
 int layout item_eco_suggestion 0x7f0b006f
 int layout item_equipment_chip 0x7f0b0070
 int layout item_exercise_row 0x7f0b0071
+int layout item_family_dashboard_member 0x7f0b00d2
 int layout item_family_grocery 0x7f0b0072
 int layout item_family_member 0x7f0b0073
 int layout item_filter_chip 0x7f0b0074
@@ -4630,6 +4656,7 @@ int layout item_ingredient_grid 0x7f0b0076
 int layout item_ingredient_list 0x7f0b0077
 int layout item_ingredient_row 0x7f0b0078
 int layout item_instruction_step 0x7f0b0079
+int layout item_leaderboard_entry 0x7f0b00d3
 int layout item_meal_card 0x7f0b007a
 int layout item_meal_recommended 0x7f0b007b
 int layout item_medical_alert_card 0x7f0b007c

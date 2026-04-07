@@ -13,6 +13,17 @@ import org.jetbrains.exposed.sql.*
 import java.time.LocalDate
 import java.time.LocalDateTime
 
+// Local reference to workout table for image lookup and plan auto-populate
+private object WorkoutTable : Table("workout") {
+    val workoutId   = integer("workout_id")
+    val workoutName = varchar("workout_name", 255)
+    val imageUrl    = varchar("image_url", 500).nullable()
+    override val primaryKey = PrimaryKey(workoutId)
+}
+
+// Alias for selectAll usage in auto-populate
+private val Workouts = WorkoutTable
+
 @Serializable
 data class MacroData(
     val protein_g: Int, val protein_goal: Int,
@@ -54,7 +65,15 @@ data class DashboardData(
     val workouts_goal: Int,
     val streak_days: Int,
     val today_meals: List<MealItem>,
-    val recommended_meals: List<MealItem>
+    val recommended_meals: List<MealItem>,
+    // Week-level progress
+    val week_meals_eaten: Int,
+    val week_meals_total: Int,
+    val week_workouts_done: Int,
+    val week_workouts_goal: Int,
+    val today_workout_name: String,
+    val today_workout_image: String,
+    val today_workout_id: Int       // so Android can open WorkoutDetailActivity directly
 )
 
 @Serializable data class LogWaterRequest(val glasses: Int)
@@ -225,15 +244,84 @@ fun Route.dashboardRoutes() {
                 )
             }
 
-        val log: ResultRow = dbQuery {
-            DailyLogs.select { (DailyLogs.userId eq userId) and (DailyLogs.logDate eq today) }
-                .firstOrNull()
-        } ?: return@get call.respond(HttpStatusCode.InternalServerError,
-            ApiResponse<Nothing>(false, "Daily log not found", null))
+      val log: ResultRow = dbQuery {
+    DailyLogs.select { (DailyLogs.userId eq userId) and (DailyLogs.logDate eq today) }
+        .firstOrNull()
+} ?: return@get call.respond(HttpStatusCode.InternalServerError,
+    ApiResponse<Nothing>(false, "Daily log not found", null))
 
-        // Daily workout goal based on exercise_days per week (how many days user exercises)
-        val exerciseDaysPerWeek = try { user[Users.exerciseDays] } catch (e: Exception) { 4 }
-        val dailyWorkoutGoal = maxOf(1, (exerciseDaysPerWeek + 6) / 7)
+        // ── Week-level stats ──────────────────────────────────────────────────
+        val weekStart = today.minusDays(today.dayOfWeek.value.toLong() - 1)
+        val weekEnd   = weekStart.plusDays(6)
+
+        // Meals eaten this week = completed meal_plan entries
+        val weekMealsEaten = dbQuery {
+            MealPlans.select {
+                (MealPlans.userId eq userId) and
+                (MealPlans.planDate greaterEq weekStart) and
+                (MealPlans.planDate lessEq weekEnd) and
+                (MealPlans.isCompleted eq true)
+            }.count().toInt()
+        }
+
+        // Meals total this week = mealsPerDay × 7 (the full weekly goal, not just DB rows)
+        val mealsPerDay   = try { user[Users.mealsPerDay].coerceAtLeast(1) } catch (e: Exception) { 3 }
+        val weekMealsTotal = mealsPerDay * 7
+
+        // Workouts goal this week = exerciseDays (how many days user plans to work out)
+        val exerciseDaysPerWeek = try { user[Users.exerciseDays].coerceAtLeast(1) } catch (e: Exception) { 4 }
+
+        // Workouts done this week from daily_log (updated by workout session save)
+        val weekWorkoutsDoneCount = log[DailyLogs.workoutsDone]
+
+        // ── Read today's workout from workout_plan (populated by WorkoutRoutes) ──
+        // NOTE: workout_plan is populated exclusively by GET /api/workouts/suggested/{userId}
+        // Dashboard only reads it — never writes — to avoid seed conflicts
+        val todayWorkoutRow = dbQuery {
+            WorkoutPlan.select {
+                (WorkoutPlan.userId eq userId) and (WorkoutPlan.scheduledDate eq today)
+            }.firstOrNull()
+        }
+        val todayWorkoutName  = todayWorkoutRow?.getOrNull(WorkoutPlan.workoutName) ?: ""
+        val todayWorkoutIdVal = todayWorkoutRow?.getOrNull(WorkoutPlan.workoutId)
+        val todayWorkoutImage = if (todayWorkoutIdVal != null) {
+            dbQuery {
+                WorkoutTable.select { WorkoutTable.workoutId eq todayWorkoutIdVal }
+                    .firstOrNull()?.getOrNull(WorkoutTable.imageUrl) ?: ""
+            }
+        } else ""
+
+        // ── Streak: compute on each dashboard load ────────────────────────────
+        val mealsEatenToday = todayMeals.count { it.is_completed }
+        val currentStreak   = log[DailyLogs.streakDays]
+        val updatedStreak = when {
+            mealsEatenToday > 0 && currentStreak == 0 -> {
+                // Check yesterday for continuity
+                val yesterday     = today.minusDays(1)
+                val yesterdayMeals = dbQuery {
+                    MealPlans.select {
+                        (MealPlans.userId eq userId) and
+                        (MealPlans.planDate eq yesterday) and
+                        (MealPlans.isCompleted eq true)
+                    }.count().toInt()
+                }
+                val yesterdayLog = dbQuery {
+                    DailyLogs.select {
+                        (DailyLogs.userId eq userId) and (DailyLogs.logDate eq yesterday)
+                    }.firstOrNull()
+                }
+                val prevStreak = if (yesterdayMeals > 0) (yesterdayLog?.get(DailyLogs.streakDays) ?: 0) else 0
+                val newStreak  = prevStreak + 1
+                dbQuery {
+                    DailyLogs.update({
+                        (DailyLogs.userId eq userId) and (DailyLogs.logDate eq today)
+                    }) { it[DailyLogs.streakDays] = newStreak }
+                }
+                newStreak
+            }
+            mealsEatenToday == 0 -> 0
+            else -> currentStreak
+        }
 
         call.respond(ApiResponse(success = true, message = "OK", data = DashboardData(
             user_id = userId, name = user[Users.name],
@@ -250,9 +338,17 @@ fun Route.dashboardRoutes() {
                 fat_goal = macroGoals.fatG
             ),
             water_glasses = log[DailyLogs.waterGlasses], water_goal = 8,
-            workouts_done = log[DailyLogs.workoutsDone], workouts_goal = dailyWorkoutGoal,
-            streak_days = log[DailyLogs.streakDays],
-            today_meals = todayMeals, recommended_meals = recommendedMeals
+            workouts_done = log[DailyLogs.workoutsDone], workouts_goal = log[DailyLogs.workoutsGoal],
+            streak_days        = updatedStreak,
+            today_meals        = todayMeals,
+            recommended_meals  = recommendedMeals,
+            week_meals_eaten   = weekMealsEaten,
+            week_meals_total   = weekMealsTotal,
+            week_workouts_done = weekWorkoutsDoneCount,
+            week_workouts_goal = exerciseDaysPerWeek,
+            today_workout_name  = todayWorkoutName,
+            today_workout_image = todayWorkoutImage,
+            today_workout_id    = todayWorkoutIdVal ?: 0
         )))
     }
 
@@ -300,6 +396,26 @@ fun Route.dashboardRoutes() {
                 it[DailyLogs.updatedAt]     = LocalDateTime.now()
             }
         }
+        // Update streak when meal is logged
+        dbQuery {
+            val todayLog = DailyLogs.select {
+                (DailyLogs.userId eq userId) and (DailyLogs.logDate eq today)
+            }.firstOrNull()
+            val currentStreak = todayLog?.get(DailyLogs.streakDays) ?: 0
+            if (currentStreak == 0) {
+                // Check yesterday
+                val yesterday = today.minusDays(1)
+                val yesterdayLog = DailyLogs.select {
+                    (DailyLogs.userId eq userId) and (DailyLogs.logDate eq yesterday)
+                }.firstOrNull()
+                val prevStreak = yesterdayLog?.get(DailyLogs.streakDays) ?: 0
+                val newStreak  = if ((yesterdayLog?.get(DailyLogs.caloriesEaten) ?: 0) > 0) prevStreak + 1 else 1
+                DailyLogs.update({
+                    (DailyLogs.userId eq userId) and (DailyLogs.logDate eq today)
+                }) { it[DailyLogs.streakDays] = newStreak }
+            }
+        }
+
         call.respond(ApiResponse(success = true, message = "Meal logged", data = meal[Meals.calories]))
     }
 }

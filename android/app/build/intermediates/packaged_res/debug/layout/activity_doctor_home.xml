@@ -27,13 +27,23 @@
         <LinearLayout android:id="@+id/btnWallet" android:layout_width="48dp"
             android:layout_height="48dp" android:background="@drawable/bg_badge_time"
             android:gravity="center" android:orientation="vertical"
-            android:clickable="true" android:focusable="true">
+            android:clickable="true" android:focusable="true"
+            android:layout_marginEnd="8dp">
             <TextView android:text="💰" android:textSize="22sp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <!-- Logout button -->
+        <LinearLayout android:id="@+id/btnDoctorLogout" android:layout_width="48dp"
+            android:layout_height="48dp" android:background="@drawable/bg_badge_time"
+            android:gravity="center" android:orientation="vertical"
+            android:clickable="true" android:focusable="true">
+            <TextView android:text="🚪" android:textSize="22sp"
                 android:layout_width="wrap_content" android:layout_height="wrap_content"/>
         </LinearLayout>
     </LinearLayout>
 
-    <!-- Stats bar -->
+    <!-- Stats bar — 4 columns: Total | Pending | Responded | Done -->
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
         android:background="#FFFFFF" android:paddingHorizontal="20dp"
         android:paddingVertical="12dp" android:orientation="horizontal"
@@ -49,7 +59,9 @@
                 android:gravity="center"
                 android:layout_width="match_parent" android:layout_height="wrap_content"/>
         </LinearLayout>
+
         <View android:layout_width="1dp" android:layout_height="40dp" android:background="#E5E7EB"/>
+
         <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
             android:layout_weight="1" android:orientation="vertical" android:gravity="center">
             <TextView android:id="@+id/tvStatPending" android:text="0"
@@ -60,7 +72,9 @@
                 android:gravity="center"
                 android:layout_width="match_parent" android:layout_height="wrap_content"/>
         </LinearLayout>
+
         <View android:layout_width="1dp" android:layout_height="40dp" android:background="#E5E7EB"/>
+
         <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
             android:layout_weight="1" android:orientation="vertical" android:gravity="center">
             <TextView android:id="@+id/tvStatResponded" android:text="0"
@@ -71,42 +85,65 @@
                 android:gravity="center"
                 android:layout_width="match_parent" android:layout_height="wrap_content"/>
         </LinearLayout>
+
+        <View android:layout_width="1dp" android:layout_height="40dp" android:background="#E5E7EB"/>
+
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+            <TextView android:id="@+id/tvStatDone" android:text="0"
+                android:textColor="#6366F1" android:textSize="20sp" android:textStyle="bold"
+                android:gravity="center"
+                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            <TextView android:text="Done" android:textColor="#9CA3AF" android:textSize="11sp"
+                android:gravity="center"
+                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        </LinearLayout>
     </LinearLayout>
 
     <!-- Filter tabs + refresh -->
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:background="#FFFFFF" android:paddingHorizontal="16dp"
-        android:paddingVertical="10dp" android:orientation="horizontal"
-        android:gravity="center_vertical" android:layout_marginBottom="8dp">
+    <HorizontalScrollView android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:background="#FFFFFF" android:scrollbars="none"
+        android:layout_marginBottom="8dp">
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp" android:paddingVertical="10dp"
+            android:orientation="horizontal" android:gravity="center_vertical">
 
-        <TextView android:id="@+id/btnFilterAll" android:text="All"
-            android:textColor="#FFFFFF" android:textSize="12sp" android:textStyle="bold"
-            android:background="#F97316" android:paddingHorizontal="14dp"
-            android:paddingVertical="6dp" android:layout_marginEnd="6dp"
-            android:clickable="true" android:focusable="true"
-            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-        <TextView android:id="@+id/btnFilterPending" android:text="Needs Response"
-            android:textColor="#374151" android:textSize="12sp" android:textStyle="bold"
-            android:background="#E5E7EB" android:paddingHorizontal="14dp"
-            android:paddingVertical="6dp" android:layout_marginEnd="6dp"
-            android:clickable="true" android:focusable="true"
-            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-        <TextView android:id="@+id/btnFilterResponded" android:text="Done"
-            android:textColor="#374151" android:textSize="12sp" android:textStyle="bold"
-            android:background="#E5E7EB" android:paddingHorizontal="14dp"
-            android:paddingVertical="6dp"
-            android:clickable="true" android:focusable="true"
-            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-
-        <View android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1"/>
-
-        <LinearLayout android:id="@+id/btnRefreshInbox" android:layout_width="36dp"
-            android:layout_height="36dp" android:background="@drawable/bg_recommended_card"
-            android:gravity="center" android:clickable="true" android:focusable="true">
-            <TextView android:text="↻" android:textSize="18sp" android:textColor="#374151"
+            <TextView android:id="@+id/btnFilterAll" android:text="All"
+                android:textColor="#FFFFFF" android:textSize="12sp" android:textStyle="bold"
+                android:background="#F97316" android:paddingHorizontal="14dp"
+                android:paddingVertical="6dp" android:layout_marginEnd="6dp"
+                android:clickable="true" android:focusable="true"
                 android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+            <TextView android:id="@+id/btnFilterPending" android:text="Needs Response"
+                android:textColor="#374151" android:textSize="12sp" android:textStyle="bold"
+                android:background="#E5E7EB" android:paddingHorizontal="14dp"
+                android:paddingVertical="6dp" android:layout_marginEnd="6dp"
+                android:clickable="true" android:focusable="true"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+            <TextView android:id="@+id/btnFilterResponded" android:text="Responded"
+                android:textColor="#374151" android:textSize="12sp" android:textStyle="bold"
+                android:background="#E5E7EB" android:paddingHorizontal="14dp"
+                android:paddingVertical="6dp" android:layout_marginEnd="6dp"
+                android:clickable="true" android:focusable="true"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+            <TextView android:id="@+id/btnFilterDone" android:text="Done"
+                android:textColor="#374151" android:textSize="12sp" android:textStyle="bold"
+                android:background="#E5E7EB" android:paddingHorizontal="14dp"
+                android:paddingVertical="6dp" android:layout_marginEnd="12dp"
+                android:clickable="true" android:focusable="true"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+            <LinearLayout android:id="@+id/btnRefreshInbox" android:layout_width="36dp"
+                android:layout_height="36dp" android:background="@drawable/bg_recommended_card"
+                android:gravity="center" android:clickable="true" android:focusable="true">
+                <TextView android:text="↻" android:textSize="18sp" android:textColor="#374151"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+    </HorizontalScrollView>
 
     <!-- Cases list -->
     <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">

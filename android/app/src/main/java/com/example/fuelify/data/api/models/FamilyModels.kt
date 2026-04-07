@@ -93,3 +93,51 @@ data class MemberPreviewResponse(
     @SerializedName("message") val message: String?,
     @SerializedName("data")    val data: MemberPreview?
 )
+
+// ── Family Dashboard ──────────────────────────────────────────────────────────
+
+data class FamilyMemberDashboard(
+    @SerializedName("memberId")           val memberId:          Int,
+    @SerializedName("userId")             val userId:            Int,
+    @SerializedName("name")               val name:              String,
+    @SerializedName("role")               val role:              String,
+    @SerializedName("goal")               val goal:              String,
+    @SerializedName("streakDays")         val streakDays:        Int,
+    @SerializedName("caloriesEaten")      val caloriesEaten:     Int,
+    @SerializedName("caloriesGoal")       val caloriesGoal:      Int,
+    @SerializedName("caloriePct")         val caloriePct:        Int,
+    @SerializedName("waterGlasses")       val waterGlasses:      Int,
+    @SerializedName("workoutsDoneWeek")   val workoutsDoneWeek:  Int,
+    @SerializedName("workoutsGoalWeek")   val workoutsGoalWeek:  Int,
+    @SerializedName("mealsEatenWeek")     val mealsEatenWeek:    Int,
+    @SerializedName("mealsTotalWeek")     val mealsTotalWeek:    Int,
+    @SerializedName("caloriesBurnedWeek") val caloriesBurnedWeek: Int,
+    @SerializedName("isOnline")           val isOnline:          Boolean,
+    @SerializedName("weekDots")           val weekDots:          List<Boolean>
+)
+
+data class FamilyLeaderboardEntry(
+    @SerializedName("rank")       val rank:       Int,
+    @SerializedName("userId")     val userId:     Int,
+    @SerializedName("name")       val name:       String,
+    @SerializedName("streakDays") val streakDays: Int,
+    @SerializedName("points")     val points:     Int,
+    @SerializedName("medal")      val medal:      String
+)
+
+data class FamilyDashboardData(
+    @SerializedName("groupId")                 val groupId:                Int,
+    @SerializedName("groupName")               val groupName:              String,
+    @SerializedName("members")                 val members:                List<FamilyMemberDashboard>,
+    @SerializedName("leaderboard")             val leaderboard:            List<FamilyLeaderboardEntry>,
+    @SerializedName("totalCaloriesBurnedWeek") val totalCaloriesBurnedWeek: Int,
+    @SerializedName("totalMealsEatenWeek")     val totalMealsEatenWeek:    Int,
+    @SerializedName("groupStreakAvg")          val groupStreakAvg:          Int,
+    @SerializedName("weekLabel")               val weekLabel:              String
+)
+
+data class FamilyDashboardResponse(
+    @SerializedName("success") val success: Boolean,
+    @SerializedName("message") val message: String,
+    @SerializedName("data")    val data:    FamilyDashboardData?
+)

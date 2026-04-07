@@ -8,6 +8,9 @@ import android.widget.*
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 import com.example.fuelify.R
 import com.example.fuelify.data.api.RetrofitClient
 import com.example.fuelify.data.api.models.*
@@ -83,6 +86,12 @@ class WorkoutHomeActivity : AppCompatActivity() {
                 val wkResp = withContext(Dispatchers.IO) { RetrofitClient.api.getWorkouts(limit = 4) }
                 if (wkResp.isSuccessful) bindPopularWorkouts(wkResp.body()?.data ?: emptyList())
 
+                // Load this week's workout plan
+                val planResp = withContext(Dispatchers.IO) { RetrofitClient.api.getWeekWorkoutPlan(userId) }
+                if (planResp.isSuccessful && planResp.body()?.data != null) {
+                    bindWeekPlan(planResp.body()!!.data!!)
+                }
+
                 // Load exercises (limit 4)
                 val exResp = withContext(Dispatchers.IO) { RetrofitClient.api.getExercises(limit = 4) }
                 if (exResp.isSuccessful) bindExercises(exResp.body()?.data ?: emptyList())
@@ -108,7 +117,7 @@ class WorkoutHomeActivity : AppCompatActivity() {
             progress.todayDone -> "✓ Workout done today!"
             else -> "No workout yet today"
         }
-        tvStatus.setTextColor(if (progress.todayDone) 0xFF22C55E.toInt() else 0xFF9CA3AF.toInt())
+        tvStatus.setTextColor(if (progress.todayDone) 0xFF33000000.toInt() else 0xFF9CA3AF.toInt())
 
         if (progress.todayCalories > 0) {
             tvCalories?.text = "${progress.todayCalories} kcal"
@@ -159,7 +168,7 @@ class WorkoutHomeActivity : AppCompatActivity() {
             val tvDay = android.widget.TextView(this).apply {
                 text = dayLabels[offset]
                 textSize = 10f
-                setTextColor(if (isToday) 0xFFF97316.toInt() else 0xFF9CA3AF.toInt())
+                setTextColor(if (isToday) 0xFFC3E66E.toInt() else 0xFF9CA3AF.toInt())
                 gravity = android.view.Gravity.CENTER
                 layoutParams = android.widget.LinearLayout.LayoutParams(
                     android.widget.LinearLayout.LayoutParams.MATCH_PARENT,
@@ -181,11 +190,11 @@ class WorkoutHomeActivity : AppCompatActivity() {
                 // Colors based on state
                 when {
                     isToday && isWorkout -> {
-                        setBackgroundColor(0xFFF97316.toInt())
+                        setBackgroundColor(0xFFC3E66E.toInt())
                         setTextColor(0xFFFFFFFF.toInt())
                     }
                     isToday -> {
-                        setBackgroundColor(0xFFFFCB65.toInt())
+                        setBackgroundColor(0xFFC3E66E.toInt())
                         setTextColor(0xFF000000.toInt())
                     }
                     isWorkout && isPast -> {
@@ -195,8 +204,8 @@ class WorkoutHomeActivity : AppCompatActivity() {
                     }
                     isWorkout -> {
                         // Future workout day — orange outline style
-                        setBackgroundColor(0xFFFFF7ED.toInt())
-                        setTextColor(0xFFF97316.toInt())
+                        setBackgroundColor(0xFFF5FDE6.toInt())
+                        setTextColor(0xFFC3E66E.toInt())
                     }
                     else -> {
                         // Rest day
@@ -210,7 +219,7 @@ class WorkoutHomeActivity : AppCompatActivity() {
             val dot = android.widget.TextView(this).apply {
                 text = if (isWorkout) "•" else " "
                 textSize = 10f
-                setTextColor(if (isWorkout) 0xFFF97316.toInt() else android.graphics.Color.TRANSPARENT)
+                setTextColor(if (isWorkout) 0xFFC3E66E.toInt() else android.graphics.Color.TRANSPARENT)
                 gravity = android.view.Gravity.CENTER
                 layoutParams = android.widget.LinearLayout.LayoutParams(
                     android.widget.LinearLayout.LayoutParams.MATCH_PARENT,
@@ -243,7 +252,10 @@ class WorkoutHomeActivity : AppCompatActivity() {
 
             val img = card.findViewById<ImageView>(R.id.imgSuggestedCard)
             if (w.imageUrl.isNotEmpty()) {
-                Glide.with(this).load(w.imageUrl).centerCrop().into(img)
+                Glide.with(this)
+                    .load(w.imageUrl)
+                    .apply(RequestOptions().transform(CenterCrop(), RoundedCorners(24)))
+                    .into(img)
             }
             card.findViewById<TextView>(R.id.tvSuggestedCardName).text       = w.workoutName
             card.findViewById<TextView>(R.id.tvSuggestedCardCategory).text   = w.category
@@ -264,11 +276,148 @@ class WorkoutHomeActivity : AppCompatActivity() {
         }
     }
 
+    private fun bindWeekPlan(plan: List<WeekPlanEntry>) {
+        val container = try { findViewById<android.widget.LinearLayout>(R.id.containerWeekPlan) }
+            catch (e: Exception) { return }
+        container.removeAllViews()
+
+        if (plan.isEmpty()) {
+            // No plan yet — prompt user to open suggested workouts to generate it
+            val tv = android.widget.TextView(this).apply {
+                text = "Open a workout to generate your personal plan!"
+                textSize = 12f
+                setTextColor(0xFF9CA3AF.toInt())
+                gravity = android.view.Gravity.CENTER
+                setPadding(0, 16, 0, 16)
+            }
+            container.addView(tv)
+            return
+        }
+
+        plan.forEach { entry ->
+            val row = android.widget.LinearLayout(this).apply {
+                orientation = android.widget.LinearLayout.HORIZONTAL
+                gravity = android.view.Gravity.CENTER_VERTICAL
+                val lp = android.widget.LinearLayout.LayoutParams(
+                    android.widget.LinearLayout.LayoutParams.MATCH_PARENT,
+                    android.widget.LinearLayout.LayoutParams.WRAP_CONTENT
+                )
+                lp.bottomMargin = (1 * resources.displayMetrics.density).toInt()
+                layoutParams = lp
+                setPadding(0,
+                    (10 * resources.displayMetrics.density).toInt(), 0,
+                    (10 * resources.displayMetrics.density).toInt())
+                setBackgroundColor(when {
+                    entry.isToday -> 0xFFFFF7ED.toInt()
+                    entry.status == "completed" -> 0xFFF0FDF4.toInt()
+                    else -> android.graphics.Color.TRANSPARENT
+                })
+                isClickable = true
+                isFocusable = true
+                setOnClickListener {
+                    startActivity(android.content.Intent(this@WorkoutHomeActivity,
+                        WorkoutDetailActivity::class.java).apply {
+                        putExtra("workout_id", entry.workoutId)
+                    })
+                }
+            }
+
+            // Day badge (e.g. "Mon
+            val dayCol = android.widget.LinearLayout(this).apply {
+                orientation = android.widget.LinearLayout.VERTICAL
+                gravity = android.view.Gravity.CENTER
+                val size = (52 * resources.displayMetrics.density).toInt()
+                layoutParams = android.widget.LinearLayout.LayoutParams(size, size)
+                setBackgroundColor(when {
+                    entry.isToday -> 0xFFF97316.toInt()
+                    entry.status == "completed" -> 0xFF22C55E.toInt()
+                    entry.isPast -> 0xFFE5E7EB.toInt()
+                    else -> 0xFFF9FAFB.toInt()
+                })
+            }
+            val tvDayLabel = android.widget.TextView(this).apply {
+                text = entry.dayLabel
+                textSize = 10f
+                typeface = android.graphics.Typeface.DEFAULT_BOLD
+                setTextColor(when {
+                    entry.isToday || entry.status == "completed" -> 0xFFFFFFFF.toInt()
+                    else -> 0xFF9CA3AF.toInt()
+                })
+                gravity = android.view.Gravity.CENTER
+                layoutParams = android.widget.LinearLayout.LayoutParams(
+                    android.widget.LinearLayout.LayoutParams.MATCH_PARENT,
+                    android.widget.LinearLayout.LayoutParams.WRAP_CONTENT)
+            }
+            val tvDayNum = android.widget.TextView(this).apply {
+                text = "${entry.dayNumber}"
+                textSize = 16f
+                typeface = android.graphics.Typeface.DEFAULT_BOLD
+                setTextColor(when {
+                    entry.isToday || entry.status == "completed" -> 0xFFFFFFFF.toInt()
+                    else -> 0xFF374151.toInt()
+                })
+                gravity = android.view.Gravity.CENTER
+                layoutParams = android.widget.LinearLayout.LayoutParams(
+                    android.widget.LinearLayout.LayoutParams.MATCH_PARENT,
+                    android.widget.LinearLayout.LayoutParams.WRAP_CONTENT)
+            }
+            dayCol.addView(tvDayLabel)
+            dayCol.addView(tvDayNum)
+
+            // Workout info
+            val infoCol = android.widget.LinearLayout(this).apply {
+                orientation = android.widget.LinearLayout.VERTICAL
+                val lp = android.widget.LinearLayout.LayoutParams(0,
+                    android.widget.LinearLayout.LayoutParams.WRAP_CONTENT, 1f)
+                lp.marginStart = (14 * resources.displayMetrics.density).toInt()
+                layoutParams = lp
+            }
+            val tvName = android.widget.TextView(this).apply {
+                text = entry.workoutName
+                textSize = 14f
+                typeface = android.graphics.Typeface.DEFAULT_BOLD
+                setTextColor(if (entry.isToday) 0xFFF97316.toInt() else 0xFF171717.toInt())
+            }
+            val tvMeta = android.widget.TextView(this).apply {
+                text = "${entry.category} · ${entry.durationMinutes} min · ${entry.caloriesBurnedEstimate} kcal"
+                textSize = 11f
+                setTextColor(0xFF9CA3AF.toInt())
+            }
+            infoCol.addView(tvName)
+            infoCol.addView(tvMeta)
+
+            // Status badge
+            val tvStatus = android.widget.TextView(this).apply {
+                text = when (entry.status) {
+                    "completed" -> "✓"
+                    else        -> if (entry.isToday) "Today" else "›"
+                }
+                textSize = 12f
+                typeface = android.graphics.Typeface.DEFAULT_BOLD
+                setTextColor(when {
+                    entry.status == "completed" -> 0xFF22C55E.toInt()
+                    entry.isToday -> 0xFFF97316.toInt()
+                    else -> 0xFF9CA3AF.toInt()
+                })
+                val lp = android.widget.LinearLayout.LayoutParams(
+                    android.widget.LinearLayout.LayoutParams.WRAP_CONTENT,
+                    android.widget.LinearLayout.LayoutParams.WRAP_CONTENT)
+                lp.marginStart = (8 * resources.displayMetrics.density).toInt()
+                layoutParams = lp
+            }
+
+            row.addView(dayCol)
+            row.addView(infoCol)
+            row.addView(tvStatus)
+            container.addView(row)
+        }
+    }
+
     private fun bindPopularWorkouts(workouts: List<WorkoutItem>) {
         val container = findViewById<LinearLayout>(R.id.containerPopularWorkouts)
         container.removeAllViews()
         val total = findViewById<TextView>(R.id.tvWorkoutsCount)
-        total.text = "Workouts: ${workouts.size}"
+        total.text = "Workouts: 70"
 
         workouts.forEach { workout ->
             val card = LayoutInflater.from(this)
@@ -276,7 +425,10 @@ class WorkoutHomeActivity : AppCompatActivity() {
 
             val img = card.findViewById<ImageView>(R.id.imgWorkoutCard)
             if (workout.imageUrl.isNotEmpty()) {
-                Glide.with(this).load(workout.imageUrl).centerCrop().into(img)
+                Glide.with(this)
+                    .load(workout.imageUrl)
+                    .apply(RequestOptions().transform(CenterCrop(), RoundedCorners(24)))
+                    .into(img)
             }
             card.findViewById<TextView>(R.id.tvWorkoutCardName).text = workout.workoutName
             card.findViewById<TextView>(R.id.tvWorkoutCardDifficulty).text = workout.difficulty
