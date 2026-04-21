@@ -64,12 +64,12 @@
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_doctor_wallet.xml"
     },
     {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-mergeDebugResources-46:/layout/activity_cloud_kitchen_status.xml",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_cloud_kitchen_status.xml"
-    },
-    {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-mergeDebugResources-46:/layout/item_instruction_step.xml",
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_instruction_step.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-mergeDebugResources-46:/layout/activity_cloud_kitchen_status.xml",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_cloud_kitchen_status.xml"
     },
     {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-mergeDebugResources-46:/layout/item_equipment_chip.xml",
@@ -100,12 +100,12 @@
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/bottom_sheet_add_to_pantry.xml"
     },
     {
-        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-mergeDebugResources-46:/layout/bottom_sheet_allergy_picker.xml",
-        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/bottom_sheet_allergy_picker.xml"
-    },
-    {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-mergeDebugResources-46:/layout/item_condition_badge.xml",
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_condition_badge.xml"
+    },
+    {
+        "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-mergeDebugResources-46:/layout/bottom_sheet_allergy_picker.xml",
+        "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/bottom_sheet_allergy_picker.xml"
     },
     {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-mergeDebugResources-46:/layout/activity_cloud_kitchen.xml",
@@ -296,6 +296,10 @@
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_doctor_case.xml"
     },
     {
+        "merged": "com.example.fuelify.app-mergeDebugResources-46:/layout/activity_family_dashboard.xml",
+        "source": "com.example.fuelify.app-main-49:/layout/activity_family_dashboard.xml"
+    },
+    {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-mergeDebugResources-46:/layout/item_exercise_row.xml",
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/item_exercise_row.xml"
     },
@@ -394,10 +398,6 @@
     {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-mergeDebugResources-46:/layout/activity_workout_detail.xml",
         "source": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-main-49:/layout/activity_workout_detail.xml"
-    },
-    {
-        "merged": "com.example.fuelify.app-mergeDebugResources-46:/layout/activity_doctor_home.xml",
-        "source": "com.example.fuelify.app-main-49:/layout/activity_doctor_home.xml"
     },
     {
         "merged": "/home/Gehad/.gradle/daemon/9.0-milestone-1/com.example.fuelify.app-mergeDebugResources-46:/layout/activity_meal_scheduling.xml",

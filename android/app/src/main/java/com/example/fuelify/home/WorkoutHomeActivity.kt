@@ -32,9 +32,9 @@ class WorkoutHomeActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.tvWorkoutGreeting).text = "Hi, $name"
 
         // Search
-        findViewById<LinearLayout>(R.id.layoutWorkoutSearch).setOnClickListener {
-            startActivity(Intent(this, WorkoutListActivity::class.java))
-        }
+//        findViewById<LinearLayout>(R.id.layoutWorkoutSearch).setOnClickListener {
+//            startActivity(Intent(this, WorkoutListActivity::class.java))
+//        }
 
         // Category header + View All
         findViewById<TextView>(R.id.tvCategoryViewAll).setOnClickListener {
@@ -61,25 +61,38 @@ class WorkoutHomeActivity : AppCompatActivity() {
         scope.launch {
             try {
 
-                // Load suggested workouts (personalized: goal + place + days + fitness)
+                // Show calendar immediately from prefs (no network wait)
+                buildWeekCalendar(UserPreferences.getExerciseDays(this@WorkoutHomeActivity))
+
                 val sugResp = withContext(Dispatchers.IO) { RetrofitClient.api.getSuggestedWorkouts(userId) }
                 if (sugResp.isSuccessful && sugResp.body()?.data != null) {
                     val sugData = sugResp.body()!!.data!!
-                    // Show reason subtitle
-                    try {
-                        val tvReason = findViewById<TextView>(R.id.tvSuggestedReason)
-                        tvReason.text = sugData.reason
-                        tvReason.visibility = android.view.View.VISIBLE
-                    } catch (e: Exception) {}
-                    bindSuggestedOptions(sugData.workouts)
-                    // Build week calendar using exerciseDays from response
-                    buildWeekCalendar(sugData.exerciseDays)
-                }
+                    val sessionsPerDay = sugData.sessionsPerDay   // e.g. 2
+                    val weekTotal      = sugData.weekTotal         // e.g. 8
 
-                // Load today's workout progress
-                val progressResp = withContext(Dispatchers.IO) { RetrofitClient.api.getWorkoutProgress(userId) }
-                if (progressResp.isSuccessful && progressResp.body()?.data != null) {
-                    bindWorkoutProgress(progressResp.body()!!.data!!)
+                    // Save for HomeActivity
+                    UserPreferences.saveWeekTotal(this@WorkoutHomeActivity, weekTotal)
+                    UserPreferences.saveSessionsPerDay(this@WorkoutHomeActivity, sessionsPerDay)
+
+                    // Rebuild calendar with accurate exerciseDays from API
+                    buildWeekCalendar(sugData.exerciseDays)
+
+                    bindSuggestedOptions(sugData.workouts)
+
+                    val progressResp = withContext(Dispatchers.IO) { RetrofitClient.api.getWorkoutProgress(userId) }
+                    if (progressResp.isSuccessful && progressResp.body()?.data != null) {
+                        val prog = progressResp.body()!!.data!!
+                        // Status text
+                        findViewById<TextView>(R.id.tvTodayWorkoutStatus)?.text =
+                            "${prog.todaySessions}/$sessionsPerDay sessions today"
+                        // Progress bar fills based on TODAY's sessions vs daily target
+                        findViewById<ProgressBar>(R.id.progressTodayWorkout)?.progress =
+                            if (sessionsPerDay > 0) (prog.todaySessions * 100) / sessionsPerDay else 0
+                        // The three stat bubbles: Sessions = today's, not week
+                        findViewById<TextView>(R.id.tvWeekWorkouts)?.text  = "${prog.todaySessions}/$sessionsPerDay"
+                        findViewById<TextView>(R.id.tvWeekCalories)?.text  = "${prog.todayCalories}"
+                        findViewById<TextView>(R.id.tvWeekMinutes)?.text   = "${prog.todayMinutes}"
+                    }
                 }
 
                 // Load popular workouts (limit 4)
@@ -103,7 +116,6 @@ class WorkoutHomeActivity : AppCompatActivity() {
     }
 
     private fun bindWorkoutProgress(progress: WorkoutProgress) {
-        // Status label
         val tvStatus = try { findViewById<TextView>(R.id.tvTodayWorkoutStatus) } catch (e: Exception) { return }
         val tvCalories = try { findViewById<TextView>(R.id.tvTodayWorkoutCalories) } catch (e: Exception) { null }
         val progressBar = try { findViewById<ProgressBar>(R.id.progressTodayWorkout) } catch (e: Exception) { null }
@@ -124,6 +136,8 @@ class WorkoutHomeActivity : AppCompatActivity() {
         }
 
         progressBar?.progress = progress.todayProgressPct
+
+        // Stat bubbles show TODAY's numbers (despite the "Week" prefix in IDs)
         tvWeekWorkouts?.text  = "${progress.todaySessions}"
         tvWeekCalories?.text  = "${progress.todayCalories}"
         tvWeekMinutes?.text   = "${progress.todayMinutes}"
@@ -131,7 +145,7 @@ class WorkoutHomeActivity : AppCompatActivity() {
 
     private fun buildWeekCalendar(exerciseDays: Int) {
         val container = try { findViewById<android.widget.LinearLayout>(R.id.containerWeekCalendar) }
-            catch (e: Exception) { return }
+        catch (e: Exception) { return }
         container.removeAllViews()
 
         val today     = java.time.LocalDate.now()
@@ -278,7 +292,7 @@ class WorkoutHomeActivity : AppCompatActivity() {
 
     private fun bindWeekPlan(plan: List<WeekPlanEntry>) {
         val container = try { findViewById<android.widget.LinearLayout>(R.id.containerWeekPlan) }
-            catch (e: Exception) { return }
+        catch (e: Exception) { return }
         container.removeAllViews()
 
         if (plan.isEmpty()) {
@@ -308,7 +322,7 @@ class WorkoutHomeActivity : AppCompatActivity() {
                     (10 * resources.displayMetrics.density).toInt(), 0,
                     (10 * resources.displayMetrics.density).toInt())
                 setBackgroundColor(when {
-                    entry.isToday -> 0xFFFFF7ED.toInt()
+                    entry.isToday -> 0xFFF5FDE6.toInt()
                     entry.status == "completed" -> 0xFFF0FDF4.toInt()
                     else -> android.graphics.Color.TRANSPARENT
                 })
@@ -329,7 +343,7 @@ class WorkoutHomeActivity : AppCompatActivity() {
                 val size = (52 * resources.displayMetrics.density).toInt()
                 layoutParams = android.widget.LinearLayout.LayoutParams(size, size)
                 setBackgroundColor(when {
-                    entry.isToday -> 0xFFF97316.toInt()
+                    entry.isToday -> 0xFFC3E66E.toInt()
                     entry.status == "completed" -> 0xFF22C55E.toInt()
                     entry.isPast -> 0xFFE5E7EB.toInt()
                     else -> 0xFFF9FAFB.toInt()
@@ -376,7 +390,7 @@ class WorkoutHomeActivity : AppCompatActivity() {
                 text = entry.workoutName
                 textSize = 14f
                 typeface = android.graphics.Typeface.DEFAULT_BOLD
-                setTextColor(if (entry.isToday) 0xFFF97316.toInt() else 0xFF171717.toInt())
+                setTextColor(if (entry.isToday) 0xFFC3E66E.toInt() else 0xFF171717.toInt())
             }
             val tvMeta = android.widget.TextView(this).apply {
                 text = "${entry.category} · ${entry.durationMinutes} min · ${entry.caloriesBurnedEstimate} kcal"
@@ -396,7 +410,7 @@ class WorkoutHomeActivity : AppCompatActivity() {
                 typeface = android.graphics.Typeface.DEFAULT_BOLD
                 setTextColor(when {
                     entry.status == "completed" -> 0xFF22C55E.toInt()
-                    entry.isToday -> 0xFFF97316.toInt()
+                    entry.isToday -> 0xFFC3E66E.toInt()
                     else -> 0xFF9CA3AF.toInt()
                 })
                 val lp = android.widget.LinearLayout.LayoutParams(

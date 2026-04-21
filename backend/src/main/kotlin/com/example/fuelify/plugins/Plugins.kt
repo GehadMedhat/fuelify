@@ -7,6 +7,7 @@ import com.example.fuelify.routes.kitchenOrderRoutes
 import com.example.fuelify.routes.userRoutes
 import com.example.fuelify.routes.ingredientRoutes
 import com.example.fuelify.routes.familyRoutes
+import com.example.fuelify.routes.familyDashboardRoutes
 import com.example.fuelify.routes.ecoRoutes
 import com.example.fuelify.routes.scannedPantryRoutes
 import com.example.fuelify.routes.workoutRoutes
@@ -72,6 +73,7 @@ fun Application.configureRouting() {
             kitchenOrderRoutes()
             ingredientRoutes()
             familyRoutes()
+            familyDashboardRoutes() 
             ecoRoutes()
             scannedPantryRoutes()
             workoutRoutes()

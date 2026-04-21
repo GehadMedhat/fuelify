@@ -79,6 +79,23 @@ object UserPreferences {
 
     fun clear(ctx: Context) = prefs(ctx).edit().clear().apply()
 
+    fun saveWeekTotal(ctx: Context, total: Int) =
+        ctx.getSharedPreferences("fuelify_prefs", Context.MODE_PRIVATE)
+            .edit().putInt("week_total", total).apply()
+
+    fun getWeekTotal(ctx: Context): Int =
+        ctx.getSharedPreferences("fuelify_prefs", Context.MODE_PRIVATE)
+            .getInt("week_total", 4)  // default 4
+
+    fun saveSessionsPerDay(ctx: Context, count: Int) =
+        ctx.getSharedPreferences("fuelify_prefs", Context.MODE_PRIVATE)
+            .edit().putInt("sessions_per_day", count).apply()
+
+    fun getSessionsPerDay(ctx: Context): Int =
+        ctx.getSharedPreferences("fuelify_prefs", Context.MODE_PRIVATE)
+            .getInt("sessions_per_day", 1)
+
+
     // ── BMR + TDEE Calculation (Mifflin-St Jeor) ─────────────────────────────
 
     fun calculateDailyCalories(
@@ -120,6 +137,6 @@ object UserPreferences {
          fun getAllergies(context: Context): String =
     context.getSharedPreferences("fuelify_prefs", Context.MODE_PRIVATE)
         .getString("allergies", "") ?: ""
-        
-    
+
+
 }

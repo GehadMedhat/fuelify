@@ -125,19 +125,40 @@ fun Route.mealSearchRoutes() {
     }
 
     // POST /api/users/{id}/switch-meal — swap a meal in today's plan
-    post("/users/{id}/switch-meal") {
-        val userId = call.parameters["id"]?.toIntOrNull()
-            ?: return@post call.respond(HttpStatusCode.BadRequest,
-                ApiResponse<Nothing>(false, "Invalid user ID", null))
-        val req = call.receive<SwitchMealRequest>()
+post("/users/{id}/switch-meal") {
+    val userId = call.parameters["id"]?.toIntOrNull()
+        ?: return@post call.respond(HttpStatusCode.BadRequest,
+            ApiResponse<Nothing>(false, "Invalid user ID", null))
+    val req = call.receive<SwitchMealRequest>()
 
-        dbQuery {
-            MealPlans.update({ MealPlans.id eq req.plan_id }) {
-                it[MealPlans.mealId]     = req.new_meal_id
-                it[MealPlans.isCompleted]= false
-            }
-        }
-
-        call.respond(ApiResponse(success = true, message = "Meal switched", data = req.new_meal_id))
+    // Get the plan date for this entry
+    val planRow = dbQuery {
+        MealPlans.select { MealPlans.id eq req.plan_id }.firstOrNull()
     }
+    val planDate = planRow?.get(MealPlans.planDate)
+
+    // Check if the new meal is already planned for the same day
+    if (planDate != null) {
+        val duplicate = dbQuery {
+            MealPlans.select {
+                (MealPlans.userId eq userId) and
+                (MealPlans.mealId eq req.new_meal_id) and
+                (MealPlans.planDate eq planDate) and
+                (MealPlans.id neq req.plan_id)
+            }.count() > 0
+        }
+        if (duplicate) {
+            return@post call.respond(HttpStatusCode.Conflict,
+                ApiResponse<Nothing>(false, "That meal is already in your plan for today", null))
+        }
+    }
+
+    dbQuery {
+        MealPlans.update({ MealPlans.id eq req.plan_id }) {
+            it[MealPlans.mealId]      = req.new_meal_id
+            it[MealPlans.isCompleted] = false
+        }
+    }
+    call.respond(ApiResponse(success = true, message = "Meal switched", data = req.new_meal_id))
+}
 }

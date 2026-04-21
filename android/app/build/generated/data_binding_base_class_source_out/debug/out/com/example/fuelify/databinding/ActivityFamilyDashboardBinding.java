@@ -52,23 +52,12 @@ public final class ActivityFamilyDashboardBinding implements ViewBinding {
   @NonNull
   public final TextView tvFamilyWeekLabel;
 
-  @NonNull
-  public final TextView tvGroupAvgStreak;
-
-  @NonNull
-  public final TextView tvGroupTotalCal;
-
-  @NonNull
-  public final TextView tvGroupTotalMeals;
-
   private ActivityFamilyDashboardBinding(@NonNull LinearLayout rootView,
       @NonNull ImageButton btnFamilyDashBack, @NonNull LinearLayout btnManageFamily,
       @NonNull LinearLayout containerFamilyMembers, @NonNull LinearLayout containerLeaderboard,
       @NonNull ScrollView layoutFamilyDashContent, @NonNull ProgressBar progressFamilyDash,
       @NonNull TextView tvFamilyDashEmpty, @NonNull TextView tvFamilyGroupName,
-      @NonNull TextView tvFamilyMemberCount, @NonNull TextView tvFamilyWeekLabel,
-      @NonNull TextView tvGroupAvgStreak, @NonNull TextView tvGroupTotalCal,
-      @NonNull TextView tvGroupTotalMeals) {
+      @NonNull TextView tvFamilyMemberCount, @NonNull TextView tvFamilyWeekLabel) {
     this.rootView = rootView;
     this.btnFamilyDashBack = btnFamilyDashBack;
     this.btnManageFamily = btnManageFamily;
@@ -80,9 +69,6 @@ public final class ActivityFamilyDashboardBinding implements ViewBinding {
     this.tvFamilyGroupName = tvFamilyGroupName;
     this.tvFamilyMemberCount = tvFamilyMemberCount;
     this.tvFamilyWeekLabel = tvFamilyWeekLabel;
-    this.tvGroupAvgStreak = tvGroupAvgStreak;
-    this.tvGroupTotalCal = tvGroupTotalCal;
-    this.tvGroupTotalMeals = tvGroupTotalMeals;
   }
 
   @Override
@@ -172,28 +158,10 @@ public final class ActivityFamilyDashboardBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.tvGroupAvgStreak;
-      TextView tvGroupAvgStreak = ViewBindings.findChildViewById(rootView, id);
-      if (tvGroupAvgStreak == null) {
-        break missingId;
-      }
-
-      id = R.id.tvGroupTotalCal;
-      TextView tvGroupTotalCal = ViewBindings.findChildViewById(rootView, id);
-      if (tvGroupTotalCal == null) {
-        break missingId;
-      }
-
-      id = R.id.tvGroupTotalMeals;
-      TextView tvGroupTotalMeals = ViewBindings.findChildViewById(rootView, id);
-      if (tvGroupTotalMeals == null) {
-        break missingId;
-      }
-
       return new ActivityFamilyDashboardBinding((LinearLayout) rootView, btnFamilyDashBack,
           btnManageFamily, containerFamilyMembers, containerLeaderboard, layoutFamilyDashContent,
           progressFamilyDash, tvFamilyDashEmpty, tvFamilyGroupName, tvFamilyMemberCount,
-          tvFamilyWeekLabel, tvGroupAvgStreak, tvGroupTotalCal, tvGroupTotalMeals);
+          tvFamilyWeekLabel);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

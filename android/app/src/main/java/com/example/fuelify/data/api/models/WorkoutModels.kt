@@ -101,10 +101,12 @@ data class SuggestedWorkoutResponse(
 )
 
 data class SuggestedWorkoutsData(
-    @SerializedName("workouts")     val workouts:     List<WorkoutItem>,
-    @SerializedName("reason")       val reason:       String,
-    @SerializedName("basedOn")      val basedOn:      String,
-    @SerializedName("exerciseDays") val exerciseDays: Int = 4
+    @SerializedName("workouts")       val workouts:       List<WorkoutItem>,
+    @SerializedName("reason")         val reason:         String,
+    @SerializedName("basedOn")        val basedOn:        String,
+    @SerializedName("exerciseDays")   val exerciseDays:   Int = 4,
+    @SerializedName("sessionsPerDay") val sessionsPerDay: Int = 1,
+    @SerializedName("weekTotal")      val weekTotal:      Int = 4
 )
 
 data class SuggestedWorkoutsResponse(
@@ -112,21 +114,22 @@ data class SuggestedWorkoutsResponse(
     @SerializedName("data")    val data:    SuggestedWorkoutsData?
 )
 
-data class SaveWorkoutPlanRequest(
-    @SerializedName("workoutId")     val workoutId: Int,
-    @SerializedName("workoutName")   val workoutName: String,
-    @SerializedName("scheduledDate") val scheduledDate: String   // "2026-03-25"
+data class WorkoutProgress(
+    @SerializedName("todayDone")        val todayDone:        Boolean,
+    @SerializedName("todaySessions")    val todaySessions:    Int = 0,
+    @SerializedName("todayCalories")    val todayCalories:    Int,
+    @SerializedName("todayMinutes")     val todayMinutes:     Int,
+    @SerializedName("weekSessions")     val weekSessions:     Int,
+    @SerializedName("weekPlanTotal")    val weekPlanTotal:    Int = 0,  // total planned this week
+    @SerializedName("weekCalories")     val weekCalories:     Int,
+    @SerializedName("weekMinutes")      val weekMinutes:      Int,
+    @SerializedName("weekProgressPct")  val weekProgressPct:  Int,
+    @SerializedName("todayProgressPct") val todayProgressPct: Int = 0,
+    @SerializedName("lastWorkoutName")  val lastWorkoutName:  String
 )
 
-data class WorkoutProgress(
-    @SerializedName("todayDone")       val todayDone:       Boolean,
-    @SerializedName("todaySessions")   val todaySessions:   Int,
-    @SerializedName("todayCalories")   val todayCalories:   Int,
-    @SerializedName("todayMinutes")    val todayMinutes:    Int,
-    @SerializedName("weekSessions")    val weekSessions:    Int,
-    @SerializedName("weekCalories")    val weekCalories:    Int,
-    @SerializedName("weekMinutes")     val weekMinutes:     Int,
-    @SerializedName("weekProgressPct") val weekProgressPct: Int,
-    @SerializedName("todayProgressPct") val todayProgressPct: Int,
-    @SerializedName("lastWorkoutName") val lastWorkoutName: String
+data class SaveWorkoutPlanRequest(
+    @SerializedName("workoutId")     val workoutId:     Int,
+    @SerializedName("workoutName")   val workoutName:   String,
+    @SerializedName("scheduledDate") val scheduledDate: String
 )

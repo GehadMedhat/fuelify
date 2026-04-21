@@ -50,7 +50,7 @@ class WorkoutListActivity : AppCompatActivity() {
                     filterWorkouts()
                 }
                 if (value.isEmpty()) { // "All" starts selected
-                    chip.setBackgroundResource(R.drawable.light_orange_rectangle)
+                    chip.setBackgroundResource(R.drawable.light_green_rectangle)
                     chip.setTextColor(0xFF4A6200.toInt())
                 }
                 findViewById<LinearLayout>(R.id.containerDifficultyFilters).addView(chip)

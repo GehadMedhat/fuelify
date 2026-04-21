@@ -66,10 +66,10 @@ class FamilyDashboardActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.tvFamilyMemberCount).text  =
             "${data.members.size} members"
 
-        // Group summary stats
-        findViewById<TextView>(R.id.tvGroupTotalCal).text   = "${data.totalCaloriesBurnedWeek}"
-        findViewById<TextView>(R.id.tvGroupTotalMeals).text = "${data.totalMealsEatenWeek}"
-        findViewById<TextView>(R.id.tvGroupAvgStreak).text  = "${data.groupStreakAvg}"
+//        // Group summary stats
+//        findViewById<TextView>(R.id.tvGroupTotalCal).text   = "${data.totalCaloriesBurnedWeek}"
+//        findViewById<TextView>(R.id.tvGroupTotalMeals).text = "${data.totalMealsEatenWeek}"
+//        findViewById<TextView>(R.id.tvGroupAvgStreak).text  = "${data.groupStreakAvg}"
 
         // Leaderboard
         bindLeaderboard(data.leaderboard)

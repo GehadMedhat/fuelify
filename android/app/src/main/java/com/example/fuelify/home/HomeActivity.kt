@@ -80,13 +80,11 @@ class HomeActivity : AppCompatActivity() {
                 }
                 if (progressResp.isSuccessful && progressResp.body()?.data != null) {
                     val prog = progressResp.body()!!.data!!
-                    val exerciseDaysPerWeek = UserPreferences.getExerciseDays(this@HomeActivity)
-                        .coerceAtLeast(1)
-                    // Show: "done this week / weekly target"
-                    // exerciseDays IS the weekly target (e.g. 4 = "do 4 workouts this week")
+                    // Always use the weekTotal saved from suggested workouts API (exerciseDays × sessionsPerDay)
+                    val weekTotal = UserPreferences.getWeekTotal(this@HomeActivity).coerceAtLeast(1)
                     findViewById<TextView>(R.id.tvSessions).text =
-                        "${prog.weekSessions}/$exerciseDaysPerWeek"
-                    setProgressBar(R.id.progressSessions, prog.weekSessions, exerciseDaysPerWeek)
+                        "${prog.weekSessions}/$weekTotal"
+                    setProgressBar(R.id.progressSessions, prog.weekSessions, weekTotal)
                 }
 
                 // Refresh sections now that workout data is loaded
@@ -222,7 +220,8 @@ class HomeActivity : AppCompatActivity() {
                 val img2 = findViewById<ImageView>(R.id.imgHighlight2)
                 img2.clipToOutline = true
                 if (workoutImage.isNotEmpty()) {
-                    Glide.with(this).load(workoutImage)
+                    Glide.with(this)
+                        .load(workoutImage)
                         .placeholder(R.drawable.bg_image_placeholder)
                         .centerCrop()
                         .into(img2)
@@ -230,7 +229,7 @@ class HomeActivity : AppCompatActivity() {
                 findViewById<TextView>(R.id.tvHighlight2Name).text = workoutName
                 findViewById<TextView>(R.id.tvHighlight2Sub).text  = "Today's Workout"
                 try { findViewById<TextView>(R.id.tvHighlight2Badge)?.text = "💪 Planned" }
-                    catch (e: Exception) {}
+                catch (e: Exception) {}
                 // Tap → open the specific workout detail
                 findViewById<LinearLayout>(R.id.cardHighlight2).setOnClickListener {
                     if (workoutId > 0) {
@@ -248,9 +247,11 @@ class HomeActivity : AppCompatActivity() {
                 try {
                     val img2 = findViewById<ImageView>(R.id.imgHighlight2)
                     if (meal.imageUrl.isNotEmpty()) {
-                        Glide.with(this).load(meal.imageUrl)
+                        Glide.with(this)
+                            .load(meal.imageUrl)
                             .placeholder(R.drawable.bg_image_placeholder)
-                            .centerCrop().into(img2)
+                            .centerCrop()
+                            .into(img2)
                     }
                     findViewById<TextView>(R.id.tvHighlight2Name).text = meal.mealName
                     findViewById<TextView>(R.id.tvHighlight2Sub).text  =

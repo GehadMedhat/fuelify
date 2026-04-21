@@ -152,26 +152,34 @@ fun Route.dashboardRoutes() {
             try {
                 dbQuery {
                     val dayOff = today.dayOfYear
-                    slots.forEach { slot ->
-                        val targetCal = (dailyCal * slot.caloriePct).toInt()
-                        val pool: List<ResultRow> = safeMeals
-                            .filter { it[Meals.mealTime].equals(slot.mealTime, ignoreCase = true) }
-                            .ifEmpty { safeMeals }
-                        if (pool.isEmpty()) return@forEach
-                        val scored: List<Pair<ResultRow, Double>> = pool
-                            .map { row -> Pair(row, scoreMeal(row, slot, targetCal)) }
-                            .sortedByDescending { p -> p.second }
-                        val topN = scored.take(3)
-                        val pick: ResultRow = topN[dayOff % topN.size].first
-                        MealPlans.insert {
-                            it[MealPlans.userId]        = userId
-                            it[MealPlans.planDate]      = today
-                            it[MealPlans.mealId]        = pick[Meals.mealId]
-                            it[MealPlans.mealType]      = slot.mealTime
-                            it[MealPlans.scheduledTime] = slot.scheduledTime
-                            it[MealPlans.isCompleted]   = false
-                        }
-                    }
+                   slots.forEach { slot ->
+    val targetCal = (dailyCal * slot.caloriePct).toInt()
+    val pool: List<ResultRow> = safeMeals
+        .filter { it[Meals.mealTime].equals(slot.mealTime, ignoreCase = true) }
+        .ifEmpty { safeMeals }
+    if (pool.isEmpty()) return@forEach
+    val scored = pool.map { row -> Pair(row, scoreMeal(row, slot, targetCal)) }
+        .sortedByDescending { p -> p.second }
+    val topN = scored.take(6) // take more candidates to avoid duplicates
+
+    // Pick a meal not already inserted today
+    val alreadyInsertedIds = MealPlans.select {
+        (MealPlans.userId eq userId) and (MealPlans.planDate eq today)
+    }.map { it[MealPlans.mealId] }.toSet()
+
+    val pick = topN.map { it.first }
+        .firstOrNull { it[Meals.mealId] !in alreadyInsertedIds }
+        ?: topN[dayOff % topN.size].first // fallback if all duplicates
+
+    MealPlans.insert {
+        it[MealPlans.userId]        = userId
+        it[MealPlans.planDate]      = today
+        it[MealPlans.mealId]        = pick[Meals.mealId]
+        it[MealPlans.mealType]      = slot.mealTime
+        it[MealPlans.scheduledTime] = slot.scheduledTime
+        it[MealPlans.isCompleted]   = false
+    }
+}
                 }
             } catch (e: Exception) {
                 println("Meal generation error: ${e.message}")

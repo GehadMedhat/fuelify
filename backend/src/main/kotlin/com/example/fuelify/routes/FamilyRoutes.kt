@@ -52,44 +52,45 @@ private object FamilyUsers : Table("users") {
     val goal          = varchar("goal", 100).nullable()
     val gender        = varchar("gender", 20).nullable()
     val age           = integer("age").nullable()
-    val weightKg      = integer("weight_kg").nullable()
-    val heightCm      = integer("height_cm").nullable()
+    val weight      = integer("weight_kg").nullable()
+    val height      = integer("height_cm").nullable()
     val activityLevel = varchar("activity_level", 50).nullable()
     override val primaryKey = PrimaryKey(id)
 }
 
-// Harris-Benedict BMR → TDEE calculation
+// Harris-Benedict BMR → TDEE calculation (matches DashboardRoutes/NutritionEngine exactly)
 private fun calculateCalorieGoal(
-    gender: String?, age: Int?, weightKg: Int?, heightCm: Int?,
+    gender: String?, age: Int?, weight: Int?, height: Int?,
     activityLevel: String?, goal: String?
 ): Int {
-    if (age == null || weightKg == null || heightCm == null) return 2000
-
-    val bmr = if (gender?.lowercase() == "female") {
-        447.593 + (9.247 * weightKg) + (3.098 * heightCm) - (4.330 * age)
-    } else {
-        88.362 + (13.397 * weightKg) + (4.799 * heightCm) - (5.677 * age)
+    if (gender == null || age == null || weight == null || height == null || activityLevel == null || goal == null) {
+        return 2000
     }
 
-    val multiplier = when (activityLevel?.lowercase()) {
-        "sedentary"                    -> 1.2
-        "lightly active", "light"      -> 1.375
-        "moderately active", "moderate"-> 1.55
-        "very active"                  -> 1.725
-        "extra active"                 -> 1.9
-        else                           -> 1.375
+    val bmr = if (gender.lowercase().trim() == "female")
+        10.0 * weight + 6.25 * height - 5.0 * age - 161
+    else
+        10.0 * weight + 6.25 * height - 5.0 * age + 5
+
+    val tdee = bmr * when (activityLevel.lowercase().trim()) {
+        "sedentary"                   -> 1.2
+        "lightly active", "light"     -> 1.375
+        "moderately active", "moderate" -> 1.55
+        "very active"                 -> 1.725
+        "extra active", "athlete"     -> 1.9
+        else                          -> 1.55
     }
 
-    val tdee = bmr * multiplier
-    return when {
-        goal?.contains("lose", true) == true   -> (tdee - 500).toInt()
-        goal?.contains("gain", true) == true ||
-        goal?.contains("build", true) == true  -> (tdee + 300).toInt()
-        else                                   -> tdee.toInt()
-    }.coerceIn(1200, 4000)
+    return when (goal.lowercase().trim()) {
+        "lose weight" -> (tdee - 500).toInt()
+        "gain muscle", "gain weight" -> (tdee + 300).toInt()
+        "get fit", "maintain", "maintain weight" -> tdee.toInt()
+        else -> tdee.toInt()
+    }.coerceAtLeast(1200)
 }
 
-// Separate table since we cannot ALTER users
+
+
 private object UserEmail : Table("user_email") {
     val userId = integer("user_id")
     val email  = varchar("email", 255)
@@ -97,19 +98,21 @@ private object UserEmail : Table("user_email") {
 }
 
 private object FamilyDailyLogs : Table("daily_logs") {
-    val userId      = integer("user_id")
-    val logDate     = date("log_date")
+    val userId        = integer("user_id")
+    val logDate       = date("log_date")
     val caloriesEaten = integer("calories_eaten")
+    val streakDays    = integer("streak_days").default(0)
 }
 
+// ── Meal Plans table — used to count planned meals AND prevent duplicates ──────
 private object FamilyMealPlans : Table("meal_plans") {
     val planId        = integer("plan_id").autoIncrement()
     val userId        = integer("user_id")
+    val mealId        = integer("meal_id")
     val scheduledDate = datetime("scheduled_time").nullable()
+    val isCompleted   = bool("is_completed").default(false)
     override val primaryKey = PrimaryKey(planId)
 }
-
-
 
 // ─── DTOs ─────────────────────────────────────────────────────────────────────
 
@@ -138,8 +141,8 @@ data class FamilyGroupDto(
 
 @Serializable
 data class WeekDayDto(
-    val date: String,       // "YYYY-MM-DD"
-    val dayLabel: String,   // "Mon", "Tue" etc.
+    val date: String,
+    val dayLabel: String,
     val dayNumber: Int,
     val monthLabel: String,
     val hasPlans: Boolean,
@@ -186,33 +189,27 @@ data class CheckFamilyGroceryRequest(
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
-// Get or create a family group for user (as admin)
 private suspend fun getOrCreateFamilyGroup(userId: Int): Int = dbQuery {
-    // Prefer the group where this user is admin (group they created)
-    // Fall back to any group they're a member of
     val existing = FamilyMemberTable
         .select { FamilyMemberTable.userId eq userId }
-        .orderBy(FamilyMemberTable.role to SortOrder.ASC) // "admin" < "member" alphabetically
+        .orderBy(FamilyMemberTable.role to SortOrder.ASC)
         .firstOrNull()
     if (existing != null) return@dbQuery existing[FamilyMemberTable.groupId]
 
-    // Create new group
     val groupId = FamilyGroupTable.insert {
         it[FamilyGroupTable.name]      = "My Family"
         it[FamilyGroupTable.createdBy] = userId
-        // createdAt set by clientDefault
     }[FamilyGroupTable.groupId]
 
-    // Add creator as admin
     FamilyMemberTable.insert {
-        it[FamilyMemberTable.groupId]  = groupId
-        it[FamilyMemberTable.userId]   = userId
-        it[FamilyMemberTable.role]     = "admin"
-        // joinedAt set by clientDefault
+        it[FamilyMemberTable.groupId] = groupId
+        it[FamilyMemberTable.userId]  = userId
+        it[FamilyMemberTable.role]    = "admin"
     }
     groupId
 }
 
+// ── Streak: walks back from today counting consecutive days with calories > 0 ──
 private fun computeStreak(userId: Int): Int {
     val today = LocalDate.now()
     var streak = 0
@@ -261,7 +258,6 @@ private fun buildWeekDays(groupMemberIds: List<Int>): List<WeekDayDto> {
 fun Route.familyRoutes() {
 
     // ── GET /api/users/{id}/family/lookup?email= ─────────────────────────────
-    // Preview a user by email before inviting them
     get("/users/{id}/family/lookup") {
         val userId = call.parameters["id"]?.toIntOrNull()
             ?: return@get call.respond(HttpStatusCode.BadRequest,
@@ -277,10 +273,8 @@ fun Route.familyRoutes() {
                 ?: return@dbQuery null to "No Fuelify account found for '$email'. Ask them to register first."
 
             val targetUserId = emailRow[UserEmail.userId]
-
-            if (targetUserId == userId) {
+            if (targetUserId == userId)
                 return@dbQuery null to "That's your own email — you can't invite yourself!"
-            }
 
             val user = FamilyUsers.select { FamilyUsers.id eq targetUserId }.firstOrNull()
                 ?: return@dbQuery null to "Account found but user profile is incomplete."
@@ -297,10 +291,10 @@ fun Route.familyRoutes() {
             } else false
 
             MemberPreviewDto(
-                userId       = targetUserId,
-                name         = user[FamilyUsers.name],
-                goal         = user.getOrNull(FamilyUsers.goal)?.replaceFirstChar { it.uppercase() } ?: "No goal set",
-                email        = email,
+                userId        = targetUserId,
+                name          = user[FamilyUsers.name],
+                goal          = user.getOrNull(FamilyUsers.goal)?.replaceFirstChar { it.uppercase() } ?: "No goal set",
+                email         = email,
                 alreadyMember = alreadyMember
             ) to null
         }
@@ -314,7 +308,6 @@ fun Route.familyRoutes() {
     }
 
     // ── GET /api/users/{id}/family ────────────────────────────────────────────
-    // Get or create family group, return full state
     get("/users/{id}/family") {
         val userId = call.parameters["id"]?.toIntOrNull()
             ?: return@get call.respond(HttpStatusCode.BadRequest,
@@ -323,13 +316,10 @@ fun Route.familyRoutes() {
         val groupId = getOrCreateFamilyGroup(userId)
 
         val data = dbQuery {
-            // Group info
             val group = FamilyGroupTable
                 .select { FamilyGroupTable.groupId eq groupId }
-                .firstOrNull()
-                ?: return@dbQuery null
+                .firstOrNull() ?: return@dbQuery null
 
-            // Members
             val memberRows = FamilyMemberTable
                 .select { FamilyMemberTable.groupId eq groupId }
                 .toList()
@@ -338,15 +328,16 @@ fun Route.familyRoutes() {
                 val uid = memberRow[FamilyMemberTable.userId]
                 val user = FamilyUsers.select { FamilyUsers.id eq uid }.firstOrNull()
                     ?: return@mapNotNull null
+
                 val streak = computeStreak(uid)
                 val caloriesGoal = calculateCalorieGoal(
-                        gender        = user.getOrNull(FamilyUsers.gender),
-                        age           = user.getOrNull(FamilyUsers.age),
-                        weightKg      = user.getOrNull(FamilyUsers.weightKg),
-                        heightCm      = user.getOrNull(FamilyUsers.heightCm),
-                        activityLevel = user.getOrNull(FamilyUsers.activityLevel),
-                        goal          = user.getOrNull(FamilyUsers.goal)
-                    )
+                    gender        = user.getOrNull(FamilyUsers.gender),
+                    age           = user.getOrNull(FamilyUsers.age),
+                    weight      = user.getOrNull(FamilyUsers.weight),
+                    height      = user.getOrNull(FamilyUsers.height),
+                    activityLevel = user.getOrNull(FamilyUsers.activityLevel),
+                    goal          = user.getOrNull(FamilyUsers.goal)
+                )
 
                 val today = LocalDate.now()
                 val caloriesEatenToday = FamilyDailyLogs
@@ -372,10 +363,11 @@ fun Route.familyRoutes() {
 
             val memberIds = members.map { it.userId }
 
-            // Total meals planned this week
-            val weekStart = LocalDate.now().minusDays(LocalDate.now().dayOfWeek.value.toLong() - 1)
+            val weekStart = LocalDate.now()
+                .minusDays(LocalDate.now().dayOfWeek.value.toLong() - 1)
                 .atStartOfDay()
             val weekEnd = weekStart.plusDays(6).plusHours(23).plusMinutes(59)
+
             val totalMeals = FamilyMealPlans
                 .select {
                     (FamilyMealPlans.userId inList memberIds) and
@@ -386,12 +378,12 @@ fun Route.familyRoutes() {
             val weekDays = buildWeekDays(memberIds)
 
             FamilyGroupDto(
-                groupId          = groupId,
-                name             = group[FamilyGroupTable.name],
-                createdBy        = group[FamilyGroupTable.createdBy],
-                members          = members,
+                groupId           = groupId,
+                name              = group[FamilyGroupTable.name],
+                createdBy         = group[FamilyGroupTable.createdBy],
+                members           = members,
                 totalMealsPlanned = totalMeals,
-                weekDays         = weekDays
+                weekDays          = weekDays
             )
         }
 
@@ -404,16 +396,14 @@ fun Route.familyRoutes() {
     }
 
     // ── POST /api/users/{id}/family/invite ────────────────────────────────────
-    // Invite member by email
     post("/users/{id}/family/invite") {
         val userId = call.parameters["id"]?.toIntOrNull()
             ?: return@post call.respond(HttpStatusCode.BadRequest,
                 ApiResponse<Nothing>(false, "Invalid user id", null))
-        val body = call.receive<InviteMemberRequest>()
+        val body    = call.receive<InviteMemberRequest>()
         val groupId = getOrCreateFamilyGroup(userId)
 
         val result = dbQuery {
-            // Check role — only admin can invite
             val callerRole = FamilyMemberTable.select {
                 (FamilyMemberTable.groupId eq groupId) and
                 (FamilyMemberTable.userId eq userId)
@@ -421,26 +411,22 @@ fun Route.familyRoutes() {
 
             if (callerRole != "admin") return@dbQuery "NOT_ADMIN"
 
-            // Find user by email via user_email table
             val emailRow = UserEmail
                 .select { UserEmail.email eq body.email }
                 .firstOrNull() ?: return@dbQuery "USER_NOT_FOUND"
 
             val invitedUserId = emailRow[UserEmail.userId]
 
-            // Check already a member
             val alreadyMember = FamilyMemberTable.select {
                 (FamilyMemberTable.groupId eq groupId) and
                 (FamilyMemberTable.userId eq invitedUserId)
             }.count() > 0
             if (alreadyMember) return@dbQuery "ALREADY_MEMBER"
 
-            // Add to family
             FamilyMemberTable.insert {
-                it[FamilyMemberTable.groupId]  = groupId
-                it[FamilyMemberTable.userId]   = invitedUserId
-                it[FamilyMemberTable.role]     = "member"
-                // joinedAt set by clientDefault
+                it[FamilyMemberTable.groupId] = groupId
+                it[FamilyMemberTable.userId]  = invitedUserId
+                it[FamilyMemberTable.role]    = "member"
             }
             "SUCCESS"
         }
@@ -469,7 +455,6 @@ fun Route.familyRoutes() {
         val groupId = getOrCreateFamilyGroup(userId)
 
         dbQuery {
-            // Can remove yourself, or admin can remove anyone
             val callerRole = FamilyMemberTable.select {
                 (FamilyMemberTable.groupId eq groupId) and
                 (FamilyMemberTable.userId eq userId)
@@ -498,25 +483,27 @@ fun Route.familyRoutes() {
         val items = dbQuery {
             FamilyGroceryTable
                 .select { FamilyGroceryTable.groupId eq groupId }
-                .orderBy(FamilyGroceryTable.isChecked to SortOrder.ASC,
-                         FamilyGroceryTable.createdAt to SortOrder.ASC)
+                .orderBy(
+                    FamilyGroceryTable.isChecked to SortOrder.ASC,
+                    FamilyGroceryTable.createdAt to SortOrder.ASC
+                )
                 .map { row ->
-                    val addedById = row[FamilyGroceryTable.addedBy]
+                    val addedById   = row[FamilyGroceryTable.addedBy]
                     val addedByName = FamilyUsers.select { FamilyUsers.id eq addedById }
                         .firstOrNull()?.get(FamilyUsers.name) ?: "Unknown"
-                    val checkedById = row.getOrNull(FamilyGroceryTable.checkedBy)
+                    val checkedById   = row.getOrNull(FamilyGroceryTable.checkedBy)
                     val checkedByName = checkedById?.let {
                         FamilyUsers.select { FamilyUsers.id eq it }
                             .firstOrNull()?.get(FamilyUsers.name)
                     }
                     FamilyGroceryItemDto(
-                        itemId       = row[FamilyGroceryTable.itemId],
-                        itemName     = row[FamilyGroceryTable.itemName],
-                        quantity     = row.getOrNull(FamilyGroceryTable.quantity) ?: "",
-                        addedBy      = addedById,
-                        addedByName  = addedByName,
-                        isChecked    = row[FamilyGroceryTable.isChecked],
-                        checkedBy    = checkedById,
+                        itemId        = row[FamilyGroceryTable.itemId],
+                        itemName      = row[FamilyGroceryTable.itemName],
+                        quantity      = row.getOrNull(FamilyGroceryTable.quantity) ?: "",
+                        addedBy       = addedById,
+                        addedByName   = addedByName,
+                        isChecked     = row[FamilyGroceryTable.isChecked],
+                        checkedBy     = checkedById,
                         checkedByName = checkedByName
                     )
                 }
@@ -529,7 +516,7 @@ fun Route.familyRoutes() {
         val userId = call.parameters["id"]?.toIntOrNull()
             ?: return@post call.respond(HttpStatusCode.BadRequest,
                 ApiResponse<Nothing>(false, "Invalid user id", null))
-        val body = call.receive<AddFamilyGroceryRequest>()
+        val body    = call.receive<AddFamilyGroceryRequest>()
         val groupId = getOrCreateFamilyGroup(userId)
 
         dbQuery {
@@ -539,7 +526,6 @@ fun Route.familyRoutes() {
                 it[FamilyGroceryTable.quantity]  = body.quantity
                 it[FamilyGroceryTable.addedBy]   = userId
                 it[FamilyGroceryTable.isChecked] = false
-                // createdAt set by clientDefault
             }
         }
         call.respond(ApiResponse(success = true, message = "OK", data = null))
@@ -550,10 +536,10 @@ fun Route.familyRoutes() {
         val userId = call.parameters["id"]?.toIntOrNull()
             ?: return@patch call.respond(HttpStatusCode.BadRequest,
                 ApiResponse<Nothing>(false, "Invalid user id", null))
-        val itemId = call.parameters["itemId"]?.toIntOrNull()
+        val itemId  = call.parameters["itemId"]?.toIntOrNull()
             ?: return@patch call.respond(HttpStatusCode.BadRequest,
                 ApiResponse<Nothing>(false, "Invalid item id", null))
-        val body = call.receive<CheckFamilyGroceryRequest>()
+        val body    = call.receive<CheckFamilyGroceryRequest>()
         val groupId = getOrCreateFamilyGroup(userId)
 
         dbQuery {
@@ -589,7 +575,7 @@ fun Route.familyRoutes() {
         val userId = call.parameters["id"]?.toIntOrNull()
             ?: return@delete call.respond(HttpStatusCode.BadRequest,
                 ApiResponse<Nothing>(false, "Invalid user id", null))
-        val itemId = call.parameters["itemId"]?.toIntOrNull()
+        val itemId  = call.parameters["itemId"]?.toIntOrNull()
             ?: return@delete call.respond(HttpStatusCode.BadRequest,
                 ApiResponse<Nothing>(false, "Invalid item id", null))
         val groupId = getOrCreateFamilyGroup(userId)
@@ -608,7 +594,7 @@ fun Route.familyRoutes() {
         val userId = call.parameters["id"]?.toIntOrNull()
             ?: return@patch call.respond(HttpStatusCode.BadRequest,
                 ApiResponse<Nothing>(false, "Invalid user id", null))
-        val body = call.receive<CreateFamilyRequest>()
+        val body    = call.receive<CreateFamilyRequest>()
         val groupId = getOrCreateFamilyGroup(userId)
 
         dbQuery {

@@ -919,6 +919,10 @@ fun Route.medicalRoutes() {
             ?: return@get call.respond(HttpStatusCode.BadRequest,
                 ApiResponse<Nothing>(false, "Invalid user id", null))
 
+        val user = dbQuery { Users.select { Users.id eq userId }.singleOrNull() }
+            ?: return@get call.respond(HttpStatusCode.NotFound,
+                ApiResponse<Nothing>(false, "User not found", null))
+
         val info = dbQuery {
             UserMedicalInfo.select { UserMedicalInfo.userId eq userId }.firstOrNull()
         }
@@ -926,6 +930,15 @@ fun Route.medicalRoutes() {
         val allergies    = if (info != null) parseJsonList(info[UserMedicalInfo.allergies])   else emptyList()
         val hideWeight   = info?.get(UserMedicalInfo.hideWeight)   ?: false
         val hideCalories = info?.get(UserMedicalInfo.hideCalories) ?: false
+
+        // Real user targets (same logic as DashboardRoutes)
+        val mealsPerDay    = user[Users.mealsPerDay].coerceAtLeast(1)
+        val exerciseDays   = user[Users.exerciseDays].coerceAtLeast(1)
+        val sessionsPerDay = if (exerciseDays >= 5) 2 else 1
+        val weekTotal      = exerciseDays * sessionsPerDay   // e.g. 4×2=8
+        val bmr            = NutritionEngine.bmr(user[Users.weightKg], user[Users.heightCm], user[Users.age], user[Users.gender])
+        val tdee           = NutritionEngine.tdee(bmr, user[Users.activityLevel])
+        val dailyCal       = NutritionEngine.dailyCalories(tdee, user[Users.goal]).coerceAtLeast(1200)
 
         val today = java.time.LocalDate.now()
         val weekStart = today.minusDays(6)
@@ -959,7 +972,7 @@ fun Route.medicalRoutes() {
             }
             val cal     = log?.get(MedicalDailyLogs.caloriesEaten) ?: 0
             val workout = (log?.get(MedicalDailyLogs.workoutsDone) ?: 0) > 0
-            val pct     = minOf((cal * 100 / 2000), 100)
+            val pct     = minOf((cal * 100 / dailyCal), 100)
             Triple(cal, workout, pct)
         }
 
@@ -986,9 +999,9 @@ fun Route.medicalRoutes() {
             allergies              = allergies,
             medications            = medications,
             workoutsCompleted      = workoutsDone,
-            workoutsTotal          = 15,
+            workoutsTotal          = weekTotal,
             mealsLogged            = mealsLogged,
-            mealsTotal             = 21,
+            mealsTotal             = mealsPerDay * 7,
             totalCaloriesThisWeek  = totalCal,
             avgDailyCalories       = avgCal,
             hideWeight             = hideWeight,

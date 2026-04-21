@@ -153,9 +153,9 @@ fun Route.workoutSessionRoutes() {
 
         // Fetch user's exerciseDays to determine suggested workout count
         val exerciseDays = dbQuery {
-            WorkoutUsers.select { WorkoutUsers.id eq userId }
+            WorkoutPlanUsers.select { WorkoutPlanUsers.id eq userId }
                 .firstOrNull()
-                ?.getOrNull(WorkoutUsers.exerciseDays) ?: 4
+                ?.getOrNull(WorkoutPlanUsers.exerciseDays) ?: 4
         }
 
         // Same logic as WorkoutRoutes.kt suggestedCount
@@ -191,12 +191,27 @@ fun Route.workoutSessionRoutes() {
         val weekCalories     = weekSessions.sumOf { it[WorkoutSession.caloriesBurned] }
         val weekMinutes      = weekSessions.sumOf { it[WorkoutSession.durationSeconds] } / 60
 
-        // Week progress: sessions done this week vs exerciseDays goal
-        val weekProgressPct = minOf((weekSessionCount * 100) / exerciseDays, 100)
+        // Week progress: sessions done vs TOTAL PLANNED this week (workout_plan rows)
+        // This is the correct denominator — e.g. 4 days × 2 sessions/day = 8 planned
+        val weekPlanTotal = com.example.fuelify.db.DatabaseFactory.dbQuery {
+            WorkoutPlan.select {
+                (WorkoutPlan.userId eq userId) and
+                (WorkoutPlan.scheduledDate greaterEq weekStart) and
+                (WorkoutPlan.scheduledDate lessEq today)
+            }.count().toInt()
+        }.coerceAtLeast(exerciseDays)
 
-        // Today progress: sessions done today vs suggested count for today
-        // e.g. done=1, suggested=3 → 33%  |  done=3, suggested=3 → 100%
-        val todayProgressPct = minOf((todaySessions.size * 100) / suggestedCount, 100)
+        val weekProgressPct = if (weekPlanTotal > 0)
+            minOf((weekSessionCount * 100) / weekPlanTotal, 100)
+        else 0
+
+        // Today progress: done today vs planned today
+        val todayPlanCount = com.example.fuelify.db.DatabaseFactory.dbQuery {
+            WorkoutPlan.select {
+                (WorkoutPlan.userId eq userId) and (WorkoutPlan.scheduledDate eq today)
+            }.count().toInt()
+        }.coerceAtLeast(1)
+        val todayProgressPct = minOf((todaySessions.size * 100) / todayPlanCount, 100)
 
         val lastWorkout = weekSessions.lastOrNull()?.getOrNull(WorkoutSession.workoutName) ?: ""
 
@@ -206,7 +221,8 @@ fun Route.workoutSessionRoutes() {
             val todaySessions:    Int,
             val todayCalories:    Int,
             val todayMinutes:     Int,
-            val weekSessions:     Int,
+            val weekSessions:     Int,    // how many sessions done this week
+            val weekPlanTotal:    Int,    // how many sessions planned this week (the denominator)
             val weekCalories:     Int,
             val weekMinutes:      Int,
             val weekProgressPct:  Int,
@@ -220,6 +236,7 @@ fun Route.workoutSessionRoutes() {
             todayCalories    = todayCalories,
             todayMinutes     = todayMinutes,
             weekSessions     = weekSessionCount,
+            weekPlanTotal    = weekPlanTotal,
             weekCalories     = weekCalories,
             weekMinutes      = weekMinutes,
             weekProgressPct  = weekProgressPct,

@@ -134,12 +134,6 @@ class FamilyDietActivity : AppCompatActivity() {
             tvName.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_edit_pencil, 0)
         }
 
-        // Stats
-        findViewById<TextView>(R.id.tvTotalMeals).text = "${group.totalMealsPlanned} meals planned"
-
-        // Week strip
-        bindWeekStrip(group.weekDays)
-
         // Members
         val container = findViewById<LinearLayout>(R.id.containerFamilyMembers)
         container.removeAllViews()
@@ -211,37 +205,6 @@ class FamilyDietActivity : AppCompatActivity() {
     }
 
     // ── Week strip ────────────────────────────────────────────────────────────
-
-    private fun bindWeekStrip(days: List<WeekDay>) {
-        val container = findViewById<LinearLayout>(R.id.containerWeekStrip)
-        container.removeAllViews()
-        days.forEach { day ->
-            val cell = LayoutInflater.from(this)
-                .inflate(R.layout.item_week_day_cell, container, false)
-
-            cell.findViewById<TextView>(R.id.tvWeekDayLabel).text = day.dayLabel
-            cell.findViewById<TextView>(R.id.tvWeekDayNumber).text = day.dayNumber.toString()
-            cell.findViewById<TextView>(R.id.tvWeekDayMonth).text = day.monthLabel
-
-            val circle = cell.findViewById<LinearLayout>(R.id.layoutDayCircle)
-            when {
-                day.isToday -> {
-                    circle.setBackgroundResource(R.drawable.bg_day_today)
-                    cell.findViewById<TextView>(R.id.tvWeekDayLabel).setTextColor(0xFFF97316.toInt())
-                }
-                day.hasPlans -> {
-                    circle.setBackgroundResource(R.drawable.bg_badge_completed)
-                }
-                else -> {
-                    circle.setBackgroundResource(R.drawable.bg_recommended_card)
-                    cell.findViewById<TextView>(R.id.tvWeekDayNumber)
-                        .setTextColor(0xFF9CA3AF.toInt())
-                }
-            }
-            container.addView(cell)
-        }
-    }
-
     // ── Grocery list ──────────────────────────────────────────────────────────
 
     private fun bindGroceryList(items: List<FamilyGroceryItem>) {

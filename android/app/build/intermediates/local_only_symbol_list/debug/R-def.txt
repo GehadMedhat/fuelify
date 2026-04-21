@@ -334,7 +334,6 @@ id containerTransactions
 id containerWeekCalendar
 id containerWeekDots
 id containerWeekPlan
-id containerWeekStrip
 id containerWorkoutAdded
 id containerWorkoutEquipment
 id containerWorkoutExercises
@@ -433,7 +432,6 @@ id layoutOnboardStep2
 id layoutOnboardStep3
 id layoutOnboardStep4
 id layoutSuitability
-id layoutWorkoutSearch
 id llMsgBubble
 id mealsPicker
 id navDiet
@@ -614,9 +612,6 @@ id tvFocusSelection
 id tvGreeting
 id tvGroceryItemName
 id tvGroceryItemPrice
-id tvGroupAvgStreak
-id tvGroupTotalCal
-id tvGroupTotalMeals
 id tvHighlight1Name
 id tvHighlight1Sub
 id tvHighlight2Badge
@@ -772,7 +767,6 @@ id tvSwitchTitle
 id tvTitle
 id tvTodayWorkoutCalories
 id tvTodayWorkoutStatus
-id tvTotalMeals
 id tvTxAmount
 id tvTxDate
 id tvTxDescription

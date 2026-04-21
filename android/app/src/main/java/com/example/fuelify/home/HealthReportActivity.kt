@@ -70,77 +70,126 @@ class HealthReportActivity : AppCompatActivity() {
     private fun loadHealthReport() {
         scope.launch {
             try {
-                val resp = withContext(Dispatchers.IO) { RetrofitClient.api.getHealthReport(userId) }
-                if (resp.isSuccessful && resp.body()?.data != null) {
-                    currentReport = resp.body()!!.data!!
-                    bindReport(currentReport!!)
+                val resp = withContext(Dispatchers.IO) {
+                    RetrofitClient.api.getHealthReport(userId)
                 }
+
+                val progressResp = withContext(Dispatchers.IO) {
+                    RetrofitClient.api.getWorkoutProgress(userId)
+                }
+
+                if (resp.isSuccessful && resp.body()?.data != null) {
+
+                    currentReport = resp.body()?.data
+
+                    val weekSessions =
+                        if (progressResp.isSuccessful && progressResp.body()?.data != null)
+                            progressResp.body()!!.data!!.weekSessions
+                        else 0
+
+                    currentReport?.let {
+                        bindReport(it, weekSessions)
+                    }
+
+                } else {
+                    Toast.makeText(this@HealthReportActivity, "Failed to load report", Toast.LENGTH_SHORT).show()
+                }
+
             } catch (e: Exception) {
-                Toast.makeText(this@HealthReportActivity, "Network error", Toast.LENGTH_SHORT).show()
+                e.printStackTrace() // 🔥 VERY IMPORTANT (check Logcat)
+                Toast.makeText(this@HealthReportActivity, "Network error: ${e.message}", Toast.LENGTH_LONG).show()
             }
         }
     }
 
-    private fun bindReport(report: HealthReport) {
+    private fun bindReport(report: HealthReport, weekSessions: Int) {
         hideWeight   = report.hideWeight
         hideCalories = report.hideCalories
 
         val swWeight   = findViewById<Switch>(R.id.switchHideWeight)
         val swCalories = findViewById<Switch>(R.id.switchHideCalories)
-        // Clear listeners before setting values to avoid triggering privacy save on load
+
         swWeight.setOnCheckedChangeListener(null)
         swCalories.setOnCheckedChangeListener(null)
+
         swWeight.isChecked   = report.hideWeight
         swCalories.isChecked = report.hideCalories
-        // Re-attach after values are set
-        swWeight.setOnCheckedChangeListener { _, checked -> hideWeight = checked; updatePrivacy() }
-        swCalories.setOnCheckedChangeListener { _, checked ->
-            hideCalories = checked; updatePrivacy()
-            currentReport?.let { r -> bindReport(r.copy(hideCalories = checked)) }
+
+        swWeight.setOnCheckedChangeListener { _, checked ->
+            hideWeight = checked
+            updatePrivacy()
         }
 
-        // Conditions
+        swCalories.setOnCheckedChangeListener { _, checked ->
+            hideCalories = checked
+
+            val tvTotal = findViewById<TextView>(R.id.tvReportTotalCal)
+            val tvAvg   = findViewById<TextView>(R.id.tvReportAvgCal)
+
+            if (!hideCalories) {
+                tvTotal?.text = "${report.totalCaloriesThisWeek} kcal this week"
+                tvAvg?.text   = "${report.avgDailyCalories} kcal/day avg"
+            } else {
+                tvTotal?.text = "Hidden"
+                tvAvg?.text   = "Hidden"
+            }
+        }
+
         val condContainer = findViewById<LinearLayout>(R.id.containerReportConditions)
         condContainer.removeAllViews()
+
         if (report.conditions.isEmpty()) {
             condContainer.addView(TextView(this).apply {
-                text = "No conditions recorded"; textSize = 12f; setTextColor(0xFF9CA3AF.toInt())
+                text = "No conditions recorded"
+                textSize = 12f
+                setTextColor(0xFF9CA3AF.toInt())
             })
         } else {
             report.conditions.forEach { cond ->
                 val badge = TextView(this).apply {
-                    text = cond; textSize = 12f; setTextColor(0xFFF97316.toInt())
-                    setBackgroundColor(0xFFFFF7ED.toInt()); setPadding(24, 8, 24, 8)
+                    text = cond
+                    textSize = 12f
+                    setTextColor(0xFFF97316.toInt())
+                    setBackgroundColor(0xFFFFF7ED.toInt())
+                    setPadding(24, 8, 24, 8)
                 }
-                val lp = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
-                lp.marginEnd = 8; badge.layoutParams = lp
+                val lp = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+                )
+                lp.marginEnd = 8
+                badge.layoutParams = lp
                 condContainer.addView(badge)
             }
         }
 
-        // Plan summary
-        findViewById<TextView>(R.id.tvReportWorkouts).text = "${report.workoutsCompleted}/${report.workoutsTotal}"
-        findViewById<TextView>(R.id.tvReportMeals).text = if (!hideCalories)
-            "${report.mealsLogged}/${report.mealsTotal}" else "Hidden"
+        val weekTotal = UserPreferences.getWeekTotal(this).coerceAtLeast(1)
+        // Use tvReportWorkouts — the correct ID in activity_health_report.xml
+        findViewById<TextView>(R.id.tvReportWorkouts)?.text =
+            "$weekSessions/$weekTotal"
 
-        // Calorie summary
+        findViewById<TextView>(R.id.tvReportMeals)?.text =
+            "${report.mealsLogged}/${report.mealsTotal}"
+
         val tvTotal = findViewById<TextView>(R.id.tvReportTotalCal)
         val tvAvg   = findViewById<TextView>(R.id.tvReportAvgCal)
+
         if (!hideCalories) {
-            tvTotal.text = "${report.totalCaloriesThisWeek} kcal this week"
-            tvAvg.text   = "${report.avgDailyCalories} kcal/day avg"
+            tvTotal?.text = "${report.totalCaloriesThisWeek} kcal this week"
+            tvAvg?.text   = "${report.avgDailyCalories} kcal/day avg"
         } else {
-            tvTotal.text = "Hidden"; tvAvg.text = "Hidden"
+            tvTotal?.text = "Hidden"
+            tvAvg?.text   = "Hidden"
         }
 
-        // Real chart
         drawRealChart(report.dailyProgress)
     }
 
     private fun drawRealChart(days: List<DailyProgress>) {
         val container = findViewById<LinearLayout>(R.id.containerProgressBars)
         container.removeAllViews()
-        val maxCal = days.maxOfOrNull { it.calories }?.takeIf { it > 0 } ?: 2000
+        // Use user's actual daily calorie goal as the ceiling (same as HomeActivity logic)
+        val maxCal = UserPreferences.getDailyCalories(this).takeIf { it > 0 } ?: 2000
 
         days.forEach { day ->
             val col = LinearLayout(this).apply {

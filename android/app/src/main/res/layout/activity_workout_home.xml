@@ -58,29 +58,34 @@
                     android:focusable="true"/>
             </LinearLayout>
 
-            <!-- Search -->
-            <LinearLayout
-                android:id="@+id/layoutWorkoutSearch"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/bg_picker_selected"
-                android:gravity="center_vertical"
-                android:paddingHorizontal="16dp"
-                android:orientation="horizontal"
-                android:clickable="true"
-                android:focusable="true">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:src="@drawable/green_search"
-                    android:textSize="16sp"/>
-                <TextView android:text="Search something" android:textColor="#9CA3AF" android:textSize="14sp"
-                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-            </LinearLayout>
+<!--            &lt;!&ndash; Search &ndash;&gt;-->
+<!--            <LinearLayout-->
+<!--                android:id="@+id/layoutWorkoutSearch"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="48dp"-->
+<!--                android:layout_marginHorizontal="20dp"-->
+<!--                android:layout_marginTop="16dp"-->
+<!--                android:layout_marginBottom="20dp"-->
+<!--                android:background="@drawable/bg_picker_selected"-->
+<!--                android:gravity="center_vertical"-->
+<!--                android:paddingHorizontal="16dp"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:clickable="true"-->
+<!--                android:focusable="true">-->
+<!--                <ImageView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginEnd="8dp"-->
+<!--                    android:src="@drawable/green_search"-->
+<!--                    android:textSize="16sp"/>-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Search something"-->
+<!--                    android:textColor="#9CA3AF"-->
+<!--                    android:textSize="14sp" />-->
+<!--            </LinearLayout>-->
 
             <!-- Today's Workout Progress card -->
             <LinearLayout
@@ -183,36 +188,6 @@
                     android:orientation="horizontal"/>
             </LinearLayout>
 
-            <!-- Suggested header with personalized reason -->
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:paddingHorizontal="20dp" android:layout_marginBottom="8dp"
-                android:orientation="vertical">
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                    android:orientation="horizontal" android:gravity="center_vertical">
-                    <TextView android:text="Suggested For You" android:textColor="#171717"
-                        android:textSize="15sp" android:textStyle="bold"
-                        android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
-                </LinearLayout>
-                <TextView android:id="@+id/tvSuggestedReason" android:text=""
-                    android:textColor="#9CA3AF" android:textSize="11sp"
-                    android:visibility="gone"
-                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-            </LinearLayout>
-
-            <!-- Suggested Workouts — horizontal scroll of 3 options -->
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="20dp"
-                android:scrollbars="none"
-                android:layout_marginBottom="24dp">
-                <LinearLayout
-                    android:id="@+id/containerSuggestedWorkouts"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"/>
-            </HorizontalScrollView>
-
             <!-- ── Your Workout Plan This Week ──────────────────────────── -->
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:paddingHorizontal="20dp" android:layout_marginTop="8dp"
@@ -242,6 +217,40 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"/>
             </LinearLayout>
+
+
+
+            <!-- Suggested header with personalized reason -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:paddingHorizontal="20dp" android:layout_marginBottom="8dp"
+                android:orientation="vertical">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical">
+                    <TextView android:text="More Workouts Suggested For You" android:textColor="#171717"
+                        android:textSize="15sp" android:textStyle="bold"
+                        android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+                </LinearLayout>
+                <TextView android:id="@+id/tvSuggestedReason" android:text=""
+                    android:textColor="#9CA3AF" android:textSize="11sp"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+
+            <!-- Suggested Workouts — horizontal scroll of 3 options -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="20dp"
+                android:scrollbars="none"
+                android:layout_marginBottom="24dp">
+                <LinearLayout
+                    android:id="@+id/containerSuggestedWorkouts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"/>
+            </HorizontalScrollView>
+
 
             <!-- Popular Workouts header -->
             <LinearLayout

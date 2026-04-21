@@ -46,7 +46,7 @@ private object FDB_Users : Table("users") {
 }
 
 private object FDB_DailyLogs : Table("daily_logs") {
-    val logId         = integer("log_id").autoIncrement()
+    val logId         = integer("id").autoIncrement()
     val userId        = integer("user_id")
     val logDate       = date("log_date")
     val caloriesEaten = integer("calories_eaten").default(0)
@@ -119,26 +119,35 @@ data class FamilyDashboardDto(
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
-private fun calcCalorieGoal(gender: String?, age: Int?, weight: Int?, height: Int?,
-                              activityLevel: String?, goal: String?): Int {
-    if (age == null || weight == null || height == null) return 2000
-    val bmr = if (gender?.lowercase() == "female")
-        447.593 + 9.247 * weight + 3.098 * height - 4.330 * age
+// Matches DashboardRoutes/NutritionEngine formula exactly so all screens agree
+private fun calcCalorieGoal(
+    gender: String?, age: Int?, weight: Int?, height: Int?,
+    activityLevel: String?, goal: String?
+): Int {
+    if (gender == null || age == null || weight == null || height == null || activityLevel == null || goal == null) {
+        return 2000
+    }
+
+    val bmr = if (gender.lowercase().trim() == "female")
+        10.0 * weight + 6.25 * height - 5.0 * age - 161
     else
-        88.362 + 13.397 * weight + 4.799 * height - 5.677 * age
-    val tdee = bmr * when (activityLevel?.lowercase()) {
-        "sedentary"         -> 1.2
-        "lightly active"    -> 1.375
-        "moderately active" -> 1.55
-        "very active"       -> 1.725
-        else                -> 1.375
+        10.0 * weight + 6.25 * height - 5.0 * age + 5
+
+    val tdee = bmr * when (activityLevel.lowercase().trim()) {
+        "sedentary"                   -> 1.2
+        "lightly active", "light"     -> 1.375
+        "moderately active", "moderate" -> 1.55
+        "very active"                 -> 1.725
+        "extra active", "athlete"     -> 1.9
+        else                          -> 1.55
     }
-    return when {
-        goal?.contains("lose", true)    == true -> (tdee - 500).toInt()
-        goal?.contains("gain", true)    == true -> (tdee + 300).toInt()
-        goal?.contains("muscle", true)  == true -> (tdee + 200).toInt()
+
+    return when (goal.lowercase().trim()) {
+        "lose weight" -> (tdee - 500).toInt()
+        "gain muscle", "gain weight" -> (tdee + 300).toInt()
+        "get fit", "maintain", "maintain weight" -> tdee.toInt()
         else -> tdee.toInt()
-    }
+    }.coerceAtLeast(1200)
 }
 
 // ─── Route ────────────────────────────────────────────────────────────────────
