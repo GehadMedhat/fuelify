@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_recommended_card"
+    android:orientation="horizontal"
+    android:layout_marginBottom="16dp">
+
+    <!-- Colored border bar -->
+    <View
+        android:id="@+id/viewAlertBorder"
+        android:layout_width="4dp"
+        android:layout_height="match_parent"
+        android:background="#EF4444"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="14dp">
+
+        <!-- Icon + Title row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+
+            <LinearLayout
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="#FEE2E2"
+                android:gravity="center"
+                android:layout_marginEnd="10dp">
+                <TextView
+                    android:id="@+id/tvAlertIcon"
+                    android:text="⚠️"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvAlertTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <!-- Message -->
+        <TextView
+            android:id="@+id/tvAlertMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#374151"
+            android:textSize="13sp"
+            android:layout_marginBottom="10dp"/>
+
+        <!-- Suggestion box -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F9F4F1"
+            android:padding="10dp"
+            android:layout_marginBottom="12dp">
+            <TextView
+                android:id="@+id/tvAlertSuggestion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#166534"
+                android:textSize="13sp"/>
+        </LinearLayout>
+
+        <!-- Action buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/btnAlertDismiss"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_recommended_card"
+                android:gravity="center"
+                android:layout_marginEnd="8dp"
+                android:clickable="true"
+                android:focusable="true">
+                <TextView android:text="Dismiss" android:textColor="#374151" android:textSize="13sp"
+                    android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnAlertApply"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/light_orange_rectangle"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true">
+                <TextView android:text="Apply Swap" android:textColor="#4A6200" android:textSize="13sp"
+                    android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

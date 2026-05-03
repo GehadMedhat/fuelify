@@ -1,0 +1,26 @@
+#!/bin/sh
+# Fuelify Backend Gradle Wrapper
+# This script requires Gradle 8.x installed, or the user can run:
+#   gradle run
+# OR use Android Studio's built-in Gradle to run the backend.
+#
+# If you don't have Gradle installed:
+#   brew install gradle      (macOS)
+#   sdk install gradle 8.5   (sdkman)
+#   scoop install gradle     (Windows)
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+
+if command -v gradle > /dev/null 2>&1; then
+    cd "$SCRIPT_DIR" && gradle "$@"
+elif [ -f "$SCRIPT_DIR/gradle/wrapper/gradle-wrapper.jar" ]; then
+    cd "$SCRIPT_DIR" && java -jar gradle/wrapper/gradle-wrapper.jar "$@"
+else
+    echo "ERROR: Gradle not found."
+    echo "Install Gradle 8.x first: https://gradle.org/install/"
+    echo "  macOS: brew install gradle"
+    echo "  Linux: sdk install gradle 8.5 (via sdkman.io)"
+    echo ""
+    echo "Then run: gradle run"
+    exit 1
+fi

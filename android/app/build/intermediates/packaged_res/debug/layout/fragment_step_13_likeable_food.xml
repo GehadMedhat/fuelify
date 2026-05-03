@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#FFFFFF" android:orientation="vertical">
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:paddingBottom="24dp">
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginStart="24dp" android:layout_marginTop="30dp" android:layout_marginBottom="28dp"
+                android:background="@drawable/bg_step_badge" android:paddingHorizontal="10dp" android:paddingVertical="9dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="STEP 13" android:textColor="#000000" android:textSize="12sp" android:textStyle="bold"/>
+            </LinearLayout>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal" android:layout_marginBottom="15dp"
+                android:text="SELECT Food You Love" android:textColor="#000000" android:textSize="20sp" android:textStyle="bold"/>
+            <TextView android:layout_width="258dp" android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal" android:layout_marginBottom="16dp" android:gravity="center"
+                android:text="Tell us what you love in food to help us make the best meals for you"
+                android:textColor="#737373" android:textSize="11sp"/>
+
+            <!-- Food items — tap to toggle green/white -->
+            <LinearLayout android:id="@+id/foodChicken"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp" android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_card_green" android:clickable="true" android:focusable="true"
+                android:gravity="center_vertical" android:orientation="horizontal" android:paddingVertical="11dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp" android:layout_marginEnd="16dp" android:text="🍗" android:textSize="30sp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Chicken" android:textColor="#000000" android:textSize="13sp" android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout android:id="@+id/foodMeat"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp" android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_card_white" android:clickable="true" android:focusable="true"
+                android:gravity="center_vertical" android:orientation="horizontal" android:paddingVertical="11dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp" android:layout_marginEnd="16dp" android:text="🥩" android:textSize="30sp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Meat" android:textColor="#000000" android:textSize="13sp" android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout android:id="@+id/foodFish"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp" android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_card_green" android:clickable="true" android:focusable="true"
+                android:gravity="center_vertical" android:orientation="horizontal" android:paddingVertical="11dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp" android:layout_marginEnd="16dp" android:text="🐟" android:textSize="30sp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Fish" android:textColor="#000000" android:textSize="13sp" android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout android:id="@+id/foodEggs"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp" android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_card_white" android:clickable="true" android:focusable="true"
+                android:gravity="center_vertical" android:orientation="horizontal" android:paddingVertical="11dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp" android:layout_marginEnd="16dp" android:text="🥚" android:textSize="30sp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Eggs" android:textColor="#000000" android:textSize="13sp" android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout android:id="@+id/foodTuna"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp" android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_card_white" android:clickable="true" android:focusable="true"
+                android:gravity="center_vertical" android:orientation="horizontal" android:paddingVertical="11dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp" android:layout_marginEnd="16dp" android:text="🐠" android:textSize="30sp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Tuna" android:textColor="#000000" android:textSize="13sp" android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout android:id="@+id/foodSalmon"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp" android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_card_green" android:clickable="true" android:focusable="true"
+                android:gravity="center_vertical" android:orientation="horizontal" android:paddingVertical="11dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp" android:layout_marginEnd="16dp" android:text="🍣" android:textSize="30sp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Salmon" android:textColor="#000000" android:textSize="13sp" android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout android:id="@+id/foodYogurt"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp" android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_card_white" android:clickable="true" android:focusable="true"
+                android:gravity="center_vertical" android:orientation="horizontal" android:paddingVertical="11dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp" android:layout_marginEnd="16dp" android:text="🥛" android:textSize="30sp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Greek Yogurt" android:textColor="#000000" android:textSize="13sp" android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout android:id="@+id/foodOats"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp" android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_card_green" android:clickable="true" android:focusable="true"
+                android:gravity="center_vertical" android:orientation="horizontal" android:paddingVertical="11dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp" android:layout_marginEnd="16dp" android:text="🌾" android:textSize="30sp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Oats" android:textColor="#000000" android:textSize="13sp" android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout android:id="@+id/foodRice"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp" android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_card_white" android:clickable="true" android:focusable="true"
+                android:gravity="center_vertical" android:orientation="horizontal" android:paddingVertical="11dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp" android:layout_marginEnd="16dp" android:text="🍚" android:textSize="30sp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Rice" android:textColor="#000000" android:textSize="13sp" android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout android:id="@+id/foodPasta"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp" android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_card_white" android:clickable="true" android:focusable="true"
+                android:gravity="center_vertical" android:orientation="horizontal" android:paddingVertical="11dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp" android:layout_marginEnd="16dp" android:text="🍝" android:textSize="30sp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Pasta" android:textColor="#000000" android:textSize="13sp" android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout android:id="@+id/foodBread"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp" android:layout_marginBottom="24dp"
+                android:background="@drawable/bg_card_green" android:clickable="true" android:focusable="true"
+                android:gravity="center_vertical" android:orientation="horizontal" android:paddingVertical="11dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp" android:layout_marginEnd="16dp" android:text="🍞" android:textSize="30sp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Bread" android:textColor="#000000" android:textSize="13sp" android:textStyle="bold"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <include layout="@layout/include_bottom_nav"/>
+    <include layout="@layout/include_progress_dots"/>
+</LinearLayout>

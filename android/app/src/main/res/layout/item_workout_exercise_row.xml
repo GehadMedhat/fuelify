@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:layout_marginBottom="8dp">
+
+    <ImageView
+        android:id="@+id/imgWorkoutExerciseRow"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:scaleType="centerCrop"
+        android:background="#E5E7EB"
+        android:layout_marginEnd="14dp"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvWorkoutExerciseName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#171717"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tvWorkoutExerciseSets"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#C3E66E"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginTop="2dp"/>
+    </LinearLayout>
+
+    <!-- Info button -->
+    <LinearLayout
+        android:id="@+id/btnWorkoutExerciseInfo"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="@drawable/bg_recommended_card"
+        android:gravity="center"
+        android:clickable="true"
+        android:focusable="true">
+        <TextView
+            android:text="ℹ"
+            android:textSize="16sp"
+            android:textColor="#9CA3AF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</LinearLayout>

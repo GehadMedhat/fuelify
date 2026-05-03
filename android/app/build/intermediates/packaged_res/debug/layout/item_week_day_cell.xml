@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <!-- Day label e.g. Mon -->
+    <TextView
+        android:id="@+id/tvWeekDayLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#737373"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="4dp"/>
+
+    <!-- Circle with day number -->
+    <LinearLayout
+        android:id="@+id/layoutDayCircle"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:background="@drawable/bg_recommended_card"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvWeekDayNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#171717"
+            android:textSize="13sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <!-- Month label e.g. Dec -->
+    <TextView
+        android:id="@+id/tvWeekDayMonth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#9CA3AF"
+        android:textSize="9sp"
+        android:layout_marginTop="3dp"/>
+
+</LinearLayout>

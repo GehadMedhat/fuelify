@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Chat bubble rounded rect -->
+    <path
+        android:strokeColor="#9E9E9E"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M3,5 C3,3.9 3.9,3 5,3 L19,3 C20.1,3 21,3.9 21,5 L21,15 C21,16.1 20.1,17 19,17 L8,17 L4,21 L4,17 L5,17 C3.9,17 3,16.1 3,15 Z"/>
+    <!-- Left eye dot -->
+    <path
+        android:strokeColor="#9E9E9E"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M9,9 L9,9"/>
+    <!-- Right eye dot -->
+    <path
+        android:strokeColor="#9E9E9E"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M15,9 L15,9"/>
+    <!-- Smile -->
+    <path
+        android:strokeColor="#9E9E9E"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M9,12 C9,12 10,14 12,14 C14,14 15,12 15,12"/>
+</vector>

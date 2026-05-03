@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:background="#FFFFFF">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:paddingBottom="16dp"
+        android:background="#FFFFFF">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/back_arrow"/>
+
+        <TextView
+            android:id="@+id/rg3i1407mntb"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginStart="31dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quick Questions"/>
+    </LinearLayout>
+
+    <!-- Scrollable content — shrinks when keyboard opens -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/chat_bg_pink"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="What can I help you with?"
+                android:textColor="#000000"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"/>
+
+            <!-- Health -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Health"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="24dp">
+
+                <Button
+                    android:id="@+id/btnDailyHealthSummary"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="How much water should I drink daily?"
+                    android:textSize="12sp"
+                    android:layout_marginEnd="8dp"
+                    android:padding="10dp"/>
+
+                <Button
+                    android:id="@+id/btnMoodTracking"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="How can I improve my sleep quality?"
+                    android:textSize="12sp"
+                    android:padding="10dp"/>
+            </LinearLayout>
+
+            <!-- Diet -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Diet"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="24dp">
+
+                <Button
+                    android:id="@+id/btnWorkoutTips"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="What should I eat before a workout?"
+                    android:textSize="12sp"
+                    android:layout_marginEnd="8dp"
+                    android:padding="10dp"/>
+
+                <Button
+                    android:id="@+id/btnSymptomCheck"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="What are high protein meal ideas?"
+                    android:textSize="12sp"
+                    android:padding="10dp"/>
+            </LinearLayout>
+
+            <!-- Workout -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Workout"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+
+                <Button
+                    android:id="@+id/btnSleepData"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="What's a good beginner workout plan?"
+                    android:textSize="11sp"
+                    android:layout_marginEnd="8dp"
+                    android:padding="10dp"/>
+
+                <Button
+                    android:id="@+id/btnLog5kRun"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="How do I build muscle faster?"
+                    android:textSize="12sp"
+                    android:padding="10dp"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnStretchReminder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="How many calories should I burn per day?"
+                android:textSize="12sp"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Input bar — stays above keyboard -->
+    <LinearLayout
+        android:id="@+id/messageInputBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/green_rectangle">
+
+        <EditText
+            android:id="@+id/messageInput"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:hint="Type your message..."
+            android:textColorHint="#FFFFFF"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:background="@android:color/transparent"
+            android:paddingStart="16dp"
+            android:paddingEnd="8dp"
+            android:inputType="text|textCapSentences"
+            android:maxLines="1"
+            android:imeOptions="actionSend"/>
+
+        <ImageView
+            android:id="@+id/sendIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/send_icon"/>
+
+    </LinearLayout>
+
+</LinearLayout>

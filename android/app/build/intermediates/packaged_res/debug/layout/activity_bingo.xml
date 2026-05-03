@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="40dp">
+
+        <!-- ── HEADER ────────────────────────────────────────────────── -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="48dp"
+            android:paddingBottom="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/btnBingoBack"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/button_arrow"
+                android:layout_marginEnd="12dp"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Weekly Bingo 🎯"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#111827"/>
+
+                <TextView
+                    android:id="@+id/tvBingoWeek"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="11sp"
+                    android:textColor="#9CA3AF"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ── BINGO BANNER (shown on BINGO) ────────────────────────── -->
+        <LinearLayout
+            android:id="@+id/layoutBingoBanner"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:background="#C3E66E"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:id="@+id/tvBingoBannerText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎉 BINGO!"
+                android:textColor="#1F2937"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08"/>
+        </LinearLayout>
+
+        <!-- ── PROGRESS ──────────────────────────────────────────────── -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:id="@+id/tvBingoProgress"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#111827"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Complete a line to win!"
+                    android:textSize="10sp"
+                    android:textColor="#9CA3AF"/>
+            </LinearLayout>
+
+            <!-- Progress bar -->
+            <ProgressBar
+                android:id="@+id/progressBingo"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:progressDrawable="@drawable/bg_bingo_progress"
+                android:progress="0"
+                android:max="100"/>
+        </LinearLayout>
+
+        <!-- ── LINE BADGES ───────────────────────────────────────────── -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingBottom="10dp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:id="@+id/containerBingoBadges"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"/>
+        </HorizontalScrollView>
+
+        <!-- ── 3×3 BINGO GRID ────────────────────────────────────────── -->
+        <!-- gap between cells is handled by the 4dp padding in item_bingo_cell -->
+        <GridLayout
+            android:id="@+id/gridBingo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="12dp"
+            android:paddingBottom="4dp"
+            android:columnCount="3"
+            android:rowCount="3"
+            android:useDefaultMargins="false"/>
+
+        <!-- ── REWARD CARD ────────────────────────────────────────────── -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_recommended_card"
+            android:padding="16dp"
+            android:elevation="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="🏆 Your Reward"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#111827"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Weekly"
+                    android:textSize="9sp"
+                    android:textColor="#1F2937"
+                    android:textStyle="bold"
+                    android:background="#C3E66E"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvBingoReward"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:textColor="#6B7280"
+                android:lineSpacingExtra="4dp"/>
+        </LinearLayout>
+
+        <!-- ── HOW IT WORKS ───────────────────────────────────────────── -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:background="#F9FAFB"
+            android:padding="16dp">
+
+            <!-- Section title with lime accent bar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="12dp">
+
+                <View
+                    android:layout_width="4dp"
+                    android:layout_height="16dp"
+                    android:background="#C3E66E"
+                    android:layout_marginEnd="8dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="How it works"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="#111827"/>
+            </LinearLayout>
+
+            <!-- Rule 1 -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="top" android:layout_marginBottom="10dp">
+                <TextView android:layout_width="22dp" android:layout_height="wrap_content" android:text="✅" android:textSize="12sp"/>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Complete tasks throughout the week to check off cells" android:textSize="12sp" android:textColor="#374151" android:lineSpacingExtra="2dp"/>
+            </LinearLayout>
+
+            <!-- Rule 2 -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="top" android:layout_marginBottom="10dp">
+                <TextView android:layout_width="22dp" android:layout_height="wrap_content" android:text="🎯" android:textSize="12sp"/>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Get 3 in a row (across, down, or diagonal) for BINGO" android:textSize="12sp" android:textColor="#374151" android:lineSpacingExtra="2dp"/>
+            </LinearLayout>
+
+            <!-- Rule 3 -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="top" android:layout_marginBottom="10dp">
+                <TextView android:layout_width="22dp" android:layout_height="wrap_content" android:text="🎁" android:textSize="12sp"/>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Earn discount codes for your Cloud Kitchen orders" android:textSize="12sp" android:textColor="#374151" android:lineSpacingExtra="2dp"/>
+            </LinearLayout>
+
+            <!-- Rule 4 -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="top">
+                <TextView android:layout_width="22dp" android:layout_height="wrap_content" android:text="🔄" android:textSize="12sp"/>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Card resets every Monday with new tasks" android:textSize="12sp" android:textColor="#374151" android:lineSpacingExtra="2dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

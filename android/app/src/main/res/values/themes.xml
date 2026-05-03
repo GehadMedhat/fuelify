@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Main Fuelify theme -->
+    <style name="Theme.Fuelify" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">#C3E66E</item>
+        <item name="colorPrimaryVariant">#A8CC55</item>
+        <item name="colorOnPrimary">#000000</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:statusBarColor">#FFFFFF</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <!-- Applies GreenButton style to every Button app-wide (defined in style.xml) -->
+        <item name="materialButtonStyle">@style/GreenButton</item>
+    </style>
+
+    <style name="cr12">
+        <item name="cornerSize">12dp</item>
+    </style>
+
+    <!-- Friend's theme alias — auth activities that reference Theme.AndroidProject still work -->
+    <style name="Theme.AndroidProject" parent="Theme.Fuelify"/>
+
+</resources>

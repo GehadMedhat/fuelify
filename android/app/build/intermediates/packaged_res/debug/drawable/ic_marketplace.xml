@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Store roof/awning -->
+    <path
+        android:strokeColor="#9E9E9E"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M3,9 L21,9 L21,11 C21,12.1 20.1,13 19,13 L5,13 C3.9,13 3,12.1 3,11 Z"/>
+    <!-- Store front body -->
+    <path
+        android:strokeColor="#9E9E9E"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M5,13 L5,21 L19,21 L19,13"/>
+    <!-- Store top triangle/hat -->
+    <path
+        android:strokeColor="#9E9E9E"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M3,9 L12,3 L21,9"/>
+    <!-- Door -->
+    <path
+        android:strokeColor="#9E9E9E"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M10,21 L10,16 L14,16 L14,21"/>
+    <!-- Left window -->
+    <path
+        android:strokeColor="#9E9E9E"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M6,15 L8,15 L8,17 L6,17 Z"/>
+    <!-- Right window -->
+    <path
+        android:strokeColor="#9E9E9E"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M16,15 L18,15 L18,17 L16,17 Z"/>
+</vector>

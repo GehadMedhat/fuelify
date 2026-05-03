@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#F9FAFB" android:orientation="vertical">
+
+    <!-- Header -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:background="#FFFFFF" android:paddingHorizontal="20dp"
+        android:paddingTop="48dp" android:paddingBottom="14dp"
+        android:orientation="horizontal" android:gravity="center_vertical" android:elevation="4dp">
+        <ImageButton android:id="@+id/btnWalletBack" android:layout_width="40dp"
+            android:layout_height="40dp" android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/button_arrow" android:scaleType="fitCenter" android:layout_marginEnd="10dp"/>
+        <TextView android:text="My Wallet" android:textColor="#000000"
+            android:textSize="20sp" android:textStyle="bold"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="20dp">
+
+            <!-- Balance card -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:background="@drawable/orange_rectangle" android:padding="28dp"
+                android:orientation="vertical" android:gravity="center"
+                android:layout_marginBottom="20dp">
+
+                <TextView android:text="Current Balance"
+                    android:textColor="#78350F" android:textSize="14sp"
+                    android:gravity="center" android:layout_marginBottom="8dp"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+                <TextView android:id="@+id/tvWalletBalance" android:text="0.00 EGP"
+                    android:textColor="#000000" android:textSize="42sp" android:textStyle="bold"
+                    android:gravity="center" android:layout_marginBottom="20dp"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+                <!-- Stats row -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                        <TextView android:id="@+id/tvWalletTotalEarned" android:text="0 EGP"
+                            android:textColor="#92400E" android:textSize="18sp" android:textStyle="bold"
+                            android:gravity="center"
+                            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                        <TextView android:text="Total Earned"
+                            android:textColor="#B45309" android:textSize="11sp" android:gravity="center"
+                            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <View android:layout_width="1dp" android:layout_height="40dp" android:background="#F97316" android:alpha="0.3"/>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                        <TextView android:id="@+id/tvWalletTotalCases" android:text="0 cases"
+                            android:textColor="#92400E" android:textSize="18sp" android:textStyle="bold"
+                            android:gravity="center"
+                            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                        <TextView android:text="Cases Responded"
+                            android:textColor="#B45309" android:textSize="11sp" android:gravity="center"
+                            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Rate info -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:background="#FFFFFF" android:padding="16dp"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+                <TextView android:text="💬" android:textSize="22sp" android:layout_marginEnd="12dp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:text="Earnings Rate" android:textColor="#000000"
+                        android:textSize="14sp" android:textStyle="bold"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <TextView android:text="25 EGP credited automatically per responded case"
+                        android:textColor="#737373" android:textSize="12sp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Transaction history -->
+            <TextView android:text="Transaction History" android:textColor="#000000"
+                android:textSize="16sp" android:textStyle="bold" android:layout_marginBottom="12dp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+            <LinearLayout android:id="@+id/containerTransactions"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

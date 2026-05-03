@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:background="#FFFFFF" android:padding="16dp"
+    android:layout_marginBottom="10dp" android:orientation="vertical">
+
+    <!-- Top row: avatar + name + streak -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:gravity="center_vertical"
+        android:layout_marginBottom="12dp">
+
+        <!-- Avatar with online dot -->
+        <FrameLayout android:layout_width="44dp" android:layout_height="44dp"
+            android:layout_marginEnd="12dp">
+            <TextView android:id="@+id/tvMemberAvatar"
+                android:layout_width="44dp" android:layout_height="44dp"
+                android:gravity="center" android:textColor="#FFFFFF"
+                android:textSize="18sp" android:textStyle="bold"
+                android:background="#F97316"/>
+            <View android:id="@+id/viewOnlineDot"
+                android:layout_width="10dp" android:layout_height="10dp"
+                android:layout_gravity="bottom|end"
+                android:background="#22C55E"/>
+        </FrameLayout>
+
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical">
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical">
+                <TextView android:id="@+id/tvMemberName" android:textColor="#000000"
+                    android:textSize="15sp" android:textStyle="bold" android:layout_marginEnd="6dp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <TextView android:id="@+id/tvMemberRole" android:textColor="#737373"
+                    android:textSize="11sp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <TextView android:id="@+id/tvMemberGoal" android:textColor="#9CA3AF"
+                android:textSize="11sp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <TextView android:id="@+id/tvMemberStreak"
+            android:textColor="#F97316" android:textSize="13sp" android:textStyle="bold"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <!-- Calorie progress -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:gravity="center_vertical"
+        android:layout_marginBottom="6dp">
+        <TextView android:text="🔥 " android:textSize="13sp"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <TextView android:id="@+id/tvMemberCalories" android:textColor="#374151"
+            android:textSize="12sp"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <ProgressBar android:id="@+id/progressMemberCal"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent" android:layout_height="5dp"
+        android:progressTint="#F97316" android:progressBackgroundTint="#E5E7EB"
+        android:max="100" android:progress="0" android:layout_marginBottom="10dp"/>
+
+    <!-- Water -->
+    <TextView android:id="@+id/tvMemberWater" android:textColor="#737373"
+        android:textSize="12sp" android:layout_marginBottom="10dp"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+    <!-- Week stats row -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:layout_marginBottom="10dp">
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical"
+            android:background="#FFF7ED" android:padding="8dp">
+            <TextView android:text="Meals" android:textColor="#9CA3AF" android:textSize="10sp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <TextView android:id="@+id/tvMemberWeekMeals" android:textColor="#F97316"
+                android:textSize="13sp" android:textStyle="bold"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <View android:layout_width="4dp" android:layout_height="1dp"/>
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical"
+            android:background="#F0FDF4" android:padding="8dp">
+            <TextView android:text="Workouts" android:textColor="#9CA3AF" android:textSize="10sp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <TextView android:id="@+id/tvMemberWeekWorkouts" android:textColor="#22C55E"
+                android:textSize="13sp" android:textStyle="bold"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <View android:layout_width="4dp" android:layout_height="1dp"/>
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical"
+            android:background="#EFF6FF" android:padding="8dp">
+            <TextView android:text="Burned" android:textColor="#9CA3AF" android:textSize="10sp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <TextView android:id="@+id/tvMemberWeekCalBurned" android:textColor="#3B82F6"
+                android:textSize="13sp" android:textStyle="bold"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Week workout dots -->
+    <TextView android:text="Workouts this week" android:textColor="#9CA3AF"
+        android:textSize="10sp" android:layout_marginBottom="4dp"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    <LinearLayout android:id="@+id/containerWeekDots"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal"/>
+</LinearLayout>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Fuelify colors -->
+    <color name="green_primary">#C3E66E</color>
+    <color name="green_light">#EDFFC5</color>
+    <color name="green_select">#C3E66E</color>
+    <color name="red_select">#FFCCCC</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="gray_text">#737373</color>
+    <color name="gray_border">#E5E5E5</color>
+    <color name="gray_dark">#D4D4D4</color>
+    <color name="text_dark">#171717</color>
+    <color name="text_muted">#8A8C90</color>
+    <color name="green_btn">#C3E66E</color>
+    <color name="dot_active">#000000</color>
+    <color name="dot_inactive">#D4D4D4</color>
+
+    <!-- Auth/Friend colors -->
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="dark_green">#C3E66E</color>
+</resources>

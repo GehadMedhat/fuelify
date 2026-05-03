@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="4dp">
+
+    <!--
+        Use MaterialCardView instead of CardView so that
+        app:strokeWidth and app:strokeColor actually render.
+        In your adapter, toggle the stroke like this:
+
+        INCOMPLETE:  cell.strokeWidth = 1  (dp → px)   cell.strokeColor = Color.parseColor("#E5E7EB")  cell.setCardBackgroundColor(Color.WHITE)
+        IN-PROGRESS: same as incomplete
+        COMPLETED:   cell.strokeWidth = 4  (dp → px)   cell.strokeColor = Color.parseColor("#C3E66E")  cell.setCardBackgroundColor(Color.parseColor("#F7FDE8"))
+        CENTER(id4): cell.setCardBackgroundColor(Color.parseColor("#FFFBF0"))
+    -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/bingoCellCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:strokeColor="#E5E7EB"
+        app:strokeWidth="1dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="108dp">
+
+            <!-- Circular lime check badge — top-right, visible when completed -->
+            <TextView
+                android:id="@+id/tvBingoCellCheck"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="top|end"
+                android:layout_margin="8dp"
+                android:gravity="center"
+                android:text="✓"
+                android:textColor="#1F2937"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_bingo_check_circle"
+                android:visibility="gone"/>
+
+            <!-- Cell content -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="12dp">
+
+                <!-- Emoji -->
+                <TextView
+                    android:id="@+id/tvBingoCellEmoji"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="24sp"
+                    android:layout_marginBottom="6dp"/>
+
+                <!-- Task text -->
+                <TextView
+                    android:id="@+id/tvBingoCellTask"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="9.5sp"
+                    android:textColor="#374151"
+                    android:lineSpacingExtra="2dp"
+                    android:layout_marginBottom="8dp"/>
+
+                <!-- Thin divider -->
+                <View
+                    android:layout_width="28dp"
+                    android:layout_height="1dp"
+                    android:background="#E5E7EB"
+                    android:layout_marginBottom="6dp"/>
+
+                <!-- Progress: grey when 0, lime when > 0 -->
+                <TextView
+                    android:id="@+id/tvBingoCellProgress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="#D1D5DB"
+                    android:visibility="gone"/>
+
+            </LinearLayout>
+        </FrameLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>

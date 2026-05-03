@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/tvPantryDialogName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#171717"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:text="Quantity"
+        android:textColor="#374151"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="6dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/etPantryQty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="e.g. 200"
+        android:inputType="numberDecimal"
+        android:background="@drawable/bg_recommended_card"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:text="Expires in (days from today)"
+        android:textColor="#374151"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="6dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/etPantryDays"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="7"
+        android:inputType="number"
+        android:background="@drawable/bg_recommended_card"
+        android:padding="12dp"/>
+</LinearLayout>

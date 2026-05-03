@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <!-- Bottom Nav pinned to bottom -->
+    <LinearLayout
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bg_bottom_nav"
+        android:elevation="8dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="8dp">
+
+        <LinearLayout android:id="@+id/navHome" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical" android:padding="8dp">
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/home"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Home" android:textColor="#AAAAAA" android:textSize="10sp"/>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/navWorkouts" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical" android:padding="8dp">
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/workout"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Workouts" android:textColor="#AAAAAA" android:textSize="10sp"/>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/navDiet" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical" android:padding="8dp">
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/gray_diet"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Diet" android:textColor="#AAAAAA" android:textSize="10sp" android:textStyle="bold"/>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/navStats" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical" android:padding="8dp">
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/stats"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Statistics" android:textColor="#AAAAAA" android:textSize="10sp"/>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/navProfile" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical" android:padding="8dp">
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/green_profile"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Profile" android:textColor="#C3E66E" android:textSize="10sp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- ScrollView fills space above bottom nav -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomNav"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:paddingBottom="16dp">
+
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/back_arrow"/>
+
+            <TextView
+                android:id="@+id/rg3i1407mntb"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="20dp"
+                android:layout_marginStart="31dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profile"/>
+
+            <!-- Profile Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_card_pink"
+                android:orientation="horizontal"
+                android:padding="20dp"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+
+                <FrameLayout
+                    android:layout_width="72dp"
+                    android:layout_height="72dp">
+
+                    <ImageView
+                        android:id="@+id/profileImage"
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:layout_gravity="center"
+                        android:scaleType="centerCrop"/>
+
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="16dp">
+
+                    <TextView
+                        android:id="@+id/userName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Alex John"
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/tvUserName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#888888"
+                        android:textSize="13sp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="10dp"/>
+
+                    <Button
+                        android:id="@+id/btnEditProfile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:text="Edit Profile"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp"
+                        android:textAllCaps="false"
+                        android:backgroundTint="@null"
+                        android:background="@drawable/green_button_bg"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Saved Items Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/white_card_bg"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout android:id="@+id/savedRecipesRow" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingTop="8dp" android:paddingBottom="8dp" android:clickable="true" android:focusable="true">
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_bookmark"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Saved Recipes" android:textColor="#000000" android:textSize="18sp" android:layout_marginStart="16dp"/>
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/arrow_right_icon"/>
+                </LinearLayout>
+
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#E0E0E0" android:layout_marginTop="4dp" android:layout_marginBottom="4dp"/>
+
+                <LinearLayout android:id="@+id/chatbotRow" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingTop="8dp" android:paddingBottom="8dp" android:clickable="true" android:focusable="true">
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_chatbot"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="AI Chatbot (Aura)" android:textColor="#000000" android:textSize="18sp" android:layout_marginStart="16dp"/>
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/arrow_right_icon"/>
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#E0E0E0" android:layout_marginTop="4dp" android:layout_marginBottom="4dp"/>
+
+                <LinearLayout android:id="@+id/gameRow" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingTop="8dp" android:paddingBottom="8dp" android:clickable="true" android:focusable="true">
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_chatbot"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Spinning Wheel" android:textColor="#000000" android:textSize="18sp" android:layout_marginStart="16dp"/>
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/arrow_right_icon"/>
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#E0E0E0" android:layout_marginTop="4dp" android:layout_marginBottom="4dp"/>
+
+                <LinearLayout android:id="@+id/game2Row" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingTop="8dp" android:paddingBottom="8dp" android:clickable="true" android:focusable="true">
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_chatbot"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Bingo Card" android:textColor="#000000" android:textSize="18sp" android:layout_marginStart="16dp"/>
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/arrow_right_icon"/>
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#E0E0E0" android:layout_marginTop="4dp" android:layout_marginBottom="4dp"/>
+
+
+                <LinearLayout android:id="@+id/marketplaceRow" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingTop="8dp" android:paddingBottom="8dp" android:clickable="true" android:focusable="true">
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_marketplace"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Marketplace" android:textColor="#000000" android:textSize="18sp" android:layout_marginStart="16dp"/>
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/arrow_right_icon"/>
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#E0E0E0" android:layout_marginTop="4dp" android:layout_marginBottom="4dp"/>
+
+                <LinearLayout android:id="@+id/notificationCenterRow" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingTop="8dp" android:paddingBottom="8dp" android:clickable="true" android:focusable="true">
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_notification_center"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Notification Center" android:textColor="#000000" android:textSize="18sp" android:layout_marginStart="16dp"/>
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/arrow_right_icon"/>
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#E0E0E0" android:layout_marginTop="4dp" android:layout_marginBottom="4dp"/>
+
+                <LinearLayout android:id="@+id/notificationSettingsRow" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingTop="8dp" android:paddingBottom="8dp" android:clickable="true" android:focusable="true">
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_notification_settings"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Notification Settings" android:textColor="#000000" android:textSize="18sp" android:layout_marginStart="16dp"/>
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/arrow_right_icon"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Privacy -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Privacy" android:textColor="#000000" android:textSize="20sp" android:textStyle="bold" android:layout_marginBottom="12dp" android:layout_marginStart="4dp"/>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/white_card_bg" android:orientation="vertical" android:padding="20dp" android:layout_marginBottom="16dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="12dp">
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/person_icon"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Profile visibility" android:textColor="#000000" android:textSize="18sp" android:layout_marginStart="16dp"/>
+                </LinearLayout>
+                <RadioGroup android:id="@+id/visibilityRadioGroup" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginStart="40dp">
+                    <RadioButton android:id="@+id/radioPublic" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Public" android:textColor="#000000" android:textSize="16sp" android:checked="true" android:paddingTop="4dp" android:paddingBottom="4dp"/>
+                    <RadioButton android:id="@+id/radioPrivate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Private" android:textColor="#000000" android:textSize="16sp" android:paddingTop="4dp" android:paddingBottom="4dp"/>
+                    <RadioButton android:id="@+id/radioFriends" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Friends" android:textColor="#000000" android:textSize="16sp" android:paddingTop="4dp" android:paddingBottom="4dp"/>
+                </RadioGroup>
+            </LinearLayout>
+
+            <!-- Health & Medical -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Health &amp; Medical"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp"
+                android:layout_marginStart="4dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/white_card_bg"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout android:id="@+id/btnMedical" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingTop="8dp" android:paddingBottom="8dp" android:clickable="true" android:focusable="true">
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_medical"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Medical Information" android:textColor="#000000" android:textSize="18sp" android:layout_marginStart="16dp"/>
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/arrow_right_icon"/>
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#E0E0E0" android:layout_marginTop="4dp" android:layout_marginBottom="4dp"/>
+
+                <LinearLayout android:id="@+id/btnAlerts" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingTop="8dp" android:paddingBottom="8dp" android:clickable="true" android:focusable="true">
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_alerts"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Medical Alerts" android:textColor="#000000" android:textSize="18sp" android:layout_marginStart="16dp"/>
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/arrow_right_icon"/>
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#E0E0E0" android:layout_marginTop="4dp" android:layout_marginBottom="4dp"/>
+
+                <LinearLayout android:id="@+id/btnPlan" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingTop="8dp" android:paddingBottom="8dp" android:clickable="true" android:focusable="true">
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_plan"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Smart Plan" android:textColor="#000000" android:textSize="18sp" android:layout_marginStart="16dp"/>
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/arrow_right_icon"/>
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#E0E0E0" android:layout_marginTop="4dp" android:layout_marginBottom="4dp"/>
+
+                <LinearLayout android:id="@+id/btnDoctor" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingTop="8dp" android:paddingBottom="8dp" android:clickable="true" android:focusable="true">
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_doctor"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Doctor Consultation" android:textColor="#000000" android:textSize="18sp" android:layout_marginStart="16dp"/>
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/arrow_right_icon"/>
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#E0E0E0" android:layout_marginTop="4dp" android:layout_marginBottom="4dp"/>
+
+                <LinearLayout android:id="@+id/btnReport" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingTop="8dp" android:paddingBottom="8dp" android:clickable="true" android:focusable="true">
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_report"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Health Report" android:textColor="#000000" android:textSize="18sp" android:layout_marginStart="16dp"/>
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/arrow_right_icon"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Logout -->
+            <LinearLayout android:id="@+id/btnLogout" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_card_pink" android:orientation="horizontal" android:gravity="center_vertical" android:padding="20dp" android:layout_marginBottom="16dp" android:clickable="true" android:focusable="true">
+                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/logout_icon"/>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Logout" android:textColor="#000000" android:textSize="18sp" android:layout_marginStart="16dp"/>
+                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/arrow_right_icon"/>
+            </LinearLayout>
+
+            <!-- Delete Account -->
+            <LinearLayout android:id="@+id/deleteAccountButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/red_card_bg" android:orientation="horizontal" android:gravity="center_vertical" android:padding="20dp" android:clickable="true" android:focusable="true">
+                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/delete_icon"/>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Delete Account" android:textColor="#FFFFFF" android:textSize="18sp" android:layout_marginStart="16dp"/>
+                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/arrow_right_white_icon"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

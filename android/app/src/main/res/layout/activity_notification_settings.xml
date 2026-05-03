@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="32dp">
+
+            <!-- Back Button -->
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:src="@drawable/back_arrow"/>
+
+            <!-- Title -->
+            <TextView
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="24dp"
+                android:layout_marginStart="31dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Notification Settings"/>
+
+            <!-- Section Title -->
+            <TextView
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp"
+                android:layout_marginStart="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Health Reminders"/>
+
+            <!-- HYDRATION -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sdcd9d9sw1cr14"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginBottom="8dp"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:background="@drawable/cr8bc3e66e"
+                        android:layout_marginEnd="12dp"
+                        android:gravity="center">
+                        <ImageView android:layout_width="18dp" android:layout_height="18dp" android:src="@drawable/water_icon"/>
+                    </LinearLayout>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Hydration Reminders" android:textColor="#000000" android:textSize="16sp"/>
+                    <LinearLayout android:id="@+id/hydrationToggle" android:layout_width="52dp" android:layout_height="28dp" android:background="@drawable/green_toggle" android:orientation="horizontal" android:padding="2dp" android:gravity="center_vertical|start">
+                        <View android:id="@+id/hydrationKnob" android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/white_circle"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout android:id="@+id/hydrationDropdowns" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="12dp">
+                    <LinearLayout android:id="@+id/hydrationTimingBtn" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginEnd="8dp" android:background="@drawable/beige_rec" android:orientation="vertical" android:padding="10dp" android:clickable="true" android:focusable="true">
+                        <TextView android:text="Timing" android:textColor="#000000" android:textSize="13sp" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView android:id="@+id/hydrationTimingValue" android:text="Every Hour" android:textColor="#8A8C90" android:textSize="12sp" android:layout_marginTop="2dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <LinearLayout android:id="@+id/hydrationFreqBtn" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:background="@drawable/beige_rec" android:orientation="vertical" android:padding="10dp" android:clickable="true" android:focusable="true">
+                        <TextView android:text="Frequency" android:textColor="#000000" android:textSize="13sp" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView android:id="@+id/hydrationFreqValue" android:text="8 AM – 8 PM" android:textColor="#8A8C90" android:textSize="12sp" android:layout_marginTop="2dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- STEPS -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sdcd9d9sw1cr14"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginBottom="8dp"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
+                    <LinearLayout android:layout_width="25dp" android:layout_height="25dp" android:background="@drawable/cr8bc3e66e" android:layout_marginEnd="12dp" android:gravity="center">
+                        <ImageView android:layout_width="18dp" android:layout_height="18dp" android:src="@drawable/stepsicon"/>
+                    </LinearLayout>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Daily Steps Goal" android:textColor="#000000" android:textSize="16sp"/>
+                    <LinearLayout android:id="@+id/stepsToggle" android:layout_width="52dp" android:layout_height="28dp" android:background="@drawable/green_toggle" android:orientation="horizontal" android:padding="2dp" android:gravity="center_vertical|start">
+                        <View android:id="@+id/stepsKnob" android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/white_circle"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout android:id="@+id/stepsDropdowns" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="12dp">
+                    <LinearLayout android:id="@+id/stepsTimingBtn" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginEnd="8dp" android:background="@drawable/beige_rec" android:orientation="vertical" android:padding="10dp" android:clickable="true" android:focusable="true">
+                        <TextView android:text="Timing" android:textColor="#000000" android:textSize="13sp" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView android:id="@+id/stepsTimingValue" android:text="Every 2 Hours" android:textColor="#8A8C90" android:textSize="12sp" android:layout_marginTop="2dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <LinearLayout android:id="@+id/stepsFreqBtn" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:background="@drawable/beige_rec" android:orientation="vertical" android:padding="10dp" android:clickable="true" android:focusable="true">
+                        <TextView android:text="Frequency" android:textColor="#000000" android:textSize="13sp" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView android:id="@+id/stepsFreqValue" android:text="8 AM – 8 PM" android:textColor="#8A8C90" android:textSize="12sp" android:layout_marginTop="2dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- SLEEP -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sdcd9d9sw1cr14"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginBottom="8dp"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
+                    <LinearLayout android:layout_width="25dp" android:layout_height="25dp" android:background="@drawable/cr8bc3e66e" android:layout_marginEnd="12dp" android:gravity="center">
+                        <ImageView android:layout_width="18dp" android:layout_height="18dp" android:src="@drawable/sleep_icon"/>
+                    </LinearLayout>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Sleep Schedule" android:textColor="#000000" android:textSize="16sp"/>
+                    <LinearLayout android:id="@+id/sleepToggle" android:layout_width="52dp" android:layout_height="28dp" android:background="@drawable/green_toggle" android:orientation="horizontal" android:padding="2dp" android:gravity="center_vertical|start">
+                        <View android:id="@+id/sleepKnob" android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/white_circle"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout android:id="@+id/sleepDropdowns" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="12dp">
+                    <LinearLayout android:id="@+id/sleepTimingBtn" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginEnd="8dp" android:background="@drawable/beige_rec" android:orientation="vertical" android:padding="10dp" android:clickable="true" android:focusable="true">
+                        <TextView android:text="Bedtime" android:textColor="#000000" android:textSize="13sp" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView android:id="@+id/sleepTimingValue" android:text="10:00 PM" android:textColor="#8A8C90" android:textSize="12sp" android:layout_marginTop="2dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <LinearLayout android:id="@+id/sleepFreqBtn" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:background="@drawable/beige_rec" android:orientation="vertical" android:padding="10dp" android:clickable="true" android:focusable="true">
+                        <TextView android:text="Wake Up" android:textColor="#000000" android:textSize="13sp" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView android:id="@+id/sleepFreqValue" android:text="07:00 AM" android:textColor="#8A8C90" android:textSize="12sp" android:layout_marginTop="2dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- WORKOUT -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sdcd9d9sw1cr14"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginBottom="16dp"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
+                    <LinearLayout android:layout_width="25dp" android:layout_height="25dp" android:background="@drawable/cr8bc3e66e" android:layout_marginEnd="12dp" android:gravity="center">
+                        <ImageView android:layout_width="18dp" android:layout_height="18dp" android:src="@drawable/workouticon"/>
+                    </LinearLayout>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Workout Reminders" android:textColor="#000000" android:textSize="16sp"/>
+                    <LinearLayout android:id="@+id/workoutToggle" android:layout_width="52dp" android:layout_height="28dp" android:background="@drawable/green_toggle" android:orientation="horizontal" android:padding="2dp" android:gravity="center_vertical|start">
+                        <View android:id="@+id/workoutKnob" android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/white_circle"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout android:id="@+id/workoutDropdowns" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="12dp">
+                    <LinearLayout android:id="@+id/workoutTimingBtn" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginEnd="8dp" android:background="@drawable/beige_rec" android:orientation="vertical" android:padding="10dp" android:clickable="true" android:focusable="true">
+                        <TextView android:text="Timing" android:textColor="#000000" android:textSize="13sp" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView android:id="@+id/workoutTimingValue" android:text="Every Hour" android:textColor="#8A8C90" android:textSize="12sp" android:layout_marginTop="2dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <LinearLayout android:id="@+id/workoutFreqBtn" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:background="@drawable/beige_rec" android:orientation="vertical" android:padding="10dp" android:clickable="true" android:focusable="true">
+                        <TextView android:text="Frequency" android:textColor="#000000" android:textSize="13sp" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView android:id="@+id/workoutFreqValue" android:text="8 AM – 8 PM" android:textColor="#8A8C90" android:textSize="12sp" android:layout_marginTop="2dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- QUIET HOURS -->
+            <TextView
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="12dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Quiet Hours"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/beige_rec"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginBottom="8dp"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
+                    <LinearLayout android:layout_width="25dp" android:layout_height="25dp" android:background="@drawable/cr8bc3e66e" android:layout_marginEnd="12dp" android:gravity="center">
+                        <ImageView android:layout_width="18dp" android:layout_height="18dp" android:src="@drawable/do_not_disturb_icon"/>
+                    </LinearLayout>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Do Not Disturb" android:textColor="#000000" android:textSize="16sp"/>
+                    <LinearLayout android:id="@+id/dndToggle" android:layout_width="52dp" android:layout_height="28dp" android:background="@drawable/green_toggle" android:orientation="horizontal" android:padding="2dp" android:gravity="center_vertical|start">
+                        <View android:id="@+id/dndKnob" android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/white_circle"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- DND Time Pickers -->
+                <LinearLayout
+                    android:id="@+id/dndTimeContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp"
+                    android:visibility="gone">
+
+                    <LinearLayout android:id="@+id/dndStartBtn" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginEnd="8dp" android:background="@drawable/sdcd9d9sw1cr14" android:orientation="vertical" android:padding="12dp" android:clickable="true" android:focusable="true">
+                        <TextView android:text="Start Time" android:textColor="#000000" android:textSize="13sp" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView android:id="@+id/dndStartValue" android:text="10:00 PM" android:textColor="#A3E635" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="4dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                    <LinearLayout android:id="@+id/dndEndBtn" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:background="@drawable/sdcd9d9sw1cr14" android:orientation="vertical" android:padding="12dp" android:clickable="true" android:focusable="true">
+                        <TextView android:text="End Time" android:textColor="#000000" android:textSize="13sp" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView android:id="@+id/dndEndValue" android:text="07:00 AM" android:textColor="#A3E635" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="4dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Save Button -->
+            <LinearLayout
+                android:id="@+id/saveButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:background="@drawable/green_rectangle"
+                android:paddingVertical="16dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:clickable="true"
+                android:focusable="true">
+                <TextView
+                    android:text="Save Settings"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

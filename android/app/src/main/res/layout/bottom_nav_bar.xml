@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bottomNavBar"
+    android:layout_width="match_parent"
+    android:layout_height="72dp"
+    android:background="#FFFFFF"
+    android:elevation="8dp"
+    android:orientation="horizontal">
+
+    <!-- Home -->
+    <LinearLayout
+        android:id="@+id/navHome"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ImageView
+            android:id="@+id/iconHome"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:src="@drawable/home"
+            android:contentDescription="Home"/>
+
+        <TextView
+            android:id="@+id/labelHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Home"
+            android:textSize="11sp"
+            android:textColor="#9E9E9E"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <!-- Workouts -->
+    <LinearLayout
+        android:id="@+id/navWorkouts"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ImageView
+            android:id="@+id/iconWorkouts"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:src="@drawable/workout"
+            android:contentDescription="Workouts"/>
+
+        <TextView
+            android:id="@+id/labelWorkouts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Workouts"
+            android:textSize="11sp"
+            android:textColor="#9E9E9E"/>
+
+    </LinearLayout>
+
+    <!-- Diet -->
+    <LinearLayout
+        android:id="@+id/navDiet"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ImageView
+            android:id="@+id/iconDiet"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:src="@drawable/gray_diet"
+            android:contentDescription="Diet"/>
+
+        <TextView
+            android:id="@+id/labelDiet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Diet"
+            android:textSize="11sp"
+            android:textColor="#9E9E9E"/>
+
+    </LinearLayout>
+
+    <!-- Statistics -->
+    <LinearLayout
+        android:id="@+id/navStatistics"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ImageView
+            android:id="@+id/iconStatistics"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:src="@drawable/stats"
+            android:contentDescription="Statistics"/>
+
+        <TextView
+            android:id="@+id/labelStatistics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Statistics"
+            android:textSize="11sp"
+            android:textColor="#9E9E9E"/>
+
+    </LinearLayout>
+
+    <!-- Profile -->
+    <LinearLayout
+        android:id="@+id/navProfile"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ImageView
+            android:id="@+id/iconProfile"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:src="@drawable/ic_profile"
+            android:contentDescription="Profile"/>
+
+        <TextView
+            android:id="@+id/labelProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Profile"
+            android:textSize="11sp"
+            android:textColor="#9E9E9E"/>
+
+    </LinearLayout>
+
+</LinearLayout>

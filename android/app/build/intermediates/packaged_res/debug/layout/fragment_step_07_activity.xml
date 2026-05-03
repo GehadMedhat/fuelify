@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#FFFFFF" android:orientation="vertical">
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:paddingBottom="24dp">
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginStart="24dp" android:layout_marginTop="30dp"
+                android:layout_marginBottom="29dp" android:background="@drawable/bg_step_badge"
+                android:paddingHorizontal="10dp" android:paddingVertical="9dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="STEP 7" android:textColor="#000000" android:textSize="12sp" android:textStyle="bold"/>
+            </LinearLayout>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal" android:layout_marginBottom="15dp"
+                android:text="SELECT ACTIVITY LEVEL" android:textColor="#000000" android:textSize="20sp" android:textStyle="bold"/>
+            <TextView android:layout_width="252dp" android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal" android:layout_marginBottom="26dp" android:gravity="center"
+                android:text="Tell us about your daily activity level to tailor your workouts accordingly."
+                android:textColor="#737373" android:textSize="11sp"/>
+
+            <!-- Sedentary -->
+            <LinearLayout android:id="@+id/cardSedentary"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginHorizontal="14dp" android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_card_white"
+                android:clickable="true" android:focusable="true"
+                android:gravity="center_vertical" android:orientation="horizontal" android:paddingVertical="22dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginStart="23dp" android:layout_marginEnd="19dp" android:text="🛋️" android:textSize="25sp"/>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Sedentary" android:textColor="#000000" android:textSize="13sp" android:textStyle="bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Little to no exercise" android:textColor="#737373" android:textSize="11sp"/>
+                </LinearLayout>
+            </LinearLayout>
+            <!-- Lightly Active -->
+            <LinearLayout android:id="@+id/cardLightlyActive"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginHorizontal="14dp" android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_card_white"
+                android:clickable="true" android:focusable="true"
+                android:gravity="center_vertical" android:orientation="horizontal" android:paddingVertical="22dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginStart="23dp" android:layout_marginEnd="19dp" android:text="🚶" android:textSize="25sp"/>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Lightly Active" android:textColor="#000000" android:textSize="13sp" android:textStyle="bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Exercise 1-3 days a week" android:textColor="#737373" android:textSize="11sp"/>
+                </LinearLayout>
+            </LinearLayout>
+            <!-- Moderately Active -->
+            <LinearLayout android:id="@+id/cardModeratelyActive"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginHorizontal="14dp" android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_card_green"
+                android:clickable="true" android:focusable="true"
+                android:gravity="center_vertical" android:orientation="horizontal" android:paddingVertical="22dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginStart="23dp" android:layout_marginEnd="19dp" android:text="🏃" android:textSize="25sp"/>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Moderately Active" android:textColor="#000000" android:textSize="13sp" android:textStyle="bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Exercise 3-5 days a week" android:textColor="#737373" android:textSize="11sp"/>
+                </LinearLayout>
+            </LinearLayout>
+            <!-- Very Active -->
+            <LinearLayout android:id="@+id/cardVeryActive"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginHorizontal="14dp" android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_card_white"
+                android:clickable="true" android:focusable="true"
+                android:gravity="center_vertical" android:orientation="horizontal" android:paddingVertical="22dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginStart="23dp" android:layout_marginEnd="19dp" android:text="🏋️" android:textSize="25sp"/>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Very Active" android:textColor="#000000" android:textSize="13sp" android:textStyle="bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Exercise 6-7 days a week" android:textColor="#737373" android:textSize="11sp"/>
+                </LinearLayout>
+            </LinearLayout>
+            <!-- Athlete -->
+            <LinearLayout android:id="@+id/cardAthlete"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginHorizontal="14dp" android:layout_marginBottom="24dp"
+                android:background="@drawable/bg_card_white"
+                android:clickable="true" android:focusable="true"
+                android:gravity="center_vertical" android:orientation="horizontal" android:paddingVertical="22dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginStart="23dp" android:layout_marginEnd="19dp" android:text="🏆" android:textSize="25sp"/>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Athlete" android:textColor="#000000" android:textSize="13sp" android:textStyle="bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Physical job or training twice a day" android:textColor="#737373" android:textSize="11sp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <include layout="@layout/include_bottom_nav"/>
+    <include layout="@layout/include_progress_dots"/>
+</LinearLayout>

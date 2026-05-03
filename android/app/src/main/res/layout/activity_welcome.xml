@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rif0lzkmy3km"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/white_rectangle">
+
+        <TextView
+            android:id="@+id/rqnmtovuqbg"
+            android:textColor="#000000"
+            android:textSize="31sp"
+            android:textStyle="bold"
+            android:layout_marginTop="59dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginStart="44dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Welcome"/>
+
+        <TextView
+            android:id="@+id/rqj07xz8uog"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:layout_marginBottom="37dp"
+            android:layout_marginStart="40dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Login or sign up to continue"/>
+
+        <!-- Logo -->
+        <ImageView
+            android:id="@+id/loginImage"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/logo"
+            android:scaleType="fitCenter"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Tagline -->
+        <TextView
+            android:id="@+id/r6rh4cxvg0gl"
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:layout_width="207dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="32dp"
+            android:text="Your Path to Better Nutrition."/>
+
+        <!-- Create Account Button -->
+        <LinearLayout
+            android:id="@+id/rh64s5rbxntn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/green_rectangle"
+            android:paddingVertical="19dp"
+            android:paddingHorizontal="56dp"
+            android:layout_marginBottom="13dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/reogixb36s2o"
+                android:textColor="#FFFFFF"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Create Account"/>
+        </LinearLayout>
+
+        <!-- Already have account Button -->
+        <LinearLayout
+            android:id="@+id/rqtw80eh3x9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/green_frame"
+            android:paddingVertical="18dp"
+            android:paddingHorizontal="29dp"
+            android:layout_marginBottom="13dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/rven8wkn91x"
+                android:textColor="#A3E635"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Already have an account"/>
+        </LinearLayout>
+
+        <!-- Continue as Guest -->
+        <TextView
+            android:id="@+id/rtcilofvmf29"
+            android:textColor="#000000"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="13dp"
+            android:text="Continue as a guest?"/>
+
+        <!-- Continue as a Doctor -->
+        <TextView
+            android:id="@+id/tvContinueAsDoctor"
+            android:textColor="#A3E635"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="40dp"
+            android:text="Continue as a Doctor?"/>
+
+    </LinearLayout>
+</ScrollView>

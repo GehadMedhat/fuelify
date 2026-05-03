@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/white_rectangle">
+
+        <ImageView
+            android:id="@+id/rca589uz20jt"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="34dp"
+            android:layout_marginBottom="14dp"
+            android:layout_marginStart="30dp"
+            android:src="@drawable/back_arrow"
+            android:scaleType="fitXY"/>
+
+        <TextView
+            android:id="@+id/rdm4xcydrdq"
+            android:textColor="#000000"
+            android:textSize="31sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="14dp"
+            android:layout_marginStart="41dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Create Account"/>
+
+        <TextView
+            android:id="@+id/rcq8xbhnq2rh"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:layout_marginBottom="36dp"
+            android:layout_marginStart="40dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Sign up to continue"/>
+
+        <TextView
+            android:id="@+id/rbhqpv4173zb"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="9dp"
+            android:layout_marginStart="46dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="First Name"/>
+
+        <EditText
+            android:inputType="textPersonName"
+            android:hint="Enter your first name"
+            android:id="@+id/robbqera82jc"
+            android:textColor="#000000"
+            android:textColorHint="#8A8C90"
+            android:textSize="14sp"
+            android:layout_marginBottom="27dp"
+            android:layout_marginHorizontal="46dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white_frame"
+            android:paddingVertical="16dp"
+            android:paddingHorizontal="18dp"/>
+
+        <TextView
+            android:id="@+id/rjefd074nh6"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="9dp"
+            android:layout_marginStart="46dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Last Name"/>
+
+        <EditText
+            android:inputType="textPersonName"
+            android:hint="Enter your last name"
+            android:id="@+id/ryf0llxe01df"
+            android:textColor="#000000"
+            android:textColorHint="#8A8C90"
+            android:textSize="14sp"
+            android:layout_marginBottom="27dp"
+            android:layout_marginHorizontal="46dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white_frame"
+            android:paddingVertical="16dp"
+            android:paddingHorizontal="18dp"/>
+
+        <TextView
+            android:id="@+id/rwsnjcynq5zq"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="9dp"
+            android:layout_marginStart="46dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Email Address"/>
+
+        <EditText
+            android:inputType="textEmailAddress"
+            android:hint="Enter email address"
+            android:id="@+id/r7kagbk3dpnj"
+            android:textColor="#000000"
+            android:textColorHint="#8A8C90"
+            android:textSize="14sp"
+            android:layout_marginBottom="27dp"
+            android:layout_marginHorizontal="46dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white_frame"
+            android:padding="18dp"/>
+
+        <TextView
+            android:id="@+id/rog7nqwagtx"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="9dp"
+            android:layout_marginStart="46dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Password"/>
+
+        <LinearLayout
+            android:id="@+id/ry5cso10c6he"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:background="@drawable/white_frame"
+            android:paddingRight="18dp"
+            android:layout_marginBottom="27dp"
+            android:layout_marginHorizontal="46dp"
+            android:orientation="horizontal">
+
+            <!--
+                FIX #3: Added android:fontFamily="sans-serif" to both password fields.
+                inputType="textPassword" resets the typeface to monospace dots, which also
+                corrupts the hint text font. Declaring fontFamily in XML fixes the hint.
+                The Activity re-applies the typeface in code after each show/hide toggle.
+            -->
+            <EditText
+                android:inputType="textPassword"
+                android:hint="Create Password"
+                android:background="@null"
+                android:id="@+id/rrdxgaebywo9"
+                android:textColor="#000000"
+                android:textColorHint="#8A8C90"
+                android:textSize="14sp"
+                android:fontFamily="sans-serif"
+                android:layout_marginEnd="4dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingVertical="18dp"
+                android:paddingLeft="18dp"/>
+
+            <ImageView
+                android:id="@+id/rlhctwdh473"
+                android:layout_width="21dp"
+                android:layout_height="16dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/eye"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/rz1wydcfd47q"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="9dp"
+            android:layout_marginStart="46dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Confirm Password"/>
+
+        <LinearLayout
+            android:id="@+id/rconfirmPassLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:background="@drawable/white_frame"
+            android:paddingRight="18dp"
+            android:layout_marginBottom="33dp"
+            android:layout_marginHorizontal="46dp"
+            android:orientation="horizontal">
+
+            <!-- FIX #3 applied here too — same fontFamily fix for confirm password field -->
+            <EditText
+                android:inputType="textPassword"
+                android:hint="Re-enter Password"
+                android:background="@null"
+                android:id="@+id/rp6kv6intxwf"
+                android:textColor="#000000"
+                android:textColorHint="#8A8C90"
+                android:textSize="14sp"
+                android:fontFamily="sans-serif"
+                android:layout_marginEnd="4dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingVertical="18dp"
+                android:paddingLeft="18dp"/>
+
+            <ImageView
+                android:id="@+id/reye_confirm"
+                android:layout_width="21dp"
+                android:layout_height="16dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/eye"/>
+        </LinearLayout>
+
+        <!-- Sign Up Button -->
+        <LinearLayout
+            android:id="@+id/rtnp02mf2r4g"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:background="@drawable/green_rectangle"
+            android:paddingVertical="16dp"
+            android:layout_marginBottom="22dp"
+            android:layout_marginHorizontal="46dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/rql2hmecaeq"
+                android:textColor="#FFFFFF"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Sign up"/>
+        </LinearLayout>
+
+        <!-- Already have account -->
+        <LinearLayout
+            android:id="@+id/r5e3ml9t0ovr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="40dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/rbf1lon5oxih"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textColor="#000000"
+                android:text="Already have an account?"/>
+
+            <TextView
+                android:id="@+id/rloginClickable"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textColor="#A3E635"
+                android:text="Login"
+                android:clickable="true"
+                android:focusable="true"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#FFFFFF" android:orientation="vertical">
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:paddingBottom="24dp">
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginStart="24dp" android:layout_marginTop="30dp" android:layout_marginBottom="32dp"
+                android:background="@drawable/bg_step_badge" android:paddingHorizontal="10dp" android:paddingVertical="9dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="STEP 9" android:textColor="#000000" android:textSize="12sp" android:textStyle="bold"/>
+            </LinearLayout>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginStart="40dp" android:layout_marginBottom="13dp"
+                android:text="HOW MANY PUSH UPS CAN YOU DO?" android:textColor="#000000" android:textSize="20sp" android:textStyle="bold"/>
+            <TextView android:layout_width="187dp" android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal" android:layout_marginBottom="32dp" android:gravity="center"
+                android:text="Help us measure your fitness level by telling us how many push-ups you can do at one time"
+                android:textColor="#737373" android:textSize="11sp"/>
+
+            <LinearLayout android:id="@+id/cardBeginner"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginHorizontal="17dp" android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_card_white" android:clickable="true" android:focusable="true"
+                android:gravity="center_vertical" android:orientation="horizontal">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginStart="23dp" android:layout_marginEnd="19dp"
+                    android:layout_marginTop="27dp" android:layout_marginBottom="27dp" android:text="✊" android:textSize="25sp"/>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Beginner" android:textColor="#000000" android:textSize="13sp" android:textStyle="bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="1 - 10 push-ups" android:textColor="#737373" android:textSize="11sp"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:id="@+id/cardIntermediate"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginHorizontal="17dp" android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_card_green" android:clickable="true" android:focusable="true"
+                android:gravity="center_vertical" android:orientation="horizontal">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginStart="23dp" android:layout_marginEnd="19dp"
+                    android:layout_marginTop="27dp" android:layout_marginBottom="27dp" android:text="✌️" android:textSize="25sp"/>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Intermediate" android:textColor="#000000" android:textSize="13sp" android:textStyle="bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="11 - 20 push-ups" android:textColor="#737373" android:textSize="11sp"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:id="@+id/cardAdvanced"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginHorizontal="17dp" android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_card_white" android:clickable="true" android:focusable="true"
+                android:gravity="center_vertical" android:orientation="horizontal">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginStart="23dp" android:layout_marginEnd="19dp"
+                    android:layout_marginTop="27dp" android:layout_marginBottom="27dp" android:text="🤘" android:textSize="25sp"/>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Advanced" android:textColor="#000000" android:textSize="13sp" android:textStyle="bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="21 - 40 push-ups" android:textColor="#737373" android:textSize="11sp"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:id="@+id/cardAthletePushups"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginHorizontal="17dp" android:layout_marginBottom="24dp"
+                android:background="@drawable/bg_card_white" android:clickable="true" android:focusable="true"
+                android:gravity="center_vertical" android:orientation="horizontal">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginStart="23dp" android:layout_marginEnd="19dp"
+                    android:layout_marginTop="27dp" android:layout_marginBottom="27dp" android:text="💪" android:textSize="25sp"/>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Athlete" android:textColor="#000000" android:textSize="13sp" android:textStyle="bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="40+ push-ups" android:textColor="#737373" android:textSize="11sp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <include layout="@layout/include_bottom_nav"/>
+    <include layout="@layout/include_progress_dots"/>
+</LinearLayout>

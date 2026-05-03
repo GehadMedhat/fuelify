@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginBottom="12dp">
+
+    <LinearLayout
+        android:id="@+id/llMsgBubble"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#F3F4F6"
+        android:padding="12dp">
+
+        <!-- Sender name -->
+        <TextView
+            android:id="@+id/tvMsgSenderName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#111827"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="6dp"/>
+
+        <!-- Message content -->
+        <TextView
+            android:id="@+id/tvMsgContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#374151"
+            android:textSize="13sp"
+            android:lineSpacingExtra="3dp"
+            android:layout_marginBottom="6dp"/>
+
+        <!-- Attached files -->
+        <TextView
+            android:id="@+id/tvMsgFiles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#9CA3AF"
+            android:textSize="11sp"
+            android:layout_marginBottom="4dp"
+            android:visibility="gone"/>
+
+        <!-- Time -->
+        <TextView
+            android:id="@+id/tvMsgTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#9CA3AF"
+            android:textSize="10sp"
+            android:layout_gravity="end"/>
+    </LinearLayout>
+</LinearLayout>

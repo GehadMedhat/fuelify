@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32"/>
+    <uses-feature android:name="android.hardware.camera" android:required="true"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="true"/>
+
+    <queries>
+        <package android:name="com.talabat" />
+    </queries>
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/logo"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Fuelify"
+        android:usesCleartextTraffic="true">
+
+        <!-- Router: decides onboarding vs home -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Onboarding flow -->
+        <activity
+            android:name=".onboarding.OnboardingActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Home / Dashboard -->
+        <activity
+            android:name=".home.HomeActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".home.MealsListActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".home.DietActivity" android:exported="false" android:screenOrientation="portrait"/>
+        <activity android:name=".home.MealSchedulingActivity" android:exported="false" android:screenOrientation="portrait"/>
+        <activity android:name=".home.MealDetailActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".home.RecipesActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".home.MealDeliveryActivity" android:exported="false" android:screenOrientation="portrait"/>
+        <activity android:name=".home.CloudKitchenActivity" android:exported="false" android:screenOrientation="portrait"/>
+        <activity android:name=".home.CloudKitchenStatusActivity" android:exported="false" android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".home.GroceryActivity"
+            android:screenOrientation="portrait"
+            android:exported="false"/>
+
+        <activity
+            android:name=".home.SmartPantryActivity"
+            android:screenOrientation="portrait"
+            android:exported="false"/>
+
+        <activity
+            android:name=".home.FamilyDietActivity"
+            android:screenOrientation="portrait"
+            android:exported="false"/>
+        <activity
+            android:name=".home.FamilyDashboardActivity"
+            android:screenOrientation="portrait"
+            android:exported="false"/>
+
+        <activity
+            android:name=".home.EcoSustainabilityActivity"
+            android:screenOrientation="portrait"
+            android:exported="false"/>
+
+        <activity
+            android:name=".home.ProductScanActivity"
+            android:screenOrientation="portrait"
+            android:exported="false"/>
+
+        <activity android:name=".home.WorkoutHomeActivity"     android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".home.WorkoutCategoryActivity" android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".home.WorkoutListActivity"     android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".home.WorkoutDetailActivity"   android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".home.ExerciseListActivity"    android:screenOrientation="portrait" android:exported="false"/>
+
+        <activity android:name=".home.ActiveWorkoutActivity"   android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".home.WorkoutSummaryActivity"  android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".home.CustomWorkoutActivity"   android:screenOrientation="portrait" android:exported="false"/>
+
+        <activity android:name=".home.MedicalInformationActivity" android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".home.MedicalAlertsActivity"      android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".home.SmartPlanActivity"          android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".home.HealthReportActivity"       android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".home.DoctorConsultationActivity" android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".auth.ProfileActivity"  android:screenOrientation="portrait" android:exported="false"/>
+
+        <activity android:name=".home.SavedRecipesActivity"  android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".home.SpinWheelActivity" android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".home.BingoActivity" android:screenOrientation="portrait" android:exported="false"/>
+
+        <activity android:name=".doctor.DoctorOnboardingActivity" android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".doctor.DoctorPendingActivity" android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".doctor.DoctorHomeActivity" android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".doctor.DoctorCaseActivity" android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".doctor.DoctorWalletActivity" android:screenOrientation="portrait" android:exported="false"/>
+<!-- Friend's auth + profile screens -->
+<activity android:name=".auth.WelcomeActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
+<activity android:name=".auth.LoginActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
+<activity android:name=".auth.SignUpActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
+<activity android:name=".auth.VerificationActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
+<activity android:name=".auth.ForgotPasswordActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
+<activity android:name=".auth.SetNewPasswordActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
+<activity android:name=".auth.VerifyEmailChangeActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
+<activity android:name=".auth.EditProfileActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
+<activity android:name=".auth.DeleteAccountActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
+<activity android:name=".auth.ChangeEmailActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
+<activity android:name=".auth.NotificationSettingsActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
+<activity android:name=".auth.NotificationCenterActivity"/>
+<activity android:name=".auth.MarketplaceActivity"/>
+<activity android:name=".auth.RewardDetailsActivity"/>
+<activity android:name=".auth.ChatActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
+<activity android:name=".auth.QuickQuestionsActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
+<activity android:name=".auth.AdminDashboardActivity"/>
+<activity android:name=".auth.AdminAddRewardActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
+<activity android:name=".auth.AdminDeleteRewardActivity"/>
+<activity android:name=".auth.AdminUpdateRewardActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
+
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+
+
+    </application>
+</manifest>

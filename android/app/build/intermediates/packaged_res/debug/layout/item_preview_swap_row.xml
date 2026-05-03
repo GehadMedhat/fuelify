@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#F9FAFB"
+    android:padding="10dp"
+    android:layout_marginBottom="8dp">
+
+    <!-- Date label -->
+    <TextView
+        android:id="@+id/tvSwapDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#9CA3AF"
+        android:textSize="10sp"
+        android:layout_marginBottom="4dp"/>
+
+    <!-- Old name (struck through red) -->
+    <TextView
+        android:id="@+id/tvSwapOld"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#EF4444"
+        android:textSize="13sp"
+        android:textStyle="bold"
+
+        android:layout_marginBottom="2dp"/>
+
+    <!-- New name (green) -->
+    <TextView
+        android:id="@+id/tvSwapNew"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#22C55E"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="4dp"/>
+
+    <!-- Reason -->
+    <TextView
+        android:id="@+id/tvSwapReason"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#737373"
+        android:textSize="11sp"/>
+</LinearLayout>
