@@ -6,4 +6,222 @@
     <string name="btn_skip">SKIP</string>
     <string name="step_label">STEP %d</string>
     <string name="api_base_url">http://10.0.2.2:8080/</string>
+
+    <string name="back">Back</string>
+    <string name="goal_completion">Goal Completion</string>
+    <string name="daily_average">Daily Average</string>
+    <!--  Mood Home Screen  -->
+    <string name="mood_tracker">Mood Tracker</string>
+    <string name="mood_tracker_subtitle">Track your mood and improve your wellbeing</string>
+    <string name="add_mood">Add Mood</string>
+    <string name="view_statistics">View Statistics</string>
+    <string name="day_streak">Day Streak</string>
+    <string name="total_logs">Total Logs</string>
+    <string name="mood_icon">Mood Icon</string>
+    <!--  Feeling Selection Screen  -->
+    <string name="how_are_you_feeling">How are you feeling today?</string>
+    <string name="select_mood_description">Select the mood that best describes your day</string>
+    <string name="amazing">Amazing</string>
+    <string name="okay">Okay</string>
+    <string name="sad">Sad</string>
+    <string name="angry">Angry</string>
+    <string name="tap_to_select">Tap to select</string>
+    <string name="continue_text">CONTINUE</string>
+    <!--  Tips Screen  -->
+    <string name="be_kind_to_yourself">Be Kind to Yourself 💙</string>
+    <string name="activities_might_help">It\'s okay to feel down. These activities might help.</string>
+    <string name="reach_out_to_someone">Reach out to someone you trust</string>
+    <string name="write_down_feelings">Write down your feelings in a journal</string>
+    <string name="try_gentle_movement">Try gentle movement like a short walk</string>
+    <string name="back_to_home">Back to Home</string>
+    <string name="view_my_progress">View My Progress</string>
+    <string name="tips_icon">Tips Icon</string>
+    <string name="heart_icon">Heart Icon</string>
+    <string name="journal_icon">Journal Icon</string>
+    <string name="sun_icon">Sun Icon</string>
+    <!--  Stats Screen  -->
+    <string name="your_progress">Your Progress</string>
+    <string name="track_emotional_journey">Track your emotional journey</string>
+    <string name="most_common">Most Common</string>
+    <string name="november_2025">November 2025</string>
+    <string name="mood_breakdown">Mood Breakdown</string>
+    <string name="one_day">1 days</string>
+    <string name="total_logs_icon">Total Logs Icon</string>
+    <string name="most_common_icon">Most Common Icon</string>
+    <!--  Calendar  -->
+    <string name="sunday_short">S</string>
+    <string name="monday_short">M</string>
+    <string name="tuesday_short">T</string>
+    <string name="wednesday_short">W</string>
+    <string name="thursday_short">T</string>
+    <string name="friday_short">F</string>
+    <string name="saturday_short">S</string>
+    <!--  Bottom Navigation  -->
+    <string name="nav_home">Home</string>
+    <string name="nav_workouts">Workouts</string>
+    <string name="nav_diet">Diet</string>
+    <string name="nav_statistics">Statistics</string>
+    <string name="nav_profile">Profile</string>
+    <string name="add">Add</string>
+    <string name="statistics">Statistics</string>
+    <!--  Blood Pressure Tracker Screen  -->
+    <string name="blood_pressure_icon">Blood Pressure Icon</string>
+    <string name="blood_sugar_icon">Blood Sugar Icon</string>
+    <string name="blood_pressure">Blood Pressure</string>
+    <string name="blood_pressure_tracker">Blood Pressure Tracker</string>
+    <string name="blood_sugar">Blood Sugar</string>
+    <!--  Bottom Navigation  -->
+    <string name="home">Home</string>
+    <string name="workouts">Workouts</string>
+    <string name="diet">Diet</string>
+    <string name="profile">Profile</string>
+    <!--  Add Blood Pressure Screen  -->
+    <string name="add_blood_pressure">Add Blood Pressure</string>
+    <string name="systolic_upper">Systolic (Upper)</string>
+    <string name="diastolic_lower">Diastolic (Lower)</string>
+    <string name="pulse">Pulse</string>
+    <string name="notes_optional">Notes (Optional)</string>
+    <string name="save_reading">Save Reading</string>
+    <!--  Add Blood Sugar Screen  -->
+    <string name="add_blood_sugar">Add Blood Sugar</string>
+    <string name="glucose_level">Glucose Level</string>
+    <string name="meal_type">Meal Type</string>
+    <!--  Blood Pressure Stats Screen  -->
+    <string name="blood_pressure_stats">Blood Pressure Stats</string>
+    <string name="monthly_overview">Monthly\nOverview</string>
+    <string name="average_this_month">Average This Month</string>
+    <string name="systolic">Systolic</string>
+    <string name="diastolic">Diastolic</string>
+    <string name="systolic_trend">Systolic Trend</string>
+    <string name="diastolic_trend">Diastolic Trend</string>
+    <string name="recent_readings">Recent Readings</string>
+    <string name="latest_reading">Latest Reading</string>
+    <string name="average_7_days">Average (7 days)</string>
+    <string name="highest">Highest</string>
+    <string name="lowest">Lowest</string>
+    <string name="last_week">Last week</string>
+    <string name="today_time">Today, %s</string>
+    <string name="days_ago">%d days ago</string>
+    <!--  Blood Sugar Stats Screen  -->
+    <string name="blood_sugar_stats">Blood Sugar Stats</string>
+    <string name="average_this_month_mg">Average This Month (mg/dL)</string>
+    <string name="fasting">Fasting</string>
+    <string name="after_meal">After Meal</string>
+    <string name="fasting_trend">Fasting Trend</string>
+    <string name="after_meal_trend">After Meal Trend</string>
+    <!--  Hints  -->
+    <string name="hint_systolic">120</string>
+    <string name="hint_diastolic">80</string>
+    <string name="hint_pulse">72</string>
+    <string name="hint_glucose">100</string>
+    <string name="hint_meal_type">Fasting</string>
+    <string name="add_notes_hint">Add any notes about your reading…</string>
+    <!--  Units  -->
+    <string name="mmhg">mmHg</string>
+    <string name="bpm">bpm</string>
+    <string name="mg_dl">mg/dL</string>
+    <!--  Tips  -->
+    <string name="tip_icon">Tip Icon</string>
+    <string name="bp_tip">Tip: Take readings at the same time each day for accurate tracking.</string>
+    <string name="tip_blood_sugar">Tip: Check your blood sugar before and after meals to understand patterns.</string>
+    <!--  Body Analysis Screen  -->
+    <string name="body_analysis">Body Analysis</string>
+    <string name="upload_photo_subtitle">Upload a photo to get started</string>
+    <string name="camera_icon">Camera Icon</string>
+    <string name="upload_your_photo">Upload Your Photo</string>
+    <string name="upload_photo_description">Take or upload a full-body photo for\naccurate body composition analysis</string>
+    <string name="choose_photo">Choose Photo</string>
+    <string name="statistics_icon">Statistics Icon</string>
+    <string name="track_monthly_progress">Track your monthly progress</string>
+    <!--  Body Recognition Screen  -->
+    <string name="body_recognition">Body Recognition</string>
+    <string name="body_diagram">Body Diagram</string>
+    <string name="body_fat_icon">Body Fat Icon</string>
+    <string name="body_fat_percent">Body Fat %</string>
+    <string name="muscle_icon">Muscle Icon</string>
+    <string name="muscle_mass_percent">Muscle Mass %</string>
+    <string name="water_icon">Water Icon</string>
+    <string name="water_percentage">Water Percentage</string>
+    <string name="bmi_icon">BMI Icon</string>
+    <string name="bmi">BMI</string>
+    <string name="body_type_icon">Body Type Icon</string>
+    <string name="body_type">Body Type</string>
+    <string name="athletic">Athletic</string>
+    <string name="save_result">Save Result</string>
+    <!--  Statistics Screen  -->
+    <string name="track_progress_subtitle">Track your progress over time</string>
+    <string name="current_body_fat">Current Body Fat</string>
+    <string name="trending_down">Trending Down</string>
+    <string name="last_6_months">Last 6 months</string>
+    <string name="body_fat_percentage">Body Fat Percentage</string>
+    <string name="monthly_breakdown">Monthly Breakdown</string>
+    <string name="jun">Jun</string>
+    <string name="may">May</string>
+    <string name="apr">Apr</string>
+    <string name="mar">Mar</string>
+    <string name="feb">Feb</string>
+    <string name="jan">Jan</string>
+    <string name="sleep_tracker">Sleep Tracker</string>
+    <string name="sleep_schedule">Sleep Schedule</string>
+    <string name="add_alarm">Add Alarm</string>
+    <string name="today_schedule">Today Schedule</string>
+    <string name="your_schedule">Your Schedule</string>
+    <string name="bedtime">Bedtime</string>
+    <string name="alarm">Alarm</string>
+    <string name="daily_sleep_schedule">Daily Sleep Schedule</string>
+    <string name="check">Check</string>
+    <string name="tip">💡 Tip: Go to bed and wake up at the same time every day to improve your sleep quality</string>
+    <string name="hours_of_sleep">Hours of sleep</string>
+    <string name="repeat">Repeat</string>
+    <string name="vibrate_when_alarm_sound">vibrate When Alarm Sound</string>
+    <!--  Water Tracking  -->
+    <string name="water_home_title">Your Health Matters</string>
+    <string name="water_home_subtitle">Keep your body hydrated today</string>
+    <string name="remaining">Remaining</string>
+    <string name="daily_goal">Daily Goal</string>
+    <string name="add_amount">Add Amount</string>
+    <string name="log_water_intake">Log your water intake</string>
+    <string name="view_progress">View your progress</string>
+    <string name="reminder">Reminder</string>
+    <string name="manage_notifications">Manage notifications</string>
+    <!--  Water Intake  -->
+    <string name="add_water_intake">Add Water Intake</string>
+    <string name="manual_input">Manual Input</string>
+    <string name="add_water">+ Add Water</string>
+    <string name="quick_add">Quick Add</string>
+    <string name="today_logs">Today\'s Logs</string>
+    <string name="water">Water</string>
+    <string name="ml">ml</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <!--  Messages  -->
+    <string name="water_added">Water intake added successfully</string>
+    <string name="enter_valid_amount">Please enter a valid amount</string>
+    <string name="entry_deleted">Entry deleted</string>
+    <string name="delete_entry_confirmation">Delete this water entry?</string>
+    <string name="mood_sad_title">Be Kind to Yourself 💙</string>
+    <string name="mood_sad_subtitle">It\'s okay to feel down. These activities might help.</string>
+    <string name="mood_sad_tip_1">Reach out to someone you trust</string>
+    <string name="mood_sad_tip_2">Write down your feelings in a journal</string>
+    <string name="mood_sad_tip_3">Try gentle movement like a short walk</string>
+    <!--  ======================== HAPPY ========================  -->
+    <string name="mood_happy_title">Keep That Energy! ☀️</string>
+    <string name="mood_happy_subtitle">You\'re in a great place. Here\'s how to make it last.</string>
+    <string name="mood_happy_tip_1">Share your good mood with someone you love</string>
+    <string name="mood_happy_tip_2">Do something creative you\'ve been putting off</string>
+    <string name="mood_happy_tip_3">Set a new goal and take the first step today</string>
+    <!--  ======================== ANGRY ========================  -->
+    <string name="mood_angry_title">Let It Out Safely 🔥</string>
+    <string name="mood_angry_subtitle">Anger is valid. Channel it in a healthy direction.</string>
+    <string name="mood_angry_tip_1">Go for a brisk walk to release tension</string>
+    <string name="mood_angry_tip_2">Write down exactly what\'s bothering you</string>
+    <string name="mood_angry_tip_3">Take ten slow, deep breaths before reacting</string>
+    <!--  ======================== OKAY ========================  -->
+    <string name="mood_okay_title">You\'re Doing Fine 🌿</string>
+    <string name="mood_okay_subtitle">Steady days matter too. A little boost can go a long way.</string>
+    <string name="mood_okay_tip_1">Try something small that usually lifts your mood</string>
+    <string name="mood_okay_tip_2">Spend a few minutes outside in fresh air</string>
+    <string name="mood_okay_tip_3">Check in with a friend you haven\'t spoken to lately</string>
+
 </resources>

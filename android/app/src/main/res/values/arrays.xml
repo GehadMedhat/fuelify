@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Meal Type Options -->
+    <string-array name="meal_types">
+        <item>Fasting</item>
+        <item>Before Breakfast</item>
+        <item>After Breakfast</item>
+        <item>Before Lunch</item>
+        <item>After Lunch</item>
+        <item>Before Dinner</item>
+        <item>After Dinner</item>
+        <item>Bedtime</item>
+        <item>Random</item>
+    </string-array>
+
+    <!-- Month Options -->
+    <string-array name="months">
+        <item>January 2025</item>
+        <item>December 2024</item>
+        <item>November 2024</item>
+        <item>October 2024</item>
+        <item>September 2024</item>
+        <item>August 2024</item>
+        <item>July 2024</item>
+        <item>June 2024</item>
+        <item>May 2024</item>
+        <item>April 2024</item>
+        <item>March 2024</item>
+        <item>February 2024</item>
+    </string-array>
+</resources>

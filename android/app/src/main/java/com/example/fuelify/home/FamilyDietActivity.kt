@@ -536,10 +536,17 @@ class FamilyDietActivity : AppCompatActivity() {
         findViewById<LinearLayout>(R.id.navDiet).setOnClickListener {
             startActivity(Intent(this, DietActivity::class.java)); finish()
         }
-        listOf(R.id.navWorkouts, R.id.navStats, R.id.navProfile).forEach { id ->
-            findViewById<LinearLayout>(id).setOnClickListener {
-                Toast.makeText(this, "Coming soon!", Toast.LENGTH_SHORT).show()
-            }
+        findViewById<LinearLayout>(R.id.navStats).setOnClickListener {
+            startActivity(Intent(this, com.example.fuelify.statistics.WaterHomeActivity::class.java))
+
+        }
+        findViewById<LinearLayout>(R.id.navWorkouts).setOnClickListener {
+            startActivity(Intent(this, WorkoutHomeActivity::class.java)); finish()
+        }
+        findViewById<LinearLayout>(R.id.navProfile).setOnClickListener {
+            startActivity(
+                Intent(this, com.example.fuelify.auth.ProfileActivity::class.java)
+            )
         }
     }
 

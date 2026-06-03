@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_gray">
+
+    <!-- Top Bar -->
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="@dimen/margin_medium"
+        android:src="@drawable/ic_arrow_back"
+        android:contentDescription="Back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/urbanist_bold"
+        android:text="@string/sleep_schedule"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btnBack"
+        app:layout_constraintBottom_toBottomOf="@id/btnBack" />
+
+    <!-- Content ScrollView -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_medium"
+        app:layout_constraintTop_toBottomOf="@id/btnBack"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_medium">
+
+            <!-- Your Schedule Title -->
+            <TextView
+                android:id="@+id/tvYourSchedule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/urbanist_bold"
+                android:text="@string/your_schedule"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_large"
+                android:textStyle="bold"
+                android:layout_marginBottom="@dimen/margin_medium" />
+
+            <!-- Week Days Selector -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:layout_marginBottom="@dimen/margin_large">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <include layout="@layout/sleep_item_day"
+                        android:id="@+id/dayMon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <include layout="@layout/sleep_item_day"
+                        android:id="@+id/dayTue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <include layout="@layout/sleep_item_day"
+                        android:id="@+id/dayWed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <include layout="@layout/sleep_item_day"
+                        android:id="@+id/dayThu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <include layout="@layout/sleep_item_day_selected"
+                        android:id="@+id/dayFri"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <include layout="@layout/sleep_item_day"
+                        android:id="@+id/daySat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <include layout="@layout/sleep_item_day"
+                        android:id="@+id/daySun"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <!-- Bedtime Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardBedtime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_medium"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="0dp"
+                android:backgroundTint="@color/white">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_medium">
+
+                    <ImageView
+                        android:id="@+id/ivBedtimeIcon"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_bedtime"
+                        android:contentDescription="Bedtime" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/margin_medium"
+                        android:layout_toEndOf="@id/ivBedtimeIcon"
+                        android:layout_toStartOf="@id/switchBedtime"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/urbanist_bold"
+                                android:text="@string/bedtime"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_size_large"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvBedtimeTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:fontFamily="@font/urbanist_medium"
+                                android:text=", 09:00pm"
+                                android:textColor="@color/dark_gray"
+                                android:textSize="@dimen/text_size_medium" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvBedtimeCountdown"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/urbanist_regular"
+                            android:text="in 6hours 22minutes"
+                            android:textColor="@color/dark_gray"
+                            android:textSize="@dimen/text_size_small" />
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switchBedtime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:checked="true"
+                        app:thumbTint="@color/white"
+                        app:trackTint="@color/lime_green" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Alarm Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardAlarm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_large"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="0dp"
+                android:backgroundTint="@color/white">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_medium">
+
+                    <ImageView
+                        android:id="@+id/ivAlarmIcon"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_alarm"
+                        android:contentDescription="Alarm" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/margin_medium"
+                        android:layout_toEndOf="@id/ivAlarmIcon"
+                        android:layout_toStartOf="@id/switchAlarm"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/urbanist_bold"
+                                android:text="@string/alarm"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_size_large"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvAlarmTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:fontFamily="@font/urbanist_medium"
+                                android:text=", 05:10am"
+                                android:textColor="@color/dark_gray"
+                                android:textSize="@dimen/text_size_medium" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvAlarmCountdown"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/urbanist_regular"
+                            android:text="in 14hours 30minutes"
+                            android:textColor="@color/dark_gray"
+                            android:textSize="@dimen/text_size_small" />
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switchAlarm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:checked="true"
+                        app:thumbTint="@color/white"
+                        app:trackTint="@color/lime_green" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Sleep Info Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sleep_info_background"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_medium"
+                android:layout_marginBottom="80dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/urbanist_medium"
+                    android:text="You will get 8hours 10minutes\nfor tonight"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_small"
+                    android:layout_marginBottom="8dp" />
+
+                <ProgressBar
+                    android:id="@+id/sleepProgress"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="12dp"
+                    android:progress="98"
+                    android:progressDrawable="@drawable/progress_bar" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/urbanist_regular"
+                    android:text="98%"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_small"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- FAB -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_medium"
+        android:src="@drawable/ic_add"
+        app:backgroundTint="@color/lime_green"
+        app:tint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation" />
+
+    <!-- Bottom Navigation -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_navigation_menu"
+        app:itemActiveIndicatorStyle="@style/NoIndicator"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

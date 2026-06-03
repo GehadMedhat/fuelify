@@ -32,5 +32,110 @@
         <item name="cornerSizeBottomLeft">20dp</item>
         <item name="cornerSizeBottomRight">20dp</item>
     </style>
-
+    <!--  Green Switch Theme for Active Switches  -->
+    <style name="GreenSwitchTheme" parent="Theme.AppCompat.Light">
+        <item name="colorControlActivated">#C3E66E</item>
+        <item name="colorSwitchThumbNormal">#FFFFFF</item>
+        <item name="android:colorForeground">#E8F5E9</item>
+    </style>
+    <!--  Gray Switch Theme for Disabled Switches  -->
+    <style name="GraySwitchTheme" parent="Theme.AppCompat.Light">
+        <item name="colorControlActivated">#C3E66E</item>
+        <item name="colorSwitchThumbNormal">#FFFFFF</item>
+        <item name="android:colorForeground">#F5F5F5</item>
+    </style>
+    <style name="NoIndicator">
+        <item name="android:color">@android:color/transparent</item>
+    </style>
+    <style name="CustomSwitch" parent="Theme.AppCompat.Light">
+        <item name="colorControlActivated">#C4E538</item>
+        <item name="colorSwitchThumbNormal">#FFFFFF</item>
+        <item name="android:colorForeground">#DDDDDD</item>
+    </style>
+    <!--  Base application theme  -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/green_primary</item>
+        <item name="colorPrimaryDark">@color/green_primary</item>
+        <item name="colorAccent">@color/green_primary</item>
+        <item name="android:statusBarColor">@color/background_white</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+    <!--  Calendar Header Day Style  -->
+    <style name="CalendarHeaderDay">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:padding">8dp</item>
+    </style>
+    <!--  Calendar Day Style  -->
+    <style name="CalendarDay">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:layout_margin">2dp</item>
+    </style>
+    <!--  Calendar Day Selected Style  -->
+    <style name="CalendarDaySelected" parent="CalendarDay">
+        <item name="android:background">@drawable/calendar_day_selected_bg</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    <!--  Calendar Day With Emoji Style  -->
+    <style name="CalendarDayWithEmoji" parent="CalendarDay">
+        <item name="android:textSize">20sp</item>
+    </style>
+    <!--  Text Appearances  -->
+    <style name="TextAppearance.App.Headline" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="TextAppearance.App.Body1" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="fontFamily">sans-serif</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+    <style name="TextAppearance.App.Body2" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="fontFamily">sans-serif</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+    <style name="TextAppearance.App.Caption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="fontFamily">sans-serif</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+    <!--  Button Styles  -->
+    <style name="Widget.App.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="cornerRadius">28dp</item>
+        <item name="elevation">4dp</item>
+    </style>
+    <style name="Widget.App.Button.Primary" parent="Widget.App.Button">
+        <item name="backgroundTint">@color/lime_green</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <!--  Card Styles  -->
+    <style name="Widget.App.CardView" parent="Widget.MaterialComponents.CardView">
+        <item name="cardCornerRadius">24dp</item>
+        <item name="cardElevation">4dp</item>
+        <item name="cardBackgroundColor">@color/white</item>
+    </style>
 </resources>

@@ -23,4 +23,96 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="dark_green">#C3E66E</color>
+    <color name="light_green">#C8E6C9</color>
+    <color name="coral">#FFCCBC</color>
+    <color name="green">#4CAF50</color>
+    <color name="red_orange">#FF5722</color>
+    <color name="gray">#757575</color>
+    <color name="input_stroke_color">#E0E0E0</color>
+    <color name="input_stroke_focused">#4CAF50</color>
+    <color name="hint_color">#BDBDBD</color>
+    <color name="suffix_color">#757575</color>
+    <color name="tip_background">#FFD54F</color>
+    <color name="tip_icon">#FFA000</color>
+
+    <!--  Mood Background Colors  -->
+    <color name="mood_amazing_bg">#FFFFFF</color>
+    <color name="mood_okay_bg">#FFFFFF</color>
+    <color name="mood_angry_bg">#FFFFFF</color>
+    <!--  Mood Circle Colors  -->
+    <color name="mood_amazing_light">#EDFFC5</color>
+    <color name="mood_okay_light">#FFE0B2</color>
+    <color name="mood_sad_light">#C8E6C9</color>
+    <color name="mood_angry_light">#FFCDD2</color>
+    <!--  Tip Icon Colors  -->
+    <color name="tip_heart">#E57373</color>
+    <color name="tip_journal">#FFB74D</color>
+    <color name="tip_sun">#FFD54F</color>
+    <!--  Tip Background Colors  -->
+    <color name="tip_heart_bg">#FCE4EC</color>
+    <color name="tip_journal_bg">#FFF3E0</color>
+    <color name="tip_sun_bg">#FFFDE7</color>
+    <!--  Bottom Navigation  -->
+    <color name="bottom_nav_selected">#B4D876</color>
+    <color name="bottom_nav_unselected">#9E9E9E</color>
+    <!--  Blood Pressure & Sugar  -->
+    <color name="blood_pressure_bg">#EDFFC5</color>
+    <color name="blood_pressure_icon">#7CB342</color>
+    <color name="blood_sugar_bg">#FFE0B2</color>
+    <color name="blood_sugar_icon">#F4511E</color>
+    <!--  Input Fields  -->
+    <color name="input_stroke">#E0E0E0</color>
+    <color name="stroke_color">#C3E66E</color>
+    <!--  Tip Box  -->
+    <color name="tip_bg">#FFCB65</color>
+    <color name="tip_text">#5D4037</color>
+    <color name="tip_icon_color">#FBC02D</color>
+    <!--  Stats Colors  -->
+    <color name="stat_green">#81C784</color>
+    <color name="stat_red">#E57373</color>
+    <color name="stat_yellow">#FFD54F</color>
+    <!--  Text Colors  -->
+    <color name="text_primary">#1F2937</color>
+    <color name="text_secondary">#9CA3AF</color>
+    <color name="text_hint">#000000</color>
+    <!--  Accent Colors  -->
+    <color name="orange_primary">#FFA726</color>
+    <color name="orange_light">#FFF3E0</color>
+    <color name="peach_primary">#FFB74D</color>
+    <color name="peach_light">#FFF8E1</color>
+    <color name="red_primary">#EF5350</color>
+    <color name="red_light">#FFEBEE</color>
+    <!--  Gray Shades  -->
+    <color name="gray_light">#E5E7EB</color>
+    <color name="gray_medium">#6B7280</color>
+    <!--  Chart Colors  -->
+    <color name="chart_green">#A8D15E</color>
+    <color name="chart_line">#82C341</color>
+    <!--  Switch Colors  -->
+    <color name="switch_thumb_on">#A8D15E</color>
+    <color name="switch_thumb_off">#9CA3AF</color>
+    <color name="switch_track_on">#D4E8B8</color>
+    <color name="switch_track_off">#E5E7EB</color>
+    <!--  Primary Colors  -->
+    <color name="lime_green">#C3E66E</color>
+    <color name="lime_green_dark">#A8C555</color>
+    <!--  Background Colors  -->
+    <color name="background_white">#FFFFFF</color>
+    <color name="background_light">#F8F9FA</color>
+    <!--  Text Colors  -->
+    <color name="text_tertiary">#D1D5DB</color>
+    <!--  Accent Colors  -->
+    <color name="orange_accent">#FF9F5A</color>
+    <color name="red_accent">#FF6B6B</color>
+    <!--  UI Colors  -->
+    <color name="divider_color">#E5E7EB</color>
+    <!--  Bottom Navigation Colors  -->
+    <color name="nav_active">#C4DD6C</color>
+    <color name="nav_inactive">#9CA3AF</color>
+    <color name="light_gray">#F5F5F5</color>
+    <color name="dark_gray">#666666</color>
+    <color name="lime_green_light">#E8F5C8</color>
+    <color name="yellow_tip">#FFD88A</color>
+    <color name="card_background">#FAFAFA</color>
+
 </resources>

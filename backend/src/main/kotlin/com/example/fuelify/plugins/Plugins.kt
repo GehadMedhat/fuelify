@@ -1,5 +1,7 @@
 package com.example.fuelify.plugins
 
+import io.ktor.server.plugins.defaultheaders.*
+import io.ktor.server.auth.*
 import com.example.fuelify.routes.dashboardRoutes
 import com.example.fuelify.routes.mealDetailRoutes
 import com.example.fuelify.routes.mealSearchRoutes
@@ -17,6 +19,16 @@ import com.example.fuelify.routes.doctorConsultationRoutes
 import com.example.fuelify.routes.doctorRoutes
 import com.example.fuelify.routes.spinWheelRoutes
 import com.example.fuelify.routes.bingoRoutes
+import com.example.fuelify.routes.bloodPressureRoutes
+import com.example.fuelify.routes.bodyScanRoutes
+import com.example.fuelify.routes.homeRoutes
+import com.example.fuelify.routes.intakeRoutes
+import com.example.fuelify.routes.moodRoutes
+import com.example.fuelify.routes.remindersRoutes
+import com.example.fuelify.routes.sleepRoutes
+import com.example.fuelify.routes.statisticsRoutes
+import io.ktor.server.metrics.micrometer.*
+import io.micrometer.prometheus.*
 import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
@@ -64,28 +76,52 @@ fun Application.configureStatusPages() {
     }
 }
 
-fun Application.configureRouting() {
+fun Application.configureRouting(metricsRegistry: PrometheusMeterRegistry) {
     routing {
         get("/health") { call.respondText("OK") }
+                get("/metrics") {
+            val host = call.request.local.remoteHost
+            if (host == "127.0.0.1" || host == "localhost" || host == "0:0:0:0:0:0:0:1") {
+                call.respondText(metricsRegistry.scrape())
+            } else {
+                call.respond(HttpStatusCode.Forbidden,
+                    """{"success":false,"message":"Access denied","data":null}""")
+            }
+        }
         route("/api") {
+            // ── Public routes ──
             userRoutes()
-            dashboardRoutes()
-            mealDetailRoutes()
-            mealSearchRoutes()
-            kitchenOrderRoutes()
-            ingredientRoutes()
-            familyRoutes()
-            familyDashboardRoutes() 
-            ecoRoutes()
-            scannedPantryRoutes()
-            workoutRoutes()
-            workoutSessionRoutes()
-            medicalRoutes()
-            doctorConsultationRoutes()
             doctorRoutes()
-            spinWheelRoutes()
-            bingoRoutes()
 
+            // ── Protected routes (JWT required) ──
+            authenticate("auth-jwt") {
+                dashboardRoutes()
+                mealDetailRoutes()
+                mealSearchRoutes()
+                kitchenOrderRoutes()
+                ingredientRoutes()
+                familyRoutes()
+                familyDashboardRoutes()
+                ecoRoutes()
+                scannedPantryRoutes()
+                workoutRoutes()
+                workoutSessionRoutes()
+                medicalRoutes()
+                doctorConsultationRoutes()
+                spinWheelRoutes()
+                bingoRoutes()
+
+                route("/bp")       { bloodPressureRoutes() }
+                route("/bodyscan") { bodyScanRoutes() }
+                route("/water") {
+                    homeRoutes()
+                    intakeRoutes()
+                    remindersRoutes()
+                    statisticsRoutes()
+                }
+                route("/mood")  { moodRoutes() }
+                route("/sleep") { sleepRoutes() }
+            }
         }
     }
 }

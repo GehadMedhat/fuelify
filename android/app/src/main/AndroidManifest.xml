@@ -7,6 +7,7 @@
         android:maxSdkVersion="28"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="32"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
     <uses-feature android:name="android.hardware.camera" android:required="true"/>
     <uses-feature android:name="android.hardware.camera.autofocus" android:required="true"/>
 
@@ -115,32 +116,56 @@
         <activity android:name=".home.SpinWheelActivity" android:screenOrientation="portrait" android:exported="false"/>
         <activity android:name=".home.BingoActivity" android:screenOrientation="portrait" android:exported="false"/>
 
+        <!-- Statistics tab -->
+        <activity android:name=".statistics.WaterHomeActivity"          android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".statistics.WaterIntakeActivity"        android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".statistics.WaterStatisticsActivity"    android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".statistics.WaterRemindersActivity"     android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".statistics.SleepTrackerActivity"       android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".statistics.SleepScheduleActivity"      android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".statistics.SleepAddAlarmActivity"      android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".statistics.MoodHomeActivity"           android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".statistics.MoodFeelingSelectionActivity" android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".statistics.MoodStatsActivity"          android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".statistics.MoodTipsHappyActivity"      android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".statistics.MoodTipsSadActivity"        android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".statistics.MoodTipsOkayActivity"       android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".statistics.MoodTipsAngryActivity"      android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".statistics.BloodPressureHomeActivity"  android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".statistics.BloodPressureAddActivity"   android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".statistics.BloodPressureStatsActivity" android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".statistics.BloodSugarAddActivity"      android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".statistics.BodyStatisticsActivity"     android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".statistics.BodyAnalysisActivity"       android:screenOrientation="portrait" android:exported="false"/>
+        <activity android:name=".statistics.BodyRecognitionActivity"    android:screenOrientation="portrait" android:exported="false"/>
+
+        <!-- Doctor -->
         <activity android:name=".doctor.DoctorOnboardingActivity" android:screenOrientation="portrait" android:exported="false"/>
         <activity android:name=".doctor.DoctorPendingActivity" android:screenOrientation="portrait" android:exported="false"/>
         <activity android:name=".doctor.DoctorHomeActivity" android:screenOrientation="portrait" android:exported="false"/>
         <activity android:name=".doctor.DoctorCaseActivity" android:screenOrientation="portrait" android:exported="false"/>
         <activity android:name=".doctor.DoctorWalletActivity" android:screenOrientation="portrait" android:exported="false"/>
-<!-- Friend's auth + profile screens -->
-<activity android:name=".auth.WelcomeActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
-<activity android:name=".auth.LoginActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
-<activity android:name=".auth.SignUpActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
-<activity android:name=".auth.VerificationActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
-<activity android:name=".auth.ForgotPasswordActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
-<activity android:name=".auth.SetNewPasswordActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
-<activity android:name=".auth.VerifyEmailChangeActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
-<activity android:name=".auth.EditProfileActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
-<activity android:name=".auth.DeleteAccountActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
-<activity android:name=".auth.ChangeEmailActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
-<activity android:name=".auth.NotificationSettingsActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
-<activity android:name=".auth.NotificationCenterActivity"/>
-<activity android:name=".auth.MarketplaceActivity"/>
-<activity android:name=".auth.RewardDetailsActivity"/>
-<activity android:name=".auth.ChatActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
-<activity android:name=".auth.QuickQuestionsActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
-<activity android:name=".auth.AdminDashboardActivity"/>
-<activity android:name=".auth.AdminAddRewardActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
-<activity android:name=".auth.AdminDeleteRewardActivity"/>
-<activity android:name=".auth.AdminUpdateRewardActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <!-- Friend's auth + profile screens -->
+        <activity android:name=".auth.WelcomeActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity android:name=".auth.LoginActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity android:name=".auth.SignUpActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity android:name=".auth.VerificationActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity android:name=".auth.ForgotPasswordActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity android:name=".auth.SetNewPasswordActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity android:name=".auth.VerifyEmailChangeActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity android:name=".auth.EditProfileActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity android:name=".auth.DeleteAccountActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity android:name=".auth.ChangeEmailActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity android:name=".auth.NotificationSettingsActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity android:name=".auth.NotificationCenterActivity"/>
+        <activity android:name=".auth.MarketplaceActivity"/>
+        <activity android:name=".auth.RewardDetailsActivity"/>
+        <activity android:name=".auth.ChatActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity android:name=".auth.QuickQuestionsActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity android:name=".auth.AdminDashboardActivity"/>
+        <activity android:name=".auth.AdminAddRewardActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity android:name=".auth.AdminDeleteRewardActivity"/>
+        <activity android:name=".auth.AdminUpdateRewardActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
 
 
         <provider

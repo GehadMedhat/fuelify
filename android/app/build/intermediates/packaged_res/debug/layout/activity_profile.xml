@@ -166,7 +166,7 @@
                 <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#E0E0E0" android:layout_marginTop="4dp" android:layout_marginBottom="4dp"/>
 
                 <LinearLayout android:id="@+id/gameRow" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingTop="8dp" android:paddingBottom="8dp" android:clickable="true" android:focusable="true">
-                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_chatbot"/>
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_wheel"/>
                     <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Spinning Wheel" android:textColor="#000000" android:textSize="18sp" android:layout_marginStart="16dp"/>
                     <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/arrow_right_icon"/>
                 </LinearLayout>
@@ -174,7 +174,7 @@
                 <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#E0E0E0" android:layout_marginTop="4dp" android:layout_marginBottom="4dp"/>
 
                 <LinearLayout android:id="@+id/game2Row" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingTop="8dp" android:paddingBottom="8dp" android:clickable="true" android:focusable="true">
-                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_chatbot"/>
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_bingo"/>
                     <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Bingo Card" android:textColor="#000000" android:textSize="18sp" android:layout_marginStart="16dp"/>
                     <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/arrow_right_icon"/>
                 </LinearLayout>

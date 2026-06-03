@@ -16,6 +16,7 @@
     <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -197,6 +198,94 @@
             android:name="com.example.fuelify.home.BingoActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
+
+        <!-- Statistics tab -->
+        <activity
+            android:name="com.example.fuelify.statistics.WaterHomeActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.fuelify.statistics.WaterIntakeActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.fuelify.statistics.WaterStatisticsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.fuelify.statistics.WaterRemindersActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.fuelify.statistics.SleepTrackerActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.fuelify.statistics.SleepScheduleActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.fuelify.statistics.SleepAddAlarmActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.fuelify.statistics.MoodHomeActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.fuelify.statistics.MoodFeelingSelectionActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.fuelify.statistics.MoodStatsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.fuelify.statistics.MoodTipsHappyActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.fuelify.statistics.MoodTipsSadActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.fuelify.statistics.MoodTipsOkayActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.fuelify.statistics.MoodTipsAngryActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.fuelify.statistics.BloodPressureHomeActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.fuelify.statistics.BloodPressureAddActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.fuelify.statistics.BloodPressureStatsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.fuelify.statistics.BloodSugarAddActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.fuelify.statistics.BodyStatisticsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.fuelify.statistics.BodyAnalysisActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.fuelify.statistics.BodyRecognitionActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!-- Doctor -->
         <activity
             android:name="com.example.fuelify.doctor.DoctorOnboardingActivity"
             android:exported="false"

@@ -65,6 +65,13 @@ data class UserResponse(
     @SerializedName("grocery_lists_count") val groceryListsCount: Int = 0
 )
 
+data class FuelifyUserData(
+    @SerializedName("user_id")         val userId: Int,
+    val name: String,
+    @SerializedName("profile_complete") val profileComplete: Boolean
+)
+
+
 data class AuthResponse(
     @SerializedName("access_token")  val accessToken: String,
     @SerializedName("refresh_token") val refreshToken: String,
@@ -177,6 +184,9 @@ data class ChatHistoryResponse(
 )
 
 // ─── Admin / Rewards Management ───────────────────────────────────────────────
+data class RefreshRequest(
+    @SerializedName("refresh_token") val refreshToken: String
+)
 
 // Keep old ones untouched in case used elsewhere
 data class CreateRewardRequest(

@@ -180,3 +180,5 @@ data class WeekPlanResponse(
     @SerializedName("success") val success: Boolean,
     @SerializedName("data")    val data:    List<WeekPlanEntry>?
 )
+
+

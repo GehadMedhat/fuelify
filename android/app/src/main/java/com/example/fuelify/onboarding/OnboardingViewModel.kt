@@ -44,42 +44,46 @@ class OnboardingViewModel : ViewModel() {
 
     // ── Submit to Ktor backend ────────────────────────────────────────────────
 
-    fun submitOnboarding() {
-        _submitState.value = OnboardingState.Loading
+fun submitOnboarding() {
+    _submitState.value = OnboardingState.Loading
 
-        viewModelScope.launch {
-            try {
-                val request = RegisterUserRequest(
-                    name          = userData.name,
-                    gender        = userData.gender,
-                    age           = userData.age,
-                    heightCm      = userData.heightCm,
-                    weightKg      = userData.weightKg,
-                    goal          = userData.goal,
-                    activityLevel = userData.activityLevel,
-                    motivation    = userData.motivation,
-                    fitnessLevel  = userData.fitnessLevel,
-                    exerciseDays  = userData.exerciseDays,
-                    trainingPlace = userData.trainingPlace,
-                    mealsPerDay   = userData.mealsPerDay,
-                    likedFoods    = userData.likedFoods,
-                    allergies     = userData.allergies,
-                    budget        = userData.budget
-                )
+    viewModelScope.launch {
+        try {
+            // Get the auth user ID saved during login
+            val userId = com.example.fuelify.auth.network.SessionManager.getUserId()
 
-                val response = RetrofitClient.api.registerUser(request)
+            val request = RegisterUserRequest(
+                name          = userData.name,
+                gender        = userData.gender,
+                age           = userData.age,
+                heightCm      = userData.heightCm,
+                weightKg      = userData.weightKg,
+                goal          = userData.goal,
+                activityLevel = userData.activityLevel,
+                motivation    = userData.motivation,
+                fitnessLevel  = userData.fitnessLevel,
+                exerciseDays  = userData.exerciseDays,
+                trainingPlace = userData.trainingPlace,
+                mealsPerDay   = userData.mealsPerDay,
+                likedFoods    = userData.likedFoods,
+                allergies     = userData.allergies,
+                budget        = userData.budget
+            )
 
-                if (response.isSuccessful && response.body()?.success == true) {
-                    val userId = response.body()!!.data!!.userId
-                    _submitState.value = OnboardingState.Success(userId)
-                } else {
-                    val msg = response.body()?.message ?: "Server error ${response.code()}"
-                    _submitState.value = OnboardingState.Error(msg)
-                }
+            // Use PUT /api/users/{id}/onboarding instead of POST /api/users/register
+            val response = RetrofitClient.api.updateUserOnboarding(userId, request)
 
-            } catch (e: Exception) {
-                _submitState.value = OnboardingState.Error(e.message ?: "Network error")
+            if (response.isSuccessful && response.body()?.success == true) {
+                val returnedId = response.body()!!.data!!.userId
+                _submitState.value = OnboardingState.Success(returnedId)
+            } else {
+                val msg = response.body()?.message ?: "Server error ${response.code()}"
+                _submitState.value = OnboardingState.Error(msg)
             }
+
+        } catch (e: Exception) {
+            _submitState.value = OnboardingState.Error(e.message ?: "Network error")
         }
     }
+}
 }

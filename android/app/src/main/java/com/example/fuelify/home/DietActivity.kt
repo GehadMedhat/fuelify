@@ -249,10 +249,9 @@ class DietActivity : AppCompatActivity() {
             )
         }
         findViewById<LinearLayout>(R.id.navDiet).setOnClickListener { }
-        listOf(R.id.navStats).forEach { id ->
-            findViewById<LinearLayout>(id).setOnClickListener {
-                Toast.makeText(this, "Coming soon!", Toast.LENGTH_SHORT).show()
-            }
+        findViewById<LinearLayout>(R.id.navStats).setOnClickListener {
+            startActivity(Intent(this, com.example.fuelify.statistics.WaterHomeActivity::class.java))
+
         }
     }
 }

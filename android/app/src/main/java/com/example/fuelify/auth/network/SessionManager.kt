@@ -15,6 +15,8 @@ object SessionManager {
     private const val KEY_PROFILE_PICTURE = "profile_picture"
     private const val KEY_VISIBILITY      = "visibility"
     private const val KEY_IS_ADMIN        = "is_admin"
+    
+    private const val KEY_REFRESH_TOKEN = "refresh_token"
 
     private var appContext: Context? = null
 
@@ -60,4 +62,8 @@ object SessionManager {
     fun isLoggedIn(): Boolean = getToken() != null
 
     fun clear() = getPrefs()?.edit()?.clear()?.apply()
+    
+
+fun saveRefreshToken(token: String) = getPrefs()?.edit()?.putString(KEY_REFRESH_TOKEN, token)?.apply()
+fun getRefreshToken(): String?      = getPrefs()?.getString(KEY_REFRESH_TOKEN, null)
 }

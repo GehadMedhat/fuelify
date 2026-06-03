@@ -476,10 +476,9 @@ class GroceryActivity : AppCompatActivity() {
                 Intent(this, com.example.fuelify.auth.ProfileActivity::class.java)
             )
         }
-        listOf(R.id.navStats).forEach { id ->
-            findViewById<LinearLayout>(id).setOnClickListener {
-                Toast.makeText(this, "Coming soon!", Toast.LENGTH_SHORT).show()
-            }
+        findViewById<LinearLayout>(R.id.navStats).setOnClickListener {
+            startActivity(Intent(this, com.example.fuelify.statistics.WaterHomeActivity::class.java))
+
         }
     }
 

@@ -24,16 +24,28 @@ object DatabaseFactory {
             maximumPoolSize      = maxPool
             driverClassName      = "org.postgresql.Driver"
             isAutoCommit         = false
-            transactionIsolation = "TRANSACTION_REPEATABLE_READ"
+transactionIsolation = "TRANSACTION_READ_COMMITTED"
         }
 
         Database.connect(HikariDataSource(hikari))
 
         transaction {
             SchemaUtils.createMissingTablesAndColumns(
+                // ── your existing tables ──────────────────────────────────────
                 Users,
                 DailyLogs,
-                MealPlans
+                MealPlans,
+
+                // ── friend's health tracking tables ──────────────────────────
+                WaterLogsTable,
+                WaterGoalTable,
+                WaterRemindersTable,
+                WaterAutoReminderTable,
+                SleepSchedulesTable,
+                MoodEntriesTable,
+                BpReadingsTable,
+                BsReadingsTable,
+                BodyScanRecordsTable
             )
         }
     }

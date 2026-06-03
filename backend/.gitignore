@@ -1,0 +1,12 @@
+# Secrets - never commit these
+src/main/resources/application.conf
+src/main/resources/application.yaml
+
+# Gradle
+.gradle/
+build/
+*.jar
+
+# IDE
+.idea/
+*.iml

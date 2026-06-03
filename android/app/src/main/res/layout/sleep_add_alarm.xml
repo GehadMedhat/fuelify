@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_gray">
+
+    <!-- Top Bar -->
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="@dimen/margin_medium"
+        android:src="@drawable/ic_arrow_back"
+        android:contentDescription="Back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_alarm"
+        android:fontFamily="@font/urbanist_bold"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btnBack"
+        app:layout_constraintBottom_toBottomOf="@id/btnBack" />
+
+    <!-- Content ScrollView -->
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_medium"
+        app:layout_constraintTop_toBottomOf="@id/btnBack"
+        app:layout_constraintBottom_toTopOf="@id/btnAdd"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_medium">
+
+            <!-- Bedtime Row -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardBedtime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_medium"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/white">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_medium">
+
+                    <ImageView
+                        android:id="@+id/ivBedtimeIcon"
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_bed"
+                        android:contentDescription="Bedtime" />
+
+                    <TextView
+                        android:id="@+id/tvBedtime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/margin_medium"
+                        android:layout_toEndOf="@id/ivBedtimeIcon"
+                        android:fontFamily="@font/urbanist_medium"
+                        android:text="@string/bedtime"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_medium" />
+
+                    <TextView
+                        android:id="@+id/tvBedtimeValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toStartOf="@id/ivBedtimeArrow"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="4dp"
+                        android:text="09:00 PM"
+                        android:fontFamily="@font/urbanist_medium"
+                        android:textColor="@color/dark_gray"
+                        android:textSize="@dimen/text_size_medium" />
+
+                    <ImageView
+                        android:id="@+id/ivBedtimeArrow"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_arrow_right"
+                        android:contentDescription="Arrow" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Hours of Sleep Row -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardHoursOfSleep"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_medium"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/white">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_medium">
+
+                    <ImageView
+                        android:id="@+id/ivClockIcon"
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_clock"
+                        android:contentDescription="Clock" />
+
+                    <TextView
+                        android:id="@+id/tvHoursOfSleep"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/margin_medium"
+                        android:layout_toEndOf="@id/ivClockIcon"
+                        android:text="@string/hours_of_sleep"
+                        android:fontFamily="@font/urbanist_medium"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_medium" />
+
+                    <TextView
+                        android:id="@+id/tvHoursValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toStartOf="@id/ivSleepArrow"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="4dp"
+                        android:text="8hours 30minutes"
+                        android:fontFamily="@font/urbanist_medium"
+                        android:textColor="@color/dark_gray"
+                        android:textSize="@dimen/text_size_medium" />
+
+                    <ImageView
+                        android:id="@+id/ivSleepArrow"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_arrow_right"
+                        android:contentDescription="Arrow" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Repeat Row -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardRepeat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_medium"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/white">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_medium">
+
+                    <ImageView
+                        android:id="@+id/ivRepeatIcon"
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_repeat"
+                        android:contentDescription="Repeat" />
+
+                    <TextView
+                        android:id="@+id/tvRepeat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/margin_medium"
+                        android:layout_toEndOf="@id/ivRepeatIcon"
+                        android:text="@string/repeat"
+                        android:fontFamily="@font/urbanist_medium"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_medium" />
+
+                    <TextView
+                        android:id="@+id/tvRepeatValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toStartOf="@id/ivRepeatArrow"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="4dp"
+                        android:text="Mon to Fri"
+                        android:fontFamily="@font/urbanist_medium"
+                        android:textColor="@color/dark_gray"
+                        android:textSize="@dimen/text_size_medium" />
+
+                    <ImageView
+                        android:id="@+id/ivRepeatArrow"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_arrow_right"
+                        android:contentDescription="Arrow" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Vibrate When Alarm Sound Row -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardVibrate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/white">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_medium">
+
+                    <ImageView
+                        android:id="@+id/ivVibrateIcon"
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_vibrate"
+                        android:contentDescription="Vibrate" />
+
+                    <TextView
+                        android:id="@+id/tvVibrate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/margin_medium"
+                        android:layout_toEndOf="@id/ivVibrateIcon"
+                        android:layout_toStartOf="@id/switchVibrate"
+                        android:text="@string/vibrate_when_alarm_sound"
+                        android:fontFamily="@font/urbanist_medium"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_medium" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switchVibrate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:checked="true"
+                        app:thumbTint="@color/white" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Add Button -->
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_large"
+        android:background="@drawable/button_background"
+        android:paddingTop="@dimen/padding_medium"
+        android:paddingBottom="@dimen/padding_medium"
+        android:text="@string/add"
+        android:fontFamily="@font/urbanist_bold"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_large"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:backgroundTint="@null" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -150,6 +150,9 @@ interface ApiService {
     suspend fun getQuickQuestions(
         @Header("Authorization") token: String
     ): Response<ApiResponse<Any>>
+    
+    @POST("api/auth/refresh")
+suspend fun refresh(@Body request: RefreshRequest): Response<ApiResponse<AuthResponse>>
 
     // ── Admin ─────────────────────────────────────────────────────────────────
 

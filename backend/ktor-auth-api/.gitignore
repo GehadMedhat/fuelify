@@ -1,0 +1,7 @@
+src/main/resources/application.conf
+src/main/resources/application.yaml
+.gradle/
+build/
+*.jar
+.idea/
+*.iml

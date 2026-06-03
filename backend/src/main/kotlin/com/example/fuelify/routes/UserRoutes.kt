@@ -145,6 +145,119 @@ fun Route.userRoutes() {
             )
         }
     }
+    
+    
+// GET /api/users/by-email?email=...
+get("/users/by-email") {
+    val email = call.request.queryParameters["email"]
+        ?: return@get call.respond(
+            HttpStatusCode.BadRequest,
+            ApiResponse<Nothing>(false, "Email required", null)
+        )
+
+    val row = dbQuery { Users.select { Users.email eq email }.firstOrNull() }
+
+    if (row == null) {
+        call.respond(
+            ApiResponse(success = true, message = "Not found",
+                data = UserData(user_id = -1, name = "", profile_complete = false))
+        )
+    } else {
+        call.respond(
+            ApiResponse(
+                success = true, message = "OK",
+                data = UserData(
+                    user_id = row[Users.id],
+                    name = row[Users.name],
+                    profile_complete = row[Users.profileComplete]
+                )
+            )
+        )
+    }
+}
+
+put("/users/{id}/onboarding") {
+    val id = call.parameters["id"]?.toIntOrNull()
+        ?: return@put call.respond(
+            HttpStatusCode.BadRequest,
+            ApiResponse<Nothing>(false, "Invalid user ID", null)
+        )
+
+    val req = call.receive<RegisterUserRequest>()
+    val nameParts = req.name.trim().split(" ", limit = 2)
+
+    // Check if user exists — if not, insert; if yes, update
+    val existing = dbQuery { Users.select { Users.id eq id }.firstOrNull() }
+
+    if (existing == null) {
+        // First time: insert with the known id from auth backend
+        dbQuery {
+            Users.insert {
+                it[Users.id]             = id
+                it[Users.name]           = req.name
+                it[Users.firstName]      = nameParts.getOrElse(0) { req.name }
+                it[Users.lastName]       = nameParts.getOrElse(1) { "" }
+                it[Users.email]          = req.email.ifBlank { "user_${id}@fuelify.app" }
+                it[Users.username]       = req.email.substringBefore("@").ifBlank { req.name.lowercase() }
+                it[Users.gender]         = req.gender
+                it[Users.age]            = req.age
+                it[Users.heightCm]       = req.height_cm
+                it[Users.weightKg]       = req.weight_kg
+                it[Users.goal]           = req.goal
+                it[Users.activityLevel]  = req.activity_level
+                it[Users.motivation]     = req.motivation
+                it[Users.fitnessLevel]   = req.fitness_level
+                it[Users.exerciseDays]   = req.exercise_days
+                it[Users.trainingPlace]  = req.training_place
+                it[Users.mealsPerDay]    = req.meals_per_day
+                it[Users.likedFoods]     = Json.encodeToString(req.liked_foods)
+                it[Users.allergies]      = Json.encodeToString(req.allergies)
+                it[Users.budget]         = req.budget
+                it[Users.profileComplete] = true
+                it[Users.onboardingStep] = 15
+                it[Users.isActive]       = true
+                it[Users.isVerified]     = true
+                it[Users.createdAt]      = LocalDateTime.now()
+                it[Users.updatedAt]      = LocalDateTime.now()
+            }
+        }
+    } else {
+        // Already exists: just update onboarding fields
+        dbQuery {
+            Users.update({ Users.id eq id }) {
+                it[Users.name]           = req.name
+                it[Users.firstName]      = nameParts.getOrElse(0) { req.name }
+                it[Users.lastName]       = nameParts.getOrElse(1) { "" }
+                it[Users.gender]         = req.gender
+                it[Users.age]            = req.age
+                it[Users.heightCm]       = req.height_cm
+                it[Users.weightKg]       = req.weight_kg
+                it[Users.goal]           = req.goal
+                it[Users.activityLevel]  = req.activity_level
+                it[Users.motivation]     = req.motivation
+                it[Users.fitnessLevel]   = req.fitness_level
+                it[Users.exerciseDays]   = req.exercise_days
+                it[Users.trainingPlace]  = req.training_place
+                it[Users.mealsPerDay]    = req.meals_per_day
+                it[Users.likedFoods]     = Json.encodeToString(req.liked_foods)
+                it[Users.allergies]      = Json.encodeToString(req.allergies)
+                it[Users.budget]         = req.budget
+                it[Users.profileComplete] = true
+                it[Users.onboardingStep] = 15
+                it[Users.updatedAt]      = LocalDateTime.now()
+            }
+        }
+    }
+
+    call.respond(
+        ApiResponse(
+            success = true,
+            message = "Onboarding complete",
+            data = UserData(user_id = id, name = req.name, profile_complete = true)
+        )
+    )
+}
+
 
     // ── PATCH /api/users/{id} — update onboarding step ───────────────────────
     patch("/users/{id}") {

@@ -20,6 +20,8 @@ import com.example.fuelify.doctor.DoctorOnboardingActivity
 import com.example.fuelify.home.HomeActivity
 import com.example.fuelify.onboarding.OnboardingActivity
 import com.example.fuelify.utils.DoctorPreferences
+import com.example.fuelify.data.api.models.UserResponse as FuelifyUserResponse
+import com.example.fuelify.data.api.models.ApiResponse as FuelifyApiResponse
 import com.example.fuelify.utils.UserPreferences
 import kotlinx.coroutines.launch
 
@@ -96,25 +98,63 @@ class LoginActivity : AppCompatActivity() {
     private fun performLogin(email: String, password: String) {
         lifecycleScope.launch {
             try {
+                // Step 1: Auth login (port 8081)
                 val response = RetrofitClient.instance.login(LoginRequest(email, password))
+
                 if (response.isSuccessful && response.body()?.success == true) {
                     val data = response.body()!!.data!!
+
                     SessionManager.saveToken(data.accessToken)
+                    SessionManager.saveRefreshToken(data.refreshToken)
                     runCatching { SessionManager.saveUser(data.user) }
+
                     val isAdmin = isAdminFromToken(data.accessToken)
                     SessionManager.saveAdminStatus(isAdmin)
+
                     if (isAdmin) {
                         Toast.makeText(this@LoginActivity, "Welcome, Admin!", Toast.LENGTH_SHORT).show()
                         startActivity(Intent(this@LoginActivity, AdminDashboardActivity::class.java))
                         finishAffinity()
-                    } else {
-                        Toast.makeText(this@LoginActivity, "Welcome back!", Toast.LENGTH_SHORT).show()
-                        val dest = if (UserPreferences.isLoggedIn(this@LoginActivity)) HomeActivity::class.java else OnboardingActivity::class.java
-                        startActivity(Intent(this@LoginActivity, dest))
-                        finishAffinity()
+                        return@launch
                     }
+
+                    // Step 2: Check onboarding status on Fuelify backend (port 8080)
+                    val destination = try {
+                        val userResp = com.example.fuelify.data.api.RetrofitClient.api
+                            .getUserByEmail(email)
+
+                        android.util.Log.d("LOGIN_DEBUG", "getUserByEmail code: ${userResp.code()}")
+                        android.util.Log.d("LOGIN_DEBUG", "getUserByEmail body: ${userResp.errorBody()?.string()}")
+                        android.util.Log.d("LOGIN_DEBUG", "success: ${userResp.body()?.success}")
+                        android.util.Log.d("LOGIN_DEBUG", "data: ${userResp.body()?.data}")
+
+                        if (userResp.isSuccessful && userResp.body()?.success == true) {
+                            val userData: FuelifyUserResponse? = userResp.body()!!.data
+                            android.util.Log.d("LOGIN_DEBUG", "profileComplete: ${userData?.profileComplete}, userId: ${userData?.userId}")
+                            if (userData != null && userData.profileComplete) {
+                                UserPreferences.saveUserId(this@LoginActivity, userData.userId)
+                                HomeActivity::class.java
+                            } else {
+                                OnboardingActivity::class.java
+                            }
+                        } else {
+                            OnboardingActivity::class.java
+                        }
+                    } catch (e: Exception) {
+                        android.util.Log.e("LOGIN_DEBUG", "Exception: ${e.message}", e)
+                        OnboardingActivity::class.java
+                    }
+
+                    Toast.makeText(this@LoginActivity, "Welcome back!", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this@LoginActivity, destination))
+                    finishAffinity()
+
                 } else {
-                    Toast.makeText(this@LoginActivity, response.body()?.message ?: "Login failed.", Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        this@LoginActivity,
+                        response.body()?.message ?: "Login failed.",
+                        Toast.LENGTH_LONG
+                    ).show()
                     loginButton.isEnabled = true
                 }
             } catch (e: Exception) {
@@ -123,7 +163,6 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
-
     private fun isAdminFromToken(token: String): Boolean {
         return try {
             val parts = token.split(".")

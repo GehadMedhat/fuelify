@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="24dp">
+
+            <!-- Back Button -->
+            <ImageView
+                android:id="@+id/btn_back"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/back"
+                android:src="@drawable/ic_arrow_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Title -->
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/urbanist_bold"
+                android:gravity="center"
+                android:text="@string/your_progress"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_back" />
+
+            <!-- Subtitle -->
+            <TextView
+                android:id="@+id/tv_subtitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/urbanist_regular"
+                android:gravity="center"
+                android:text="@string/track_emotional_journey"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+            <!-- Stats Cards Container -->
+            <LinearLayout
+                android:id="@+id/stats_cards"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_subtitle">
+
+                <!-- Total Logs Card -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:contentDescription="@string/total_logs_icon"
+                            android:src="@drawable/ic_calendar"
+                            app:tint="@color/green_primary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:fontFamily="@font/urbanist_regular"
+                            android:text="@string/total_logs"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tv_total_logs_stat"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/urbanist_bold"
+                            android:text="1"
+                            android:textColor="@color/black"
+                            android:textSize="32sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Most Common Mood Card -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:contentDescription="@string/most_common_icon"
+                            android:src="@drawable/ic_trending"
+                            app:tint="@color/green_primary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:fontFamily="@font/urbanist_regular"
+                            android:text="@string/most_common"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tv_most_common_emoji"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="😢"
+                            android:textSize="32sp" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <!-- Calendar Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/calendar_card"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/stats_cards">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <!-- Calendar Title -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/urbanist_bold"
+                        android:text="@string/november_2025"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <!-- Calendar Header -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:orientation="horizontal">
+
+                        <TextView style="@style/CalendarHeaderDay" android:text="@string/sunday_short" />
+                        <TextView style="@style/CalendarHeaderDay" android:text="@string/monday_short" />
+                        <TextView style="@style/CalendarHeaderDay" android:text="@string/tuesday_short" />
+                        <TextView style="@style/CalendarHeaderDay" android:text="@string/wednesday_short" />
+                        <TextView style="@style/CalendarHeaderDay" android:text="@string/thursday_short" />
+                        <TextView style="@style/CalendarHeaderDay" android:text="@string/friday_short" />
+                        <TextView style="@style/CalendarHeaderDay" android:text="@string/saturday_short" />
+                    </LinearLayout>
+
+                    <!-- Calendar Grid -->
+                    <GridLayout
+                        android:id="@+id/calendar_grid"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:columnCount="7"
+                        android:rowCount="6">
+
+                        <!-- Week 1 -->
+                        <TextView style="@style/CalendarDay" />
+                        <TextView style="@style/CalendarDay" />
+                        <TextView style="@style/CalendarDay" />
+                        <TextView style="@style/CalendarDay" />
+                        <TextView style="@style/CalendarDay" />
+                        <TextView style="@style/CalendarDay" android:text="1" />
+                        <TextView style="@style/CalendarDay" android:text="2" />
+
+                        <!-- Week 2 -->
+                        <TextView style="@style/CalendarDay" android:text="3" />
+                        <TextView style="@style/CalendarDay" android:text="4" />
+                        <TextView style="@style/CalendarDay" android:text="5" />
+                        <TextView style="@style/CalendarDay" android:text="6" />
+                        <TextView style="@style/CalendarDay" android:text="7" />
+                        <TextView style="@style/CalendarDay" android:text="8" />
+                        <TextView style="@style/CalendarDay" android:text="9" />
+
+                        <!-- Week 3 -->
+                        <TextView style="@style/CalendarDay" android:text="10" />
+                        <TextView style="@style/CalendarDay" android:text="11" />
+                        <TextView style="@style/CalendarDay" android:text="12" />
+                        <TextView style="@style/CalendarDay" android:text="13" />
+                        <TextView style="@style/CalendarDay" android:text="14" />
+                        <TextView style="@style/CalendarDay" android:text="15" />
+                        <TextView style="@style/CalendarDay" android:text="16" />
+
+                        <!-- Week 4 -->
+                        <TextView style="@style/CalendarDay" android:text="17" />
+                        <TextView style="@style/CalendarDay" android:text="18" />
+                        <TextView style="@style/CalendarDay" android:text="19" />
+                        <TextView style="@style/CalendarDay" android:text="20" />
+                        <TextView style="@style/CalendarDay" android:text="21" />
+                        <TextView style="@style/CalendarDay" android:text="22" />
+                        <TextView style="@style/CalendarDay" android:text="23" />
+
+                        <!-- Week 5 -->
+                        <TextView style="@style/CalendarDaySelected" android:text="24" />
+                        <TextView style="@style/CalendarDayWithEmoji" android:text="😢" />
+                        <TextView style="@style/CalendarDay" android:text="26" />
+                        <TextView style="@style/CalendarDay" android:text="27" />
+                        <TextView style="@style/CalendarDay" android:text="28" />
+                        <TextView style="@style/CalendarDay" android:text="29" />
+                        <TextView style="@style/CalendarDay" android:text="30" />
+
+                    </GridLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Mood Breakdown Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/mood_breakdown_card"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/calendar_card">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <!-- Title -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/urbanist_bold"
+                        android:text="@string/mood_breakdown"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <!-- Mood Item: Sad -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:gravity="center"
+                            android:text="😢"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/urbanist_regular"
+                            android:text="@string/sad"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/urbanist_regular"
+                            android:text="@string/one_day"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <!-- Progress Bar -->
+                    <ProgressBar
+                        android:id="@+id/progress_sad"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="8dp"
+                        android:layout_marginTop="12dp"
+                        android:max="100"
+                        android:progress="100"
+                        android:progressDrawable="@drawable/progress_bar_sad" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

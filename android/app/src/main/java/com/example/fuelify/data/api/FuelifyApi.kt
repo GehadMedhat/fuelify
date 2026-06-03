@@ -3,6 +3,39 @@ package com.example.fuelify.data.api
 import com.example.fuelify.data.api.models.*
 import retrofit2.Response
 import retrofit2.http.*
+import com.example.fuelify.statistics.HomeData
+import com.example.fuelify.statistics.GoalData
+import com.example.fuelify.statistics.GoalRequest
+import com.example.fuelify.statistics.WaterLog
+import com.example.fuelify.statistics.IntakeRequest
+import com.example.fuelify.statistics.DailyStats
+import com.example.fuelify.statistics.WeeklyStats
+import com.example.fuelify.statistics.MonthlyStats
+import com.example.fuelify.statistics.QuarterlyStats
+import com.example.fuelify.statistics.QuarterlyRequest
+import com.example.fuelify.statistics.ReminderItem
+import com.example.fuelify.statistics.ReminderRequest
+import com.example.fuelify.statistics.ToggleReminderRequest
+import com.example.fuelify.statistics.AutoReminderData
+import com.example.fuelify.statistics.AutoReminderRequest
+import com.example.fuelify.statistics.SleepScheduleData
+import com.example.fuelify.statistics.UpdateSleepRequest
+import com.example.fuelify.statistics.SleepToggleRequest
+import com.example.fuelify.statistics.MoodEntry
+import com.example.fuelify.statistics.AddMoodRequest
+import com.example.fuelify.statistics.MoodHomeData
+import com.example.fuelify.statistics.MoodStatsData
+import com.example.fuelify.statistics.MoodBreakdownItem
+import com.example.fuelify.statistics.BloodPressureReadingData
+import com.example.fuelify.statistics.BloodSugarReadingData
+import com.example.fuelify.statistics.AddBpReadingRequest
+import com.example.fuelify.statistics.AddBsReadingRequest
+import com.example.fuelify.statistics.BpStatsData
+import com.example.fuelify.statistics.BsStatsData
+import com.example.fuelify.statistics.BodyScanRecordData
+import com.example.fuelify.statistics.AddBodyScanRequest
+import com.example.fuelify.statistics.BodyScanStatsData
+import com.example.fuelify.statistics.TodayBodyScanData
 
 interface FuelifyApi {
 
@@ -329,4 +362,170 @@ suspend fun getBingoCard(@Path("id") userId: Int): Response<BingoResponse>
 
     @GET("api/doctor/{id}/wallet")
     suspend fun getDoctorWallet(@Path("id") doctorId: Int): Response<WalletResponse>
+    
+    
+    // ── Water Tracker ─────────────────────────────────────────────────────────
+    @GET("api/water/home")
+    suspend fun getWaterHome(): Response<ApiResponse<HomeData>>
+
+    @GET("api/water/goal")
+    suspend fun getWaterGoal(): Response<ApiResponse<GoalData>>
+
+    @PUT("api/water/goal")
+    suspend fun setWaterGoal(@Body body: GoalRequest): Response<ApiResponse<Unit>>
+
+    @GET("api/water/intake/logs")
+    suspend fun getWaterLogs(): Response<ApiResponse<List<WaterLog>>>
+
+    @POST("api/water/intake/add")
+    suspend fun addWaterLog(@Body body: IntakeRequest): Response<ApiResponse<WaterLog>>
+
+    @DELETE("api/water/intake/{timestamp}")
+    suspend fun deleteWaterLog(@Path("timestamp") timestamp: Long): Response<ApiResponse<Unit>>
+
+    @GET("api/water/statistics/daily")
+    suspend fun getWaterDailyStats(): Response<ApiResponse<DailyStats>>
+
+    @GET("api/water/statistics/weekly")
+    suspend fun getWaterWeeklyStats(): Response<ApiResponse<WeeklyStats>>
+
+    @GET("api/water/statistics/monthly")
+    suspend fun getWaterMonthlyStats(): Response<ApiResponse<MonthlyStats>>
+
+    @GET("api/water/statistics/quarterly")
+    suspend fun getWaterQuarterlyStats(): Response<ApiResponse<QuarterlyStats>>
+
+    @POST("api/water/statistics/quarterly/custom")
+    suspend fun getWaterCustomQuarterlyStats(@Body body: QuarterlyRequest): Response<ApiResponse<QuarterlyStats>>
+
+    @GET("api/water/reminders")
+    suspend fun getWaterReminders(): Response<ApiResponse<List<ReminderItem>>>
+
+    @POST("api/water/reminders")
+    suspend fun addWaterReminder(@Body body: ReminderRequest): Response<ApiResponse<ReminderItem>>
+
+    @PUT("api/water/reminders/{id}")
+    suspend fun editWaterReminder(@Path("id") id: String, @Body body: ReminderRequest): Response<ApiResponse<ReminderItem>>
+
+    @PATCH("api/water/reminders/{id}/toggle")
+    suspend fun toggleWaterReminder(@Path("id") id: String, @Body body: ToggleReminderRequest): Response<ApiResponse<Unit>>
+
+    @DELETE("api/water/reminders/{id}")
+    suspend fun deleteWaterReminder(@Path("id") id: String): Response<ApiResponse<Unit>>
+
+    @GET("api/water/reminders/auto")
+    suspend fun getAutoReminder(): Response<ApiResponse<AutoReminderData>>
+
+    @PUT("api/water/reminders/auto")
+    suspend fun setAutoReminder(@Body body: AutoReminderRequest): Response<ApiResponse<Unit>>
+
+    // ── Sleep Tracker ─────────────────────────────────────────────────────────
+    @GET("api/sleep/today")
+    suspend fun getSleepToday(): Response<ApiResponse<SleepScheduleData>>
+
+    @GET("api/sleep/schedules")
+    suspend fun getAllSleepSchedules(): Response<ApiResponse<List<SleepScheduleData>>>
+
+    @GET("api/sleep/schedules/{day}")
+    suspend fun getSleepSchedule(@Path("day") day: Int): Response<ApiResponse<SleepScheduleData>>
+
+    @PUT("api/sleep/schedules/{day}")
+    suspend fun updateSleepSchedule(@Path("day") day: Int, @Body body: UpdateSleepRequest): Response<ApiResponse<SleepScheduleData>>
+
+    @PATCH("api/sleep/schedules/{day}/bedtime-toggle")
+    suspend fun toggleBedtime(@Path("day") day: Int, @Body body: SleepToggleRequest): Response<ApiResponse<Unit>>
+
+    @PATCH("api/sleep/schedules/{day}/alarm-toggle")
+    suspend fun toggleAlarm(@Path("day") day: Int, @Body body: SleepToggleRequest): Response<ApiResponse<Unit>>
+
+    // ── Mood Tracker ──────────────────────────────────────────────────────────
+    @GET("api/mood/home")
+    suspend fun getMoodHome(): Response<ApiResponse<MoodHomeData>>
+
+    @GET("api/mood/entries")
+    suspend fun getMoodEntries(): Response<ApiResponse<List<MoodEntry>>>
+
+    @POST("api/mood/entries")
+    suspend fun addMoodEntry(@Body body: AddMoodRequest): Response<ApiResponse<MoodEntry>>
+
+    @GET("api/mood/entries/today")
+    suspend fun getTodayMoodEntry(): Response<ApiResponse<MoodEntry?>>
+
+    @DELETE("api/mood/entries/today")
+    suspend fun deleteTodayMoodEntry(): Response<ApiResponse<Unit>>
+
+    @GET("api/mood/stats")
+    suspend fun getMoodStats(): Response<ApiResponse<MoodStatsData>>
+
+    @GET("api/mood/stats/breakdown")
+    suspend fun getMoodBreakdown(): Response<ApiResponse<List<MoodBreakdownItem>>>
+
+    // ── Blood Pressure & Sugar ────────────────────────────────────────────────
+    @GET("api/bp/readings")
+    suspend fun getBpReadings(): Response<ApiResponse<List<BloodPressureReadingData>>>
+
+    @GET("api/bp/readings/latest")
+    suspend fun getLatestBpReading(): Response<ApiResponse<BloodPressureReadingData?>>
+
+    @POST("api/bp/readings")
+    suspend fun addBpReading(@Body body: AddBpReadingRequest): Response<ApiResponse<BloodPressureReadingData>>
+
+    @DELETE("api/bp/readings/{id}")
+    suspend fun deleteBpReading(@Path("id") id: Long): Response<ApiResponse<Unit>>
+
+    @GET("api/bp/stats")
+    suspend fun getBpStats(
+        @Query("year") year: Int,
+        @Query("month") month: Int
+    ): Response<ApiResponse<BpStatsData>>
+
+    @GET("api/bp/sugar/readings")
+    suspend fun getBsReadings(): Response<ApiResponse<List<BloodSugarReadingData>>>
+
+    @GET("api/bp/sugar/readings/latest")
+    suspend fun getLatestBsReading(): Response<ApiResponse<BloodSugarReadingData?>>
+
+    @POST("api/bp/sugar/readings")
+    suspend fun addBsReading(@Body body: AddBsReadingRequest): Response<ApiResponse<BloodSugarReadingData>>
+
+    @DELETE("api/bp/sugar/readings/{id}")
+    suspend fun deleteBsReading(@Path("id") id: Long): Response<ApiResponse<Unit>>
+
+    @GET("api/bp/sugar/stats")
+    suspend fun getBsStats(
+        @Query("year") year: Int,
+        @Query("month") month: Int
+    ): Response<ApiResponse<BsStatsData>>
+
+
+@GET("api/users/by-email")
+suspend fun getUserByEmail(
+    @Query("email") email: String
+): Response<ApiResponse<UserResponse>>
+
+@PUT("api/users/{id}/onboarding")
+suspend fun updateUserOnboarding(
+    @Path("id") userId: Int,
+    @Body request: RegisterUserRequest
+): Response<ApiResponse<UserResponse>>
+
+    // ── Body Scan ─────────────────────────────────────────────────────────────
+    @GET("api/bodyscan/records")
+    suspend fun getBodyScanRecords(): Response<ApiResponse<List<BodyScanRecordData>>>
+
+    @GET("api/bodyscan/records/latest")
+    suspend fun getLatestBodyScanRecord(): Response<ApiResponse<BodyScanRecordData?>>
+
+    @GET("api/bodyscan/records/today")
+    suspend fun getTodayBodyScanRecords(): Response<ApiResponse<TodayBodyScanData>>
+
+    @POST("api/bodyscan/records")
+    suspend fun saveBodyScanRecord(@Body body: AddBodyScanRequest): Response<ApiResponse<BodyScanRecordData>>
+
+    @DELETE("api/bodyscan/records/{timestamp}")
+    suspend fun deleteBodyScanRecord(@Path("timestamp") timestamp: Long): Response<ApiResponse<Unit>>
+
+    @GET("api/bodyscan/stats")
+    suspend fun getBodyScanStats(): Response<ApiResponse<BodyScanStatsData>>
+    
 }

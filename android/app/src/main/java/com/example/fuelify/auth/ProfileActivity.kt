@@ -222,8 +222,8 @@ class ProfileActivity : AppCompatActivity() {
             finish()
         }
         findViewById<LinearLayout>(R.id.navStats).setOnClickListener {
-            Toast.makeText(this, "Statistics coming soon!", Toast.LENGTH_SHORT).show()
-        }
+            startActivity(Intent(this, com.example.fuelify.statistics.WaterHomeActivity::class.java))
+            finish()        }
         findViewById<LinearLayout>(R.id.navProfile).setOnClickListener {
             startActivity(
                 Intent(this, com.example.fuelify.auth.ProfileActivity::class.java)
