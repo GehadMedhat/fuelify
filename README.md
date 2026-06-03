@@ -903,7 +903,7 @@ implementation 'com.github.bumptech.glide:glide:4.16.0'
 implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
 implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0'
 ```
-
+Note: The Groq API key has been removed from the config for GitHub. To enable Aura AI chat, add your own groq.apiKey in application.conf — get a free key at console.groq.com.
 ---
 
 ## 🌍 Environment Variables
@@ -946,99 +946,7 @@ implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0'
 
 ---
 
-## 📋 Project Structure
 
-```
-fuelify_project/
-├── android/                          ← Android app (Kotlin)
-│   └── app/src/main/
-│       ├── java/com/example/fuelify/
-│       │   ├── MainActivity.kt
-│       │   ├── onboarding/
-│       │   │   ├── OnboardingActivity.kt
-│       │   │   ├── OnboardingViewModel.kt
-│       │   │   └── fragments/           (15 step fragments)
-│       │   ├── home/
-│       │   │   ├── HomeActivity.kt
-│       │   │   ├── HomeViewModel.kt
-│       │   │   ├── DietActivity.kt
-│       │   │   ├── MealDetailActivity.kt
-│       │   │   ├── MealSchedulingActivity.kt
-│       │   │   ├── MealsListActivity.kt
-│       │   │   ├── RecipesActivity.kt
-│       │   │   ├── MealDeliveryActivity.kt
-│       │   │   ├── CloudKitchenActivity.kt
-│       │   │   └── CloudKitchenStatusActivity.kt
-│       │   ├── data/
-│       │   │   ├── api/                 (Retrofit, FuelifyApi, RetrofitClient)
-│       │   │   └── models/              (ApiModels)
-│       │   └── utils/
-│       │       └── UserPreferences.kt
-│       └── res/
-│           ├── layout/                  (all activity + item XMLs)
-│           ├── drawable/                (all bg_* drawables)
-│           └── values/
-│
-└── backend/
-    ├── src/main/kotlin/com/example/fuelify/
-    │   ├── Application.kt
-    │   ├── plugins/
-    │   │   ├── Plugins.kt               (routing, CORS, serialization)
-    │   │   ├── JwtConfig.kt
-    │   │   └── configureMonitoring.kt   (Prometheus/Micrometer)
-    │   ├── routes/
-    │   │   ├── UserRoutes.kt
-    │   │   ├── DashboardRoutes.kt
-    │   │   ├── MealDetailRoutes.kt
-    │   │   ├── MealSearchRoutes.kt
-    │   │   ├── WorkoutRoutes.kt
-    │   │   ├── WorkoutSessionRoutes.kt
-    │   │   ├── WorkoutPlanTable.kt
-    │   │   ├── KitchenOrderRoutes.kt
-    │   │   ├── IngredientRoutes.kt
-    │   │   ├── FamilyRoutes.kt
-    │   │   ├── FamilyDashboardRoutes.kt
-    │   │   ├── EcoRoutes.kt
-    │   │   ├── ScannedPantryRoutes.kt
-    │   │   ├── MedicalRoutes.kt
-    │   │   ├── DoctorRoutes.kt
-    │   │   ├── DoctorConsultationRoutes.kt
-    │   │   ├── SpinWheelRoutes.kt
-    │   │   ├── BingoRoutes.kt
-    │   │   ├── BloodPressureRoutes.kt
-    │   │   ├── BodyScanRoutes.kt
-    │   │   ├── HomeRoutes.kt            (Water home)
-    │   │   ├── IntakeRoutes.kt
-    │   │   ├── RemindersRoutes.kt
-    │   │   ├── StatisticsRoutes.kt
-    │   │   ├── MoodRoutes.kt
-    │   │   └── SleepRoutes.kt
-    │   ├── models/
-    │   │   ├── Users.kt
-    │   │   ├── Tables.kt
-    │   │   ├── NutritionEngine.kt
-    │   │   ├── WorkoutPlanEngine.kt
-    │   │   └── HealthModels.kt
-    │   ├── repository/
-    │   │   ├── WaterTrackerRepository.kt
-    │   │   ├── MoodRepository.kt
-    │   │   ├── SleepRepository.kt
-    │   │   ├── BloodPressureRepository.kt
-    │   │   └── BodyScanRepository.kt
-    │   └── db/
-    │       ├── DatabaseFactory.kt
-    │       └── HealthTables.kt
-    │
-    └── ktor-auth-api/src/main/kotlin/com/authapi/
-        ├── Application.kt
-        ├── database/DatabaseFactory.kt
-        ├── models/                      (Users, Models, ChatTables, etc.)
-        ├── plugins/                     (Auth, CORS, Routing, Serialization)
-        ├── routes/                      (AuthRoutes, ChatRoutes, etc.)
-        ├── services/                    (AuthService, ChatService, etc.)
-        ├── scheduler/NotificationScheduler.kt
-        └── utils/                       (JwtUtils, ValidationUtils)
-```
 
 ---
 
@@ -1046,12 +954,6 @@ fuelify_project/
 
 | Feature | Status |
 |---------|--------|
-| Workouts Tab | 🔜 Pending |
-| Statistics Tab | 🔜 Pending |
-| Profile Tab | 🔜 Pending |
-| Push Notifications (FCM) | 🔜 Pending |
-| Backend Cloud Hosting | 🔜 Pending |
-| Meal Barcode Scanner | 🔜 Pending |
 | Google Fit / Apple Health Integration | 🔜 Pending |
 | Streak restoration challenges | 🔜 Pending |
 | AI Meal Image Recognition | 🔜 Pending |
