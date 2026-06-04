@@ -22,7 +22,7 @@
 
 ---
 
-*Built at Alexandria University, 2026 — a university project that grew into a full production-grade health platform.*
+*Built at Alexandria National University, 2026 — a university project that grew into a full production-grade health platform.*
 
 </div>
 
@@ -979,7 +979,7 @@ Note: The Groq API key has been removed from the config for GitHub. To enable Au
 
 ## 👥 Team
 
-Built as a university capstone project — **Alexandria University, 2026.**
+Built as a university capstone project — **Alexandria National University, 2026.**
 
 ---
 
